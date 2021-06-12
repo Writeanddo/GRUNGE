@@ -24,7 +24,8 @@ public class HandGrabManager : MonoBehaviour
     {
         if(player.heldObject != null)
         {
-            heldObjectSpr.sortingOrder = spr.sortingOrder - 1;
+            if(player.heldObject.tag != "GrabbableEnemy")
+                heldObjectSpr.sortingOrder = spr.sortingOrder - 1;
         }
     }
 
@@ -43,15 +44,15 @@ public class HandGrabManager : MonoBehaviour
     {
         if (player.handLaunched)
         {
-            if (collision.tag == "Grabbable")
+            if (collision.tag == "Grabbable" || collision.tag == "GrabbableEnemy")
             {
                 collision.transform.parent = transform;
                 collision.transform.localPosition = new Vector2(0, -0.2f);
                 player.heldObject = collision.transform;
 
-                heldObjectGrabbable = collision.GetComponent<Grabbable>();
-                heldObjectSort = collision.GetComponent<DynamicSpriteSort>();
-                heldObjectSpr = collision.GetComponent<SpriteRenderer>();
+                heldObjectGrabbable = collision.GetComponentInChildren<Grabbable>();
+                heldObjectSort = collision.GetComponentInChildren<DynamicSpriteSort>();
+                heldObjectSpr = collision.GetComponentInChildren<SpriteRenderer>();
                 heldObjectSort.overrideSort = true;
                 heldObjectGrabbable.SetHeldState(true);
 

@@ -11,7 +11,7 @@ public class CrosshairController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -19,6 +19,12 @@ public class CrosshairController : MonoBehaviour
     {
         Vector2 mouse = cam.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector3(mouse.x, mouse.y, 0);
-        helper.position = new Vector3((player.position.x + transform.position.x) / 2, (player.position.y + transform.position.y) / 2);
+
+        Vector3 dir = (transform.position - player.position);
+
+        if (dir.magnitude < 6)
+            helper.position = mouse;
+        else
+            helper.position = player.position + dir.normalized * 6;
     }
 }

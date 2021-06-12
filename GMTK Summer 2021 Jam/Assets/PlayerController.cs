@@ -13,11 +13,14 @@ public class PlayerController : MonoBehaviour
         public int maxGoo;
         public float speed;
         public float maxSpeed;
+        public int rocketGooUsage = 15;
     }
 
     public PlayerStats stats;
     public GameObject projectile;
 
+    public bool reloading;
+    public bool siphoningHealth;
     public bool handLaunched;
     public bool canLaunchHand = true;
     public Transform heldObject;
@@ -29,6 +32,7 @@ public class PlayerController : MonoBehaviour
     Transform handHolder;
     Transform hand;
     Animator anim;
+    SpriteRenderer spr;
     GameManager gm;
     Rigidbody2D rb;
     HandGrabManager hgm;
@@ -37,6 +41,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         anim = transform.GetChild(0).GetComponent<Animator>();
+        spr = anim.GetComponent<SpriteRenderer>();
         crosshair = transform.GetChild(1);
         gunTargetPos = anim.transform.GetChild(0);
         gun = anim.transform.GetChild(1);
@@ -55,7 +60,10 @@ public class PlayerController : MonoBehaviour
         UpdateMovementAnimations();
         gun.transform.position = Vector2.Lerp(gun.transform.position, gunTargetPos.position, 0.25f);
         if (!handLaunched)
+        {
+            //Vector2.MoveTowards(handHolder.transform.position, handTargetPos.position, );
             handHolder.transform.position = Vector2.Lerp(handHolder.transform.position, handTargetPos.position, 0.25f);
+        }
     }
 
     void Update()
@@ -99,10 +107,13 @@ public class PlayerController : MonoBehaviour
 
     void UpdateInputButtons()
     {
-        if (Input.GetButtonDown("Fire1"))
+        // Shoot gun
+        if (Input.GetButton("Fire1") && !reloading && stats.goo > stats.rocketGooUsage)
         {
             FireGun();
         }
+
+        // Shoot hand
         if (Input.GetButtonDown("Fire2") && canLaunchHand)
         {
             if (!handLaunched)
@@ -125,6 +136,27 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
+        // Convert goo into health
+        if (Input.GetKeyDown(KeyCode.E) && stats.health < stats.maxHealth*0.75f && stats.goo > stats.maxGoo*0.5f && !siphoningHealth)
+        {
+            siphoningHealth = true;
+            StartCoroutine(ConvertGooToHealth());
+        }
+    }
+
+    IEnumerator ConvertGooToHealth()
+    {
+        stats.health += Mathf.RoundToInt(stats.maxHealth * 0.28f);
+        stats.goo -= Mathf.RoundToInt(stats.maxGoo * 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        siphoningHealth = false;
+    }
+
+    IEnumerator WaitForGunReload()
+    {
+        yield return new WaitForSeconds(0.3f);
+        reloading = false;
     }
 
     IEnumerator WaitForHandHit(Vector3 targetPos)
@@ -132,10 +164,10 @@ public class PlayerController : MonoBehaviour
         hgm.CheckAndPlayClip("Hand_Grab" + GetCompassDirectionFourDirectional(AngleBetweenMouse()));
 
         Vector3 storedPos = handHolder.transform.position;
-        while (handLaunched && Vector2.Distance(transform.position, handHolder.transform.position) < 8 && Vector2.Distance(handHolder.transform.position, targetPos) > 0.25f)
+        while (handLaunched && Vector2.Distance(transform.position, handHolder.transform.position) < 6 && Vector2.Distance(handHolder.transform.position, targetPos) > 0.25f)
         {
             handHolder.transform.position = storedPos;
-            handHolder.transform.position = Vector3.Lerp(handHolder.transform.position, Vector2.MoveTowards(handHolder.transform.position, targetPos, 1f), 0.35f);
+            handHolder.transform.position = Vector3.Lerp(handHolder.transform.position, Vector2.MoveTowards(handHolder.transform.position, targetPos, 1f), 0.45f);
             storedPos = handHolder.transform.position;
             yield return new WaitForFixedUpdate();
         }
@@ -148,9 +180,30 @@ public class PlayerController : MonoBehaviour
         canLaunchHand = true;
     }
 
+    public void ReceiveDamage(int damage)
+    {
+        StartCoroutine(ReceiveDamageCoroutine(damage));
+    }
+
+    IEnumerator ReceiveDamageCoroutine(int damage)
+    {
+        spr.color = Color.red;
+        float shakeAmount = 0.5f;
+        stats.health -= damage;
+
+        while (spr.color.g < 0.9f)
+        {
+            spr.color = Color.Lerp(spr.color, Color.white, 0.1f);
+            spr.transform.localPosition = new Vector2(Random.Range(-shakeAmount, shakeAmount), Random.Range(-shakeAmount, shakeAmount));
+            shakeAmount /= 1.5f;
+            yield return new WaitForFixedUpdate();
+        }
+        spr.transform.localPosition = Vector2.zero;
+    }
+
     IEnumerator HandCooldown()
     {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.5f);
         canLaunchHand = true;
     }
 
@@ -163,10 +216,15 @@ public class PlayerController : MonoBehaviour
 
     void FireGun()
     {
-        gm.ScreenShake(5);
+        gm.ScreenShake(3.5f);
         Vector3 offset = (crosshair.transform.position - transform.position).normalized;
         gun.transform.position -= offset;
         Instantiate(projectile, gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse() + 90));
+        reloading = true;
+
+        stats.goo -= stats.rocketGooUsage;
+
+        StartCoroutine(WaitForGunReload());
     }
 
     string GetCompassDirection(float angle)
