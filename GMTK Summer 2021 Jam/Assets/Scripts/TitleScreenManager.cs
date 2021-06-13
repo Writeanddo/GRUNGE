@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class TitleScreenManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class TitleScreenManager : MonoBehaviour
     public RectTransform quitButton;
     int activeMenuScreen = 4;
     public AudioClip titleIntro;
+    public AudioMixer mixer;
     AudioSource music;
     AudioSource sfx;
     Image blackout;
@@ -26,15 +28,40 @@ public class TitleScreenManager : MonoBehaviour
     bool lerpKG;
     bool loadingGame;
 
+    int sfxEnabled;
+    int musicEnabled;
+
+    Toggle musicToggle;
+    Toggle sfxToggle;
+
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         music = GameObject.Find("Music").GetComponent<AudioSource>();
         music.PlayOneShot(titleIntro);
         sfx = GameObject.Find("SFX").GetComponent<AudioSource>();
         blackout = GameObject.Find("ScreenBlackout").GetComponent<Image>();
+        musicToggle = GameObject.Find("MusicToggle").GetComponent<Toggle>();
+        sfxToggle = GameObject.Find("SFXToggle").GetComponent<Toggle>();
 
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
-            quitButton.anchoredPosition = new Vector2(396f, -286f);
+        // First time setup
+        if (!PlayerPrefs.HasKey("GRUNGE_SFX_ENABLED"))
+        {
+            PlayerPrefs.SetInt("GRUNGE_SFX_ENABLED", 1);
+            PlayerPrefs.SetInt("GRUNGE_MUSIC_ENABLED", 1);
+        }
+
+        sfxEnabled = PlayerPrefs.GetInt("GRUNGE_SFX_ENABLED");
+        musicEnabled = PlayerPrefs.GetInt("GRUNGE_MUSIC_ENABLED");
+
+        if (sfxEnabled == 0)
+            sfxToggle.isOn = false;    
+        if (musicEnabled == 0)
+            musicToggle.isOn = false;
+
+        ToggleMusicEnabled();
+        ToggleSFXEnabled();
     }
 
     public void PlayMusic()
@@ -42,9 +69,41 @@ public class TitleScreenManager : MonoBehaviour
         music.Play();
     }
 
+    public void ToggleMusicEnabled()
+    {
+        float volume;
+        int state = 0;
+        if (musicToggle.isOn)
+        {
+            state = 1;
+            volume = -5.0f;
+        }
+        else
+            volume = -80.0f;
+
+        PlayerPrefs.SetInt("GRUNGE_MUSIC_ENABLED", state);
+        mixer.SetFloat("MusicVolume", volume);
+    }
+    public void ToggleSFXEnabled()
+    {
+        int state = 0;
+        float volume;
+        if (sfxToggle.isOn)
+        {
+            state = 1;
+            volume = 0.0f;
+        }
+        else
+            volume = -80.0f;
+
+        PlayerPrefs.SetInt("GRUNGE_SFX_ENABLED", state);
+        mixer.SetFloat("SFXVolume", volume);
+    }
+
+
     private void Update()
     {
-        if (activeMenuScreen == 3)
+        /*if (activeMenuScreen == 3)
         {
             if (!lerpKG)
             {
@@ -62,7 +121,7 @@ public class TitleScreenManager : MonoBehaviour
         {
             lerpKG = false;
             kPressed = false;
-        }
+        }*/
     }
 
     public void SetMenuScreen(int level)
@@ -86,7 +145,7 @@ public class TitleScreenManager : MonoBehaviour
     {
         SetMenuScreen(0);
     }
-    
+
     public void StartGame()
     {
         StartCoroutine(LoadLevelCoroutine());

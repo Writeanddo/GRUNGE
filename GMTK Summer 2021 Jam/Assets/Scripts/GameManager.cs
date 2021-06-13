@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     Transform cam;
+    CameraController camControl;
     PlayerController ply;
     Slider gooSlider;
     Image gooFill;
@@ -25,12 +26,17 @@ public class GameManager : MonoBehaviour
     EnemyScript heldEnemy;
     AudioSource musicSource;
     AudioSource sfxSource;
+    AudioSource stoppableSfxSource;
+    AudioSource gooSource;
     Text pauseText;
 
     public bool paused;
     public bool gameOver;
     public Sprite[] shieldUiImages;
     public AudioClip music;
+    public AudioClip[] generalSfx;
+    public AudioClip[] playerSfx;
+    public AudioClip[] gooPickupSounds;
 
     int storedGooAmount;
     int storedHealthAmount;
@@ -41,7 +47,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
         cam = transform.GetChild(0).GetChild(0);
+        camControl = FindObjectOfType<CameraController>();
         ply = FindObjectOfType<PlayerController>();
         healthSlider = GameObject.Find("HealthSlider").GetComponent<Slider>();
         healthFill = healthSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>();
@@ -50,7 +58,9 @@ public class GameManager : MonoBehaviour
         gooColor = gooFill.color;
         healthColor = healthFill.color;
         sfxSource = GameObject.Find("GameSFX").GetComponent<AudioSource>();
+        stoppableSfxSource = GameObject.Find("GameStoppableSFX").GetComponent<AudioSource>();
         musicSource = GameObject.Find("GameMusic").GetComponent<AudioSource>();
+        gooSource = GameObject.Find("GameGooPickupSFX").GetComponent<AudioSource>();
 
         screenBlackout = GameObject.Find("ScreenBlackout").GetComponent<Image>();
         quitBlackout = GameObject.Find("QuitPanel").GetComponent<Image>();
@@ -142,14 +152,41 @@ public class GameManager : MonoBehaviour
             paused = !paused;
             Cursor.visible = !paused;
             if (!paused)
+            {
                 Time.timeScale = 1;
+                Cursor.lockState = CursorLockMode.Confined;
+            }
+            else
+                Cursor.lockState = CursorLockMode.None;
         }
     }
 
 
     public void PlaySFX(AudioClip clip)
     {
+        sfxSource.pitch = 1;
         sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlaySFX(AudioClip clip, float pitch)
+    {
+        //sfxSource.Stop();
+        sfxSource.pitch = pitch;
+        sfxSource.PlayOneShot(clip);
+    }
+
+    public void PlaySFXStoppable(AudioClip clip, float pitch)
+    {
+        stoppableSfxSource.Stop();
+        stoppableSfxSource.pitch = pitch;
+        stoppableSfxSource.PlayOneShot(clip);
+    }
+
+    public void PlayGooSFX(AudioClip clip)
+    {
+        gooSource.Stop();
+        gooSource.pitch = 0.75f + (ply.stats.goo / (float)ply.stats.maxGoo) * 0.75f;
+        gooSource.PlayOneShot(clip);
     }
 
     public void PlayMusic()
@@ -186,22 +223,58 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
         }
 
-        ply.canMove = true;
         string levelName = SceneManager.GetActiveScene().name;
 
         if (levelName == "level1")
         {
+            ply.canMove = true;
             yield return new WaitForSeconds(1.5f);
             PlayMusic();
             GameObject.Find("DoorOpenAnim").GetComponent<Animator>().Play("DoorOpen");
         }
         else if (levelName == "level2")
         {
-
+            ply.canMove = true;
+            PlayMusic();
+            FindObjectOfType<EnemyWaveManager>().StartWaves();
         }
         else if (levelName == "level3")
         {
+            PlayMusic();
+            yield return new WaitForSeconds(1.5f);
+            camControl.overridePosition = true;
+            Transform t = GameObject.Find("Boss").transform;
 
+            ply.canMove = false;
+            ply.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+            float timer = 1f;
+            while (timer > 0)
+            {
+                camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(t.position.x, t.position.y, camControl.transform.position.z), 0.1f);
+                timer -= Time.deltaTime;
+                yield return null;
+            }
+
+            PlaySFX(generalSfx[6]);
+            t.GetComponent<Animator>().Play("BossRoar");
+            yield return new WaitForSeconds(3);
+
+            cam.localPosition = Vector2.zero;
+
+            yield return new WaitForSeconds(2);
+
+            while (Vector3.Distance(camControl.transform.position, ply.transform.position) > 10.1f)
+            {
+                camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(ply.transform.position.x, ply.transform.position.y, camControl.transform.position.z), 0.1f);
+                yield return null;
+            }
+
+            camControl.overridePosition = false;
+            ply.canMove = true;
+
+            t.GetComponent<EnemyScript>().UpdateMovement();
+            FindObjectOfType<EnemyWaveManager>().StartWaves();
         }
     }
 
@@ -216,20 +289,88 @@ public class GameManager : MonoBehaviour
 
         if (levelName == "level1")
         {
-            yield return new WaitForSeconds(1.5f);
-            PlayMusic();
-            GameObject.Find("DoorOpenAnim").GetComponent<Animator>().Play("DoorOpen");
+            camControl.overridePosition = true;
+            Transform t = GameObject.Find("TrapdoorOpen").transform;
+            t.GetComponent<Animator>().Play("TrapdoorOpen");
+
+            ply.canMove = false;
+            ply.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+            float timer = 2.25f;
+            while (timer > 0)
+            {
+                camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(t.position.x, t.position.y, camControl.transform.position.z), 0.1f);
+                timer -= Time.deltaTime;
+                yield return null;
+            }
+
+            while (Vector3.Distance(camControl.transform.position, ply.transform.position) > 10.1f)
+            {
+                camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(ply.transform.position.x, ply.transform.position.y, camControl.transform.position.z), 0.1f);
+                yield return null;
+            }
+
+            camControl.overridePosition = false;
+            ply.canMove = true;
         }
         else if (levelName == "level2")
         {
+            camControl.overridePosition = true;
+            Transform t = GameObject.Find("GoodoorOpen").transform;
+            t.GetComponent<Animator>().Play("GoodoorOpen");
 
+            ply.canMove = false;
+            ply.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+            float timer = 2.25f;
+            while (timer > 0)
+            {
+                camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(t.position.x, t.position.y, camControl.transform.position.z), 0.1f);
+                timer -= Time.deltaTime;
+                yield return null;
+            }
+
+            while (Vector3.Distance(camControl.transform.position, ply.transform.position) > 10.1f)
+            {
+                camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(ply.transform.position.x, ply.transform.position.y, camControl.transform.position.z), 0.1f);
+                yield return null;
+            }
+
+            camControl.overridePosition = false;
+            ply.canMove = true;
         }
         else if (levelName == "level3")
         {
+            StopMusic();
+            
+            ply.stats.health = 1000;
+            ply.stats.maxHealth = 1000;
 
+            ply.canLaunchHand = false;
+            camControl.overridePosition = true;
+            ply.transform.position = new Vector2(0, 200);
+            Transform t = GameObject.Find("Boss").transform;
+            ply.canMove = false;
+            ply.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+            float timer = 0.25f;
+            while (timer > 0)
+            {
+                camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(t.position.x, t.position.y, camControl.transform.position.z), 0.5f);
+                timer -= Time.deltaTime;
+                yield return null;
+            }
+
+            PlaySFX(generalSfx[7]);
+            StartCoroutine(LoadVictoryLevel());
+            GameObject g = t.GetComponent<EnemyScript>().enemyExplosion;
+            for (int i = 0; i < 30; i++)
+            {
+                Instantiate(g, new Vector2(t.position.x + Random.Range(-1f, 1f) * 2, t.position.y + Random.Range(-1f, 1f) * 2), Quaternion.identity);
+                yield return new WaitForSeconds(0.25f);
+            }
         }
     }
-
 
     public IEnumerator GameOverSequence()
     {
@@ -239,6 +380,7 @@ public class GameManager : MonoBehaviour
         gameOverImage.rectTransform.anchoredPosition = Vector2.zero;
         yield return new WaitForSeconds(2);
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         gameOverImage.rectTransform.anchoredPosition = new Vector2(0, -2000);
         tryAgainImage.rectTransform.anchoredPosition = Vector2.zero;
         quitYes.anchoredPosition = new Vector2(quitYes.anchoredPosition.x, -256f);
@@ -259,6 +401,20 @@ public class GameManager : MonoBehaviour
             sfxSource.volume -= 0.075f;
             yield return new WaitForSeconds(0.05f);
         }
+        SceneManager.LoadScene(level);
+    }
+
+    IEnumerator LoadVictoryLevel()
+    {
+        int level = 4;
+        screenBlackout.rectTransform.anchoredPosition = Vector2.zero;
+        while (screenBlackout.color.a < 1)
+        {
+            screenBlackout.color = new Color(1, 1, 1, screenBlackout.color.a + 0.01f);
+            sfxSource.volume -= 0.01f;
+            yield return new WaitForSeconds(0.05f);
+        }
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(level);
     }
 }

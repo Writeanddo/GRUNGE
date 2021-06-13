@@ -222,8 +222,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     health: 30
+    overrideDeath: 0
     currentShieldValue: 4
-    damage: 5
+    damage: 6
     pathSpeedMultiplier: 1
     damageCooldown: 0.75
     inaccuracyMultiplier: 1
@@ -268,9 +269,13 @@ MonoBehaviour:
   isProp: 0
   canBreak: 0
   hitsBeforeBreak: 0
-  baseDamageUponHitting: 9
+  baseDamageUponHitting: 8
   objectOffsetWhenHeld: {x: 0, y: 0}
   handOffsetWhenHeld: {x: 0, y: 0}
   isHeld: 0
   isBeingThrown: 0
+  damagedSprite: {fileID: 0}
+  propFragments: []
+  propGib: {fileID: 0}
   rb: {fileID: 0}
+  hitsTaken: 0

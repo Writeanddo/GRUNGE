@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -6189988991097119699}
   - component: {fileID: 407128934}
   - component: {fileID: 8672197533971877533}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2212254252682049900}
   - component: {fileID: 2212254252682049907}
   - component: {fileID: 434455887}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BulletSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,3 +180,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overrideSort: 0
+  useParentPosition: 0
+  sortMultiplier: 1
+  yOffset: 0

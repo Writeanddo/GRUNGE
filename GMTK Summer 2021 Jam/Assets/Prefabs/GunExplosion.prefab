@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5168354353443126887}
   - component: {fileID: 5168354353443126881}
   - component: {fileID: 5168354353443126880}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GunExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMultiplier: 32
+  explosionSound: {fileID: 8300000, guid: 03db76317fc3fda4f9479a5b6b751965, type: 3}
 --- !u!1 &5168354353928219650
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,7 +74,7 @@ GameObject:
   - component: {fileID: 5168354353928219649}
   - component: {fileID: 5168354353928219655}
   - component: {fileID: 1102327629}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GunExplosionSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

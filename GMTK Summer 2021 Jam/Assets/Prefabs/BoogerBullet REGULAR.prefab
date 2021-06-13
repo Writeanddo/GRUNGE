@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 3902567511009530094}
   - component: {fileID: -4185049148292390764}
   m_Layer: 0
-  m_Name: BoogerBullet
+  m_Name: BoogerBullet REGULAR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 3902567511009530099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.9089391, y: 5.280907, z: 46.52112}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_Children:
   - {fileID: 3902567510841164129}
   m_Father: {fileID: 0}
@@ -165,9 +165,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd65bb2eecc9c948901336df94ba7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 9
   damage: 15
-  inaccuracyModifier: 2
+  inaccuracyModifier: 0
+  overrideDirection: 0
 --- !u!58 &3902567511009530094
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -181,9 +182,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.05}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
 --- !u!50 &-4185049148292390764
 Rigidbody2D:
   serializedVersion: 4
