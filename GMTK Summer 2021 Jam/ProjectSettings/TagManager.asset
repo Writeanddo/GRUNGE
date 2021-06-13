@@ -7,7 +7,6 @@ TagManager:
   - Grabbable
   - Wall
   - Enemy
-  - GrabbableEnemy
   layers:
   - Default
   - TransparentFX
@@ -19,8 +18,8 @@ TagManager:
   - 
   - HeldItem
   - Player
-  - 
-  - 
+  - Gibs
+  - GibNoContact
   - 
   - 
   - 

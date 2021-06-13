@@ -1,0 +1,1589 @@
+fileFormatVersion: 2
+guid: 52d8f30bb61f3704c8becd6a4ad36360
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3868444898534598952
+    second: NoseGoblin_0
+  - first:
+      213: -7458475101186131947
+    second: NoseGoblin_1
+  - first:
+      213: -4952382517805667038
+    second: NoseGoblin_2
+  - first:
+      213: 3136354446720696572
+    second: NoseGoblin_3
+  - first:
+      213: 4538904878746090868
+    second: NoseGoblin_4
+  - first:
+      213: 5981878796005156311
+    second: NoseGoblin_5
+  - first:
+      213: -7825972937833232179
+    second: NoseGoblin_6
+  - first:
+      213: -1601047867860408411
+    second: NoseGoblin_7
+  - first:
+      213: -8161167903908490214
+    second: NoseGoblin_8
+  - first:
+      213: -7797806934623923076
+    second: NoseGoblin_9
+  - first:
+      213: 3556894356741468321
+    second: NoseGoblin_10
+  - first:
+      213: -8241355021368768258
+    second: NoseGoblin_11
+  - first:
+      213: 84916040491648179
+    second: NoseGoblin_12
+  - first:
+      213: 300924583615092413
+    second: NoseGoblin_13
+  - first:
+      213: 7975310586306852555
+    second: NoseGoblin_14
+  - first:
+      213: 2402021567245719852
+    second: NoseGoblin_15
+  - first:
+      213: 2167603063971670286
+    second: NoseGoblin_16
+  - first:
+      213: -8411075160969991512
+    second: NoseGoblin_17
+  - first:
+      213: -656892514434517772
+    second: NoseGoblin_18
+  - first:
+      213: 2477660202314125115
+    second: NoseGoblin_19
+  - first:
+      213: 7144845533243008241
+    second: NoseGoblin_20
+  - first:
+      213: -1326471127425552956
+    second: NoseGoblin_21
+  - first:
+      213: 875796042985294585
+    second: NoseGoblin_22
+  - first:
+      213: -6670492972571737471
+    second: NoseGoblin_23
+  - first:
+      213: 7704242965383774679
+    second: NoseGoblin_24
+  - first:
+      213: 2497345414281533376
+    second: NoseGoblin_25
+  - first:
+      213: -9150130783883549467
+    second: NoseGoblin_26
+  - first:
+      213: 5371225065781486876
+    second: NoseGoblin_27
+  - first:
+      213: 5079456084899279458
+    second: NoseGoblin_28
+  - first:
+      213: -2386892338070452665
+    second: NoseGoblin_29
+  - first:
+      213: 1366091036385413535
+    second: NoseGoblin_30
+  - first:
+      213: 8116616704300600856
+    second: NoseGoblin_31
+  - first:
+      213: 7276521744992975244
+    second: NoseGoblin_32
+  - first:
+      213: -2100284962096354258
+    second: NoseGoblin_33
+  - first:
+      213: -3683099981833905099
+    second: NoseGoblin_34
+  - first:
+      213: 312589499967802427
+    second: NoseGoblin_35
+  - first:
+      213: -4313885816768907811
+    second: NoseGoblin_36
+  - first:
+      213: 2324856070545597685
+    second: NoseGoblin_37
+  - first:
+      213: 4761547511321409437
+    second: NoseGoblin_38
+  - first:
+      213: -2039893297392954731
+    second: NoseGoblin_39
+  - first:
+      213: 8608677600694307036
+    second: NoseGoblin_40
+  - first:
+      213: 8560680072234639295
+    second: NoseGoblin_41
+  - first:
+      213: -8386602429040774906
+    second: NoseGoblin_42
+  - first:
+      213: 4424158590212024365
+    second: NoseGoblin_43
+  - first:
+      213: 4329433349476986957
+    second: NoseGoblin_44
+  - first:
+      213: 2458385285141746926
+    second: NoseGoblin_45
+  - first:
+      213: 1357006273824214408
+    second: NoseGoblin_46
+  - first:
+      213: -9129643122326566167
+    second: NoseGoblin_47
+  - first:
+      213: -3251672174123374552
+    second: NoseGoblin_48
+  - first:
+      213: -1810226088419180750
+    second: NoseGoblin_49
+  - first:
+      213: -6394708280595261515
+    second: NoseGoblin_50
+  - first:
+      213: -8494949032022462839
+    second: NoseGoblin_51
+  - first:
+      213: 524903020521001163
+    second: NoseGoblin_52
+  - first:
+      213: -2710386166211913019
+    second: NoseGoblin_53
+  - first:
+      213: 6310864460921889720
+    second: NoseGoblin_54
+  - first:
+      213: -8061147528048606965
+    second: NoseGoblin_55
+  - first:
+      213: 5226162374695975875
+    second: NoseGoblin_7
+  - first:
+      213: -2777177678083102925
+    second: NoseGoblin_8
+  - first:
+      213: -1821996645147647965
+    second: NoseGoblin_9
+  - first:
+      213: 3313456791103581908
+    second: NoseGoblin_10
+  - first:
+      213: 5604290392397238529
+    second: NoseGoblin_11
+  - first:
+      213: 4591303893911631826
+    second: NoseGoblin_12
+  - first:
+      213: -3415948275345548098
+    second: NoseGoblin_14
+  - first:
+      213: -5676662502077848875
+    second: NoseGoblin_15
+  - first:
+      213: -5672135645349575102
+    second: NoseGoblin_16
+  - first:
+      213: 2803600937055110364
+    second: NoseGoblin_17
+  - first:
+      213: -973925018493800188
+    second: NoseGoblin_18
+  - first:
+      213: -1822125963536647246
+    second: NoseGoblin_19
+  - first:
+      213: -8133333717153853754
+    second: NoseGoblin_21
+  - first:
+      213: -6339514709932892161
+    second: NoseGoblin_22
+  - first:
+      213: 1580819021741017398
+    second: NoseGoblin_23
+  - first:
+      213: -499105063166603959
+    second: NoseGoblin_24
+  - first:
+      213: -5738744336516284629
+    second: NoseGoblin_25
+  - first:
+      213: -8286116666525086889
+    second: NoseGoblin_26
+  - first:
+      213: -2682495785620970746
+    second: NoseGoblin_28
+  - first:
+      213: 7816322785336021733
+    second: NoseGoblin_29
+  - first:
+      213: -736387062225698578
+    second: NoseGoblin_30
+  - first:
+      213: -3823439215269834417
+    second: NoseGoblin_31
+  - first:
+      213: 6753633627396439975
+    second: NoseGoblin_32
+  - first:
+      213: 3970540897120145983
+    second: NoseGoblin_33
+  - first:
+      213: -8530205983658112991
+    second: NoseGoblin_35
+  - first:
+      213: -3817482739534815820
+    second: NoseGoblin_36
+  - first:
+      213: -678393601059469420
+    second: NoseGoblin_37
+  - first:
+      213: -7712026523539097203
+    second: NoseGoblin_38
+  - first:
+      213: 7371785347457124623
+    second: NoseGoblin_39
+  - first:
+      213: -5218010959263071277
+    second: NoseGoblin_40
+  - first:
+      213: 712994086958780455
+    second: NoseGoblin_0
+  - first:
+      213: 8555868739393736531
+    second: NoseGoblin_1
+  - first:
+      213: 461902278354175238
+    second: NoseGoblin_2
+  - first:
+      213: 1477850547698520429
+    second: NoseGoblin_3
+  - first:
+      213: 1110098757565391191
+    second: NoseGoblin_4
+  - first:
+      213: 1442863600699218808
+    second: NoseGoblin_5
+  - first:
+      213: 7312408291037429980
+    second: NoseGoblin_6
+  - first:
+      213: 6485674137327986121
+    second: NoseGoblin_13
+  - first:
+      213: -7181849264721086168
+    second: NoseGoblin_20
+  - first:
+      213: 1394717368310044953
+    second: NoseGoblin_27
+  - first:
+      213: -958290258496920944
+    second: NoseGoblin_34
+  - first:
+      213: -707467435512995763
+    second: NoseGoblin_41
+  - first:
+      213: 1964671262499089339
+    second: NoseGoblin_42
+  - first:
+      213: -8685974961116319591
+    second: NoseGoblin_43
+  - first:
+      213: -8457615695479504444
+    second: NoseGoblin_44
+  - first:
+      213: -5922418338645453667
+    second: NoseGoblin_45
+  - first:
+      213: -5624743847081551511
+    second: NoseGoblin_46
+  - first:
+      213: -8829172691529006883
+    second: NoseGoblin_47
+  - first:
+      213: -7942307894673536607
+    second: NoseGoblin_48
+  - first:
+      213: 258598508596615621
+    second: NoseGoblin_49
+  - first:
+      213: -5113176530576522718
+    second: NoseGoblin_50
+  - first:
+      213: 5792273255310521832
+    second: NoseGoblin_51
+  - first:
+      213: -4637649518167994190
+    second: NoseGoblin_52
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: NoseGoblin_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cbf34a8dfe078840800000000000000
+      internalID: 5226162374695975875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33766bbad9b7579d0800000000000000
+      internalID: -2777177678083102925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 320650064b7f6b6e0800000000000000
+      internalID: -1821996645147647965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dea5546563cbfd20800000000000000
+      internalID: 3313456791103581908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101d8f84b6076cd40800000000000000
+      internalID: 5604290392397238529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d77874d09697bf30800000000000000
+      internalID: 4591303893911631826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc9bec542d1890d0800000000000000
+      internalID: -3415948275345548098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_15
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d2aed5d7817831b0800000000000000
+      internalID: -5676662502077848875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2468b1dcea68841b0800000000000000
+      internalID: -5672135645349575102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_17
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd44f19b23468e620800000000000000
+      internalID: 2803600937055110364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_18
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 401bfc21b5ceb72f0800000000000000
+      internalID: -973925018493800188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_19
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bbb167171286b6e0800000000000000
+      internalID: -1822125963536647246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ce46559318902f80800000000000000
+      internalID: -8133333717153853754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fff1612a5f48508a0800000000000000
+      internalID: -6339514709932892161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_23
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 639cd05568230f510800000000000000
+      internalID: 1580819021741017398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d0b54e692d219f0800000000000000
+      internalID: -499105063166603959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_25
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f792d5e62eb50b0800000000000000
+      internalID: -5738744336516284629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_26
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75b04542bccc10d80800000000000000
+      internalID: -8286116666525086889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_28
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6036492ab4cd5cad0800000000000000
+      internalID: -2682495785620970746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_29
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e2debd1928297c60800000000000000
+      internalID: 7816322785336021733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_30
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee008d25ed3d7c5f0800000000000000
+      internalID: -736387062225698578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_31
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f411b898a4a60fac0800000000000000
+      internalID: -3823439215269834417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_32
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aff818700ab9bd50800000000000000
+      internalID: 6753633627396439975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f32d10bb8e13a1730800000000000000
+      internalID: 3970540897120145983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_35
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12885235ade9e9980800000000000000
+      internalID: -8530205983658112991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_36
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd97dd9ca3950bc0800000000000000
+      internalID: -3817482739534815820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_37
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 497c3f63d9cd596f0800000000000000
+      internalID: -678393601059469420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_38
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d89bf06acb069f490800000000000000
+      internalID: -7712026523539097203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_39
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f098c9357b7dd4660800000000000000
+      internalID: 7371785347457124623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_40
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d38703cda6e597b0800000000000000
+      internalID: -5218010959263071277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 720d120385015e900800000000000000
+      internalID: 712994086958780455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35fce6c994d8cb670800000000000000
+      internalID: 8555868739393736531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6058e36cca1096600800000000000000
+      internalID: 461902278354175238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d61dfae3e31628410800000000000000
+      internalID: 1477850547698520429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751a94e30fcd76f00800000000000000
+      internalID: 1110098757565391191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87b940bdcc4160410800000000000000
+      internalID: 1442863600699218808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 224
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd048ef0994ea7560800000000000000
+      internalID: 7312408291037429980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_13
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c56f5ce34eb10a50800000000000000
+      internalID: 6485674137327986121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82936e11522f45c90800000000000000
+      internalID: -7181849264721086168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91910349e080b5310800000000000000
+      internalID: 1394717368310044953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 092e29e461873b2f0800000000000000
+      internalID: -958290258496920944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_41
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d406710ad129e26f0800000000000000
+      internalID: -707467435512995763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_42
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbb2dad9a1ae34b10800000000000000
+      internalID: 1964671262499089339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_43
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99079ba0bc7357780800000000000000
+      internalID: -8685974961116319591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_44
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c10d28d55380aa80800000000000000
+      internalID: -8457615695479504444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_45
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9457c936e75fcda0800000000000000
+      internalID: -5922418338645453667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_46
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 969d322b545e0f1b0800000000000000
+      internalID: -5624743847081551511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_47
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd085dc473a787580800000000000000
+      internalID: -8829172691529006883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a90439cc0147c190800000000000000
+      internalID: -7942307894673536607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_49
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c9d85439f9b69300800000000000000
+      internalID: 258598508596615621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_50
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2224f1549095a09b0800000000000000
+      internalID: -5113176530576522718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_51
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e577c046d9426050800000000000000
+      internalID: 5792273255310521832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_52
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b0d5d4a552c3afb0800000000000000
+      internalID: -4637649518167994190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NoseGoblin_53
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ca5ece5426c26ad0800000000000000
+      internalID: -2710386166211913019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

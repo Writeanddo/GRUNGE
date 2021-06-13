@@ -19,11 +19,16 @@ public class PlayerController : MonoBehaviour
     public PlayerStats stats;
     public GameObject projectile;
 
+    public bool canMove;
+    public bool isDying;
     public bool reloading;
     public bool siphoningHealth;
     public bool handLaunched;
     public bool canLaunchHand = true;
     public Transform heldObject;
+
+    float speedMultiplier = 1;
+    bool playedDieSequence;
 
     Transform crosshair;
     Transform gun;
@@ -56,8 +61,15 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        UpdateInputAxes();
-        UpdateMovementAnimations();
+        if (stats.health <= 0 && !playedDieSequence)
+            StartCoroutine(Die());
+
+        if (canMove && !isDying && stats.health > 0)
+        {
+            UpdateInputAxes();
+            UpdateMovementAnimations();
+        }
+
         gun.transform.position = Vector2.Lerp(gun.transform.position, gunTargetPos.position, 0.25f);
         if (!handLaunched)
         {
@@ -68,6 +80,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (gm.paused || !canMove || isDying || stats.health <= 0)
+            return;
+
         UpdateInputButtons();
     }
 
@@ -77,7 +92,7 @@ public class PlayerController : MonoBehaviour
         float horiz = Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
         Vector2 speed = new Vector2(horiz, vert);
-        rb.velocity = Vector3.ClampMagnitude(speed, 1) * stats.maxSpeed;
+        rb.velocity = Vector3.ClampMagnitude(speed, 1) * stats.maxSpeed * speedMultiplier;
         stats.speed = rb.velocity.magnitude;
     }
 
@@ -107,6 +122,9 @@ public class PlayerController : MonoBehaviour
 
     void UpdateInputButtons()
     {
+        if (gm.paused || isDying || stats.health <= 0)
+            return;
+
         // Shoot gun
         if (Input.GetButton("Fire1") && !reloading && stats.goo > stats.rocketGooUsage)
         {
@@ -138,11 +156,31 @@ public class PlayerController : MonoBehaviour
         }
 
         // Convert goo into health
-        if (Input.GetKeyDown(KeyCode.E) && stats.health < stats.maxHealth*0.75f && stats.goo > stats.maxGoo*0.5f && !siphoningHealth)
+        if (Input.GetKeyDown(KeyCode.E) && stats.health < stats.maxHealth * 0.75f && stats.goo > stats.maxGoo * 0.5f && !siphoningHealth)
         {
             siphoningHealth = true;
             StartCoroutine(ConvertGooToHealth());
         }
+    }
+
+    IEnumerator Die()
+    {
+        playedDieSequence = true;
+        isDying = true;
+        rb.isKinematic = true;
+        if (heldObject != null)
+            hgm.DropItem();
+
+        rb.velocity = Vector2.zero;
+        gm.StopMusic();
+
+        gm.gameOver = true;
+        FindObjectOfType<CrosshairController>().SetVisible(false);
+        CheckAndPlayClip("Player_Die");
+        yield return new WaitForSeconds(2);
+        isDying = false;
+        yield return new WaitForSeconds(1);
+        gm.StartCoroutine(gm.GameOverSequence());
     }
 
     IEnumerator ConvertGooToHealth()
@@ -182,7 +220,8 @@ public class PlayerController : MonoBehaviour
 
     public void ReceiveDamage(int damage)
     {
-        StartCoroutine(ReceiveDamageCoroutine(damage));
+        if (stats.health > 0)
+            StartCoroutine(ReceiveDamageCoroutine(damage));
     }
 
     IEnumerator ReceiveDamageCoroutine(int damage)
@@ -207,6 +246,18 @@ public class PlayerController : MonoBehaviour
         canLaunchHand = true;
     }
 
+    public void StunPlayer()
+    {
+        speedMultiplier = 0.5f;
+        StartCoroutine(WaitForStunCompletion());
+    }
+
+    IEnumerator WaitForStunCompletion()
+    {
+        yield return new WaitForSeconds(5);
+        speedMultiplier = 1;
+    }
+
     float AngleBetweenMouse()
     {
         Vector3 relative = transform.InverseTransformPoint(crosshair.position);
@@ -216,7 +267,7 @@ public class PlayerController : MonoBehaviour
 
     void FireGun()
     {
-        gm.ScreenShake(3.5f);
+        gm.ScreenShake(3f);
         Vector3 offset = (crosshair.transform.position - transform.position).normalized;
         gun.transform.position -= offset;
         Instantiate(projectile, gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse() + 90));

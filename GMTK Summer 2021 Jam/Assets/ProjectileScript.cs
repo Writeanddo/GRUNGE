@@ -13,17 +13,16 @@ public class ProjectileScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = transform.right*32;
     }
-    void Launch(float angle)
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Enemy" || collision.tag == "GrabbableEnemy" || collision.tag == "Wall")
+        if (collision.tag == "Enemy" || collision.tag == "Wall")
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
+            if (collision.gameObject.layer != 8)
+            {
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                Destroy(this.gameObject);
+            }
         }
     }
 }

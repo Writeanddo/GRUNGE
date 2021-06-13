@@ -24,18 +24,39 @@ public class HandGrabManager : MonoBehaviour
     {
         if(player.heldObject != null)
         {
-            if(player.heldObject.tag != "GrabbableEnemy")
-                heldObjectSpr.sortingOrder = spr.sortingOrder - 1;
+            heldObjectSpr.sortingOrder = spr.sortingOrder - 1;
+            player.heldObject.transform.localPosition = heldObjectGrabbable.objectOffsetWhenHeld;
+            transform.localPosition = heldObjectGrabbable.handOffsetWhenHeld;
         }
     }
 
     public void ThrowItem(Vector3 velocity)
     {
         player.heldObject.transform.parent = null;
+        transform.localPosition = Vector2.zero;
 
         heldObjectGrabbable.SetHeldState(false);
         heldObjectGrabbable.rb.velocity = velocity;
         heldObjectSort.overrideSort = false;
+
+        heldObjectGrabbable.isBeingThrown = true;
+        if (player.heldObject.tag == "Enemy")
+            player.heldObject.SendMessage("GetThrown");
+
+        player.heldObject = null;
+    }
+
+    public void DropItem()
+    {
+        player.heldObject.transform.parent = null;
+        transform.localPosition = Vector2.zero;
+
+        heldObjectGrabbable.SetHeldState(false);
+        heldObjectSort.overrideSort = false;
+
+        heldObjectGrabbable.isBeingThrown = true;
+        if (player.heldObject.tag == "Enemy")
+            player.heldObject.SendMessage("GetThrown");
 
         player.heldObject = null;
     }
@@ -44,13 +65,15 @@ public class HandGrabManager : MonoBehaviour
     {
         if (player.handLaunched)
         {
-            if (collision.tag == "Grabbable" || collision.tag == "GrabbableEnemy")
+            if (collision.tag == "Grabbable" || collision.tag == "Enemy")
             {
-                collision.transform.parent = transform;
-                collision.transform.localPosition = new Vector2(0, -0.2f);
-                player.heldObject = collision.transform;
-
                 heldObjectGrabbable = collision.GetComponentInChildren<Grabbable>();
+                if (!heldObjectGrabbable.canBeGrabbed)
+                    return;
+
+                collision.transform.parent = transform;
+                player.heldObject = collision.transform;
+                
                 heldObjectSort = collision.GetComponentInChildren<DynamicSpriteSort>();
                 heldObjectSpr = collision.GetComponentInChildren<SpriteRenderer>();
                 heldObjectSort.overrideSort = true;

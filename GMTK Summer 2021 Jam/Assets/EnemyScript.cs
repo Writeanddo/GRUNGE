@@ -2,72 +2,169 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyScript : MonoBehaviour
+public abstract class EnemyScript : MonoBehaviour
 {
     [System.Serializable]
     public class EnemyStats
     {
         public int health = 30;
+        public int currentShieldValue = 4;
         public int damage = 2;
+        public float pathSpeedMultiplier = 1;
         public float damageCooldown = 2;
+        public float inaccuracyMultiplier = 1;
         public float noticePlayerDistance = 15;
+        public float noticedSpeedMultiplier = 2;
         public int numGooDrops = 5;
+        public float movementAccuracy = 0.1f;
+        public float animationWalkSpeedMultiplier = 0.5f;
+        public string animationPrefix;
     }
 
     public EnemyStats stats;
     public bool noticedPlayer;
-    public Transform[] idlePath;
     public GameObject[] gooDrops;
+    public GameObject[] splatterDrops;
+    public GameObject enemyExplosion;
 
-    Animator anim;
-    SpriteRenderer spr;
-    Rigidbody2D rb;
-    PlayerController ply;
-    GameManager gm;
-    EnemyScript raycastHitEnemy;
+    [HideInInspector]
+    public Grabbable g;
+    [HideInInspector]
+    public Animator anim;
+    [HideInInspector]
+    public SpriteRenderer spr;
+    [HideInInspector]
+    public Rigidbody2D rb;
+    [HideInInspector]
+    public PlayerController ply;
+    [HideInInspector]
+    public GameManager gm;
+    [HideInInspector]
+    public EnemyScript raycastHitEnemy;
+    [HideInInspector]
+    public EnemyWaveManager waves;
 
-    bool rechargingAttack;
+    public bool rechargingAttack;
     float randSpeedMultiplier;
     float timeSinceLastSeenPlayer;
-    int currentNode;
+    int currentNode = -1;
     int pathDirection = 1;
+    bool readyToExplode = false;
+
+    GameObject crosshair;
 
     // Start is called before the first frame update
     void Start()
     {
+
+    }
+
+    public void CheckIfHeld()
+    {
+        if (g.isHeld)
+        {
+            anim.SetFloat("WalkSpeed", 4);
+            CheckAndPlayClip(stats.animationPrefix + "_Walk" + GetCompassPointFromAngle(AngleBetween(crosshair.transform.position)));
+            if (stats.currentShieldValue == 1 && !readyToExplode)
+            {
+                readyToExplode = true;
+                StartCoroutine(FlashFromDamage());
+            }
+        }
+    }
+
+    public void StopMoving()
+    {
+        rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, 0.1f);
+    }
+
+    public void SetWalkSpeed()
+    {
+        if (!g.isHeld)
+            anim.SetFloat("WalkSpeed", rb.velocity.magnitude * stats.animationWalkSpeedMultiplier);
+    }
+
+    public abstract void UpdateMovement();
+
+    public void GetReferences()
+    {
+        g = GetComponent<Grabbable>();
         gm = FindObjectOfType<GameManager>();
         ply = FindObjectOfType<PlayerController>();
         rb = GetComponent<Rigidbody2D>();
         spr = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
+        waves = FindObjectOfType<EnemyWaveManager>();
         randSpeedMultiplier = Random.Range(1.5f, 2.25f);
         currentNode = GetNearestNode();
+        crosshair = GameObject.Find("Crosshair");
+        //StartCoroutine(FlashFromDamage());
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public void MoveTowardsPlayer()
     {
-        UpdateMovement();
-    }
-
-    void UpdateMovement()
-    {
-        RaycastForPlayer();
-
-        if (noticedPlayer)
+        if (!g.isBeingThrown && !g.isHeld)
         {
             Vector2 dir = (ply.transform.position - transform.position).normalized;
-            rb.velocity = Vector2.Lerp(rb.velocity, dir * randSpeedMultiplier * 1.75f, 0.1f);
-            CheckAndPlayClip("Greenhead_Walk" + GetCompassPointFromAngle(AngleBetween(ply.transform.position)));
+            rb.velocity = Vector2.Lerp(rb.velocity, dir * randSpeedMultiplier * stats.noticedSpeedMultiplier, stats.movementAccuracy);
+            CheckAndPlayClip(stats.animationPrefix + "_Walk" + GetCompassPointFromAngle(AngleBetween(ply.transform.position)));
         }
-        else
-        {
-            // Move towards nearest node
-            Vector2 dir = (idlePath[currentNode].transform.position - transform.position).normalized;
-            rb.velocity = Vector2.Lerp(rb.velocity, dir * randSpeedMultiplier, 0.1f);
-            CheckAndPlayClip("Greenhead_Walk" + GetCompassPointFromAngle(AngleBetween(idlePath[currentNode].position)));
+    }
 
-            if (Vector2.Distance(transform.position, idlePath[currentNode].position) < 0.5f)
+    public void MoveAwayFromPlayer()
+    {
+        if (!g.isBeingThrown && !g.isHeld)
+        {
+            Vector2 dir = (transform.position - ply.transform.position).normalized;
+            rb.velocity = Vector2.Lerp(rb.velocity, dir * randSpeedMultiplier * stats.noticedSpeedMultiplier, stats.movementAccuracy);
+            CheckAndPlayClip(stats.animationPrefix + "_Walk" + GetCompassPointFromAngle(AngleBetween(ply.transform.position)));
+        }
+    }
+
+    public void GetThrown()
+    {
+        StartCoroutine(GetThrownCoroutine());
+    }
+
+    IEnumerator GetThrownCoroutine()
+    {
+        while (rb.velocity.magnitude > 0.5f)
+        {
+            if (!readyToExplode)
+                rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, 0.15f);
+            yield return new WaitForFixedUpdate();
+        }
+
+        stats.currentShieldValue = 4;
+        g.isBeingThrown = false;
+    }
+
+    public IEnumerator FlashFromDamage()
+    {
+        spr.color = Color.red;
+        while (true)
+        {
+            spr.transform.localPosition = new Vector2(Random.Range(-1, 1f), Random.Range(-1, 1f)) * 0.05f;
+            float rand = Random.Range(0.2f, 1f);
+            spr.color = new Color(spr.color.r, rand, rand);
+            yield return new WaitForFixedUpdate();
+        }
+        //StartCoroutine(FlashFromDamage());
+    }
+
+    public void FollowPath()
+    {
+        if (!g.isBeingThrown && !g.isHeld)
+        {
+            if (currentNode == -1)
+                currentNode = GetNearestNode();
+
+            // Move towards nearest node
+            Vector2 dir = (waves.enemyPath[currentNode].transform.position - transform.position).normalized;
+            rb.velocity = Vector2.Lerp(rb.velocity, dir * randSpeedMultiplier * stats.pathSpeedMultiplier, stats.movementAccuracy);
+            CheckAndPlayClip(stats.animationPrefix + "_Walk" + GetCompassPointFromAngle(AngleBetween(waves.enemyPath[currentNode].position)));
+
+            if (Vector2.Distance(transform.position, waves.enemyPath[currentNode].position) < 0.5f)
                 currentNode = GetNextNode();
         }
     }
@@ -90,14 +187,14 @@ public class EnemyScript : MonoBehaviour
         }
 
         // Raycast to all nodes
-        for (int i = 0; i < idlePath.Length; i++)
+        for (int i = 0; i < waves.enemyPath.Length; i++)
         {
-            Vector2 dir = (idlePath[i].position - transform.position).normalized;
+            Vector2 dir = (waves.enemyPath[i].position - transform.position).normalized;
             RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, 50);
-            if (hit && storedLength > Vector2.Distance(transform.position, idlePath[i].position))
+            if (hit && storedLength > Vector2.Distance(transform.position, waves.enemyPath[i].position))
             {
                 closestNode = i;
-                storedLength = Vector2.Distance(transform.position, idlePath[i].position);
+                storedLength = Vector2.Distance(transform.position, waves.enemyPath[i].position);
             }
         }
         return closestNode;
@@ -106,28 +203,31 @@ public class EnemyScript : MonoBehaviour
     // Returns index of next node on path
     int GetNextNode()
     {
-        if ((currentNode == 0 && pathDirection == -1) || (currentNode == idlePath.Length - 1 && pathDirection == 1))
+        if ((currentNode == 0 && pathDirection == -1) || (currentNode == waves.enemyPath.Length - 1 && pathDirection == 1))
             pathDirection *= -1;
 
         return currentNode + pathDirection;
     }
 
-    float AngleBetween(Vector3 targetPosition)
+    public float AngleBetween(Vector3 targetPosition)
     {
         Vector3 relative = transform.InverseTransformPoint(targetPosition);
         float angle = Mathf.Atan2(-relative.x + Mathf.Sin(Time.deltaTime / 10) * 25, relative.y) * Mathf.Rad2Deg;
         return -angle;
     }
 
-    void RaycastForPlayer()
+    // Searches for player in line of sight
+    // If found, noticedPlayer is set to true
+    public void RaycastForPlayer()
     {
         Vector2 dir = (ply.transform.position - transform.position).normalized;
 
         float scanDistance = stats.noticePlayerDistance;
         if (noticedPlayer)
-            scanDistance = 50;
+            scanDistance = 25;
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, scanDistance);
+        Debug.DrawRay(transform.position, dir * scanDistance, Color.red, Time.deltaTime);
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 1, dir, scanDistance);
         if (hit)
         {
             if (hit.transform.tag == "Player")
@@ -165,7 +265,7 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    string GetCompassPointFromAngle(float angle)
+    public string GetCompassPointFromAngle(float angle)
     {
         // -90 = W, 0 = N, 90 = E, 180/-180 = S
 
@@ -213,6 +313,39 @@ public class EnemyScript : MonoBehaviour
         spr.transform.localPosition = Vector2.zero;
     }
 
+    public void ReceiveShieldDamage()
+    {
+        gm.ShieldHit();
+        StartCoroutine(ReceiveShieldDamageCoroutine());
+    }
+
+    IEnumerator ReceiveShieldDamageCoroutine()
+    {
+        if (stats.currentShieldValue > 0)
+            stats.currentShieldValue--;
+        print(stats.currentShieldValue);
+        if (stats.currentShieldValue > 1)
+        {
+            float shakeAmount = 0.5f;
+            spr.color = Color.red;
+            while (spr.color.g < 0.9f)
+            {
+                spr.color = Color.Lerp(spr.color, Color.white, 0.1f);
+                spr.transform.localPosition = new Vector2(Random.Range(-shakeAmount, shakeAmount), Random.Range(-shakeAmount, shakeAmount));
+                shakeAmount /= 1.5f;
+                yield return new WaitForFixedUpdate();
+            }
+            spr.transform.localPosition = Vector2.zero;
+        }
+        else if(stats.currentShieldValue == 0)
+        {
+            ply.ReceiveDamage(25);
+            ply.StunPlayer();
+            ply.heldObject = null;
+            ExplodeBig();
+        }
+    }
+
 
     public void CheckAndPlayClip(string clipName)
     {
@@ -228,23 +361,22 @@ public class EnemyScript : MonoBehaviour
         for (int i = 0; i < stats.numGooDrops; i++)
         {
             Instantiate(gooDrops[Random.Range(0, gooDrops.Length)], transform.position, Quaternion.identity);
+            Instantiate(splatterDrops[Random.Range(0, splatterDrops.Length)], transform.position, Quaternion.identity);
         }
         Destroy(this.gameObject);
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    public void ExplodeBig()
     {
-        if (collision.tag == "Player" && !rechargingAttack)
+        gm.ScreenShake(10);
+        for (int i = 0; i < stats.numGooDrops; i++)
         {
-            rechargingAttack = true;
-            ply.ReceiveDamage(stats.damage);
-            StartCoroutine(DealDamage());
+            Instantiate(gooDrops[Random.Range(0, gooDrops.Length)], transform.position, Quaternion.identity);
+            Instantiate(splatterDrops[Random.Range(0, splatterDrops.Length)], transform.position, Quaternion.identity);
         }
+        Instantiate(enemyExplosion, transform.position, transform.rotation);
+        Destroy(this.gameObject);
     }
 
-    IEnumerator DealDamage()
-    {
-        yield return new WaitForSeconds(stats.damageCooldown);
-        rechargingAttack = false;
-    }
+
 }

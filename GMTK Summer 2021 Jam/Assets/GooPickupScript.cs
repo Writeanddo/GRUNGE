@@ -7,6 +7,7 @@ public class GooPickupScript : MonoBehaviour
     public float pickupDistance = 6;
     public int gooAmount;
 
+    float stuckInWallTimer;
     Rigidbody2D rb;
     PlayerController ply;
 
@@ -29,7 +30,7 @@ public class GooPickupScript : MonoBehaviour
         float distance = Vector2.Distance(transform.position, ply.transform.position);
         if (distance <= pickupDistance)
         {
-            rb.velocity += (Vector2)(ply.transform.position - transform.position).normalized * Mathf.Clamp(1 / (distance / 5), -10, 10);
+            rb.velocity += (Vector2)(ply.transform.position - transform.position).normalized * Mathf.Clamp(1 / (distance / 4), -10, 10);
         }
 
         rb.angularVelocity = Mathf.Lerp(rb.angularVelocity, 0, 0.05f);
@@ -41,6 +42,16 @@ public class GooPickupScript : MonoBehaviour
         {
             ply.stats.goo = Mathf.Clamp(ply.stats.goo + gooAmount, 0, ply.stats.maxGoo);
             Destroy(this.gameObject);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "Wall")
+        {
+            stuckInWallTimer += Time.deltaTime;
+            if (stuckInWallTimer >= 2)
+                Destroy(this.gameObject);
         }
     }
 }

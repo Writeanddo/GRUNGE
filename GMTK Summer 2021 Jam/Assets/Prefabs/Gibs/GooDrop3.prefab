@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3660314827033038996}
   - component: {fileID: 3660314827033038995}
   - component: {fileID: 3660314827033038994}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GooDrop3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,6 +100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overrideSort: 0
+  useParentPosition: 0
+  sortMultiplier: 1
+  yOffset: 0
 --- !u!50 &3660314827033038997
 Rigidbody2D:
   serializedVersion: 4
