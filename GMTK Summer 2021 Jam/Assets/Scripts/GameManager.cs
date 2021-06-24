@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     Image gameOverImage;
     Image tryAgainImage;
     Image retryImage;
+    Text gooSliderText;
 
     RectTransform quitYes;
     RectTransform quitNo;
@@ -28,16 +29,18 @@ public class GameManager : MonoBehaviour
     AudioSource sfxSource;
     AudioSource stoppableSfxSource;
     AudioSource gooSource;
+    AudioSource prioritySfxSource; // Will duck volume on normal sound effects
+    Animator shieldAnim;
     Text pauseText;
 
     public bool paused;
     public bool gameOver;
-    public Sprite[] shieldUiImages;
     public AudioClip music;
     public AudioClip[] generalSfx;
     public AudioClip[] playerSfx;
     public AudioClip[] gooPickupSounds;
 
+    bool shieldExploding;
     int storedGooAmount;
     int storedHealthAmount;
     Color gooColor;
@@ -61,6 +64,9 @@ public class GameManager : MonoBehaviour
         stoppableSfxSource = GameObject.Find("GameStoppableSFX").GetComponent<AudioSource>();
         musicSource = GameObject.Find("GameMusic").GetComponent<AudioSource>();
         gooSource = GameObject.Find("GameGooPickupSFX").GetComponent<AudioSource>();
+        prioritySfxSource = GameObject.Find("GamePrioritySFX").GetComponent<AudioSource>();
+        shieldAnim = GameObject.Find("ShieldImage").GetComponent<Animator>();
+        gooSliderText = GameObject.Find("GooSliderNumber").GetComponent<Text>();
 
         screenBlackout = GameObject.Find("ScreenBlackout").GetComponent<Image>();
         quitBlackout = GameObject.Find("QuitPanel").GetComponent<Image>();
@@ -97,10 +103,20 @@ public class GameManager : MonoBehaviour
             gooSlider.value = Mathf.Lerp(gooSlider.value, (float)ply.stats.goo / ply.stats.maxGoo, 0.1f);
             gooFill.color = Color.Lerp(gooFill.color, gooColor, 0.1f);
             if (ply.stats.goo > storedGooAmount)
+            {
+                if (ply.stats.goo >= 30 && storedGooAmount < 30)
+                    PlayPrioritySFX(playerSfx[6]);
+                //if (ply.stats.goo >= 50 && storedGooAmount < 50)
+                    //PlaySFX(playerSfx[7]);
+
                 gooFill.color = new Color(0, 0.75f, 0);
+            }
             else if (ply.stats.goo < storedGooAmount)
+            {
                 gooFill.color = new Color(0.75f, 0.75f, 0);
+            }
             storedGooAmount = ply.stats.goo;
+            gooSliderText.text = ply.stats.goo.ToString();
 
             // Shield update
             shieldImage.rectTransform.localScale = Vector2.Lerp(shieldImage.rectTransform.localScale, Vector2.one, 0.25f);
@@ -109,35 +125,43 @@ public class GameManager : MonoBehaviour
                 if (heldEnemy == null)
                 {
                     heldEnemy = ply.heldObject.GetComponent<EnemyScript>();
-                    shieldImage.rectTransform.localScale = new Vector2(1.2f, 1.2f);
+                    shieldImage.rectTransform.localScale = new Vector2(1.25f, 1.25f);
+                    shieldExploding = false;
                 }
 
-                shieldImage.sprite = shieldUiImages[heldEnemy.stats.currentShieldValue];
+                CheckAndPlayClip("Shield_" + heldEnemy.stats.currentShieldValue, shieldAnim);
             }
-            else if (heldEnemy != null)
+            else if (heldEnemy != null && !shieldExploding)
             {
                 heldEnemy = null;
-                shieldImage.sprite = shieldUiImages[0];
+                CheckAndPlayClip("Shield_Empty", shieldAnim);
             }
+        }
 
-            // Pause game
-            if (paused && pauseText.text == "")
-            {
-                Time.timeScale = 0;
-                pauseText.text = "PAUSED";
-                quitBlackout.color = new Color(0, 0, 0, 0.5f);
-            }
-            else if (!paused && pauseText.text != "")
-            {
-                pauseText.text = "";
-                quitBlackout.color = new Color(0, 0, 0, 0);
-            }
+        // Pause game
+        if (paused && pauseText.text == "")
+        {
+            Time.timeScale = 0;
+            pauseText.text = "PAUSED";
+            quitBlackout.color = new Color(0, 0, 0, 0.5f);
+        }
+        else if (!paused && pauseText.text != "")
+        {
+            pauseText.text = "";
+            quitBlackout.color = new Color(0, 0, 0, 0);
         }
     }
 
     public void ShieldHit()
     {
-        shieldImage.rectTransform.localScale = new Vector2(1.1f, 1.1f);
+        shieldImage.rectTransform.localScale = new Vector2(1.25f, 1.25f);
+    }
+
+    public void ShieldBreak()
+    {
+        shieldExploding = true;
+        shieldImage.rectTransform.localScale = new Vector2(1.25f, 1.25f);
+        CheckAndPlayClip("Shield_Break", shieldAnim);
     }
 
     public void StopMusic()
@@ -187,6 +211,12 @@ public class GameManager : MonoBehaviour
         gooSource.Stop();
         gooSource.pitch = 0.75f + (ply.stats.goo / (float)ply.stats.maxGoo) * 0.75f;
         gooSource.PlayOneShot(clip);
+    }
+
+    public void PlayPrioritySFX(AudioClip clip)
+    {
+        sfxSource.pitch = 1;
+        prioritySfxSource.PlayOneShot(clip);
     }
 
     public void PlayMusic()
@@ -276,6 +306,8 @@ public class GameManager : MonoBehaviour
             t.GetComponent<EnemyScript>().UpdateMovement();
             FindObjectOfType<EnemyWaveManager>().StartWaves();
         }
+        else
+            ply.canMove = true;
     }
 
     public void LevelOverSequenece()
@@ -342,7 +374,7 @@ public class GameManager : MonoBehaviour
         else if (levelName == "level3")
         {
             StopMusic();
-            
+
             ply.stats.health = 1000;
             ply.stats.maxHealth = 1000;
 
@@ -416,5 +448,13 @@ public class GameManager : MonoBehaviour
         }
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(level);
+    }
+
+    public void CheckAndPlayClip(string clipName, Animator anim)
+    {
+        if (!anim.GetCurrentAnimatorStateInfo(0).IsName(clipName))
+        {
+            anim.Play(clipName);
+        }
     }
 }

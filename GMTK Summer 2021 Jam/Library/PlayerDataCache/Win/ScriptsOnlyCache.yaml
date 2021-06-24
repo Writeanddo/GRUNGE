@@ -3,30 +3,13 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - AnimationSendMessageBridge
     - AnimationSfxManager
-    - BossEnemyScript
-    - CameraController
     - CrosshairController
     - DynamicSpriteSort
-    - EnemyInstantiator
-    - EnemyProjectile
-    - EnemyWaveManager
     - ExplosionManager
     - FullscreenSwitch
-    - GameManager
-    - GatlingGooberEnemyScript
-    - GibScript
-    - GooPickupScript
-    - Grabbable
-    - GreenheadEnemyScript
     - HandGrabManager
-    - HideTilemap
-    - KillTrigger
-    - LevelLoader
-    - NoseGoblinEnemyScript
     - PlayerController
     - ProjectileScript
-    - ScionSlimeEnemyScript
-    - SpawnGib
     - TitleScreenManager
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
@@ -63,435 +46,9 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
-    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
     - UnityEngine.UI.Toggle
   sceneClasses:
-    Assets/Scenes/level1.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 50
-      Script: {instanceID: 0}
-    - Class: 58
-      Script: {instanceID: 0}
-    - Class: 60
-      Script: {instanceID: 0}
-    - Class: 61
-      Script: {instanceID: 0}
-    - Class: 62
-      Script: {instanceID: 0}
-    - Class: 68
-      Script: {instanceID: 0}
-    - Class: 70
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
-    - Class: 83
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 588}
-    - Class: 114
-      Script: {instanceID: 11172}
-    - Class: 114
-      Script: {instanceID: 11194}
-    - Class: 114
-      Script: {instanceID: 11198}
-    - Class: 114
-      Script: {instanceID: 11258}
-    - Class: 114
-      Script: {instanceID: 11456}
-    - Class: 114
-      Script: {instanceID: 11468}
-    - Class: 114
-      Script: {instanceID: 11522}
-    - Class: 114
-      Script: {instanceID: 11560}
-    - Class: 114
-      Script: {instanceID: 11712}
-    - Class: 114
-      Script: {instanceID: 11768}
-    - Class: 114
-      Script: {instanceID: 11886}
-    - Class: 114
-      Script: {instanceID: 11998}
-    - Class: 114
-      Script: {instanceID: 12078}
-    - Class: 114
-      Script: {instanceID: 12192}
-    - Class: 114
-      Script: {instanceID: 12238}
-    - Class: 114
-      Script: {instanceID: 12256}
-    - Class: 114
-      Script: {instanceID: 12460}
-    - Class: 114
-      Script: {instanceID: 12486}
-    - Class: 114
-      Script: {instanceID: 12532}
-    - Class: 114
-      Script: {instanceID: 12826}
-    - Class: 114
-      Script: {instanceID: 12836}
-    - Class: 114
-      Script: {instanceID: 12906}
-    - Class: 114
-      Script: {instanceID: 13270}
-    - Class: 114
-      Script: {instanceID: 13562}
-    - Class: 114
-      Script: {instanceID: 13670}
-    - Class: 114
-      Script: {instanceID: 14068}
-    - Class: 114
-      Script: {instanceID: 14228}
-    - Class: 114
-      Script: {instanceID: 14234}
-    - Class: 114
-      Script: {instanceID: 14288}
-    - Class: 114
-      Script: {instanceID: 14330}
-    - Class: 114
-      Script: {instanceID: 29108}
-    - Class: 114
-      Script: {instanceID: 67162}
-    - Class: 114
-      Script: {instanceID: 206964}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 120
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 212
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    - Class: 241
-      Script: {instanceID: 0}
-    - Class: 243
-      Script: {instanceID: 0}
-    - Class: 245
-      Script: {instanceID: 0}
-    - Class: 19719996
-      Script: {instanceID: 0}
-    - Class: 156049354
-      Script: {instanceID: 0}
-    - Class: 483693784
-      Script: {instanceID: 0}
-    - Class: 687078895
-      Script: {instanceID: 0}
-    - Class: 1839735485
-      Script: {instanceID: 0}
-    Assets/Scenes/level2.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 50
-      Script: {instanceID: 0}
-    - Class: 58
-      Script: {instanceID: 0}
-    - Class: 61
-      Script: {instanceID: 0}
-    - Class: 62
-      Script: {instanceID: 0}
-    - Class: 70
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
-    - Class: 83
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 588}
-    - Class: 114
-      Script: {instanceID: 11172}
-    - Class: 114
-      Script: {instanceID: 11194}
-    - Class: 114
-      Script: {instanceID: 11198}
-    - Class: 114
-      Script: {instanceID: 11258}
-    - Class: 114
-      Script: {instanceID: 11456}
-    - Class: 114
-      Script: {instanceID: 11468}
-    - Class: 114
-      Script: {instanceID: 11522}
-    - Class: 114
-      Script: {instanceID: 11560}
-    - Class: 114
-      Script: {instanceID: 11712}
-    - Class: 114
-      Script: {instanceID: 11768}
-    - Class: 114
-      Script: {instanceID: 11886}
-    - Class: 114
-      Script: {instanceID: 11998}
-    - Class: 114
-      Script: {instanceID: 12078}
-    - Class: 114
-      Script: {instanceID: 12192}
-    - Class: 114
-      Script: {instanceID: 12238}
-    - Class: 114
-      Script: {instanceID: 12256}
-    - Class: 114
-      Script: {instanceID: 12460}
-    - Class: 114
-      Script: {instanceID: 12486}
-    - Class: 114
-      Script: {instanceID: 12826}
-    - Class: 114
-      Script: {instanceID: 12836}
-    - Class: 114
-      Script: {instanceID: 12906}
-    - Class: 114
-      Script: {instanceID: 13270}
-    - Class: 114
-      Script: {instanceID: 13562}
-    - Class: 114
-      Script: {instanceID: 13670}
-    - Class: 114
-      Script: {instanceID: 14068}
-    - Class: 114
-      Script: {instanceID: 14234}
-    - Class: 114
-      Script: {instanceID: 14288}
-    - Class: 114
-      Script: {instanceID: 14330}
-    - Class: 114
-      Script: {instanceID: 29108}
-    - Class: 114
-      Script: {instanceID: 67162}
-    - Class: 114
-      Script: {instanceID: 128302}
-    - Class: 114
-      Script: {instanceID: 206964}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 120
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 212
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    - Class: 241
-      Script: {instanceID: 0}
-    - Class: 243
-      Script: {instanceID: 0}
-    - Class: 245
-      Script: {instanceID: 0}
-    - Class: 19719996
-      Script: {instanceID: 0}
-    - Class: 156049354
-      Script: {instanceID: 0}
-    - Class: 483693784
-      Script: {instanceID: 0}
-    - Class: 687078895
-      Script: {instanceID: 0}
-    - Class: 1839735485
-      Script: {instanceID: 0}
-    Assets/Scenes/level3.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 50
-      Script: {instanceID: 0}
-    - Class: 58
-      Script: {instanceID: 0}
-    - Class: 60
-      Script: {instanceID: 0}
-    - Class: 61
-      Script: {instanceID: 0}
-    - Class: 62
-      Script: {instanceID: 0}
-    - Class: 70
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
-    - Class: 83
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 588}
-    - Class: 114
-      Script: {instanceID: 11172}
-    - Class: 114
-      Script: {instanceID: 11194}
-    - Class: 114
-      Script: {instanceID: 11198}
-    - Class: 114
-      Script: {instanceID: 11258}
-    - Class: 114
-      Script: {instanceID: 11456}
-    - Class: 114
-      Script: {instanceID: 11468}
-    - Class: 114
-      Script: {instanceID: 11522}
-    - Class: 114
-      Script: {instanceID: 11560}
-    - Class: 114
-      Script: {instanceID: 11712}
-    - Class: 114
-      Script: {instanceID: 11768}
-    - Class: 114
-      Script: {instanceID: 11886}
-    - Class: 114
-      Script: {instanceID: 11998}
-    - Class: 114
-      Script: {instanceID: 12078}
-    - Class: 114
-      Script: {instanceID: 12192}
-    - Class: 114
-      Script: {instanceID: 12238}
-    - Class: 114
-      Script: {instanceID: 12256}
-    - Class: 114
-      Script: {instanceID: 12460}
-    - Class: 114
-      Script: {instanceID: 12486}
-    - Class: 114
-      Script: {instanceID: 12826}
-    - Class: 114
-      Script: {instanceID: 12836}
-    - Class: 114
-      Script: {instanceID: 12906}
-    - Class: 114
-      Script: {instanceID: 13270}
-    - Class: 114
-      Script: {instanceID: 13562}
-    - Class: 114
-      Script: {instanceID: 13670}
-    - Class: 114
-      Script: {instanceID: 14068}
-    - Class: 114
-      Script: {instanceID: 14234}
-    - Class: 114
-      Script: {instanceID: 14288}
-    - Class: 114
-      Script: {instanceID: 14330}
-    - Class: 114
-      Script: {instanceID: 29108}
-    - Class: 114
-      Script: {instanceID: 128302}
-    - Class: 114
-      Script: {instanceID: 142842}
-    - Class: 114
-      Script: {instanceID: 206964}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 120
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 212
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    - Class: 241
-      Script: {instanceID: 0}
-    - Class: 243
-      Script: {instanceID: 0}
-    - Class: 245
-      Script: {instanceID: 0}
-    - Class: 19719996
-      Script: {instanceID: 0}
-    - Class: 156049354
-      Script: {instanceID: 0}
-    - Class: 483693784
-      Script: {instanceID: 0}
-    - Class: 687078895
-      Script: {instanceID: 0}
-    - Class: 1839735485
-      Script: {instanceID: 0}
     Assets/Scenes/titlescreen.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -520,100 +77,29 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11172}
+      Script: {instanceID: 11176}
     - Class: 114
-      Script: {instanceID: 11468}
+      Script: {instanceID: 11476}
     - Class: 114
-      Script: {instanceID: 11522}
+      Script: {instanceID: 11530}
     - Class: 114
-      Script: {instanceID: 11886}
+      Script: {instanceID: 11894}
     - Class: 114
-      Script: {instanceID: 12078}
+      Script: {instanceID: 12088}
     - Class: 114
-      Script: {instanceID: 12192}
+      Script: {instanceID: 12202}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 12916}
     - Class: 114
-      Script: {instanceID: 13018}
+      Script: {instanceID: 13028}
     - Class: 114
-      Script: {instanceID: 13270}
+      Script: {instanceID: 13280}
     - Class: 114
-      Script: {instanceID: 13670}
+      Script: {instanceID: 13682}
     - Class: 114
-      Script: {instanceID: 14288}
+      Script: {instanceID: 14302}
     - Class: 114
-      Script: {instanceID: 14308}
-    - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
-      Script: {instanceID: 0}
-    - Class: 157
-      Script: {instanceID: 0}
-    - Class: 196
-      Script: {instanceID: 0}
-    - Class: 212
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
-      Script: {instanceID: 0}
-    - Class: 241
-      Script: {instanceID: 0}
-    - Class: 243
-      Script: {instanceID: 0}
-    - Class: 245
-      Script: {instanceID: 0}
-    Assets/Scenes/victoryscreen.unity:
-    - Class: 1
-      Script: {instanceID: 0}
-    - Class: 4
-      Script: {instanceID: 0}
-    - Class: 20
-      Script: {instanceID: 0}
-    - Class: 21
-      Script: {instanceID: 0}
-    - Class: 28
-      Script: {instanceID: 0}
-    - Class: 48
-      Script: {instanceID: 0}
-    - Class: 74
-      Script: {instanceID: 0}
-    - Class: 81
-      Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
-    - Class: 83
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
-    - Class: 104
-      Script: {instanceID: 0}
-    - Class: 114
-      Script: {instanceID: 11172}
-    - Class: 114
-      Script: {instanceID: 11468}
-    - Class: 114
-      Script: {instanceID: 11522}
-    - Class: 114
-      Script: {instanceID: 11886}
-    - Class: 114
-      Script: {instanceID: 12078}
-    - Class: 114
-      Script: {instanceID: 12192}
-    - Class: 114
-      Script: {instanceID: 13270}
-    - Class: 114
-      Script: {instanceID: 13670}
-    - Class: 114
-      Script: {instanceID: 14288}
-    - Class: 114
-      Script: {instanceID: 67162}
+      Script: {instanceID: 14322}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -647,7 +133,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: cb2c2015a70718def3bc48bffed53163
+      Hash: 50d6eb7205f05390b18bd8c298742f7a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: NoseGoblinEnemyScript
@@ -683,10 +169,22 @@ ScriptsOnlyBuild:
     className: EnemyInstantiator
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: KillTrigger
+  - hash:
+      serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ScrollbarEventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: d07a418d0ab255aef35814d7df2a5285
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GatlingGooberEnemyScript
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -869,6 +367,12 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
+      Hash: 50d6eb7205f05390b18bd8c298742f7a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BossEnemyScript
+  - hash:
+      serializedVersion: 2
       Hash: caa533b001ae39b864ba8425019e2268
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -995,7 +499,7 @@ ScriptsOnlyBuild:
     className: CameraController
   - hash:
       serializedVersion: 2
-      Hash: e89bc0805d636e8db34ba0f1a8adc953
+      Hash: 6941d49970274b06371c909cf3383640
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GreenheadEnemyScript
@@ -1103,7 +607,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: cb2c2015a70718def3bc48bffed53163
+      Hash: 50d6eb7205f05390b18bd8c298742f7a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ScionSlimeEnemyScript
@@ -1113,6 +617,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextMeshProUGUI
+  - hash:
+      serializedVersion: 2
+      Hash: 96fdef7534ea0217f4a75493a40278b9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AnimationSfxManager
   - hash:
       serializedVersion: 2
       Hash: f336e086360abe49a3323e5f1583c35a
@@ -1149,6 +659,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
+  - hash:
+      serializedVersion: 2
+      Hash: 1515e52f792ea9b19b8c9edfe9c9ac89
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: LevelLoader
   - hash:
       serializedVersion: 2
       Hash: 21d73eda81c18eacd2c91ad5dfaf2e32
@@ -1257,41 +773,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 96fdef7534ea0217f4a75493a40278b9
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: AnimationSfxManager
-  - hash:
-      serializedVersion: 2
-      Hash: 1515e52f792ea9b19b8c9edfe9c9ac89
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: LevelLoader
-  - hash:
-      serializedVersion: 2
-      Hash: fbe992db4883604bc9893c4aac101870
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GatlingGooberEnemyScript
-  - hash:
-      serializedVersion: 2
-      Hash: cb2c2015a70718def3bc48bffed53163
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: BossEnemyScript
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: KillTrigger
   platform: 5
   scenePathNames:
   - Assets/Scenes/titlescreen.unity
-  - Assets/Scenes/level1.unity
-  - Assets/Scenes/level2.unity
-  - Assets/Scenes/level3.unity
-  - Assets/Scenes/victoryscreen.unity
   playerPath: C:/Users/Basel/Desktop/GRUNGE_WIN/GRUNGE.exe

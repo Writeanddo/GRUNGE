@@ -20,6 +20,8 @@ public class EnemyWaveManager : MonoBehaviour
     public Transform[] spawnPoints;
     public bool[] spawnPointsUseAnimation;
     public GameObject spawner;
+    public bool useLoopPath;
+    public bool dontRandomizeDirection;
     public bool spawnEndlessly;
     public int currentWave;
 

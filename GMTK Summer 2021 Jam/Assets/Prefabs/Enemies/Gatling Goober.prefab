@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3583694989871628949}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: RightArmShootPos
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3583694990087489263}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: LeftArmShootPos
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 7203540108373551338}
   - component: {fileID: 7203540108373551336}
   - component: {fileID: 7203540108373551319}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 7203540109162291162}
   - component: {fileID: 9074006423931639918}
   - component: {fileID: 7203540109162291164}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Gatling Goober
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -310,6 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     health: 75
+    maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4
     damage: 0
@@ -322,6 +323,7 @@ MonoBehaviour:
     movementAccuracy: 0.1
     animationWalkSpeedMultiplier: 0.5
     animationPrefix: Goober
+    useDirctionalAnimation: 1
   noticedPlayer: 0
   gooDrops:
   - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}

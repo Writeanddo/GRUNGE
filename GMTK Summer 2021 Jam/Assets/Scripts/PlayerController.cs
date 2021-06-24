@@ -126,7 +126,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         // Shoot gun
-        if (Input.GetButton("Fire1") && !reloading && stats.goo > stats.rocketGooUsage)
+        if (Input.GetButton("Fire1") && !reloading && stats.goo >= stats.rocketGooUsage)
         {
             FireGun();
         }
@@ -251,6 +251,8 @@ public class PlayerController : MonoBehaviour
 
     public void StunPlayer()
     {
+        canLaunchHand = false;
+        
         speedMultiplier = 0.5f;
         StartCoroutine(WaitForStunCompletion());
     }
@@ -258,6 +260,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator WaitForStunCompletion()
     {
         yield return new WaitForSeconds(5);
+        canLaunchHand = true;
         speedMultiplier = 1;
     }
 

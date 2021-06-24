@@ -24,12 +24,14 @@ public class HandGrabManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.heldObject != null)
+        if (player.heldObject != null)
         {
             heldObjectSpr.sortingOrder = spr.sortingOrder - 1;
             player.heldObject.transform.localPosition = heldObjectGrabbable.objectOffsetWhenHeld;
             transform.localPosition = heldObjectGrabbable.handOffsetWhenHeld;
         }
+        else
+            transform.localPosition = Vector2.zero;
     }
 
     public void ThrowItem(Vector3 velocity)

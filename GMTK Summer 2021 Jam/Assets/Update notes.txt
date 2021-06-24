@@ -1,0 +1,67 @@
+Endless mode
+- Sea of goo that has separate chunks of the level rising and dropping off over time, random element
+- Chunks could be like binding of isaac rooms - lots of handmade rooms but chosen randomly
+
+
+Additions
+- Tutorial level
+- Front yard level
+- Endless mode
+- Powerups
+- New and improved enemies
+
+Weapons + Powerups
+- Melee weapon(s)
+  - Two-handed scythe (Called "Thresh"), can't use rocket while holding
+  - Can be thrown, appears in endless mode every once in a while
+- Multigrab
+  - Extended range
+  - Grabbing doesn't return after hitting one enemy - continues until up to 5 are hit
+  - Can grab enemies you can't grab normally
+  - All get thrown at once
+- Spreadshot
+  - Fires three shots for cost of one shot
+  
+- Refill canister
+  - Restores all goo and all health
+
+Enemies
+- Make Gatling Goobers stronger / fire more often
+- Improve bullet patterns on scion slimes
+
+- Gang Greens - already fully sprited
+  - Connected together, move as a group, can't be grabbed until separated
+  - "Core" member, slightly discolored / stands out in some way
+  - Killing core will separate all enemies
+  - If tension between one enemy rope is too great, enemy breaks
+
+- Armor enemy (Boogernaut) - wearing multiple pieces of armor
+  - When you try and grab it you grab off a piece of armor
+  - shooting with rocket knocks off a piece of armor
+  - Shoots laser for attack
+
+- Goo ball with blue boots (Flemite / Phlegmite)
+  - Potentially doesn't work as shield (red goo maybe)
+  - Enemy with armor you can tear off and toss with your gauntlet
+
+- Spin dash guy (Slopdash)
+  - Charges and dashes towards you
+  - Can't be grabbed
+  - Breaks shields instantly
+  - Small recovery time after hitting wall / dashing
+
+- Updated boss
+  - Two phases
+  - Begins as stationary
+  - After beating first phase, slime ghost pops out of pillar and moves around level
+
+
+Tutorial level
+- Old mentor type guy who gives you the quest to fight these guys in the tutorial
+
+Small QoL fixes
+- Goo bar has notches + sfx for when you can shoot a rocket + regain health
+- Bubble texture inside health and goo bars
+- Once you beat the game, level select is unlocked
+- NEW SHIELD ICON that appears over your head or near you, important that it's easy to read
+- Make inner crosshair more readable

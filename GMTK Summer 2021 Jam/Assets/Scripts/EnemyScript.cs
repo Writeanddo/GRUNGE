@@ -8,6 +8,8 @@ public abstract class EnemyScript : MonoBehaviour
     public class EnemyStats
     {
         public int health = 30;
+        [HideInInspector]
+        public int maxHealth;
         public bool overrideDeath;
         public int currentShieldValue = 4;
         public int damage = 2;
@@ -20,6 +22,7 @@ public abstract class EnemyScript : MonoBehaviour
         public float movementAccuracy = 0.1f;
         public float animationWalkSpeedMultiplier = 0.5f;
         public string animationPrefix;
+        public bool useDirctionalAnimation = true;
     }
 
     public EnemyStats stats;
@@ -64,8 +67,12 @@ public abstract class EnemyScript : MonoBehaviour
     {
         if (g.isHeld)
         {
-            anim.SetFloat("WalkSpeed", 4);
-            CheckAndPlayClip(stats.animationPrefix + "_Walk" + GetCompassPointFromAngle(AngleBetween(crosshair.transform.position)));
+
+            if (stats.useDirctionalAnimation)
+            {
+                anim.SetFloat("WalkSpeed", 4);
+                CheckAndPlayClip(stats.animationPrefix + "_Walk" + GetCompassPointFromAngle(AngleBetween(crosshair.transform.position)));
+            }
             if (stats.currentShieldValue == 1 && !readyToExplode)
             {
                 readyToExplode = true;
@@ -81,7 +88,7 @@ public abstract class EnemyScript : MonoBehaviour
 
     public void SetWalkSpeed()
     {
-        if (!g.isHeld)
+        if (!g.isHeld && stats.useDirctionalAnimation)
             anim.SetFloat("WalkSpeed", rb.velocity.magnitude * stats.animationWalkSpeedMultiplier);
     }
 
@@ -89,6 +96,7 @@ public abstract class EnemyScript : MonoBehaviour
 
     public void GetReferences()
     {
+        stats.maxHealth = stats.health;
         g = GetComponent<Grabbable>();
         gm = FindObjectOfType<GameManager>();
         ply = FindObjectOfType<PlayerController>();
@@ -108,7 +116,8 @@ public abstract class EnemyScript : MonoBehaviour
         {
             Vector2 dir = (ply.transform.position - transform.position).normalized;
             rb.velocity = Vector2.Lerp(rb.velocity, dir * randSpeedMultiplier * stats.noticedSpeedMultiplier, stats.movementAccuracy);
-            CheckAndPlayClip(stats.animationPrefix + "_Walk" + GetCompassPointFromAngle(AngleBetween(ply.transform.position)));
+            if (stats.useDirctionalAnimation)
+                CheckAndPlayClip(stats.animationPrefix + "_Walk" + GetCompassPointFromAngle(AngleBetween(ply.transform.position)));
         }
     }
 
@@ -118,7 +127,8 @@ public abstract class EnemyScript : MonoBehaviour
         {
             Vector2 dir = (transform.position - ply.transform.position).normalized;
             rb.velocity = Vector2.Lerp(rb.velocity, dir * randSpeedMultiplier * stats.noticedSpeedMultiplier, stats.movementAccuracy);
-            CheckAndPlayClip(stats.animationPrefix + "_Walk" + GetCompassPointFromAngle(AngleBetween(ply.transform.position)));
+            if (stats.useDirctionalAnimation)
+                CheckAndPlayClip(stats.animationPrefix + "_Walk" + GetCompassPointFromAngle(AngleBetween(ply.transform.position)));
         }
     }
 
@@ -163,9 +173,10 @@ public abstract class EnemyScript : MonoBehaviour
                 currentNode = GetNearestNode();
 
             // Move towards nearest node
-            Vector2 dir = (waves.enemyPath[currentNode].transform.position - transform.position).normalized;
+            Vector2 dir = ((Vector2)waves.enemyPath[currentNode].transform.position - (Vector2)transform.position).normalized;
             rb.velocity = Vector2.Lerp(rb.velocity, dir * randSpeedMultiplier * stats.pathSpeedMultiplier, stats.movementAccuracy);
-            CheckAndPlayClip(stats.animationPrefix + "_Walk" + GetCompassPointFromAngle(AngleBetween(waves.enemyPath[currentNode].position)));
+            if (stats.useDirctionalAnimation)
+                CheckAndPlayClip(stats.animationPrefix + "_Walk" + GetCompassPointFromAngle(AngleBetween(waves.enemyPath[currentNode].position)));
 
             if (Vector2.Distance(transform.position, waves.enemyPath[currentNode].position) < 0.5f)
                 currentNode = GetNextNode();
@@ -178,15 +189,19 @@ public abstract class EnemyScript : MonoBehaviour
         float storedLength = 1000;
 
         // Decide which way along the path we'll move
-        int pathDir = Random.Range(0, 2);
-        switch (pathDir)
+        pathDirection = 1;
+        if (!waves.dontRandomizeDirection)
         {
-            case (0):
-                pathDirection = -1;
-                break;
-            case (1):
-                pathDir = 1;
-                break;
+            int pathDir = Random.Range(0, 2);
+            switch (pathDir)
+            {
+                case (0):
+                    pathDirection = -1;
+                    break;
+                case (1):
+                    pathDirection = 1;
+                    break;
+            }
         }
 
         // Raycast to all nodes
@@ -207,7 +222,19 @@ public abstract class EnemyScript : MonoBehaviour
     int GetNextNode()
     {
         if ((currentNode == 0 && pathDirection == -1) || (currentNode == waves.enemyPath.Length - 1 && pathDirection == 1))
-            pathDirection *= -1;
+        {
+            if (waves.useLoopPath)
+            {
+                if (currentNode == 0 && pathDirection == -1)
+                    currentNode = waves.enemyPath.Length - 1;
+                else
+                    currentNode = 0;
+
+                return currentNode;
+            }
+            else
+                pathDirection *= -1;
+        }
 
         return currentNode + pathDirection;
     }
@@ -264,7 +291,6 @@ public abstract class EnemyScript : MonoBehaviour
                     noticedPlayer = false;
                 }
             }
-
         }
     }
 
@@ -345,8 +371,9 @@ public abstract class EnemyScript : MonoBehaviour
             }
             spr.transform.localPosition = Vector2.zero;
         }
-        else if(stats.currentShieldValue == 0)
+        else if (stats.currentShieldValue == 0)
         {
+            gm.ShieldBreak();
             ply.ReceiveDamage(25);
             ply.StunPlayer();
             ply.heldObject = null;
@@ -369,7 +396,7 @@ public abstract class EnemyScript : MonoBehaviour
         gm.PlaySFXStoppable(gm.generalSfx[0], Random.Range(0.85f, 1.15f));
         for (int i = 0; i < stats.numGooDrops; i++)
         {
-            Instantiate(gooDrops[Random.Range(0, gooDrops.Length)], transform.position, Quaternion.identity);
+            Instantiate(gooDrops[Random.Range(0, gooDrops.Length)], new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.identity);
             Instantiate(splatterDrops[Random.Range(0, splatterDrops.Length)], transform.position, Quaternion.identity);
         }
         Destroy(this.gameObject);
@@ -386,6 +413,4 @@ public abstract class EnemyScript : MonoBehaviour
         Instantiate(enemyExplosion, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }
-
-
 }

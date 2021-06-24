@@ -98,6 +98,7 @@ public class TitleScreenManager : MonoBehaviour
 
         PlayerPrefs.SetInt("GRUNGE_SFX_ENABLED", state);
         mixer.SetFloat("SFXVolume", volume);
+        mixer.SetFloat("PrioritySFXVolume", volume);
     }
 
 

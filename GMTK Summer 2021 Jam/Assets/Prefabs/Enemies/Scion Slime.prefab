@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6568547447933223884}
   - component: {fileID: 6568547447933223885}
   - component: {fileID: 6568547447933223880}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Scion Slime
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     health: 40
+    maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4
     damage: 2
@@ -142,6 +143,7 @@ MonoBehaviour:
     movementAccuracy: 0.15
     animationWalkSpeedMultiplier: 0.5
     animationPrefix: 
+    useDirctionalAnimation: 0
   noticedPlayer: 0
   gooDrops:
   - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
@@ -173,7 +175,7 @@ GameObject:
   - component: {fileID: 6568547448361383852}
   - component: {fileID: 6568547448361383849}
   - component: {fileID: 6568547448361383855}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: EnemyShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +234,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2093650171
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0cec9fdebd8864444b1576583f6b8be9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -272,7 +274,7 @@ GameObject:
   - component: {fileID: 6568547448704091501}
   - component: {fileID: 6568547448704091491}
   - component: {fileID: 6568547448704091490}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

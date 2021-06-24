@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4748280607168742437}
   - component: {fileID: 4748280607168742439}
   - component: {fileID: 4748280607168742616}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 4748280607957365525}
   - component: {fileID: 4748280607957365526}
   - component: {fileID: 6913040109097448609}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Greenhead
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -222,6 +222,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     health: 30
+    maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4
     damage: 6
@@ -234,6 +235,7 @@ MonoBehaviour:
     movementAccuracy: 0.5
     animationWalkSpeedMultiplier: 0.5
     animationPrefix: Greenhead
+    useDirctionalAnimation: 1
   noticedPlayer: 0
   gooDrops:
   - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}

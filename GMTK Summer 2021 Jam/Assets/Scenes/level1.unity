@@ -10288,6 +10288,8 @@ MonoBehaviour:
   - {fileID: 367854330}
   spawnPointsUseAnimation: 010100
   spawner: {fileID: 447210132431672466, guid: d7c18ef7817c46b47bd1aa5bda1fbb1c, type: 3}
+  useLoopPath: 0
+  dontRandomizeDirection: 0
   spawnEndlessly: 0
   currentWave: 0
 --- !u!4 &790483375 stripped
@@ -69757,6 +69759,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8795129235089351262, guid: af3b070ce755e0340acbb957102e96c4,
+        type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 8300000, guid: 843f02d1ee4baed489f892efb3af8a6c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af3b070ce755e0340acbb957102e96c4, type: 3}
 --- !u!1001 &9121030493771203767

@@ -19,7 +19,7 @@ public class FullscreenSwitch : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F4))
         {
-            SetFullscreenMode(!Screen.fullScreen);
+            SetFullscreenMode(Screen.fullScreen);
         }
     }
 

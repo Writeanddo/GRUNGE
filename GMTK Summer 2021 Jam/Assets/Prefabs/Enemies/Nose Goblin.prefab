@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7477351445364521396}
   - component: {fileID: 8777980569031015936}
   - component: {fileID: 7477351445364521394}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Nose Goblin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -110,7 +110,11 @@ MonoBehaviour:
   handOffsetWhenHeld: {x: 0, y: 1}
   isHeld: 0
   isBeingThrown: 0
+  damagedSprite: {fileID: 0}
+  propFragments: []
+  propGib: {fileID: 0}
   rb: {fileID: 0}
+  hitsTaken: 0
 --- !u!114 &7477351445364521394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +129,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats:
     health: 40
+    maxHealth: 0
+    overrideDeath: 0
     currentShieldValue: 4
     damage: 0
     pathSpeedMultiplier: 1
@@ -136,6 +142,7 @@ MonoBehaviour:
     movementAccuracy: 0.25
     animationWalkSpeedMultiplier: 0.5
     animationPrefix: Nose
+    useDirctionalAnimation: 1
   noticedPlayer: 0
   gooDrops:
   - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
@@ -170,7 +177,7 @@ GameObject:
   - component: {fileID: 7477351445716749958}
   - component: {fileID: 7477351445716749952}
   - component: {fileID: 7477351445716749953}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

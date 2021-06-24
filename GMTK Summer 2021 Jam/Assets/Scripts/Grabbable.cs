@@ -137,7 +137,7 @@ public class Grabbable : MonoBehaviour
             if (collision.tag == "Wall" && !isProp)
             {
                 int damage = Mathf.RoundToInt(baseDamageUponHitting * Mathf.Clamp(rb.velocity.magnitude / 5, 1, 2.5f) * damageMultiplier);
-                thisEnemy.ReceiveDamage(damage / 3);
+                thisEnemy.ReceiveDamage(Mathf.RoundToInt(thisEnemy.stats.maxHealth/3f + 1));
             }
         }
     }
