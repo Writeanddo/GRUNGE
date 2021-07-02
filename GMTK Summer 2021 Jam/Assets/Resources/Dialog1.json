@@ -1,0 +1,32 @@
+{
+    "Items": [
+        {
+            "id": "",
+            "dialog": [
+                "GLAD YOU'RE HERE, SON.\\I GOT SOME BAD NEWS..."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "",
+            "dialog": [
+                "MORE GREEN FUCKERS?"
+            ],
+            "portraitIndex": 0
+        },
+        {
+            "id": "",
+            "dialog": [
+                "YEAH"
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "",
+            "dialog": [
+                "ORANGE I GLAD YOU\\SAID THAT..."
+            ],
+            "portraitIndex": 0
+        }
+    ]
+}

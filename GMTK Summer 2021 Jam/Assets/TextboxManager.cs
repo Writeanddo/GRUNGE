@@ -6,13 +6,18 @@ using UnityEngine.UI;
 
 public class TextboxManager : MonoBehaviour
 {
-    public class DialogLines
+    [System.Serializable]
+    public class TextData
     {
-        public string[] lines;
+        public string id; // Used so we can find next TextData in the event of multiple choices
+        public string[] dialog;
+        public int portraitIndex;
     }
 
+    public TextData[] t;
+
     public string[] testLines;
-    public Sprite[] testPortraitFrames;
+    public Sprite[] portraitFrames;
 
     GameManager gm;
 
@@ -30,32 +35,41 @@ public class TextboxManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-            StartCoroutine(PrintText(testLines));
 
     }
 
-    public IEnumerator PrintText(string[] lines)
+    public IEnumerator PrintAllText(TextData[] texts)
     {
-        for(int i = 0; i < lines.Length; i++)
+        foreach (TextData t in texts)
         {
-            string line = InsertLineBreaks(lines[i]);
-            for(int j = 0; j < lines[i].Length; j++)
+            for (int i = 0; i < t.dialog.Length; i++)
             {
-                if(j % 4 == 0)
+                string line = InsertLineBreaks(t.dialog[i]);
+                for (int j = 0; j < t.dialog[i].Length; j++)
                 {
-                    dialogPortrait.sprite = testPortraitFrames[1];
-                    gm.PlaySFXStoppable(gm.generalSfx[11], Random.Range(0.8f, 1.2f));
-                }
-                else if(j % 2 == 0)
-                    dialogPortrait.sprite = testPortraitFrames[0];
+                    if (j % 4 == 0)
+                    {
+                        dialogPortrait.sprite = portraitFrames[t.portraitIndex + 1];
+                        gm.PlaySFXStoppable(gm.generalSfx[11], Random.Range(0.5f, 0.8f));
+                    }
+                    else if (j % 2 == 0)
+                        dialogPortrait.sprite = portraitFrames[t.portraitIndex];
 
-                dialogText.text = line.Substring(0, j+1);
-                yield return new WaitForSeconds(0.025f);
+                    dialogText.text = line.Substring(0, j + 1);
+                    yield return new WaitForSeconds(0.025f);
+                }
+                dialogPortrait.sprite = portraitFrames[t.portraitIndex];
+                dialogText.text = line;
+
+                yield return WaitForKeyPress();
             }
-            dialogText.text = line;
         }
-        dialogPortrait.sprite = testPortraitFrames[0];
+    }
+
+    IEnumerator WaitForKeyPress()
+    {
+        while (!Input.GetKeyDown(KeyCode.E))
+            yield return null;
     }
 
     string InsertLineBreaks(string s)

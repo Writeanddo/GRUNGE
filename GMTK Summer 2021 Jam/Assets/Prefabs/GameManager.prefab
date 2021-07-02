@@ -338,11 +338,11 @@ RectTransform:
   - {fileID: 6519487169261766234}
   - {fileID: 3100648889352402732}
   m_Father: {fileID: 7262442417274492914}
-  m_RootOrder: 5
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -480}
+  m_AnchoredPosition: {x: 0, y: -216}
   m_SizeDelta: {x: 580, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3606792732124900373
@@ -394,11 +394,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a8b9e14cc57ec449c7d9700cc3317c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  t: []
   testLines:
   - HEY ASSHOLE, IT'S 1980.\CAN'T YOU AFFORD A\FUCKIN' HAIRCUT?
-  testPortraitFrames:
-  - {fileID: -3084291806762416681, guid: 0cdf92412fe0e764da8bad2fc66f0888, type: 3}
-  - {fileID: 1792422814880587619, guid: 0cdf92412fe0e764da8bad2fc66f0888, type: 3}
+  portraitFrames:
+  - {fileID: 699703873648253923, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
+  - {fileID: 8558633213039616950, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
+  - {fileID: 2434629766918126224, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
+  - {fileID: -7737748710114358818, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
 --- !u!1 &6112384528678839096
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,11 +661,11 @@ RectTransform:
   m_LocalScale: {x: 0.0625, y: 0.0625, z: 1}
   m_Children:
   - {fileID: 8089252921673140563}
+  - {fileID: 287939006819211818}
   - {fileID: 7262442418021593640}
   - {fileID: 7262442418518465371}
   - {fileID: 7262442417749700768}
   - {fileID: 7262442418219993999}
-  - {fileID: 287939006819211818}
   m_Father: {fileID: 7262442418920225392}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1272,7 +1275,7 @@ RectTransform:
   - {fileID: 3448295962726120951}
   - {fileID: 7262442418791154403}
   m_Father: {fileID: 7262442417274492914}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
@@ -1630,7 +1633,7 @@ RectTransform:
   - {fileID: 7262442417273161351}
   - {fileID: 7262442417380814745}
   m_Father: {fileID: 7262442417274492914}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1783,7 +1786,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7262442417274492914}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2176,7 +2179,7 @@ RectTransform:
   - {fileID: 7262442417770735358}
   - {fileID: 7262442418900407116}
   m_Father: {fileID: 7262442417274492914}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
@@ -2992,6 +2995,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b3bee18a67ca3b24ab4844a6b7af254c, type: 3}
   - {fileID: 8300000, guid: 1f78d507be010bf44a2d5c09b74df36a, type: 3}
   - {fileID: 8300000, guid: 13c1e8249f71d7e458a797e652ae9d2e, type: 3}
+  - {fileID: 8300000, guid: 3fdc4ee6f9d7b2748a722df58c0e02fa, type: 3}
   playerSfx:
   - {fileID: 8300000, guid: 490fbd67b2e5a4b4d94fedc170680407, type: 3}
   - {fileID: 8300000, guid: d71a84ee7cd51e942ad5ae0a4b6f8eed, type: 3}
