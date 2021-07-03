@@ -16,6 +16,14 @@ public class PlayerController : MonoBehaviour
         public int rocketGooUsage = 15;
     }
 
+    [System.Serializable]
+    public class GunFrames
+    {
+        public Sprite[] standardFrames;
+        public Sprite[] shotgunFrames;
+        public Sprite[] scytheFrames;
+    }
+
     public PlayerStats stats;
     public GameObject projectile;
 
