@@ -22,6 +22,7 @@ public class TextboxManager : MonoBehaviour
     GameManager gm;
 
     Text dialogText;
+    RectTransform textbox;
     Image dialogPortrait;
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class TextboxManager : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
         dialogPortrait = transform.GetChild(0).GetComponent<Image>();
         dialogText = transform.GetChild(1).GetComponent<Text>();
+        textbox = GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -40,6 +42,8 @@ public class TextboxManager : MonoBehaviour
 
     public IEnumerator PrintAllText(TextData[] texts)
     {
+        textbox.anchoredPosition = new Vector2(0, -240f);
+
         foreach (TextData t in texts)
         {
             for (int i = 0; i < t.dialog.Length; i++)
@@ -64,6 +68,8 @@ public class TextboxManager : MonoBehaviour
                 yield return WaitForKeyPress();
             }
         }
+
+        textbox.anchoredPosition = new Vector2(0, -500f);
     }
 
     IEnumerator WaitForKeyPress()
