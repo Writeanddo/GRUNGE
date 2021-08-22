@@ -14,14 +14,7 @@ public class PlayerController : MonoBehaviour
         public float speed;
         public float maxSpeed;
         public int rocketGooUsage = 15;
-    }
-
-    [System.Serializable]
-    public class GunFrames
-    {
-        public Sprite[] standardFrames;
-        public Sprite[] shotgunFrames;
-        public Sprite[] scytheFrames;
+        public int currentWeapon = 0; // 0 = gun, 1 = shotgun, 2 = scythe
     }
 
     public PlayerStats stats;
@@ -45,10 +38,13 @@ public class PlayerController : MonoBehaviour
     Transform handHolder;
     Transform hand;
     Animator anim;
+    Animator gunAnim;
     SpriteRenderer spr;
     GameManager gm;
     Rigidbody2D rb;
     HandGrabManager hgm;
+
+    Sprite[] currentWeaponFrames;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +54,7 @@ public class PlayerController : MonoBehaviour
         crosshair = transform.GetChild(1);
         gunTargetPos = anim.transform.GetChild(0);
         gun = anim.transform.GetChild(1);
+        gunAnim = gun.GetComponent<Animator>();
         handTargetPos = anim.transform.GetChild(2);
         handHolder = anim.transform.GetChild(3);
         hand = anim.transform.GetChild(3).GetChild(0);
@@ -106,14 +103,31 @@ public class PlayerController : MonoBehaviour
 
     void UpdateMovementAnimations()
     {
+        string dir = GetCompassDirection(AngleBetweenMouse());
         if (rb.velocity.magnitude < 0.5f)
-            CheckAndPlayClip("Player_Face" + GetCompassDirection(AngleBetweenMouse()));
+            CheckAndPlayClip("Player_Face" + dir);
         else
         {
             anim.SetFloat("WalkSpeed", rb.velocity.magnitude / 4);
-            CheckAndPlayClip("Player_Walk" + GetCompassDirection(AngleBetweenMouse()));
+            CheckAndPlayClip("Player_Walk" + dir);
         }
 
+        // Update weapon sprite
+        string gunPrefix = "";
+        switch (stats.currentWeapon)
+        {
+            case (0):
+                gunPrefix = "Gun";
+                break;
+            case (1):
+                gunPrefix = "Shotgun";
+                break;
+            case (2):
+                gunPrefix = "Scythe";
+                break;
+        }
+        CheckAndPlayClip(gunPrefix + "_" + dir, gunAnim);
+        
         // Grapple hand animations
         string animName = "";
         if (heldObject != null)
@@ -260,7 +274,7 @@ public class PlayerController : MonoBehaviour
     public void StunPlayer()
     {
         canLaunchHand = false;
-        
+
         speedMultiplier = 0.5f;
         StartCoroutine(WaitForStunCompletion());
     }
@@ -338,6 +352,14 @@ public class PlayerController : MonoBehaviour
         if (!anim.GetCurrentAnimatorStateInfo(0).IsName(clipName))
         {
             anim.Play(clipName);
+        }
+    }
+
+    public void CheckAndPlayClip(string clipName, Animator a)
+    {
+        if (!a.GetCurrentAnimatorStateInfo(0).IsName(clipName))
+        {
+            a.Play(clipName);
         }
     }
 }

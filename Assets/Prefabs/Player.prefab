@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9121030493131162185}
   - component: {fileID: 9121030493131162184}
+  - component: {fileID: 4115518811754817448}
   m_Layer: 9
   m_Name: GunSprite
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9121030493131162186}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.855, y: -0.192, z: 0}
+  m_LocalPosition: {x: -1.855, y: -0.19200039, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9121030493825959010}
@@ -82,6 +83,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4115518811754817448
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9121030493131162186}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7c0338a2114185a4682c6a2d3708596b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &9121030493268486031
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +239,7 @@ MonoBehaviour:
     speed: 0
     maxSpeed: 7
     rocketGooUsage: 30
+    currentWeapon: 0
   projectile: {fileID: 2212254252654720857, guid: 024b5b23e72620a4aa51499ab9b6f292,
     type: 3}
   canMove: 0
@@ -619,6 +640,7 @@ GameObject:
   - component: {fileID: 9121030495241234677}
   - component: {fileID: 9121030495241234676}
   - component: {fileID: 9121030495241234675}
+  - component: {fileID: 7788770852388171299}
   m_Layer: 9
   m_Name: HandSprite
   m_TagString: Untagged
@@ -753,3 +775,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7788770852388171299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9121030495241234569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc40aee771829a4a99c17fb6d97ba2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnClones: 1
+  ClonesPerSecond: 10
+  colorPerSecond: {r: 0.61667854, g: 0.7735849, b: 0.76284593, a: 0.7176471}

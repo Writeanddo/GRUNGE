@@ -3979,25 +3979,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9121030493282817287, guid: 9e81df25b679c3f499ab951836cfa433,
+    - target: {fileID: 7788770852388171299, guid: 9e81df25b679c3f499ab951836cfa433,
         type: 3}
-      propertyPath: stats.maxHealth
-      value: 1000
+      propertyPath: colorPerSecond.r
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9121030493282817287, guid: 9e81df25b679c3f499ab951836cfa433,
+    - target: {fileID: 7788770852388171299, guid: 9e81df25b679c3f499ab951836cfa433,
         type: 3}
-      propertyPath: stats.health
-      value: 1000
+      propertyPath: colorPerSecond.g
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9121030493282817287, guid: 9e81df25b679c3f499ab951836cfa433,
+    - target: {fileID: 7788770852388171299, guid: 9e81df25b679c3f499ab951836cfa433,
         type: 3}
-      propertyPath: stats.goo
-      value: 30
+      propertyPath: colorPerSecond.b
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7788770852388171299, guid: 9e81df25b679c3f499ab951836cfa433,
+        type: 3}
+      propertyPath: colorPerSecond.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788770852388171299, guid: 9e81df25b679c3f499ab951836cfa433,
+        type: 3}
+      propertyPath: spawnClones
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788770852388171299, guid: 9e81df25b679c3f499ab951836cfa433,
+        type: 3}
+      propertyPath: ClonesPerSecond
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121030493131162184, guid: 9e81df25b679c3f499ab951836cfa433,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1496922236697126485, guid: 5479c011ad473a945977678773bd88c4,
+        type: 3}
     - target: {fileID: 9121030493282817287, guid: 9e81df25b679c3f499ab951836cfa433,
         type: 3}
-      propertyPath: stats.rocketGooUsage
-      value: 30
+      propertyPath: stats.currentWeapon
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9121030493282817304, guid: 9e81df25b679c3f499ab951836cfa433,
         type: 3}

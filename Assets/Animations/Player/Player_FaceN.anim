@@ -54,7 +54,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: -1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -75,14 +75,6 @@ AnimationClip:
         type: 3}
     attribute: m_Sprite
     path: 
-    classID: 212
-    script: {fileID: 0}
-  - curve:
-    - time: 0
-      value: {fileID: -5737340078313841079, guid: 5479c011ad473a945977678773bd88c4,
-        type: 3}
-    attribute: m_Sprite
-    path: GunSprite
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -107,13 +99,6 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     - serializedVersion: 2
-      path: 3769694503
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-    - serializedVersion: 2
       path: 3394105504
       attribute: 1
       script: {fileID: 0}
@@ -129,7 +114,6 @@ AnimationClip:
       isPPtrCurve: 0
     pptrCurveMapping:
     - {fileID: 4032190252181751842, guid: 69c03b5e351442e499f621db477d878e, type: 3}
-    - {fileID: -5737340078313841079, guid: 5479c011ad473a945977678773bd88c4, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -213,7 +197,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: -1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103

@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1ae2bcd4a425c6042a99119bbc314f5f, type: 3}
-    totalSpriteSurfaceArea: 500259
+    totalSpriteSurfaceArea: 512803
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -443,6 +443,7 @@ SpriteAtlas:
   - {fileID: 4056803938672518282, guid: 8343d8b4001cb4448a2ad0c44c09530f, type: 3}
   - {fileID: 6407715336896436787, guid: 8343d8b4001cb4448a2ad0c44c09530f, type: 3}
   - {fileID: 21300000, guid: 96c48b0586bb0c8458d7b9c00123b636, type: 3}
+  - {fileID: 21300000, guid: 93745fa539e11424693974f7c210429e, type: 3}
   - {fileID: -7770091120359997003, guid: 14c344160aae8fa429943903e387d0b3, type: 3}
   - {fileID: -8477651118259729480, guid: 14c344160aae8fa429943903e387d0b3, type: 3}
   - {fileID: -8572504099769365126, guid: 14c344160aae8fa429943903e387d0b3, type: 3}
@@ -1371,6 +1372,7 @@ SpriteAtlas:
   - TutorialLevelTiles_9
   - TutorialLevelTiles_8
   - Barrel
+  - CabinTreesSides
   - TrapdoorOpen_3
   - TrapdoorOpen_2
   - TrapdoorOpen_1
