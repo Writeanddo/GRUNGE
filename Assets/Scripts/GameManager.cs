@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     AudioSource musicSource;
     AudioSource sfxSource;
     AudioSource stoppableSfxSource;
+    AudioSource priorityStoppableSfxSource;
     AudioSource gooSource;
     AudioSource prioritySfxSource; // Will duck volume on normal sound effects
     Animator shieldAnim;
@@ -43,6 +44,7 @@ public class GameManager : MonoBehaviour
     bool shieldExploding;
     int storedGooAmount;
     int storedHealthAmount;
+    int storedSfxPriority;
     Color gooColor;
     Color healthColor;
 
@@ -65,6 +67,7 @@ public class GameManager : MonoBehaviour
         musicSource = GameObject.Find("GameMusic").GetComponent<AudioSource>();
         gooSource = GameObject.Find("GameGooPickupSFX").GetComponent<AudioSource>();
         prioritySfxSource = GameObject.Find("GamePrioritySFX").GetComponent<AudioSource>();
+        priorityStoppableSfxSource= GameObject.Find("GamePriorityStoppableSFX").GetComponent<AudioSource>();
         shieldAnim = GameObject.Find("ShieldImage").GetComponent<Animator>();
         gooSliderText = GameObject.Find("GooSliderNumber").GetComponent<Text>();
 
@@ -106,8 +109,8 @@ public class GameManager : MonoBehaviour
             {
                 if (ply.stats.goo >= 30 && storedGooAmount < 30)
                     PlayPrioritySFX(playerSfx[6]);
-                //if (ply.stats.goo >= 50 && storedGooAmount < 50)
-                    //PlaySFX(playerSfx[7]);
+                if (ply.stats.goo >= 50 && storedGooAmount < 50)
+                    PlaySFX(playerSfx[7]);
 
                 gooFill.color = new Color(0, 0.75f, 0);
             }
@@ -204,6 +207,13 @@ public class GameManager : MonoBehaviour
         stoppableSfxSource.Stop();
         stoppableSfxSource.pitch = pitch;
         stoppableSfxSource.PlayOneShot(clip);
+    }
+
+    public void PlaySFXStoppablePriority(AudioClip clip, float pitch)
+    {
+        priorityStoppableSfxSource.Stop();
+        priorityStoppableSfxSource.pitch = pitch;
+        priorityStoppableSfxSource.PlayOneShot(clip);
     }
 
     public void PlayGooSFX(AudioClip clip)

@@ -20342,6 +20342,8 @@ MonoBehaviour:
   - {fileID: 0}
   spawnPointsUseAnimation: 010100
   spawner: {fileID: 447210132431672466, guid: d7c18ef7817c46b47bd1aa5bda1fbb1c, type: 3}
+  useLoopPath: 0
+  dontRandomizeDirection: 0
   spawnEndlessly: 0
   currentWave: 0
 --- !u!1001 &762198396
@@ -116301,28 +116303,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7203540109162291164, guid: 76fca0ea2bb93354c866641019b43477,
         type: 3}
-      propertyPath: stats.pathSpeedMultiplier
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7203540109162291164, guid: 76fca0ea2bb93354c866641019b43477,
-        type: 3}
-      propertyPath: stats.noticedSpeedMultiplier
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7203540109162291164, guid: 76fca0ea2bb93354c866641019b43477,
-        type: 3}
-      propertyPath: stats.damageCooldown
-      value: 300
+      propertyPath: noticedPlayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7203540109162291166, guid: 76fca0ea2bb93354c866641019b43477,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -71.85237
+      value: -1.85
       objectReference: {fileID: 0}
     - target: {fileID: 7203540109162291166, guid: 76fca0ea2bb93354c866641019b43477,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.07644
+      value: 12.33
       objectReference: {fileID: 0}
     - target: {fileID: 7203540109162291166, guid: 76fca0ea2bb93354c866641019b43477,
         type: 3}
@@ -116902,6 +116894,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9121030493282817287, guid: 9e81df25b679c3f499ab951836cfa433,
+        type: 3}
+      propertyPath: stats.currentWeapon
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9121030493282817304, guid: 9e81df25b679c3f499ab951836cfa433,
         type: 3}
       propertyPath: m_LocalPosition.x

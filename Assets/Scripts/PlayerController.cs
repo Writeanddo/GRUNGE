@@ -215,9 +215,9 @@ public class PlayerController : MonoBehaviour
         siphoningHealth = false;
     }
 
-    IEnumerator WaitForGunReload()
+    IEnumerator WaitForGunReload(float time)
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(time);
         reloading = false;
     }
 
@@ -295,16 +295,34 @@ public class PlayerController : MonoBehaviour
 
     void FireGun()
     {
-        gm.PlaySFX(gm.playerSfx[5]);
-        gm.ScreenShake(3f);
-        Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
-        gun.transform.position -= offset;
-        Instantiate(projectile, gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse() + 90));
-        reloading = true;
+        if (stats.currentWeapon == 0)
+        {
+            gm.PlaySFX(gm.playerSfx[5]);
+            gm.ScreenShake(3f);
+            Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
+            gun.transform.position -= offset;
+            Instantiate(projectile, gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse() + 90));
+            reloading = true;
 
-        stats.goo -= stats.rocketGooUsage;
+            stats.goo -= stats.rocketGooUsage;
 
-        StartCoroutine(WaitForGunReload());
+            StartCoroutine(WaitForGunReload(0.3f));
+        }
+        else if(stats.currentWeapon == 1)
+        {
+            gm.PlaySFX(gm.playerSfx[8]);
+            gm.ScreenShake(3f);
+            Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
+            gun.transform.position -= offset;
+            Instantiate(projectile, gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse() + 70));
+            Instantiate(projectile, gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse() + 90));
+            Instantiate(projectile, gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse() + 110));
+            reloading = true;
+
+            stats.goo -= Mathf.RoundToInt(stats.rocketGooUsage * 1.33f);
+
+            StartCoroutine(WaitForGunReload(1.33f));
+        }
     }
 
     string GetCompassDirection(float angle)

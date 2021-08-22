@@ -16,7 +16,7 @@ public class ExplosionManager : MonoBehaviour
 
     IEnumerator Explode()
     {
-        gm.PlaySFX(explosionSound);
+        gm.PlaySFXStoppablePriority(explosionSound, 1);
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 3);
         gm.ScreenShake(6);
 
