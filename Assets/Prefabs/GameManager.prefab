@@ -1449,7 +1449,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 7262442417818397187}
   m_HandleRect: {fileID: 0}
@@ -2353,7 +2353,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 7262442418258960662}
   m_HandleRect: {fileID: 0}
@@ -3060,6 +3060,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   overridePosition: 0
+  minX: -Infinity
+  maxX: Infinity
+  minY: -Infinity
+  maxY: Infinity
 --- !u!1 &8795129235089351260
 GameObject:
   m_ObjectHideFlags: 0
@@ -3122,7 +3126,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c5bc84fe046e46248a074f6021a1b506, type: 3}
   - {fileID: 8300000, guid: c5bc84fe046e46248a074f6021a1b506, type: 3}
   - {fileID: 8300000, guid: b3bee18a67ca3b24ab4844a6b7af254c, type: 3}
-  - {fileID: 8300000, guid: 1f78d507be010bf44a2d5c09b74df36a, type: 3}
+  - {fileID: 8300000, guid: 2b65da6f8d9a4594e896699b8fd7869f, type: 3}
   - {fileID: 8300000, guid: 13c1e8249f71d7e458a797e652ae9d2e, type: 3}
   - {fileID: 8300000, guid: 3fdc4ee6f9d7b2748a722df58c0e02fa, type: 3}
   playerSfx:

@@ -319,7 +319,7 @@ public class PlayerController : MonoBehaviour
             Instantiate(projectile, gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse() + 110));
             reloading = true;
 
-            stats.goo -= Mathf.RoundToInt(stats.rocketGooUsage * 1.33f);
+            stats.goo -= stats.rocketGooUsage;
 
             StartCoroutine(WaitForGunReload(1.33f));
         }

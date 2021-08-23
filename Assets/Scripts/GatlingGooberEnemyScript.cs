@@ -43,13 +43,17 @@ public class GatlingGooberEnemyScript : EnemyScript
 
     public IEnumerator LaunchProjectile()
     {
-        gm.PlaySFX(gm.generalSfx[10]);
-        Instantiate(projectile, handPositions[0].position, Quaternion.identity);
-        rb.velocity = (transform.position - ply.transform.position).normalized * 1.5f;
-        yield return new WaitForSeconds(0.8f);
-        gm.PlaySFX(gm.generalSfx[10]);
-        Instantiate(projectile, handPositions[1].position, Quaternion.identity);
-        rb.velocity = (transform.position - ply.transform.position).normalized * 1.5f;
+        for (int i = 0; i < 3; i++)
+        {
+            gm.PlaySFX(gm.generalSfx[10]);
+            Instantiate(projectile, handPositions[0].position, Quaternion.identity);
+            rb.velocity = (transform.position - ply.transform.position).normalized * 3f;
+            yield return new WaitForSeconds(0.25f);
+            gm.PlaySFX(gm.generalSfx[10]);
+            Instantiate(projectile, handPositions[1].position, Quaternion.identity);
+            rb.velocity = (transform.position - ply.transform.position).normalized * 3f;
+            yield return new WaitForSeconds(0.75f);
+        }
         StartCoroutine(Reload());
     }
 

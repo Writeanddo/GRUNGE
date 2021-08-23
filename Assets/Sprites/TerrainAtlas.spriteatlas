@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1ae2bcd4a425c6042a99119bbc314f5f, type: 3}
-    totalSpriteSurfaceArea: 512803
+    totalSpriteSurfaceArea: 520540
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -443,13 +443,45 @@ SpriteAtlas:
   - {fileID: 4056803938672518282, guid: 8343d8b4001cb4448a2ad0c44c09530f, type: 3}
   - {fileID: 6407715336896436787, guid: 8343d8b4001cb4448a2ad0c44c09530f, type: 3}
   - {fileID: 21300000, guid: 96c48b0586bb0c8458d7b9c00123b636, type: 3}
-  - {fileID: 21300000, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 2908678208949757914, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 8628598262483682650, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 4060560010441085663, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 6363105795862922204, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: -877038440233237337, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: -2284716830858284068, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: -3339371997436227200, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 957730260917568509, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: -8796931848467556867, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 2575845313660660814, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: -6338784799899187787, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: -7187193282954569899, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: -4068157187468788168, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 4350949151884246538, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: -2656584521920534726, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 8859346684601648009, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 5211631038222125606, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: -3837520505806876444, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 2303036141586300387, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 7905419268935968414, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 6636509241788760378, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 5978064953660435268, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 6810727439394322815, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: -4583710947390759819, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 8993523121981255966, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: -4117587613172987657, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: -7704121275747494523, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 4067463336795767125, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 4318293611804505253, guid: 93745fa539e11424693974f7c210429e, type: 3}
+  - {fileID: 6254256181197956149, guid: 93745fa539e11424693974f7c210429e, type: 3}
   - {fileID: -7770091120359997003, guid: 14c344160aae8fa429943903e387d0b3, type: 3}
   - {fileID: -8477651118259729480, guid: 14c344160aae8fa429943903e387d0b3, type: 3}
   - {fileID: -8572504099769365126, guid: 14c344160aae8fa429943903e387d0b3, type: 3}
   - {fileID: 8179980710929568556, guid: 14c344160aae8fa429943903e387d0b3, type: 3}
   - {fileID: 4066012589628592802, guid: 14c344160aae8fa429943903e387d0b3, type: 3}
   - {fileID: 21300000, guid: 80ddfef637c3bc84297870cde0b4fe21, type: 3}
+  - {fileID: -5146880458040057289, guid: a74f7617433e7ae4e964151604cbbe5f, type: 3}
+  - {fileID: -428431067453858579, guid: a74f7617433e7ae4e964151604cbbe5f, type: 3}
+  - {fileID: -8669780860867361269, guid: a74f7617433e7ae4e964151604cbbe5f, type: 3}
   - {fileID: -5634873241178432408, guid: 920eafc7e01c81442aa58014c4f28372, type: 3}
   - {fileID: 7936365139657483138, guid: 920eafc7e01c81442aa58014c4f28372, type: 3}
   - {fileID: 2016627593924171758, guid: 920eafc7e01c81442aa58014c4f28372, type: 3}
@@ -870,6 +902,10 @@ SpriteAtlas:
   - {fileID: 4935984790844978548, guid: 3cac7fdc91668784d9a2682fa2c0d1f7, type: 3}
   - {fileID: -5999534734459318484, guid: 3cac7fdc91668784d9a2682fa2c0d1f7, type: 3}
   - {fileID: 21300000, guid: 213be8ecdb7fac743acea50a10ad666a, type: 3}
+  - {fileID: 5373031420649265469, guid: c840f1fdb518556409da551bd85a7a2a, type: 3}
+  - {fileID: 6574852397808105471, guid: c840f1fdb518556409da551bd85a7a2a, type: 3}
+  - {fileID: -6821850564126308984, guid: c840f1fdb518556409da551bd85a7a2a, type: 3}
+  - {fileID: -8204207868216843037, guid: c840f1fdb518556409da551bd85a7a2a, type: 3}
   - {fileID: -4511022582461885634, guid: b840476e452969040a5429c42583d9db, type: 3}
   - {fileID: -6680297577629516926, guid: b840476e452969040a5429c42583d9db, type: 3}
   - {fileID: 7443728749944611628, guid: b840476e452969040a5429c42583d9db, type: 3}
@@ -1372,13 +1408,45 @@ SpriteAtlas:
   - TutorialLevelTiles_9
   - TutorialLevelTiles_8
   - Barrel
-  - CabinTreesSides
+  - CabinTreesSides_15
+  - CabinTreesSides_14
+  - CabinTreesSides_17
+  - CabinTreesSides_16
+  - CabinTreesSides_11
+  - CabinTreesSides_10
+  - CabinTreesSides_13
+  - CabinTreesSides_12
+  - CabinTreesSides_19
+  - CabinTreesSides_18
+  - CabinTreesSides_6
+  - CabinTreesSides_7
+  - CabinTreesSides_4
+  - CabinTreesSides_5
+  - CabinTreesSides_2
+  - CabinTreesSides_3
+  - CabinTreesSides_0
+  - CabinTreesSides_1
+  - CabinTreesSides_8
+  - CabinTreesSides_9
+  - CabinTreesSides_28
+  - CabinTreesSides_29
+  - CabinTreesSides_24
+  - CabinTreesSides_25
+  - CabinTreesSides_26
+  - CabinTreesSides_27
+  - CabinTreesSides_20
+  - CabinTreesSides_21
+  - CabinTreesSides_22
+  - CabinTreesSides_23
   - TrapdoorOpen_3
   - TrapdoorOpen_2
   - TrapdoorOpen_1
   - TrapdoorOpen_0
   - TrapdoorOpen_4
   - CabinTrees
+  - CabinStumps_2
+  - CabinStumps_1
+  - CabinStumps_0
   - Level3Props_4
   - Level3Props_1
   - Level3Props_0
@@ -1799,6 +1867,10 @@ SpriteAtlas:
   - Boss_2
   - Boss_4
   - RockingChair
+  - CabinTreesSides 1_3
+  - CabinTreesSides 1_2
+  - CabinTreesSides 1_1
+  - CabinTreesSides 1_0
   - TutorialLevelTiles2_30
   - TutorialLevelTiles2_31
   - TutorialLevelTiles2_32

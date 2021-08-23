@@ -1,0 +1,314 @@
+fileFormatVersion: 2
+guid: c840f1fdb518556409da551bd85a7a2a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5211631038222125606
+    second: CabinTreesSides_0
+  - first:
+      213: -3837520505806876444
+    second: CabinTreesSides_1
+  - first:
+      213: -2656584521920534726
+    second: CabinTreesSides_2
+  - first:
+      213: 8859346684601648009
+    second: CabinTreesSides_3
+  - first:
+      213: -4068157187468788168
+    second: CabinTreesSides_4
+  - first:
+      213: 4350949151884246538
+    second: CabinTreesSides_5
+  - first:
+      213: -6338784799899187787
+    second: CabinTreesSides_6
+  - first:
+      213: -7187193282954569899
+    second: CabinTreesSides_7
+  - first:
+      213: 2303036141586300387
+    second: CabinTreesSides_8
+  - first:
+      213: 7905419268935968414
+    second: CabinTreesSides_9
+  - first:
+      213: -2284716830858284068
+    second: CabinTreesSides_10
+  - first:
+      213: -877038440233237337
+    second: CabinTreesSides_11
+  - first:
+      213: 957730260917568509
+    second: CabinTreesSides_12
+  - first:
+      213: -3339371997436227200
+    second: CabinTreesSides_13
+  - first:
+      213: 8628598262483682650
+    second: CabinTreesSides_14
+  - first:
+      213: 2908678208949757914
+    second: CabinTreesSides_15
+  - first:
+      213: 6363105795862922204
+    second: CabinTreesSides_16
+  - first:
+      213: 4060560010441085663
+    second: CabinTreesSides_17
+  - first:
+      213: 2575845313660660814
+    second: CabinTreesSides_18
+  - first:
+      213: -8796931848467556867
+    second: CabinTreesSides_19
+  - first:
+      213: -7704121275747494523
+    second: CabinTreesSides_20
+  - first:
+      213: 4067463336795767125
+    second: CabinTreesSides_21
+  - first:
+      213: 4318293611804505253
+    second: CabinTreesSides_22
+  - first:
+      213: 6254256181197956149
+    second: CabinTreesSides_23
+  - first:
+      213: 6810727439394322815
+    second: CabinTreesSides_24
+  - first:
+      213: -4583710947390759819
+    second: CabinTreesSides_25
+  - first:
+      213: 8993523121981255966
+    second: CabinTreesSides_26
+  - first:
+      213: -4117587613172987657
+    second: CabinTreesSides_27
+  - first:
+      213: 6636509241788760378
+    second: CabinTreesSides_28
+  - first:
+      213: 5978064953660435268
+    second: CabinTreesSides_29
+  - first:
+      213: -8204207868216843037
+    second: CabinTreesSides 1_0
+  - first:
+      213: -6821850564126308984
+    second: CabinTreesSides 1_1
+  - first:
+      213: 6574852397808105471
+    second: CabinTreesSides 1_2
+  - first:
+      213: 5373031420649265469
+    second: CabinTreesSides 1_3
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CabinTreesSides 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 48
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e4687f596cc42e80800000000000000
+      internalID: -8204207868216843037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CabinTreesSides 1_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 30
+        width: 42
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 885047e3e0be351a0800000000000000
+      internalID: -6821850564126308984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CabinTreesSides 1_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff73af5bb619e3b50800000000000000
+      internalID: 6574852397808105471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CabinTreesSides 1_3
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 0
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d39dfca0c97d09a40800000000000000
+      internalID: 5373031420649265469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
