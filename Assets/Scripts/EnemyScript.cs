@@ -256,7 +256,7 @@ public abstract class EnemyScript : MonoBehaviour
         if (noticedPlayer)
             scanDistance = 25;
 
-        Debug.DrawRay(transform.position, dir * scanDistance, Color.red, Time.deltaTime);
+        //Debug.DrawRay(transform.position, dir * scanDistance, Color.red, Time.deltaTime);
         RaycastHit2D hit = Physics2D.CircleCast(transform.position, 1, dir, scanDistance);
         if (hit)
         {

@@ -22,6 +22,12 @@ public class DynamicSpriteSort : MonoBehaviour
         player = FindObjectOfType<PlayerController>().transform;
         spr = GetComponent<SpriteRenderer>();
         tile = GetComponent<TilemapRenderer>();
+
+        if(minLayer == 0 && maxLayer == 0)
+        {
+            minLayer = -1000;
+            maxLayer = 1000;
+        }
     }
 
     // Update is called once per frame

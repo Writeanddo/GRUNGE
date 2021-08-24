@@ -362,6 +362,8 @@ MonoBehaviour:
   useParentPosition: 0
   sortMultiplier: 1
   yOffset: 0
+  minLayer: -1000
+  maxLayer: 1000
 --- !u!114 &6568547448704091491
 MonoBehaviour:
   m_ObjectHideFlags: 0

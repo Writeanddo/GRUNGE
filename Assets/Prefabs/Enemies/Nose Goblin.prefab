@@ -265,6 +265,8 @@ MonoBehaviour:
   useParentPosition: 0
   sortMultiplier: 1
   yOffset: 0
+  minLayer: -1000
+  maxLayer: 1000
 --- !u!95 &7477351445716749952
 Animator:
   serializedVersion: 3

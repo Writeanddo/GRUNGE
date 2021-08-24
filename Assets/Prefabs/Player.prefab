@@ -727,6 +727,8 @@ MonoBehaviour:
   useParentPosition: 1
   sortMultiplier: 2
   yOffset: 0
+  minLayer: -1000
+  maxLayer: 1000
 --- !u!58 &9121030495241234677
 CircleCollider2D:
   m_ObjectHideFlags: 0

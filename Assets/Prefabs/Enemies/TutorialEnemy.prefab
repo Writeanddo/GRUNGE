@@ -98,6 +98,8 @@ MonoBehaviour:
   useParentPosition: 0
   sortMultiplier: 1
   yOffset: 0
+  minLayer: -1000
+  maxLayer: 1000
 --- !u!1 &3796603764674773064
 GameObject:
   m_ObjectHideFlags: 0

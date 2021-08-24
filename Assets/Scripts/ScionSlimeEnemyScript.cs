@@ -11,8 +11,6 @@ public class ScionSlimeEnemyScript : EnemyScript
     void Start()
     {
         GetReferences();
-        rechargingAttack = true;
-        StartCoroutine(Reload());
     }
 
     public override void UpdateMovement()

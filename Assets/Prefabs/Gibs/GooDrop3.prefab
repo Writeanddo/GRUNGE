@@ -103,6 +103,8 @@ MonoBehaviour:
   useParentPosition: 0
   sortMultiplier: 1
   yOffset: 0
+  minLayer: -1000
+  maxLayer: 1000
 --- !u!50 &3660314827033038997
 Rigidbody2D:
   serializedVersion: 4
