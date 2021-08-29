@@ -439,6 +439,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8795129235089351262, guid: af3b070ce755e0340acbb957102e96c4,
+        type: 3}
+      propertyPath: musicStems.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8795129235089351262, guid: af3b070ce755e0340acbb957102e96c4,
+        type: 3}
+      propertyPath: musicStems.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1754cb3d0b4ef0e48b1c3d487fc1164f, type: 3}
+    - target: {fileID: 8795129235089351262, guid: af3b070ce755e0340acbb957102e96c4,
+        type: 3}
+      propertyPath: musicStems.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 4ffddef39b6821d47b7ed5d0a7817fca, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af3b070ce755e0340acbb957102e96c4, type: 3}
 --- !u!20 &214431078 stripped

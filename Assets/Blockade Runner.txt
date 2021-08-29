@@ -1,0 +1,41 @@
+THEMES IN USE:
+-Visuals are monochromic (with one exception)
+-Control entire game with one button
+-
+
+
+IMPROVEMENTS:
+-Add "Click to focus window" before game starts
+
+
+
+SUMMARY:
+-Endless(?) auto-runner
+-Sidescrolling 2D
+-Press space to:
+ -Jump
+ -Jump off wall
+
+-Touching any wall other than red ones kills you
+-Touching spikes kills you
+-Checkpoints
+ -Goal: 10 checkpoints minimum
+-Elevator
+ -Reversers on both sides
+ -Stationary Death blocks / spikes as elevator goes up
+-Exploder
+ -Has sides you can jump off of, but explodes almost immediately after you jump on it
+ -Need to jump off quickly to avoid getting blown up
+
+-Final boss: Enemy tank
+ -Fires massive cannon at you
+ -Can dodge by following path downwards or following path upwards
+ -Gradually gain speed on it
+ -Detonate exploders in path of tank
+ -
+
+
+You are a courier enlisted in the war effort.
+The information you carry could spell disaster for your enemies...
+But they're onto you.
+With the clock counting down to armageddon, your one and only mission is clear: Get to da chopper.

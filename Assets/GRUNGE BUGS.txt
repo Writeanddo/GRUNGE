@@ -1,0 +1,7 @@
+GRUNGE BUGS + FIXES
+
+Goo drops and goo splats get stuck in walls regularly
+Should have sound play when hand shoots out
+Objects (vase, saw, etc) should play sound when they hit a wall or shatter
+Make goo regen over time (slowly)
+Improve scion slime bullet patterns

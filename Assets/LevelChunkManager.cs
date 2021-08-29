@@ -11,7 +11,7 @@ public class LevelChunkManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(ChunkPlacer());
+        PlaceNeighboringChunk();
     }
 
     IEnumerator ChunkPlacer()

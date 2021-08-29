@@ -67,7 +67,6 @@ public abstract class EnemyScript : MonoBehaviour
     {
         if (g.isHeld)
         {
-
             if (stats.useDirctionalAnimation)
             {
                 anim.SetFloat("WalkSpeed", 4);

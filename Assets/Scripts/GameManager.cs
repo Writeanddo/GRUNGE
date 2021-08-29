@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     RectTransform quitNo;
     EnemyScript heldEnemy;
     AudioSource musicSource;
+    AudioSource musicTrackDrums;
+    AudioSource musicTrackInstruments;
     AudioSource sfxSource;
     AudioSource stoppableSfxSource;
     AudioSource priorityStoppableSfxSource;
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
     public bool paused;
     public bool gameOver;
     public AudioClip music;
+    public AudioClip[] musicStems;
     public AudioClip[] generalSfx;
     public AudioClip[] playerSfx;
     public AudioClip[] gooPickupSounds;
@@ -65,6 +68,8 @@ public class GameManager : MonoBehaviour
         sfxSource = GameObject.Find("GameSFX").GetComponent<AudioSource>();
         stoppableSfxSource = GameObject.Find("GameStoppableSFX").GetComponent<AudioSource>();
         musicSource = GameObject.Find("GameMusic").GetComponent<AudioSource>();
+        musicTrackDrums = GameObject.Find("GameMusicTrackDrums").GetComponent<AudioSource>();
+        musicTrackInstruments = GameObject.Find("GameMusicTrackInstruments").GetComponent<AudioSource>();
         gooSource = GameObject.Find("GameGooPickupSFX").GetComponent<AudioSource>();
         prioritySfxSource = GameObject.Find("GamePrioritySFX").GetComponent<AudioSource>();
         priorityStoppableSfxSource= GameObject.Find("GamePriorityStoppableSFX").GetComponent<AudioSource>();
@@ -315,6 +320,14 @@ public class GameManager : MonoBehaviour
 
             t.GetComponent<EnemyScript>().UpdateMovement();
             FindObjectOfType<EnemyWaveManager>().StartWaves();
+        }
+        else if (levelName == "endless")
+        {
+            musicTrackDrums.clip = musicStems[0];
+            musicTrackInstruments.clip = musicStems[1];
+            musicTrackDrums.Play();
+            musicTrackInstruments.Play();
+            ply.canMove = true;
         }
         else
             ply.canMove = true;
