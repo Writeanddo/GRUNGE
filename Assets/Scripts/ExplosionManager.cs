@@ -31,6 +31,7 @@ public class ExplosionManager : MonoBehaviour
                 if (!e.stats.overrideDeath)
                     h.GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude(dir * 25 / distance * 3, 25);
                 int damage = Mathf.Clamp(Mathf.RoundToInt(1 / distance * 25), 0, damageMultiplier);
+                print("Distance: " + distance + ", Damage: " + damage);
                 h.GetComponent<EnemyScript>().ReceiveDamage(damage);
             }
         }

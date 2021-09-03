@@ -10,12 +10,13 @@ public class TitleScreenManager : MonoBehaviour
     public RectTransform[] menuScreens;
     public RectTransform kgScreen;
     public RectTransform quitButton;
-    int activeMenuScreen = 4;
+    int activeMenuScreen = 0;
     public AudioClip titleIntro;
     public AudioMixer mixer;
     AudioSource music;
     AudioSource sfx;
     Image blackout;
+    Transform cam;
     // 0: top menu
     // 1: level select
     // 2: options
@@ -31,6 +32,11 @@ public class TitleScreenManager : MonoBehaviour
     int sfxEnabled;
     int musicEnabled;
 
+    int camTargetPosition;
+
+
+    List<IEnumerator> activeButtonCoroutines;
+
     Toggle musicToggle;
     Toggle sfxToggle;
 
@@ -39,6 +45,7 @@ public class TitleScreenManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         music = GameObject.Find("Music").GetComponent<AudioSource>();
+        cam = FindObjectOfType<Camera>().transform;
         music.PlayOneShot(titleIntro);
         sfx = GameObject.Find("SFX").GetComponent<AudioSource>();
         blackout = GameObject.Find("ScreenBlackout").GetComponent<Image>();
@@ -104,6 +111,10 @@ public class TitleScreenManager : MonoBehaviour
 
     private void Update()
     {
+        if (activeMenuScreen == 0)
+            cam.transform.position = Vector2.Lerp(cam.transform.position, new Vector3(0, 0, -10), 0.025f);
+        else
+            cam.transform.position = Vector2.Lerp(cam.transform.position, new Vector3(75, 0, -10), 0.025f);
         /*if (activeMenuScreen == 3)
         {
             if (!lerpKG)
@@ -125,12 +136,14 @@ public class TitleScreenManager : MonoBehaviour
         }*/
     }
 
+
     public void SetMenuScreen(int level)
     {
         if (loadingGame)
             return;
 
         activeMenuScreen = level;
+        /*
         for (int i = 0; i < menuScreens.Length; i++)
         {
             if (i == activeMenuScreen)
@@ -139,7 +152,36 @@ public class TitleScreenManager : MonoBehaviour
             }
             else if (i != 0)
                 menuScreens[i].anchoredPosition = new Vector2(0, -1500);
+        }*/
+
+    }
+
+    IEnumerator MenuScreenTransition(MenuScreen from, MenuScreen to)
+    {
+        for(int i = 0; i < from.buttons.Length; i++)
+        {
+            if (i == from.activeButtonIndex)
+                continue;
+
+
         }
+        yield return null;
+
+
+    }
+
+    IEnumerator LerpButtonTowards(Transform button, bool active, Vector2 startPosition, Vector2 endPosition)
+    {
+        button.transform.position = startPosition;
+        while(Vector3.Distance(button.transform.position, endPosition) >= 0.05f)
+        {
+            button.transform.position = Vector2.Lerp(button.transform.position, endPosition, 0.1f);
+            yield return null;
+        }
+        button.transform.position = endPosition;
+
+        if (!active)
+            button.transform.position = new Vector2(0, -250);
     }
 
     public void ShowTopMenu()
