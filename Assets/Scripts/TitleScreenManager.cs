@@ -28,6 +28,7 @@ public class TitleScreenManager : MonoBehaviour
     bool kPressed;
     bool lerpKG;
     bool loadingGame;
+    public bool camArrived;
 
     int sfxEnabled;
     int musicEnabled;
@@ -52,6 +53,8 @@ public class TitleScreenManager : MonoBehaviour
         musicToggle = GameObject.Find("MusicToggle").GetComponent<Toggle>();
         sfxToggle = GameObject.Find("SFXToggle").GetComponent<Toggle>();
 
+        activeButtonCoroutines = new List<IEnumerator>();
+
         // First time setup
         if (!PlayerPrefs.HasKey("GRUNGE_SFX_ENABLED"))
         {
@@ -63,7 +66,7 @@ public class TitleScreenManager : MonoBehaviour
         musicEnabled = PlayerPrefs.GetInt("GRUNGE_MUSIC_ENABLED");
 
         if (sfxEnabled == 0)
-            sfxToggle.isOn = false;    
+            sfxToggle.isOn = false;
         if (musicEnabled == 0)
             musicToggle.isOn = false;
 
@@ -109,84 +112,125 @@ public class TitleScreenManager : MonoBehaviour
     }
 
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (activeMenuScreen == 0)
-            cam.transform.position = Vector2.Lerp(cam.transform.position, new Vector3(0, 0, -10), 0.025f);
-        else
-            cam.transform.position = Vector2.Lerp(cam.transform.position, new Vector3(75, 0, -10), 0.025f);
-        /*if (activeMenuScreen == 3)
         {
-            if (!lerpKG)
-            {
-                if (Input.GetKeyDown(KeyCode.K))
-                    kPressed = true;
-                else if (kPressed && Input.GetKeyDown(KeyCode.G))
-                    lerpKG = true;
-                else if (Input.anyKeyDown)
-                    kPressed = false;
-            }
-            else
-                kgScreen.anchoredPosition = Vector2.Lerp(kgScreen.anchoredPosition, new Vector2(-276f, 165f), 0.1f);
+            cam.transform.position = Vector2.Lerp(cam.transform.position, new Vector3(0, 0, -10), 0.3f);
+            camArrived = (Vector2.Distance(cam.transform.position, new Vector2(0, 0)) < 1);
         }
         else
         {
-            lerpKG = false;
-            kPressed = false;
-        }*/
+            cam.transform.position = Vector2.Lerp(cam.transform.position, new Vector3(75, 0, -10), 0.3f);
+            camArrived = (Vector2.Distance(cam.transform.position, new Vector2(75, 0)) < 1);
+        }
     }
 
-
-    public void SetMenuScreen(int level)
+    public IEnumerator MenuScreenButtonTransition(int nextScreen, int buttonToRemainOnNewScreen, MenuScreen from, MenuScreen to)
     {
-        if (loadingGame)
-            return;
+        RectTransform[] fromRects = new RectTransform[from.buttons.Length];
+        RectTransform[] toRects = new RectTransform[to.buttons.Length];
 
-        activeMenuScreen = level;
-        /*
-        for (int i = 0; i < menuScreens.Length; i++)
+        // Hide all irrelevant menu screens
+        for(int i = 0; i < menuScreens.Length; i++)
         {
-            if (i == activeMenuScreen)
+            if (menuScreens[i].gameObject == from.gameObject || menuScreens[i].gameObject == to.gameObject)
             {
-                menuScreens[i].anchoredPosition = Vector2.zero;
+                menuScreens[i].anchoredPosition = new Vector2(menuScreens[i].anchoredPosition.x, 0);
+                    continue;
             }
-            else if (i != 0)
-                menuScreens[i].anchoredPosition = new Vector2(0, -1500);
-        }*/
 
-    }
+            menuScreens[i].anchoredPosition = new Vector2(menuScreens[i].anchoredPosition.x, 1000);
+        }
 
-    IEnumerator MenuScreenTransition(MenuScreen from, MenuScreen to)
-    {
-        for(int i = 0; i < from.buttons.Length; i++)
+        // Disable all interactions from buttons
+        for(int i = 0; i < to.buttons.Length; i++)
         {
+            to.buttons[i].interactable = false;
+            toRects[i] = to.buttons[i].GetComponent<RectTransform>();
+        }
+        for (int i = 0; i < from.buttons.Length; i++)
+        {
+            from.buttons[i].interactable = false;
+            fromRects[i] = from.buttons[i].GetComponent<RectTransform>();
+        }
+
+        // Hide all buttons on 'to' screen except for specified one
+        for (int i = 0; i < to.buttons.Length; i++)
+            if (i != buttonToRemainOnNewScreen)
+                toRects[i].anchoredPosition = new Vector2(0, -10000);
+
+        // Prepare button lerp coroutines
+        activeButtonCoroutines = new List<IEnumerator>();
+        for (int i = 0; i < from.buttons.Length; i++)
+        {
+            // Skip the button we just clicked
             if (i == from.activeButtonIndex)
                 continue;
-
-
+            activeButtonCoroutines.Add(LerpButtonTowards(fromRects[i], false, fromRects[i].anchoredPosition, fromRects[i].anchoredPosition + new Vector2(from.moveAmount, 0)));
         }
-        yield return null;
 
+        // Start all button lerp coroutines except for one so we can track when they're finished
+        for (int i = 0; i < activeButtonCoroutines.Count - 1; i++)
+            StartCoroutine(activeButtonCoroutines[i]);
+
+        if (from.buttons.Length > 1)
+            yield return StartCoroutine(activeButtonCoroutines[activeButtonCoroutines.Count - 1]);
+        //yield return new WaitForSeconds(0.5f);
+
+        // Set the active screen so we can start moving the camera now
+        activeMenuScreen = nextScreen;
+        yield return new WaitForFixedUpdate();
+        yield return new WaitForFixedUpdate();
+
+        while (!camArrived)
+            yield return null;
+
+        // Lerp new screen buttons into view
+        activeButtonCoroutines.Clear();
+        for (int i = 0; i < to.buttons.Length; i++)
+        {
+            // Skip the button we just clicked
+            if (i == buttonToRemainOnNewScreen)
+                continue;
+            activeButtonCoroutines.Add(LerpButtonTowards(toRects[i], true, to.buttonsActivePosition[i] + new Vector2(to.moveAmount, 0), to.buttonsActivePosition[i]));
+        }
+
+        // Again, start all button lerp coroutines except for one so we can track when they're finished
+        for (int i = 0; i < activeButtonCoroutines.Count - 1; i++)
+            StartCoroutine(activeButtonCoroutines[i]);
+
+        if(to.buttons.Length > 1)
+            yield return StartCoroutine(activeButtonCoroutines[activeButtonCoroutines.Count - 1]);
+
+        // Enable all interactions from buttons
+        foreach (Button b in to.buttons)
+            b.interactable = true;
+        foreach (Button b in from.buttons)
+            b.interactable = true;
 
     }
 
-    IEnumerator LerpButtonTowards(Transform button, bool active, Vector2 startPosition, Vector2 endPosition)
+    IEnumerator LerpButtonTowards(RectTransform button, bool active, Vector3 startPosition, Vector3 endPosition)
     {
-        button.transform.position = startPosition;
-        while(Vector3.Distance(button.transform.position, endPosition) >= 0.05f)
+        startPosition = new Vector3(startPosition.x, startPosition.y, 0);
+        endPosition = new Vector3(endPosition.x, endPosition.y, 0);
+        button.anchoredPosition = startPosition;
+        while (Vector3.Distance(button.anchoredPosition, endPosition) >= 0.1f)
         {
-            button.transform.position = Vector2.Lerp(button.transform.position, endPosition, 0.1f);
-            yield return null;
+            button.anchoredPosition = Vector3.Lerp(button.anchoredPosition, endPosition, 0.4f);
+            yield return new WaitForFixedUpdate();
         }
-        button.transform.position = endPosition;
+        print("Finished moving button");
+        button.anchoredPosition = endPosition;
 
         if (!active)
-            button.transform.position = new Vector2(0, -250);
+            button.anchoredPosition = new Vector2(0, -10000);
     }
 
     public void ShowTopMenu()
     {
-        SetMenuScreen(0);
+        //SetMenuScreen(0);
     }
 
     public void StartGame()
