@@ -117058,6 +117058,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boogernaut
       objectReference: {fileID: 0}
+    - target: {fileID: 5948206160728454842, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5948206160728454843, guid: bcea7985f80783e45be8e61ad44ea633,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -117451,7 +117456,7 @@ PrefabInstance:
     - target: {fileID: 9121030493282817287, guid: 9e81df25b679c3f499ab951836cfa433,
         type: 3}
       propertyPath: stats.currentWeapon
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9121030493282817304, guid: 9e81df25b679c3f499ab951836cfa433,
         type: 3}

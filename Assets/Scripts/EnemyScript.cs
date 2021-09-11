@@ -171,8 +171,12 @@ public abstract class EnemyScript : MonoBehaviour
             if (currentNode == -1)
                 currentNode = GetNearestNode();
 
+            Vector2 dir = Vector2.zero;
+
             // Move towards nearest node
-            Vector2 dir = ((Vector2)waves.enemyPath[currentNode].transform.position - (Vector2)transform.position).normalized;
+            if(waves.enemyPath.Length > 0)
+                dir = ((Vector2)waves.enemyPath[currentNode].transform.position - (Vector2)transform.position).normalized;
+
             rb.velocity = Vector2.Lerp(rb.velocity, dir * randSpeedMultiplier * stats.pathSpeedMultiplier, stats.movementAccuracy);
             if (stats.useDirctionalAnimation)
                 CheckAndPlayClip(stats.animationPrefix + "_Walk" + GetCompassPointFromAngle(AngleBetween(waves.enemyPath[currentNode].position)));

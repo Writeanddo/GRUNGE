@@ -13,12 +13,12 @@ public class PlayerController : MonoBehaviour
         public int maxGoo;
         public float speed;
         public float maxSpeed;
-        public int rocketGooUsage = 15;
-        public int currentWeapon = 0; // 0 = gun, 1 = shotgun, 2 = scythe
+        public int shotGooUsage = 15;
+        public int currentWeapon = 0; // 0 = gun, 1 = shotgun, 2 = tommy gun, 3 = scythe
     }
 
     public PlayerStats stats;
-    public GameObject projectile;
+    public GameObject[] projectiles;
 
     public bool canMove;
     public bool isDying;
@@ -34,11 +34,14 @@ public class PlayerController : MonoBehaviour
     Transform crosshair;
     Transform gun;
     Transform gunTargetPos;
+    Transform gunTwoHandedTargetPos;
     Transform handTargetPos;
     Transform handHolder;
     Transform hand;
     Animator anim;
     Animator gunAnim;
+    Transform gunTwoHandedHolder;
+    Animator gunTwoHandedAnim;
     SpriteRenderer spr;
     GameManager gm;
     Rigidbody2D rb;
@@ -58,6 +61,9 @@ public class PlayerController : MonoBehaviour
         handTargetPos = anim.transform.GetChild(2);
         handHolder = anim.transform.GetChild(3);
         hand = anim.transform.GetChild(3).GetChild(0);
+        gunTwoHandedTargetPos = anim.transform.GetChild(4);
+        gunTwoHandedHolder = anim.transform.GetChild(5);
+        gunTwoHandedAnim = gunTwoHandedHolder.GetChild(0).GetComponent<Animator>();
 
         hgm = FindObjectOfType<HandGrabManager>();
         rb = GetComponent<Rigidbody2D>();
@@ -76,6 +82,8 @@ public class PlayerController : MonoBehaviour
         }
 
         gun.transform.position = Vector2.Lerp(gun.transform.position, gunTargetPos.position, 0.25f);
+        gunTwoHandedHolder.transform.position = Vector2.Lerp(gunTwoHandedHolder.transform.position, gunTwoHandedTargetPos.position, 0.25f);
+
         if (!handLaunched)
         {
             //Vector2.MoveTowards(handHolder.transform.position, handTargetPos.position, );
@@ -103,7 +111,7 @@ public class PlayerController : MonoBehaviour
 
     void UpdateMovementAnimations()
     {
-        string dir = GetCompassDirection(AngleBetweenMouse());
+        string dir = GetCompassDirection(AngleBetweenMouse(transform));
         if (rb.velocity.magnitude < 0.5f)
             CheckAndPlayClip("Player_Face" + dir);
         else
@@ -123,23 +131,36 @@ public class PlayerController : MonoBehaviour
                 gunPrefix = "Shotgun";
                 break;
             case (2):
+                gunPrefix = "MG";
+                break;
+            case (10):
                 gunPrefix = "Scythe";
                 break;
         }
-        CheckAndPlayClip(gunPrefix + "_" + dir, gunAnim);
-        
-        // Grapple hand animations
-        string animName = "";
-        if (heldObject != null)
-        {
-            animName = "Hand_HoldN";
-        }
-        else if (!handLaunched)
-        {
-            animName = "Hand_Face" + GetCompassDirectionFourDirectional(AngleBetweenMouse());
-        }
-        hgm.CheckAndPlayClip(animName);
 
+        // If current weapon index is 10 or greater, we're using a two-handed weapon
+        if (stats.currentWeapon >= 10)
+        {
+            hgm.CheckAndPlayClip("Blank");
+            CheckAndPlayClip("Blank", gunAnim);
+            CheckAndPlayClip(gunPrefix + "_" + dir, gunTwoHandedAnim);
+        }
+        else
+        {
+            CheckAndPlayClip(gunPrefix + "_" + dir, gunAnim);
+
+            // Grapple hand animations
+            string animName = "";
+            if (heldObject != null)
+            {
+                animName = "Hand_HoldN";
+            }
+            else if (!handLaunched)
+            {
+                animName = "Hand_Face" + GetCompassDirectionFourDirectional(AngleBetweenMouse(transform));
+            }
+            hgm.CheckAndPlayClip(animName);
+        }
     }
 
     void UpdateInputButtons()
@@ -148,9 +169,18 @@ public class PlayerController : MonoBehaviour
             return;
 
         // Shoot gun
-        if (Input.GetButton("Fire1") && !reloading && stats.goo >= stats.rocketGooUsage)
+        if (Input.GetButton("Fire1"))
         {
-            FireGun();
+            if(!reloading && stats.goo >= stats.shotGooUsage)
+                FireGun();
+        }
+
+        // Reload sound
+        if (Input.GetButtonDown("Fire1") && !reloading)
+        {
+            Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
+            gun.transform.position -= offset;
+            gm.PlaySFX(gm.playerSfx[10]);
         }
 
         // Shoot hand
@@ -223,7 +253,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator WaitForHandHit(Vector3 targetPos)
     {
-        hgm.CheckAndPlayClip("Hand_Grab" + GetCompassDirectionFourDirectional(AngleBetweenMouse()));
+        hgm.CheckAndPlayClip("Hand_Grab" + GetCompassDirectionFourDirectional(AngleBetweenMouse(hand.transform)));
 
         Vector3 storedPos = handHolder.transform.position;
         while (handLaunched && Vector2.Distance(transform.position, handHolder.transform.position) < 6 && Vector2.Distance(handHolder.transform.position, targetPos) > 0.25f)
@@ -286,9 +316,9 @@ public class PlayerController : MonoBehaviour
         speedMultiplier = 1;
     }
 
-    float AngleBetweenMouse()
+    float AngleBetweenMouse(Transform reference)
     {
-        Vector3 relative = transform.InverseTransformPoint(crosshair.position);
+        Vector3 relative = reference.transform.InverseTransformPoint(crosshair.position);
         float angle = Mathf.Atan2(-relative.x, relative.y) * Mathf.Rad2Deg;
         return -angle;
     }
@@ -297,31 +327,46 @@ public class PlayerController : MonoBehaviour
     {
         if (stats.currentWeapon == 0)
         {
+            stats.shotGooUsage = 15;
             gm.PlaySFX(gm.playerSfx[5]);
             gm.ScreenShake(3f);
             Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
             gun.transform.position -= offset;
-            Instantiate(projectile, gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse() + 90));
+            Instantiate(projectiles[0], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 90));
             reloading = true;
 
-            stats.goo -= stats.rocketGooUsage;
+            stats.goo -= stats.shotGooUsage;
 
             StartCoroutine(WaitForGunReload(0.3f));
         }
         else if(stats.currentWeapon == 1)
         {
+            stats.shotGooUsage = 15;
             gm.PlaySFX(gm.playerSfx[8]);
             gm.ScreenShake(3f);
             Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
             gun.transform.position -= offset;
-            Instantiate(projectile, gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse() + 70));
-            Instantiate(projectile, gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse() + 90));
-            Instantiate(projectile, gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse() + 110));
+            Instantiate(projectiles[0], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 70));
+            Instantiate(projectiles[0], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 90));
+            Instantiate(projectiles[0], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 110));
             reloading = true;
 
-            stats.goo -= stats.rocketGooUsage;
+            stats.goo -= stats.shotGooUsage;
 
             StartCoroutine(WaitForGunReload(1.33f));
+        }
+        else if(stats.currentWeapon == 2)
+        {
+            stats.shotGooUsage = 2;
+            gm.PlaySFX(gm.playerSfx[9]);
+            Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
+            gun.transform.position -= offset;
+            Instantiate(projectiles[1], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 90));
+            reloading = true;
+
+            stats.goo -= stats.shotGooUsage;
+
+            StartCoroutine(WaitForGunReload(0.1f));
         }
     }
 

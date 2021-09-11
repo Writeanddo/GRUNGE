@@ -21,7 +21,7 @@ public class HideTilemap : MonoBehaviour
     void FixedUpdate()
     {
         t.color = Color.Lerp(t.color, new Color(1, 1, 1, transparency), 0.25f);
-        rend.sortingOrder = Mathf.RoundToInt((player.transform.position.y - transform.position.y + yOffset) * 10);
+        //rend.sortingOrder = Mathf.RoundToInt((player.transform.position.y - transform.position.y + yOffset) * 10);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

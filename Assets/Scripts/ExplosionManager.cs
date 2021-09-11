@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ExplosionManager : MonoBehaviour
 {
-    public int damageMultiplier = 32;
+    
+    public int damage = 27;
+    public float knockbackMultiplier = 1;
     public AudioClip explosionSound;
     GameManager gm;
     // Start is called before the first frame update
@@ -16,9 +18,11 @@ public class ExplosionManager : MonoBehaviour
 
     IEnumerator Explode()
     {
-        gm.PlaySFXStoppablePriority(explosionSound, 1);
+        if(explosionSound != null)
+            gm.PlaySFXStoppablePriority(explosionSound, 1);
+
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 3);
-        gm.ScreenShake(6);
+        gm.ScreenShake(6*knockbackMultiplier);
 
         foreach (Collider2D h in hits)
         {
@@ -29,9 +33,8 @@ public class ExplosionManager : MonoBehaviour
                 //print("Distance: " + distance + ", Damage: " + Mathf.Clamp(Mathf.RoundToInt(1 / distance * 25), 0, 32));
                 EnemyScript e = h.GetComponent<EnemyScript>();
                 if (!e.stats.overrideDeath)
-                    h.GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude(dir * 25 / distance * 3, 25);
-                int damage = Mathf.Clamp(Mathf.RoundToInt(1 / distance * 25), 0, damageMultiplier);
-                print("Distance: " + distance + ", Damage: " + damage);
+                    h.GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude(dir * 25 / distance * 3 * knockbackMultiplier, 25);
+                //print("Distance: " + distance + ", Damage: " + damage);
                 h.GetComponent<EnemyScript>().ReceiveDamage(damage);
             }
         }

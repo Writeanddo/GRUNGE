@@ -20,6 +20,30 @@ TextureImporter:
   - first:
       213: 4417321054660422198
     second: Level1Props_5
+  - first:
+      213: 3136453030766795727
+    second: Level1Props_0
+  - first:
+      213: -3820111733525047384
+    second: Level1Props_1
+  - first:
+      213: 7641517879495750277
+    second: Level1Props_2
+  - first:
+      213: -2775037679049138985
+    second: Level1Props_3
+  - first:
+      213: -2578069608659258754
+    second: Level1Props_4
+  - first:
+      213: -222323038139523312
+    second: Level1Props_5
+  - first:
+      213: -1702604710967783671
+    second: Level1Props_6
+  - first:
+      213: 3691812575990335098
+    second: Level1Props_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -132,7 +156,7 @@ TextureImporter:
       name: Level1Props_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 18
         width: 46
         height: 39
@@ -143,8 +167,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3c11e541bc6eb2f0800000000000000
-      internalID: -955206562318574531
+      spriteID: fcb5d81f96be68b20800000000000000
+      internalID: 3136453030766795727
       vertices: []
       indices: 
       edges: []
@@ -153,7 +177,28 @@ TextureImporter:
       name: Level1Props_1
       rect:
         serializedVersion: 2
-        x: 47
+        x: 96
+        y: 33
+        width: 16
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a710f04e9c3cfac0800000000000000
+      internalID: -3820111733525047384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Level1Props_3
+      rect:
+        serializedVersion: 2
+        x: 48
         y: 32
         width: 32
         height: 21
@@ -164,17 +209,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 272fd7b77b63873a0800000000000000
-      internalID: -6667519086643252622
+      spriteID: 7dc93f50fe51d79d0800000000000000
+      internalID: -2775037679049138985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Level1Props_2
+      name: Level1Props_4
       rect:
         serializedVersion: 2
-        x: 80
+        x: 81
         y: 32
         width: 14
         height: 16
@@ -185,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4617ee1bf9ad78720800000000000000
-      internalID: 2848485668754977124
+      spriteID: e7272a1a95bd83cd0800000000000000
+      internalID: -2578069608659258754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Level1Props_3
+      name: Level1Props_5
       rect:
         serializedVersion: 2
-        x: 111
-        y: 32
-        width: 16
-        height: 28
+        x: 128
+        y: 36
+        width: 32
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,17 +251,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00286343432a136b0800000000000000
-      internalID: -5318291339849858560
+      spriteID: 01fde4eef562aecf0800000000000000
+      internalID: -222323038139523312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Level1Props_4
+      name: Level1Props_6
       rect:
         serializedVersion: 2
-        x: 49
+        x: 50
         y: 4
         width: 44
         height: 24
@@ -227,17 +272,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26052c8ecd2981890800000000000000
-      internalID: -7487072903007940510
+      spriteID: 90fcbd149022f58e0800000000000000
+      internalID: -1702604710967783671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Level1Props_5
+      name: Level1Props_7
       rect:
         serializedVersion: 2
-        x: 96
+        x: 97
         y: 0
         width: 45
         height: 32
@@ -248,8 +293,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 63a63e1681a7d4d30800000000000000
-      internalID: 4417321054660422198
+      spriteID: a7649315af3fb3330800000000000000
+      internalID: 3691812575990335098
       vertices: []
       indices: 
       edges: []
