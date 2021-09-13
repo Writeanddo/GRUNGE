@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 4669368974892386571, guid: e89286e20e831df4d8ad1ccecdbc36fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,8 +101,8 @@ MonoBehaviour:
   useStartingVelocity: 1
   randomizeStartingVelocity: 1
   rotate: 1
-  velocity: {x: 1, y: -1}
-  magnitude: 15
+  velocity: {x: 1, y: -0.5}
+  magnitude: 25
   timeBeforeDestroy: 8
 --- !u!50 &4769545216663298754
 Rigidbody2D:
@@ -150,7 +150,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4769545216663298759}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

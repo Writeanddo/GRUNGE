@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class SpawnGib : MonoBehaviour
 {
-    public GameObject gib;
+    public GameObject[] gibs;
     public Vector2 offset = new Vector2(0, -1);
 
     public void Spawn()
     {
-        Instantiate(gib, transform.position + (Vector3)offset, transform.rotation);
+        foreach(GameObject g in gibs)
+            Instantiate(g, transform.position + (Vector3)offset, transform.rotation);
     }
 }

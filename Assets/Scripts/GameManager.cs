@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     Image tryAgainImage;
     Image retryImage;
     Text gooSliderText;
+    Text weaponTimerText;
 
     RectTransform quitYes;
     RectTransform quitNo;
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
     public AudioClip[] playerSfx;
     public AudioClip[] gooPickupSounds;
 
+    float gunTimer = 10;
     bool shieldExploding;
     int storedGooAmount;
     int storedHealthAmount;
@@ -79,6 +81,7 @@ public class GameManager : MonoBehaviour
         screenBlackout = GameObject.Find("ScreenBlackout").GetComponent<Image>();
         quitBlackout = GameObject.Find("QuitPanel").GetComponent<Image>();
         pauseText = GameObject.Find("QuitText").GetComponent<Text>();
+        weaponTimerText = GameObject.Find("WeaponTimerText").GetComponent<Text>();
         quitYes = GameObject.Find("QuitYesButton").GetComponent<RectTransform>();
         quitNo = GameObject.Find("QuitNoButton").GetComponent<RectTransform>();
         shieldImage = GameObject.Find("ShieldImage").GetComponent<Image>();
@@ -144,6 +147,20 @@ public class GameManager : MonoBehaviour
                 heldEnemy = null;
                 CheckAndPlayClip("Shield_Empty", shieldAnim);
             }
+
+            // Weapon timer update
+            if (ply.stats.currentWeapon != 0)
+            {
+                gunTimer -= Time.fixedDeltaTime;
+                weaponTimerText.text = Mathf.RoundToInt(gunTimer).ToString();
+
+                if (gunTimer <= 0)
+                {
+                    ply.stats.currentWeapon = 0;
+                    weaponTimerText.text = "";
+                }
+            }
+
         }
 
         // Pause game

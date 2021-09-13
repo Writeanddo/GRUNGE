@@ -18,7 +18,7 @@ public class LevelChunkManager : MonoBehaviour
     {
         PlaceNeighboringChunk();
         yield return new WaitForSeconds(0.5f);
-        StartCoroutine(ChunkPlacer());
+        //StartCoroutine(ChunkPlacer());
     }
 
     public void PlaceNeighboringChunk()
