@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1ae2bcd4a425c6042a99119bbc314f5f, type: 3}
-    totalSpriteSurfaceArea: 600380
+    totalSpriteSurfaceArea: 603452
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -398,6 +398,10 @@ SpriteAtlas:
   - {fileID: -3620953067147228045, guid: a2a3c05404a311f41b92aac5682d8ea0, type: 3}
   - {fileID: 7983628595852710163, guid: a2a3c05404a311f41b92aac5682d8ea0, type: 3}
   - {fileID: -4495847091266098977, guid: a2a3c05404a311f41b92aac5682d8ea0, type: 3}
+  - {fileID: -8777005540185937256, guid: 955011a476d50294eb10e2a0d5f1ba9f, type: 3}
+  - {fileID: -6849486884537636677, guid: 955011a476d50294eb10e2a0d5f1ba9f, type: 3}
+  - {fileID: -1920307043323893403, guid: 955011a476d50294eb10e2a0d5f1ba9f, type: 3}
+  - {fileID: -7611288845393426959, guid: 955011a476d50294eb10e2a0d5f1ba9f, type: 3}
   - {fileID: -4469356220600525712, guid: 8343d8b4001cb4448a2ad0c44c09530f, type: 3}
   - {fileID: 6008015230092209084, guid: 8343d8b4001cb4448a2ad0c44c09530f, type: 3}
   - {fileID: 1860022043862364595, guid: 8343d8b4001cb4448a2ad0c44c09530f, type: 3}
@@ -931,6 +935,14 @@ SpriteAtlas:
   - {fileID: 4935984790844978548, guid: 3cac7fdc91668784d9a2682fa2c0d1f7, type: 3}
   - {fileID: -5999534734459318484, guid: 3cac7fdc91668784d9a2682fa2c0d1f7, type: 3}
   - {fileID: 21300000, guid: 213be8ecdb7fac743acea50a10ad666a, type: 3}
+  - {fileID: -835923751999052603, guid: d8e5410ddde596f4cab471406331c13d, type: 3}
+  - {fileID: -7990833359957171866, guid: d8e5410ddde596f4cab471406331c13d, type: 3}
+  - {fileID: 2186862080351644351, guid: d8e5410ddde596f4cab471406331c13d, type: 3}
+  - {fileID: 2762623559684433670, guid: d8e5410ddde596f4cab471406331c13d, type: 3}
+  - {fileID: -3807192846564743495, guid: d8e5410ddde596f4cab471406331c13d, type: 3}
+  - {fileID: 3522736408087648588, guid: d8e5410ddde596f4cab471406331c13d, type: 3}
+  - {fileID: -5715774867467602518, guid: d8e5410ddde596f4cab471406331c13d, type: 3}
+  - {fileID: -4508609696039159148, guid: d8e5410ddde596f4cab471406331c13d, type: 3}
   - {fileID: 5373031420649265469, guid: c840f1fdb518556409da551bd85a7a2a, type: 3}
   - {fileID: 6574852397808105471, guid: c840f1fdb518556409da551bd85a7a2a, type: 3}
   - {fileID: -6821850564126308984, guid: c840f1fdb518556409da551bd85a7a2a, type: 3}
@@ -1629,6 +1641,10 @@ SpriteAtlas:
   - GoodoorOpen_10
   - GoodoorOpen_11
   - GoodoorOpen_12
+  - Level2SlimeTile_0
+  - Level2SlimeTile_1
+  - Level2SlimeTile_2
+  - Level2SlimeTile_3
   - TutorialLevelTiles_32
   - TutorialLevelTiles_33
   - TutorialLevelTiles_30
@@ -2162,6 +2178,14 @@ SpriteAtlas:
   - Boss_2
   - Boss_4
   - RockingChair
+  - Level2EndTiles_0
+  - Level2EndTiles_1
+  - Level2EndTiles_2
+  - Level2EndTiles_3
+  - Level2EndTiles_4
+  - Level2EndTiles_5
+  - Level2EndTiles_6
+  - Level2EndTiles_7
   - CabinTreesSides 1_3
   - CabinTreesSides 1_2
   - CabinTreesSides 1_1
