@@ -355,6 +355,17 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LevelOverSequenceCoroutine());
     }
 
+    public void PickupGun(int gunIndex)
+    {
+        ply.stats.currentWeapon = gunIndex;
+        switch(gunIndex)
+        {
+            default:
+                gunTimer = 20;
+                break;
+        }
+    }
+
     IEnumerator LevelOverSequenceCoroutine()
     {
         string levelName = SceneManager.GetActiveScene().name;

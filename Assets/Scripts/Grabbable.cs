@@ -7,6 +7,8 @@ public class Grabbable : MonoBehaviour
     public bool canBeGrabbed = true;
     public bool isProp;
     public bool canBreak;
+    public bool breakFromPropContact;
+    public bool breakFromCharacterContact;
     public int hitsBeforeBreak;
     public int baseDamageUponHitting = 5;
     public Vector2 objectOffsetWhenHeld; // How high the hand should appear above this object
@@ -14,8 +16,9 @@ public class Grabbable : MonoBehaviour
     public bool isHeld;
     public bool isBeingThrown;
     public Sprite damagedSprite;
-    public Sprite[] propFragments;
+    public Sprite[] propFragments; // Sprites to apply to propGib
     public GameObject propGib;
+    public AudioClip breakSound;
 
     bool hasExploded;
     [HideInInspector]
@@ -23,6 +26,7 @@ public class Grabbable : MonoBehaviour
     Collider2D col;
     EnemyScript thisEnemy;
     SpriteRenderer spr;
+    GameManager gm;
 
     List<Transform> hitEnemies;
 
@@ -40,6 +44,7 @@ public class Grabbable : MonoBehaviour
         hitEnemies = new List<Transform>();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        gm = FindObjectOfType<GameManager>();
         defaultLayer = gameObject.layer;
     }
 
@@ -137,7 +142,39 @@ public class Grabbable : MonoBehaviour
             if (collision.tag == "Wall" && !isProp)
             {
                 int damage = Mathf.RoundToInt(baseDamageUponHitting * Mathf.Clamp(rb.velocity.magnitude / 5, 1, 2.5f) * damageMultiplier);
-                thisEnemy.ReceiveDamage(Mathf.RoundToInt(thisEnemy.stats.maxHealth/3f + 1));
+                thisEnemy.ReceiveDamage(Mathf.RoundToInt(thisEnemy.stats.maxHealth / 3f + 1));
+            }
+        }
+
+        // If this is a static prop, check if we're getting hit by a thrown object
+        if (breakFromPropContact && collision.tag == "Grabbable")
+        {
+            Grabbable g = collision.GetComponent<Grabbable>();
+            if (g.isBeingThrown)
+            {
+                if (canBreak)
+                {
+                    hitsTaken++;
+                    if (hitsTaken > hitsBeforeBreak / 2 && damagedSprite != null)
+                        spr.sprite = damagedSprite;
+
+                    if (hitsTaken >= hitsBeforeBreak && !breaking)
+                    {
+                        breaking = true;
+                        if (breakSound != null)
+                            gm.PlaySFX(breakSound);
+
+                        Rigidbody2D grb = g.GetComponent<Rigidbody2D>();
+                        grb.velocity = -grb.velocity;
+
+                        foreach (Sprite s in propFragments)
+                        {
+                            GameObject go = Instantiate(propGib, transform.position, transform.rotation);
+                            go.GetComponent<SpriteRenderer>().sprite = s;
+                        }
+                        Destroy(this.gameObject);
+                    }
+                }
             }
         }
     }
