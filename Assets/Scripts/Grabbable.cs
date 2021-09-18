@@ -9,6 +9,7 @@ public class Grabbable : MonoBehaviour
     public bool canBreak;
     public bool breakFromPropContact;
     public bool breakFromCharacterContact;
+    public bool rotatePropFragments;
     public int hitsBeforeBreak;
     public int baseDamageUponHitting = 5;
     public Vector2 objectOffsetWhenHeld; // How high the hand should appear above this object
@@ -112,20 +113,7 @@ public class Grabbable : MonoBehaviour
             {
                 if (canBreak)
                 {
-                    hitsTaken++;
-                    if (hitsTaken > hitsBeforeBreak / 2 && damagedSprite != null)
-                        spr.sprite = damagedSprite;
-
-                    if (hitsTaken >= hitsBeforeBreak && !breaking)
-                    {
-                        breaking = true;
-                        foreach (Sprite s in propFragments)
-                        {
-                            GameObject go = Instantiate(propGib, transform.position, transform.rotation);
-                            go.GetComponent<SpriteRenderer>().sprite = s;
-                        }
-                        Destroy(this.gameObject);
-                    }
+                    TakeDamage(collision.gameObject);
                 }
 
                 hitEnemies.Add(collision.transform);
@@ -154,28 +142,46 @@ public class Grabbable : MonoBehaviour
             {
                 if (canBreak)
                 {
-                    hitsTaken++;
-                    if (hitsTaken > hitsBeforeBreak / 2 && damagedSprite != null)
-                        spr.sprite = damagedSprite;
-
-                    if (hitsTaken >= hitsBeforeBreak && !breaking)
-                    {
-                        breaking = true;
-                        if (breakSound != null)
-                            gm.PlaySFX(breakSound);
-
-                        Rigidbody2D grb = g.GetComponent<Rigidbody2D>();
-                        grb.velocity = -grb.velocity;
-
-                        foreach (Sprite s in propFragments)
-                        {
-                            GameObject go = Instantiate(propGib, transform.position, transform.rotation);
-                            go.GetComponent<SpriteRenderer>().sprite = s;
-                        }
-                        Destroy(this.gameObject);
-                    }
+                    TakeDamage(collision.gameObject);
                 }
             }
+        }
+
+        // Also check to see if we should take damage when something hits us (player / enemy)
+        if (breakFromCharacterContact && (collision.tag == "Enemy" || collision.tag == "Player"))
+            if (canBreak)
+            {
+                print("Making me killing you");
+                TakeDamage(collision.gameObject);
+            }
+    }
+
+    public void TakeDamage(GameObject g)
+    {
+        hitsTaken++;
+        if (hitsTaken > hitsBeforeBreak / 2 && damagedSprite != null)
+            spr.sprite = damagedSprite;
+
+        if (hitsTaken >= hitsBeforeBreak && !breaking)
+        {
+            breaking = true;
+            if (breakSound != null)
+                gm.PlaySFX(breakSound);
+
+            if (g.tag == "Grabbable")
+            {
+                Rigidbody2D grb = g.GetComponent<Rigidbody2D>();
+                grb.velocity = -grb.velocity;
+            }
+
+            foreach (Sprite s in propFragments)
+            {
+                GameObject go = Instantiate(propGib, transform.position, transform.rotation);
+                go.GetComponent<SpriteRenderer>().sprite = s;
+                if (rotatePropFragments)
+                    go.GetComponent<GibScript>().rotate = true;
+            }
+            Destroy(this.gameObject);
         }
     }
 }
