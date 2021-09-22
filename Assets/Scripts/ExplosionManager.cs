@@ -8,7 +8,11 @@ public class ExplosionManager : MonoBehaviour
     public int damage = 27;
     public float knockbackMultiplier = 1;
     public AudioClip explosionSound;
+    public GameObject[] gibs;
+
     GameManager gm;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +42,12 @@ public class ExplosionManager : MonoBehaviour
                 h.GetComponent<EnemyScript>().ReceiveDamage(damage);
             }
         }
+
+        if(gibs.Length > 0)
+            for(int i = 0; i < gibs.Length; i++)
+            {
+                Instantiate(gibs[i], transform.position, Quaternion.identity);
+            }
 
         yield return new WaitForSeconds(1f);
         Destroy(this.gameObject);

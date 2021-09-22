@@ -165,4 +165,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 27
   knockbackMultiplier: 1
-  explosionSound: {fileID: 8300000, guid: ddbb6186e343e4c4aba1b35a8fbd2264, type: 3}
+  explosionSound: {fileID: 8300000, guid: 03db76317fc3fda4f9479a5b6b751965, type: 3}
+  gibs:
+  - {fileID: 4769545216663298759, guid: 1b7c9bc34ec204a4782bcf1dbea7536d, type: 3}
+  - {fileID: 8324954071054156909, guid: 9a4109dc3a923654c8e775478099dfc1, type: 3}
+  - {fileID: 3898281826782111298, guid: 2ef706241dda995478e97b560a9db895, type: 3}
+  - {fileID: 4769545216663298759, guid: 3ae0bee3a6bcc6341a641909778e6b47, type: 3}
+  - {fileID: 4769545216663298759, guid: c6566e8ec66a7944e9765964fba0fd47, type: 3}
+  - {fileID: 4769545216663298759, guid: 5f233eb785024e949adae13dc1db6228, type: 3}
+  - {fileID: 4769545216663298759, guid: 1b7c9bc34ec204a4782bcf1dbea7536d, type: 3}
+  - {fileID: 8324954071054156909, guid: 9a4109dc3a923654c8e775478099dfc1, type: 3}
+  - {fileID: 3898281826782111298, guid: 2ef706241dda995478e97b560a9db895, type: 3}
+  - {fileID: 2899660369439385843, guid: 4456bc3fcbcb60245ac709187041fb8c, type: 3}
+  - {fileID: 5964755380321203904, guid: e7ec19d55372ce343b75a3724c9078f0, type: 3}
+  - {fileID: 2899660369439385843, guid: 4456bc3fcbcb60245ac709187041fb8c, type: 3}
+  - {fileID: 5964755380321203904, guid: e7ec19d55372ce343b75a3724c9078f0, type: 3}
+  - {fileID: 2899660369439385843, guid: 4456bc3fcbcb60245ac709187041fb8c, type: 3}
+  - {fileID: 5964755380321203904, guid: e7ec19d55372ce343b75a3724c9078f0, type: 3}

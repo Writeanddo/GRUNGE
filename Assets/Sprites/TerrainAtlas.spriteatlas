@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1ae2bcd4a425c6042a99119bbc314f5f, type: 3}
-    totalSpriteSurfaceArea: 603452
+    totalSpriteSurfaceArea: 608828
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -385,6 +385,27 @@ SpriteAtlas:
   - {fileID: -6978591448284169326, guid: b82ea0f273651c8439e0cc4d686be3d8, type: 3}
   - {fileID: 4856990145134343996, guid: b82ea0f273651c8439e0cc4d686be3d8, type: 3}
   - {fileID: -4730728812857923212, guid: b82ea0f273651c8439e0cc4d686be3d8, type: 3}
+  - {fileID: -7753167438788889555, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: 5707478354999277714, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: -7462680209040682319, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: 6198526707070892590, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: -2829360784767106374, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: 4803318894741225151, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: -7847674356504694918, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: 278343396169757901, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: 4279874615851478517, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: 1718712195722412705, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: 3337036031084006155, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: 4194246416629440548, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: -3210934163871893918, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: -2752681998536401684, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: 6791878872035624167, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: 3361231177604183067, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: 5390177257229864104, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: -4145306791663943791, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: 5018286072754605692, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: -5660195762485323724, guid: 9692b803629e83140956e5eae34e7020, type: 3}
+  - {fileID: -5732537354988242084, guid: 9692b803629e83140956e5eae34e7020, type: 3}
   - {fileID: 7386809007014565798, guid: a2a3c05404a311f41b92aac5682d8ea0, type: 3}
   - {fileID: 8292865456575377976, guid: a2a3c05404a311f41b92aac5682d8ea0, type: 3}
   - {fileID: 5933476923133617714, guid: a2a3c05404a311f41b92aac5682d8ea0, type: 3}
@@ -1628,6 +1649,27 @@ SpriteAtlas:
   - DoorOpen_3
   - DoorOpen_0
   - DoorOpen_1
+  - GooTrail_20
+  - GooTrail_9
+  - GooTrail_8
+  - GooTrail_5
+  - GooTrail_4
+  - GooTrail_7
+  - GooTrail_6
+  - GooTrail_1
+  - GooTrail_0
+  - GooTrail_3
+  - GooTrail_2
+  - GooTrail_14
+  - GooTrail_15
+  - GooTrail_16
+  - GooTrail_17
+  - GooTrail_10
+  - GooTrail_11
+  - GooTrail_12
+  - GooTrail_13
+  - GooTrail_18
+  - GooTrail_19
   - GoodoorOpen_1
   - GoodoorOpen_0
   - GoodoorOpen_3

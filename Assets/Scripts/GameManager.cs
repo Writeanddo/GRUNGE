@@ -179,6 +179,7 @@ public class GameManager : MonoBehaviour
 
     public void ShieldHit()
     {
+        // Scale up the shield icon (visual effect only)
         shieldImage.rectTransform.localScale = new Vector2(1.25f, 1.25f);
     }
 

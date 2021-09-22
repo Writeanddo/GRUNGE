@@ -328,6 +328,9 @@ public abstract class EnemyScript : MonoBehaviour
 
     IEnumerator ReceiveDamageCoroutine(int damage)
     {
+        if (gm == null)
+            yield break;
+
         gm.PlaySFXStoppable(gm.generalSfx[4], Random.Range(1.25f, 1.5f));
         spr.color = Color.red;
         float shakeAmount = 1;
