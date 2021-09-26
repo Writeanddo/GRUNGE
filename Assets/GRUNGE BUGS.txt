@@ -11,3 +11,5 @@ IDEAS
 -Goo potions bust open into goo drops
 -Fence door is attached, throw trash can / prop at it to break it
 -Maybe a couple frames after an 
+-Enemy shield damages shouldn't reset if you throw an enemy and regrab it 
+-If you use an enemy to block its own bullet some interesting shit happens (larger AoE damage etc.)
