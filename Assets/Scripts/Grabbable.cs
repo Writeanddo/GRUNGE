@@ -17,6 +17,8 @@ public class Grabbable : MonoBehaviour
     public bool isHeld;
     public bool isBeingThrown;
     public Sprite damagedSprite;
+    public Sprite heldSprite;
+    public Sprite damagedHeldSprite;
     public Sprite[] propFragments; // Sprites to apply to propGib
     public GameObject propGib;
     public AudioClip breakSound;
@@ -28,7 +30,7 @@ public class Grabbable : MonoBehaviour
     EnemyScript thisEnemy;
     SpriteRenderer spr;
     GameManager gm;
-
+    Sprite defaultSprite;
     List<Transform> hitEnemies;
 
     public int hitsTaken;
@@ -37,10 +39,14 @@ public class Grabbable : MonoBehaviour
 
     void Start()
     {
+
         if (!isProp)
             thisEnemy = GetComponent<EnemyScript>();
         else
+        {
             spr = GetComponent<SpriteRenderer>();
+            defaultSprite = spr.sprite;
+        }
 
         hitEnemies = new List<Transform>();
         rb = GetComponent<Rigidbody2D>();
@@ -59,6 +65,24 @@ public class Grabbable : MonoBehaviour
 
             if (isProp)
                 rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, 0.15f);
+        }
+
+        if (spr != null)
+        {
+            if (isHeld && heldSprite != null)
+            {
+                if (hitsTaken > hitsBeforeBreak / 2 && damagedHeldSprite != null)
+                    spr.sprite = damagedHeldSprite;
+                else
+                    spr.sprite = heldSprite;
+            }
+            else
+            {
+                if (hitsTaken > hitsBeforeBreak / 2 && damagedSprite != null)
+                    spr.sprite = damagedSprite;
+                else
+                    spr.sprite = defaultSprite;
+            }
         }
     }
 
@@ -159,8 +183,6 @@ public class Grabbable : MonoBehaviour
     public void TakeDamage(GameObject g)
     {
         hitsTaken++;
-        if (hitsTaken > hitsBeforeBreak / 2 && damagedSprite != null)
-            spr.sprite = damagedSprite;
 
         if (hitsTaken >= hitsBeforeBreak && !breaking)
         {

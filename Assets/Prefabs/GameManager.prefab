@@ -3547,6 +3547,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 13c1e8249f71d7e458a797e652ae9d2e, type: 3}
   - {fileID: 8300000, guid: 3fdc4ee6f9d7b2748a722df58c0e02fa, type: 3}
   - {fileID: 8300000, guid: 4326e0ae829175244a04a7732a35fa98, type: 3}
+  - {fileID: 8300000, guid: d49b268f13c26764d9896ea6ec7fc381, type: 3}
   playerSfx:
   - {fileID: 8300000, guid: 490fbd67b2e5a4b4d94fedc170680407, type: 3}
   - {fileID: 8300000, guid: d71a84ee7cd51e942ad5ae0a4b6f8eed, type: 3}
@@ -3563,6 +3564,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 92b28b9e3de12114eaa4007c5001cd9a, type: 3}
   - {fileID: 8300000, guid: e05a6e01eead41d4cb0dd18b1f73d006, type: 3}
   - {fileID: 8300000, guid: b214ddee1c03251439f9f3d2b4bd9632, type: 3}
+  powerups:
+  - {fileID: 155923096958015756, guid: 99f1dbb006be999478978015d41e205a, type: 3}
+  - {fileID: 155923096958015756, guid: 8c952fa0f9a84d445bbe3aac5f1da67a, type: 3}
+  - {fileID: 2315255062283567803, guid: 3d6e68447100a1d4bb58de018b2b1ad0, type: 3}
 --- !u!114 &8911635763527194494
 MonoBehaviour:
   m_ObjectHideFlags: 0

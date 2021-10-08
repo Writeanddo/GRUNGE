@@ -36,6 +36,8 @@ public class GameManager : MonoBehaviour
     AudioSource prioritySfxSource; // Will duck volume on normal sound effects
     Animator shieldAnim;
     Text pauseText;
+    EnemyWaveManager ewm;
+    TextboxManager text;
 
     public bool paused;
     public bool gameOver;
@@ -44,6 +46,8 @@ public class GameManager : MonoBehaviour
     public AudioClip[] generalSfx;
     public AudioClip[] playerSfx;
     public AudioClip[] gooPickupSounds;
+    public GameObject[] powerups;
+    public TextAsset dialogSourceFile;
 
     float gunTimer = 10;
     bool shieldExploding;
@@ -87,6 +91,9 @@ public class GameManager : MonoBehaviour
         shieldImage = GameObject.Find("ShieldImage").GetComponent<Image>();
         gameOverImage = GameObject.Find("GameOverImage").GetComponent<Image>();
         tryAgainImage = GameObject.Find("TryAgainImage").GetComponent<Image>();
+
+        ewm = FindObjectOfType<EnemyWaveManager>();
+        text = FindObjectOfType<TextboxManager>();
 
         StartCoroutine(LevelStartSequence());
     }
@@ -175,6 +182,12 @@ public class GameManager : MonoBehaviour
             pauseText.text = "";
             quitBlackout.color = new Color(0, 0, 0, 0);
         }
+    }
+
+    public IEnumerator WaitForTextCompletion()
+    {
+        TextboxManager.TextData[] t = JsonHelper.FromJson<TextboxManager.TextData>(dialogSourceFile.text);
+        yield return text.PrintAllText(t);
     }
 
     public void ShieldHit()
@@ -293,13 +306,13 @@ public class GameManager : MonoBehaviour
             ply.canMove = true;
             yield return new WaitForSeconds(1.5f);
             PlayMusic();
-            GameObject.Find("DoorOpenAnim").GetComponent<Animator>().Play("DoorOpen");
+            ewm.StartWaves();
         }
         else if (levelName == "level2")
         {
             ply.canMove = true;
             PlayMusic();
-            FindObjectOfType<EnemyWaveManager>().StartWaves();
+            ewm.StartWaves();
         }
         else if (levelName == "level3")
         {
@@ -337,7 +350,7 @@ public class GameManager : MonoBehaviour
             ply.canMove = true;
 
             t.GetComponent<EnemyScript>().UpdateMovement();
-            FindObjectOfType<EnemyWaveManager>().StartWaves();
+            ewm.StartWaves();
         }
         else if (levelName == "endless")
         {
@@ -346,6 +359,10 @@ public class GameManager : MonoBehaviour
             musicTrackDrums.Play();
             musicTrackInstruments.Play();
             ply.canMove = true;
+        }
+        else if(levelName == "level0")
+        {
+
         }
         else
             ply.canMove = true;
@@ -358,11 +375,12 @@ public class GameManager : MonoBehaviour
 
     public void PickupGun(int gunIndex)
     {
+        PlaySFX(generalSfx[12]);
         ply.stats.currentWeapon = gunIndex;
         switch(gunIndex)
         {
             default:
-                gunTimer = 20;
+                gunTimer = 30;
                 break;
         }
     }
@@ -371,7 +389,7 @@ public class GameManager : MonoBehaviour
     {
         string levelName = SceneManager.GetActiveScene().name;
 
-        if (levelName == "level1")
+        if (levelName == "level1 edit")
         {
             camControl.overridePosition = true;
             Transform t = GameObject.Find("TrapdoorOpen").transform;

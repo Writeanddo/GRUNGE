@@ -112,8 +112,8 @@ GameObject:
   - component: {fileID: 3796603764674773066}
   - component: {fileID: 3796603764674773068}
   - component: {fileID: 3796603764674773069}
-  - component: {fileID: 3796603764674773070}
   - component: {fileID: 3072996831571118073}
+  - component: {fileID: 6144586552007309192}
   m_Layer: 14
   m_Name: TutorialEnemy
   m_TagString: Enemy
@@ -189,53 +189,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.75}
   m_Size: {x: 1.45, y: 1}
   m_Direction: 1
---- !u!114 &3796603764674773070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3796603764674773064}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73b29e5802b7b8a459d50512fd242a86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats:
-    health: 40
-    maxHealth: 0
-    overrideDeath: 0
-    currentShieldValue: 4
-    damage: 6
-    pathSpeedMultiplier: 0
-    damageCooldown: 0.75
-    inaccuracyMultiplier: 1
-    noticePlayerDistance: 15
-    noticedSpeedMultiplier: 0
-    numGooDrops: 3
-    movementAccuracy: 0.5
-    animationWalkSpeedMultiplier: 0.5
-    animationPrefix: 
-    useDirctionalAnimation: 0
-  noticedPlayer: 0
-  gooDrops:
-  - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
-  - {fileID: 3108804696350449111, guid: 5f97728e4b7dc434ab4ffd9b89b509fa, type: 3}
-  - {fileID: 3660314827033038993, guid: 5d8def5a87ab818408895c79865adb80, type: 3}
-  splatterDrops:
-  - {fileID: 2899660369439385843, guid: d820562ffd847ec4a9dd58ed628ff84c, type: 3}
-  - {fileID: 5964755380321203904, guid: c6ab297770cc52b4c93441d5365f0062, type: 3}
-  enemyExplosion: {fileID: 5168354353443126882, guid: 11768c7001b06cf498521a2489be8b52,
-    type: 3}
-  g: {fileID: 0}
-  anim: {fileID: 0}
-  spr: {fileID: 0}
-  rb: {fileID: 0}
-  ply: {fileID: 0}
-  gm: {fileID: 0}
-  raycastHitEnemy: {fileID: 0}
-  waves: {fileID: 0}
-  rechargingAttack: 0
 --- !u!114 &3072996831571118073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +204,9 @@ MonoBehaviour:
   canBeGrabbed: 1
   isProp: 0
   canBreak: 0
+  breakFromPropContact: 0
+  breakFromCharacterContact: 0
+  rotatePropFragments: 0
   hitsBeforeBreak: 0
   baseDamageUponHitting: 8
   objectOffsetWhenHeld: {x: 0, y: 0}
@@ -260,5 +216,47 @@ MonoBehaviour:
   damagedSprite: {fileID: 0}
   propFragments: []
   propGib: {fileID: 0}
+  breakSound: {fileID: 0}
   rb: {fileID: 0}
   hitsTaken: 0
+--- !u!114 &6144586552007309192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3796603764674773064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66438fdbb4df5a4c8347bb8336c6e10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+    health: 30
+    maxHealth: 0
+    overrideDeath: 0
+    currentShieldValue: 4
+    damage: 2
+    pathSpeedMultiplier: 1
+    damageCooldown: 2
+    inaccuracyMultiplier: 1
+    noticePlayerDistance: 15
+    noticedSpeedMultiplier: 2
+    numGooDrops: 5
+    movementAccuracy: 0.1
+    animationWalkSpeedMultiplier: 0.5
+    animationPrefix: 
+    useDirctionalAnimation: 1
+  noticedPlayer: 0
+  gooDrops: []
+  splatterDrops: []
+  enemyExplosion: {fileID: 0}
+  g: {fileID: 0}
+  anim: {fileID: 0}
+  spr: {fileID: 0}
+  rb: {fileID: 0}
+  ply: {fileID: 0}
+  gm: {fileID: 0}
+  raycastHitEnemy: {fileID: 0}
+  waves: {fileID: 0}
+  rechargingAttack: 0

@@ -54,7 +54,13 @@ Enemies
   - Two phases
   - Begins as stationary
   - After beating first phase, slime ghost pops out of pillar and moves around level
-
+  
+  - How the second phase begins:
+    - Totem head explodes
+    - Screen goes black
+    - Trippy earthbound-style wavy background fades in
+    - New head for the second boss phase fades in with a wavy transition
+    - New arena fades in and you fight
 
 Tutorial level
 - Old mentor type guy who gives you the quest to fight these guys in the tutorial

@@ -68,6 +68,8 @@ public class PlayerController : MonoBehaviour
         hgm = FindObjectOfType<HandGrabManager>();
         rb = GetComponent<Rigidbody2D>();
         gm = FindObjectOfType<GameManager>();
+
+        StartCoroutine(GooRegen());
     }
 
     private void FixedUpdate()
@@ -217,21 +219,43 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    IEnumerator GooRegen()
+    {
+        EnemyWaveManager ewm = FindObjectOfType<EnemyWaveManager>();
+
+        while (!ewm.isSpawningEnemies)
+            yield return null;
+
+        while(ewm.isSpawningEnemies)
+        {
+            yield return new WaitForSeconds(1);
+            while (gm.paused || isDying)
+                yield return null;
+
+            stats.goo += 2;
+        }
+    }
+
+    public void SetVisible()
+    {
+        spr.color = Color.white;
+        gunAnim.GetComponent<SpriteRenderer>().color = Color.white;
+        hgm.GetComponent<SpriteRenderer>().color = Color.white;
+    }
+
     IEnumerator Die()
     {
         playedDieSequence = true;
         isDying = true;
         rb.isKinematic = true;
-        if (heldObject != null)
-            hgm.DropItem();
-
         rb.velocity = Vector2.zero;
         gm.StopMusic();
-
         gm.gameOver = true;
         FindObjectOfType<CrosshairController>().SetVisible(false);
         CheckAndPlayClip("Player_Die");
         yield return new WaitForSeconds(2);
+        if (heldObject != null)
+            hgm.DropItem();
         isDying = false;
         yield return new WaitForSeconds(1);
         gm.StartCoroutine(gm.GameOverSequence());
@@ -261,6 +285,9 @@ public class PlayerController : MonoBehaviour
             handHolder.transform.position = storedPos;
             handHolder.transform.position = Vector3.Lerp(handHolder.transform.position, Vector2.MoveTowards(handHolder.transform.position, targetPos, 1f), 0.45f);
             storedPos = handHolder.transform.position;
+
+            if (isDying)
+                yield break;
             yield return new WaitForFixedUpdate();
         }
         handLaunched = false;
@@ -327,7 +354,7 @@ public class PlayerController : MonoBehaviour
     {
         if (stats.currentWeapon == 0)
         {
-            stats.shotGooUsage = 15;
+            stats.shotGooUsage = 20;
             gm.PlaySFX(gm.playerSfx[5]);
             gm.ScreenShake(3f);
             Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
@@ -341,7 +368,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(stats.currentWeapon == 1)
         {
-            stats.shotGooUsage = 15;
+            stats.shotGooUsage = 20;
             gm.PlaySFX(gm.playerSfx[8]);
             gm.ScreenShake(3f);
             Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;

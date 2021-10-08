@@ -8,12 +8,14 @@ public class WeaponBox : MonoBehaviour
 
     GameManager gm;
     Animator anim;
+    AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
         gm = FindObjectOfType<GameManager>();
         anim = GetComponent<Animator>();
+        audio = GetComponentInChildren<AudioSource>();
 
         switch(gunIndex)
         {
@@ -36,5 +38,10 @@ public class WeaponBox : MonoBehaviour
             gm.PickupGun(gunIndex);
             Destroy(this.gameObject);
         }
+    }
+
+    public void PlayWeaponBoxSound()
+    {
+        audio.PlayOneShot(gm.generalSfx[11]);
     }
 }

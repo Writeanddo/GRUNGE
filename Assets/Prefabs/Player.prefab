@@ -401,7 +401,7 @@ MonoBehaviour:
     maxGoo: 100
     speed: 0
     maxSpeed: 7
-    shotGooUsage: 15
+    shotGooUsage: 20
     currentWeapon: 0
   projectiles:
   - {fileID: 2212254252654720857, guid: 024b5b23e72620a4aa51499ab9b6f292, type: 3}
