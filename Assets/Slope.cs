@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SlopeCollider : MonoBehaviour
+public class Slope : MonoBehaviour
 {
     public List<Rigidbody2D> cachedRigidBodies;
 
@@ -23,6 +23,11 @@ public class SlopeCollider : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        print("YEAH");
+    }
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
         print(collision.transform.name);
         if(collision.transform.tag == "Player")
             cachedRigidBodies.Add(collision.transform.GetComponentInParent<Rigidbody2D>());
@@ -34,5 +39,5 @@ public class SlopeCollider : MonoBehaviour
     {
         if ((collision.transform.tag == "Player" || collision.transform.tag == "Enemy") && cachedRigidBodies.Contains(collision.GetComponent<Rigidbody2D>()))
             cachedRigidBodies.Remove(collision.GetComponent<Rigidbody2D>());
-    }
+    }A*/
 }

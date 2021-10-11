@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     TextboxManager text;
 
     public bool paused;
+    public bool canPause = true;
     public bool gameOver;
     public AudioClip music;
     public AudioClip[] musicStems;
@@ -171,7 +172,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Pause game
-        if (paused && pauseText.text == "")
+        if (paused && pauseText.text == "" && canPause)
         {
             Time.timeScale = 0;
             pauseText.text = "PAUSED";
@@ -303,7 +304,7 @@ public class GameManager : MonoBehaviour
 
         if (levelName == "1_cabin_approach")
         {
-
+            canPause = false;
         }
         else if (levelName == "2_cabin_interior")
         {

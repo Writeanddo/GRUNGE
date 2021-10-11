@@ -40,6 +40,7 @@ public class CarCutsceneManager : MonoBehaviour
         anim.Play("CarLeave");
         yield return new WaitForSeconds(1f);
         ply.canMove = true;
+        gm.canPause = true;
     }
 
     IEnumerator StopPlayer()
