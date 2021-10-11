@@ -31,6 +31,8 @@ public class CarCutsceneManager : MonoBehaviour
         yield return new WaitForSeconds(1.75f);
         gm.PlaySFX(sfx[2]);
         ply.SetVisible();
+        ply.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 15);
+        StartCoroutine(StopPlayer());
         ply.transform.parent = null;
         yield return new WaitForSeconds(1f);
         yield return gm.WaitForTextCompletion();
@@ -38,6 +40,18 @@ public class CarCutsceneManager : MonoBehaviour
         anim.Play("CarLeave");
         yield return new WaitForSeconds(1f);
         ply.canMove = true;
+    }
+
+    IEnumerator StopPlayer()
+    {
+        Rigidbody2D rb = ply.GetComponent<Rigidbody2D>();
+
+        while(rb.velocity.y > 0.05f)
+        {
+            rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, 0.15f);
+            yield return null;
+        }
+        rb.velocity = Vector2.zero;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

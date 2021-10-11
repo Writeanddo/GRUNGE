@@ -301,20 +301,24 @@ public class GameManager : MonoBehaviour
 
         string levelName = SceneManager.GetActiveScene().name;
 
-        if (levelName == "level1")
+        if (levelName == "1_cabin_approach")
+        {
+
+        }
+        else if (levelName == "2_cabin_interior")
         {
             ply.canMove = true;
             yield return new WaitForSeconds(1.5f);
             PlayMusic();
             ewm.StartWaves();
         }
-        else if (levelName == "level2")
+        else if (levelName == "3_basement")
         {
             ply.canMove = true;
             PlayMusic();
             ewm.StartWaves();
         }
-        else if (levelName == "level3")
+        else if (levelName == "4_boss")
         {
             PlayMusic();
             yield return new WaitForSeconds(1.5f);
@@ -360,10 +364,6 @@ public class GameManager : MonoBehaviour
             musicTrackInstruments.Play();
             ply.canMove = true;
         }
-        else if(levelName == "level0")
-        {
-
-        }
         else
             ply.canMove = true;
     }
@@ -389,7 +389,34 @@ public class GameManager : MonoBehaviour
     {
         string levelName = SceneManager.GetActiveScene().name;
 
-        if (levelName == "level1 edit")
+        if(levelName == "1_cabin_approach")
+        {
+            camControl.overridePosition = true;
+            Transform t = GameObject.Find("CabinDoorHole").transform;
+
+            ply.canMove = false;
+            ply.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+            float timer = 2.25f;
+            while (timer > 0)
+            {
+                camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(t.position.x, t.position.y, camControl.transform.position.z), 0.1f);
+                timer -= Time.deltaTime;
+                yield return null;
+            }
+
+            while (Vector3.Distance(camControl.transform.position, ply.transform.position) > 10.1f)
+            {
+                camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(ply.transform.position.x, ply.transform.position.y, camControl.transform.position.z), 0.1f);
+                yield return null;
+            }
+
+            GameObject.Find("LevelLoader").transform.position = new Vector3(9, 21.5f, 0);
+
+            camControl.overridePosition = false;
+            ply.canMove = true;
+        }
+        else if (levelName == "2_cabin_interior")
         {
             camControl.overridePosition = true;
             Transform t = GameObject.Find("TrapdoorOpen").transform;
@@ -415,7 +442,7 @@ public class GameManager : MonoBehaviour
             camControl.overridePosition = false;
             ply.canMove = true;
         }
-        else if (levelName == "level2")
+        else if (levelName == "3_basement")
         {
             camControl.overridePosition = true;
             Transform t = GameObject.Find("GoodoorOpen").transform;
@@ -441,7 +468,7 @@ public class GameManager : MonoBehaviour
             camControl.overridePosition = false;
             ply.canMove = true;
         }
-        else if (levelName == "level3")
+        else if (levelName == "4_boss")
         {
             StopMusic();
 

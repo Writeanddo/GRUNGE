@@ -3,13 +3,19 @@ GRUNGE BUGS + FIXES
 Goo drops and goo splats get stuck in walls regularly
 Should have sound play when hand shoots out
 Objects (vase, saw, etc) should play sound when they hit a wall or shatter
+Other sfx to add:
+- Enemy firing bullets
+- Enemy spawning(?)
+- Level transitions
+- play the game and find out
+
 Make goo regen over time (slowly)
 Improve scion slime bullet patterns
 
 IDEAS 
 
 -Goo potions bust open into goo drops
--Fence door is attached, throw trash can / prop at it to break it
+//Fence door is attached, throw trash can / prop at it to break it
 -Maybe a couple frames after an 
 -Enemy shield damages shouldn't reset if you throw an enemy and regrab it 
 -If you use an enemy to block its own bullet some interesting shit happens (larger AoE damage etc.)

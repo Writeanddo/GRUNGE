@@ -24,6 +24,7 @@ public class TextboxManager : MonoBehaviour
     Text dialogText;
     RectTransform textbox;
     Image dialogPortrait;
+    Image pressEIcon;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,8 @@ public class TextboxManager : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
         dialogPortrait = transform.GetChild(0).GetComponent<Image>();
         dialogText = transform.GetChild(1).GetComponent<Text>();
+        pressEIcon = transform.GetChild(2).GetComponent<Image>();
+        pressEIcon.color = Color.clear;
         textbox = GetComponent<RectTransform>();
     }
 
@@ -65,7 +68,9 @@ public class TextboxManager : MonoBehaviour
                 dialogPortrait.sprite = portraitFrames[t.portraitIndex];
                 dialogText.text = line;
 
+                pressEIcon.color = Color.white;
                 yield return WaitForKeyPress();
+                pressEIcon.color = Color.clear;
             }
         }
 
