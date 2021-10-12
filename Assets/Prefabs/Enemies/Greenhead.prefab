@@ -100,6 +100,8 @@ MonoBehaviour:
   useParentPosition: 0
   sortMultiplier: 1
   yOffset: 0
+  minLayer: -1000
+  maxLayer: 1000
 --- !u!95 &4748280607168742616
 Animator:
   serializedVersion: 3
@@ -131,8 +133,8 @@ GameObject:
   - component: {fileID: 4748280607957365522}
   - component: {fileID: 4748280607957365524}
   - component: {fileID: 4748280607957365525}
-  - component: {fileID: 4748280607957365526}
   - component: {fileID: 6913040109097448609}
+  - component: {fileID: 4748280607957365526}
   m_Layer: 14
   m_Name: Greenhead
   m_TagString: Enemy
@@ -208,6 +210,38 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.75}
   m_Size: {x: 1.45, y: 1}
   m_Direction: 1
+--- !u!114 &6913040109097448609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4748280607957365520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70bf660450d24c24bac43673b6312d27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canBeGrabbed: 1
+  isProp: 0
+  canBreak: 0
+  breakFromPropContact: 0
+  breakFromCharacterContact: 0
+  rotatePropFragments: 0
+  hitsBeforeBreak: 0
+  baseDamageUponHitting: 12
+  objectOffsetWhenHeld: {x: 0, y: 0}
+  handOffsetWhenHeld: {x: 0, y: 0}
+  isHeld: 0
+  isBeingThrown: 0
+  damagedSprite: {fileID: 0}
+  heldSprite: {fileID: 0}
+  damagedHeldSprite: {fileID: 0}
+  propFragments: []
+  propGib: {fileID: 0}
+  breakSound: {fileID: 0}
+  rb: {fileID: 0}
+  hitsTaken: 0
 --- !u!114 &4748280607957365526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,29 +289,3 @@ MonoBehaviour:
   raycastHitEnemy: {fileID: 0}
   waves: {fileID: 0}
   rechargingAttack: 0
---- !u!114 &6913040109097448609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4748280607957365520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70bf660450d24c24bac43673b6312d27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canBeGrabbed: 1
-  isProp: 0
-  canBreak: 0
-  hitsBeforeBreak: 0
-  baseDamageUponHitting: 8
-  objectOffsetWhenHeld: {x: 0, y: 0}
-  handOffsetWhenHeld: {x: 0, y: 0}
-  isHeld: 0
-  isBeingThrown: 0
-  damagedSprite: {fileID: 0}
-  propFragments: []
-  propGib: {fileID: 0}
-  rb: {fileID: 0}
-  hitsTaken: 0

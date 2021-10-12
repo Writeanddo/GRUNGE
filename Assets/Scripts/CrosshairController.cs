@@ -20,8 +20,7 @@ public class CrosshairController : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateCrosshair()
     {
         if (gm.paused)
             return;

@@ -33,13 +33,13 @@ public class Grabbable : MonoBehaviour
     Sprite defaultSprite;
     List<Transform> hitEnemies;
 
+
     public int hitsTaken;
     bool breaking;
     int defaultLayer;
 
     void Start()
     {
-
         if (!isProp)
             thisEnemy = GetComponent<EnemyScript>();
         else
@@ -60,9 +60,6 @@ public class Grabbable : MonoBehaviour
     {
         if (!isHeld)
         {
-            if (hitEnemies.Count > 0)
-                hitEnemies.Clear();
-
             if (isProp)
                 rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, 0.15f);
         }
@@ -96,7 +93,14 @@ public class Grabbable : MonoBehaviour
             StartCoroutine(ColliderEnableDelay());
         }
         else
+        {
+            if (hitEnemies.Count > 0)
+            {
+                hitEnemies.Clear();
+            }
+
             gameObject.layer = 8;
+        }
     }
 
     IEnumerator ColliderEnableDelay()
@@ -133,7 +137,7 @@ public class Grabbable : MonoBehaviour
                 }
             }
 
-            if (collision.tag == "Enemy" || collision.tag == "Wall" && !hitEnemies.Contains(collision.transform))
+            if ((collision.tag == "Enemy" || collision.tag == "Wall") && !hitEnemies.Contains(collision.transform))
             {
                 if (canBreak)
                 {
@@ -145,7 +149,7 @@ public class Grabbable : MonoBehaviour
                 if (e != null && e.name != "Boss")
                 {
                     e.GetComponent<Rigidbody2D>().velocity = (e.transform.position - transform.position).normalized * rb.velocity.magnitude / 1.25f;
-                    int damage = Mathf.RoundToInt(baseDamageUponHitting * Mathf.Clamp(rb.velocity.magnitude / 5, 1, 2.5f) * damageMultiplier);
+                    int damage = Mathf.RoundToInt(baseDamageUponHitting * Mathf.Clamp(rb.velocity.magnitude / 6, 1, 2.5f) * damageMultiplier);
                     e.ReceiveDamage(damage);
                 }
             }
@@ -153,8 +157,8 @@ public class Grabbable : MonoBehaviour
             // Damage self if we get slammed into a concrete wall at mach eleven
             if (collision.tag == "Wall" && !isProp)
             {
-                int damage = Mathf.RoundToInt(baseDamageUponHitting * Mathf.Clamp(rb.velocity.magnitude / 5, 1, 2.5f) * damageMultiplier);
-                thisEnemy.ReceiveDamage(Mathf.RoundToInt(thisEnemy.stats.maxHealth / 3f + 1));
+                int damage = Mathf.RoundToInt(baseDamageUponHitting * Mathf.Clamp(rb.velocity.magnitude / 6, 1, 2.5f) * damageMultiplier);
+                thisEnemy.ReceiveDamage(Mathf.RoundToInt(thisEnemy.stats.maxHealth / 2f + 1));
             }
         }
 

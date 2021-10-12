@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     float speedMultiplier = 1;
     bool playedDieSequence;
+    bool isMeleeLunging;
 
     Transform crosshair;
     Transform gun;
@@ -107,8 +108,18 @@ public class PlayerController : MonoBehaviour
         float horiz = Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
         Vector2 speed = new Vector2(horiz, vert);
-        rb.velocity = Vector3.ClampMagnitude(speed, 1) * stats.maxSpeed * speedMultiplier;
-        stats.speed = rb.velocity.magnitude;
+
+        float damping = 0.5f;
+
+        if (rb.velocity.magnitude > stats.maxSpeed)
+        {
+            rb.velocity -= rb.velocity * 0.1f;
+        }
+        else
+        {
+            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.ClampMagnitude(speed, 1) * stats.maxSpeed * speedMultiplier, damping);
+            stats.speed = rb.velocity.magnitude;
+        }
     }
 
     void UpdateMovementAnimations()
@@ -138,6 +149,9 @@ public class PlayerController : MonoBehaviour
             case (10):
                 gunPrefix = "Scythe";
                 break;
+            case (11):
+                gunPrefix = "Knuckles";
+                break;
         }
 
         // If current weapon index is 10 or greater, we're using a two-handed weapon
@@ -145,7 +159,11 @@ public class PlayerController : MonoBehaviour
         {
             hgm.CheckAndPlayClip("Blank");
             CheckAndPlayClip("Blank", gunAnim);
-            CheckAndPlayClip(gunPrefix + "_" + dir, gunTwoHandedAnim);
+
+            if(!reloading)
+                CheckAndPlayClip(gunPrefix + "_" + dir, gunTwoHandedAnim);
+            else
+                CheckAndPlayClip("Blank", gunTwoHandedAnim);
         }
         else
         {
@@ -173,7 +191,7 @@ public class PlayerController : MonoBehaviour
         // Shoot gun
         if (Input.GetButton("Fire1"))
         {
-            if(!reloading && stats.goo >= stats.shotGooUsage)
+            if (!reloading && stats.goo >= stats.shotGooUsage)
                 FireGun();
         }
 
@@ -185,28 +203,38 @@ public class PlayerController : MonoBehaviour
             gm.PlaySFX(gm.playerSfx[10]);
         }
 
-        // Shoot hand
-        if (Input.GetButtonDown("Fire2") && canLaunchHand)
+        // Shoot hand / perform secondary weapon action
+        if (Input.GetButtonDown("Fire2"))
         {
-            if (!handLaunched)
+            if (canLaunchHand)
             {
-                Vector2 dir = (crosshair.position - handTargetPos.position).normalized;
-                if (heldObject == null)
+                if (!handLaunched)
                 {
-                    // launch hand
-                    //gm.PlaySFX(gm.playerSfx[4], 0.9f);
-                    handLaunched = true;
-                    canLaunchHand = false;
-                    StartCoroutine(WaitForHandHit((Vector2)handTargetPos.position + dir * 15));
+                    Vector2 dir = (crosshair.position - handTargetPos.position).normalized;
+                    if (heldObject == null)
+                    {
+                        // launch hand
+                        //gm.PlaySFX(gm.playerSfx[4], 0.9f);
+                        handLaunched = true;
+                        canLaunchHand = false;
+                        StartCoroutine(WaitForHandHit((Vector2)handTargetPos.position + dir * 15));
+                    }
+                    else
+                    {
+                        // throw held object
+                        gm.PlaySFX(gm.playerSfx[2]);
+                        hgm.ThrowItem(dir * 75);
+                        handHolder.transform.position += (Vector3)dir;
+                        canLaunchHand = false;
+                        StartCoroutine(HandCooldown());
+                    }
                 }
-                else
+            }
+            else
+            {
+                if (stats.currentWeapon == 10)
                 {
-                    // throw held object
-                    gm.PlaySFX(gm.playerSfx[2]);
-                    hgm.ThrowItem(dir * 75);
-                    handHolder.transform.position += (Vector3)dir;
-                    canLaunchHand = false;
-                    StartCoroutine(HandCooldown());
+
                 }
             }
         }
@@ -226,7 +254,7 @@ public class PlayerController : MonoBehaviour
         while (!ewm.isSpawningEnemies)
             yield return null;
 
-        while(ewm.isSpawningEnemies)
+        while (ewm.isSpawningEnemies)
         {
             yield return new WaitForSeconds(1);
             while (gm.paused || isDying)
@@ -354,7 +382,7 @@ public class PlayerController : MonoBehaviour
     {
         if (stats.currentWeapon == 0)
         {
-            stats.shotGooUsage = 20;
+            stats.shotGooUsage = 30;
             gm.PlaySFX(gm.playerSfx[5]);
             gm.ScreenShake(3f);
             Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
@@ -366,7 +394,7 @@ public class PlayerController : MonoBehaviour
 
             StartCoroutine(WaitForGunReload(0.3f));
         }
-        else if(stats.currentWeapon == 1)
+        else if (stats.currentWeapon == 1)
         {
             stats.shotGooUsage = 20;
             gm.PlaySFX(gm.playerSfx[8]);
@@ -382,7 +410,7 @@ public class PlayerController : MonoBehaviour
 
             StartCoroutine(WaitForGunReload(1.33f));
         }
-        else if(stats.currentWeapon == 2)
+        else if (stats.currentWeapon == 2)
         {
             stats.shotGooUsage = 2;
             gm.PlaySFX(gm.playerSfx[9]);
@@ -395,6 +423,28 @@ public class PlayerController : MonoBehaviour
 
             StartCoroutine(WaitForGunReload(0.1f));
         }
+        else if (stats.currentWeapon == 10)
+        {
+            stats.shotGooUsage = 0;
+            gm.PlaySFX(gm.playerSfx[2]);
+            Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
+            gun.transform.position -= offset;
+            //isMeleeLunging = true;
+            //rb.velocity += (Vector2)offset * 15;
+            reloading = true;
+            Instantiate(projectiles[2], transform.position, Quaternion.identity);
+
+            stats.goo -= stats.shotGooUsage;
+
+            //StartCoroutine(MeleeLungeCooldown());
+            StartCoroutine(WaitForGunReload(0.82f));
+        }
+    }
+
+    IEnumerator MeleeLungeCooldown()
+    {
+        yield return new WaitForSeconds(0.1f);
+        isMeleeLunging = false;
     }
 
     string GetCompassDirection(float angle)

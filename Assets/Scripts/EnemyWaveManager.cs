@@ -24,6 +24,7 @@ public class EnemyWaveManager : MonoBehaviour
     public GameObject spawner;
     public bool useLoopPath;
     public bool dontRandomizeDirection;
+    public bool spawnPowerups = true;
     public bool spawnEndlessly;
     public int currentWave;
 
@@ -40,7 +41,8 @@ public class EnemyWaveManager : MonoBehaviour
     public void StartWaves()
     {
         StartCoroutine(ProcessWavesCoroutine());
-        StartCoroutine(SpawnPowerupsLoop());
+        if(spawnPowerups)
+            StartCoroutine(SpawnPowerupsLoop());
     }
 
     void FixedUpdate()

@@ -406,6 +406,7 @@ MonoBehaviour:
   projectiles:
   - {fileID: 2212254252654720857, guid: 024b5b23e72620a4aa51499ab9b6f292, type: 3}
   - {fileID: 7886304823834587587, guid: cc9b951a7a6ec304cb8f425c7f097f66, type: 3}
+  - {fileID: 6910103055282366429, guid: 9a9ed90defa9cc34e8e28ea489e5e460, type: 3}
   canMove: 0
   isDying: 0
   reloading: 0

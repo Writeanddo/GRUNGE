@@ -50,7 +50,7 @@ public class CarCutsceneManager : MonoBehaviour
         while(rb.velocity.y > 0.05f)
         {
             rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, 0.15f);
-            yield return null;
+            yield return new WaitForFixedUpdate();
         }
         rb.velocity = Vector2.zero;
     }

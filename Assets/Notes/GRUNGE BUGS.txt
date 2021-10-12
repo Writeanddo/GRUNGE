@@ -1,21 +1,32 @@
 GRUNGE BUGS + FIXES
 
-Goo drops and goo splats get stuck in walls regularly
-Should have sound play when hand shoots out
-Objects (vase, saw, etc) should play sound when they hit a wall or shatter
+- Goo drops and goo splats get stuck in walls regularly
+- Should have sound play when hand shoots out
+- Objects (vase, saw, etc) should play sound when they hit a wall or shatter
 Other sfx to add:
 - Enemy firing bullets
 - Enemy spawning(?)
 - Level transitions
 - play the game and find out
 
-Make goo regen over time (slowly)
-Improve scion slime bullet patterns
+- If projectiles overlap with an enemy the frame they spawn, they don't explode (frustrating)
+  - This also applies to hand grabbing
+
+- Make text pixel-perfect
+- Stump appears over and under enemies
+
+- Music doesn't loop seamlessly in webgl build
+- Crosshair is jittery when player / camera moves
+  - Would need to make crosshair a UI element - bit of a pain in the ass, so do it later
+- Multiple powerups can spawn on same point
+  - Need to wait until powerup is picked up or despawns before spawning another one
+- Improve scion slime bullet patterns
+
+// Make enemies see thru porch
+//Make goo regen over time (slowly)
+
 
 IDEAS 
 
--Goo potions bust open into goo drops
-//Fence door is attached, throw trash can / prop at it to break it
--Maybe a couple frames after an 
 -Enemy shield damages shouldn't reset if you throw an enemy and regrab it 
 -If you use an enemy to block its own bullet some interesting shit happens (larger AoE damage etc.)

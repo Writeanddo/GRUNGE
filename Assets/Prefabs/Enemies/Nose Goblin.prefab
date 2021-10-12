@@ -104,15 +104,21 @@ MonoBehaviour:
   canBeGrabbed: 1
   isProp: 0
   canBreak: 0
+  breakFromPropContact: 0
+  breakFromCharacterContact: 0
+  rotatePropFragments: 0
   hitsBeforeBreak: 0
-  baseDamageUponHitting: 4
+  baseDamageUponHitting: 9
   objectOffsetWhenHeld: {x: 0, y: -0.75}
   handOffsetWhenHeld: {x: 0, y: 1}
   isHeld: 0
   isBeingThrown: 0
   damagedSprite: {fileID: 0}
+  heldSprite: {fileID: 0}
+  damagedHeldSprite: {fileID: 0}
   propFragments: []
   propGib: {fileID: 0}
+  breakSound: {fileID: 0}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!114 &7477351445364521394

@@ -27,8 +27,8 @@ public class GameManager : MonoBehaviour
     RectTransform quitNo;
     EnemyScript heldEnemy;
     AudioSource musicSource;
-    AudioSource musicTrackDrums;
-    AudioSource musicTrackInstruments;
+    AudioSource musicTrack1;
+    AudioSource musicTrack2;
     AudioSource sfxSource;
     AudioSource stoppableSfxSource;
     AudioSource priorityStoppableSfxSource;
@@ -75,8 +75,8 @@ public class GameManager : MonoBehaviour
         sfxSource = GameObject.Find("GameSFX").GetComponent<AudioSource>();
         stoppableSfxSource = GameObject.Find("GameStoppableSFX").GetComponent<AudioSource>();
         musicSource = GameObject.Find("GameMusic").GetComponent<AudioSource>();
-        musicTrackDrums = GameObject.Find("GameMusicTrackDrums").GetComponent<AudioSource>();
-        musicTrackInstruments = GameObject.Find("GameMusicTrackInstruments").GetComponent<AudioSource>();
+        musicTrack1 = GameObject.Find("GameMusicTrackDrums").GetComponent<AudioSource>();
+        musicTrack2 = GameObject.Find("GameMusicTrackInstruments").GetComponent<AudioSource>();
         gooSource = GameObject.Find("GameGooPickupSFX").GetComponent<AudioSource>();
         prioritySfxSource = GameObject.Find("GamePrioritySFX").GetComponent<AudioSource>();
         priorityStoppableSfxSource= GameObject.Find("GamePriorityStoppableSFX").GetComponent<AudioSource>();
@@ -157,7 +157,7 @@ public class GameManager : MonoBehaviour
             }
 
             // Weapon timer update
-            if (ply.stats.currentWeapon != 0)
+            if (ply.stats.currentWeapon != 0 && ply.stats.currentWeapon != 10)
             {
                 gunTimer -= Time.fixedDeltaTime;
                 weaponTimerText.text = Mathf.RoundToInt(gunTimer).ToString();
@@ -309,9 +309,6 @@ public class GameManager : MonoBehaviour
         else if (levelName == "2_cabin_interior")
         {
             ply.canMove = true;
-            yield return new WaitForSeconds(1.5f);
-            PlayMusic();
-            ewm.StartWaves();
         }
         else if (levelName == "3_basement")
         {
@@ -359,10 +356,10 @@ public class GameManager : MonoBehaviour
         }
         else if (levelName == "endless")
         {
-            musicTrackDrums.clip = musicStems[0];
-            musicTrackInstruments.clip = musicStems[1];
-            musicTrackDrums.Play();
-            musicTrackInstruments.Play();
+            musicTrack1.clip = musicStems[0];
+            musicTrack2.clip = musicStems[1];
+            musicTrack1.Play();
+            musicTrack2.Play();
             ply.canMove = true;
         }
         else
@@ -396,7 +393,10 @@ public class GameManager : MonoBehaviour
             Transform t = GameObject.Find("CabinDoorHole").transform;
 
             ply.canMove = false;
+            ply.GetComponentInChildren<Animator>().Play("Player_FaceS");
             ply.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            StartCoroutine(ReverseFadeMusic());
+            
 
             float timer = 2.25f;
             while (timer > 0)
@@ -546,6 +546,33 @@ public class GameManager : MonoBehaviour
         }
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(level);
+    }
+
+    public IEnumerator FadeMusic()
+    {
+        while (musicTrack1.volume > 0)
+        {
+            musicTrack2.volume = Mathf.Clamp(musicTrack2.volume + Time.fixedDeltaTime * 2, 0, 1);
+            musicTrack1.volume -= Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+
+        musicTrack1.volume = 0;
+        musicTrack2.volume = 1;
+        
+    }
+    
+    public IEnumerator ReverseFadeMusic()
+    {
+        while (musicTrack2.volume > 0)
+        {
+            musicTrack1.volume = Mathf.Clamp(musicTrack1.volume + Time.fixedDeltaTime * 2, 0, 1);
+            musicTrack2.volume -= Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+
+        musicTrack1.volume = 1;
+        musicTrack2.volume = 0;
     }
 
     public void CheckAndPlayClip(string clipName, Animator anim)

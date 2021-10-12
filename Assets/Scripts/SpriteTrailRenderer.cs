@@ -8,6 +8,7 @@ public class SpriteTrailRenderer : MonoBehaviour
 {
     public bool spawnClones = true;
     public int ClonesPerSecond = 10;
+    public float colorDecayMultiplier = 5;
     private SpriteRenderer sr;
     private Transform tf;
     private List<SpriteRenderer> clones;
@@ -29,7 +30,7 @@ public class SpriteTrailRenderer : MonoBehaviour
     {
         for (int i = 0; i < clones.Count; i++)
         {
-            clones[i].color -= colorPerSecond * Time.deltaTime*3;
+            clones[i].color -= colorPerSecond * Time.deltaTime * colorDecayMultiplier;
             if (clones[i].color.a <= 0f || clones[i].transform.localScale == Vector3.zero)
             {
                 Destroy(clones[i].gameObject);
@@ -39,6 +40,12 @@ public class SpriteTrailRenderer : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        foreach (SpriteRenderer g in clones)
+            Destroy(g.gameObject);
+    }
+
     public void StartTrailCoroutine()
     {
         StartCoroutine(trail());
@@ -46,12 +53,13 @@ public class SpriteTrailRenderer : MonoBehaviour
 
     IEnumerator trail()
     {
-        while(spawnClones || clones.Count > 0)
+        while (spawnClones || clones.Count > 0)
         {
             if (spawnClones)
             {
                 var clone = new GameObject("trailClone");
                 clone.transform.position = tf.position;
+                clone.transform.rotation = tf.rotation;
 
                 var cloneRend = clone.AddComponent<SpriteRenderer>();
                 cloneRend.sprite = sr.sprite;

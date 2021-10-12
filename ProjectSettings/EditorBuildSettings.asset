@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/2_cabin_interior.unity
-    guid: 403f66e66eefbb8448b5aff9c2a6a63e
+    path: Assets/Scenes/Logo.unity
+    guid: c308564d284edd148aef74f03d991ac8
   - enabled: 1
     path: Assets/Scenes/1_cabin_approach.unity
     guid: 77c047c81cd11274cb4b815cadbd1ce9
+  - enabled: 1
+    path: Assets/Scenes/2_cabin_interior.unity
+    guid: 403f66e66eefbb8448b5aff9c2a6a63e
   m_configObjects: {}

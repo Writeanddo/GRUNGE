@@ -11,10 +11,12 @@ public class CameraController : MonoBehaviour
     public float minY;
     public float maxY;
 
+    CrosshairController crosshair;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        crosshair = FindObjectOfType<CrosshairController>();
     }
 
     // Update is called once per frame
@@ -26,5 +28,7 @@ public class CameraController : MonoBehaviour
             transform.position = new Vector3(Mathf.Clamp(target.transform.position.x, minX, maxX), Mathf.Clamp(target.transform.position.y, minY, maxY), transform.position.z);
         }
 
+        // After camera pos is determined
+        crosshair.UpdateCrosshair();
     }
 }
