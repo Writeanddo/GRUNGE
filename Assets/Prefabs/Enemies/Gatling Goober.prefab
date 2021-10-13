@@ -162,6 +162,8 @@ MonoBehaviour:
   useParentPosition: 0
   sortMultiplier: 1
   yOffset: 0
+  minLayer: -1000
+  maxLayer: 1000
 --- !u!95 &7203540108373551319
 Animator:
   serializedVersion: 3
@@ -285,6 +287,9 @@ MonoBehaviour:
   canBeGrabbed: 0
   isProp: 0
   canBreak: 0
+  breakFromPropContact: 0
+  breakFromCharacterContact: 0
+  rotatePropFragments: 0
   hitsBeforeBreak: 0
   baseDamageUponHitting: 9
   objectOffsetWhenHeld: {x: 0, y: 0}
@@ -292,8 +297,11 @@ MonoBehaviour:
   isHeld: 0
   isBeingThrown: 0
   damagedSprite: {fileID: 0}
+  heldSprite: {fileID: 0}
+  damagedHeldSprite: {fileID: 0}
   propFragments: []
   propGib: {fileID: 0}
+  breakSound: {fileID: 0}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!114 &7203540109162291164
@@ -309,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 100
+    health: 120
     maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4

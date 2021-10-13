@@ -10,6 +10,7 @@ public class DoorOpenCutscene : MonoBehaviour
     public AudioClip secondExplosionSound;
     public GameObject[] initialEnemies;
 
+    public bool isInBasement;
     EnemyWaveManager ewm;
 
     GameManager gm;
@@ -30,10 +31,21 @@ public class DoorOpenCutscene : MonoBehaviour
 
     private void Update()
     {
-        if(ewm.currentWave == 3 && !hasExploded)
+        if (!isInBasement)
         {
-            hasExploded = true;
-            StartCoroutine(ExplodeBedroomCoroutine());
+            if (ewm.currentWave == 3 && !hasExploded)
+            {
+                hasExploded = true;
+                StartCoroutine(ExplodeBedroomCoroutine());
+            }
+        }
+        else
+        {
+            if (ewm.currentWave == 3 && !hasExploded)
+            {
+                hasExploded = true;
+                StartCoroutine(ExplodeBasementCoroutine());
+            }
         }
     }
 
@@ -88,6 +100,30 @@ public class DoorOpenCutscene : MonoBehaviour
 
         hasExploded = true;
         Destroy(this.gameObject);
+    }
+
+    IEnumerator ExplodeBasementCoroutine()
+    {
+        hasExploded = true;
+        Instantiate(smallExplosion, new Vector3(43, 15, 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.1f);
+        Instantiate(smallExplosion, new Vector3(48, 16, 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.1f);
+        Instantiate(smallExplosion, new Vector3(44, 17, 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.1f);
+        Instantiate(smallExplosion, new Vector3(46, 14, 0), Quaternion.identity);
+        yield return new WaitForSeconds(0.1f);
+
+        Instantiate(bigExplosion, new Vector3(45f, 15.25f, 0), Quaternion.identity);
+        gm.PlaySFX(secondExplosionSound);
+
+        wallToDisable.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+
+        GameObject g = Instantiate(initialEnemies[0], new Vector2(45, 14), Quaternion.identity);
+        g.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -10);
+
+        hasExploded = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

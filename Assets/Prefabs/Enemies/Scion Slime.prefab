@@ -105,6 +105,9 @@ MonoBehaviour:
   canBeGrabbed: 0
   isProp: 0
   canBreak: 0
+  breakFromPropContact: 0
+  breakFromCharacterContact: 0
+  rotatePropFragments: 0
   hitsBeforeBreak: 0
   baseDamageUponHitting: 8
   objectOffsetWhenHeld: {x: 0, y: -0.75}
@@ -112,8 +115,11 @@ MonoBehaviour:
   isHeld: 0
   isBeingThrown: 0
   damagedSprite: {fileID: 0}
+  heldSprite: {fileID: 0}
+  damagedHeldSprite: {fileID: 0}
   propFragments: []
   propGib: {fileID: 0}
+  breakSound: {fileID: 0}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!114 &6568547447933223880
@@ -129,13 +135,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 40
+    health: 50
     maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4
     damage: 2
     pathSpeedMultiplier: 1.75
-    damageCooldown: 4
+    damageCooldown: 3
     inaccuracyMultiplier: 1
     noticePlayerDistance: 15
     noticedSpeedMultiplier: 0

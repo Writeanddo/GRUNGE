@@ -2254,7 +2254,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &275075635
 Transform:
   m_ObjectHideFlags: 0
@@ -3428,6 +3428,7 @@ MonoBehaviour:
   - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
   - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
   - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+  isInBasement: 0
 --- !u!1 &287284777
 GameObject:
   m_ObjectHideFlags: 0
@@ -40986,6 +40987,7 @@ MonoBehaviour:
   - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
   - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
   - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+  isInBasement: 0
 --- !u!61 &697884460
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -42237,7 +42239,7 @@ MonoBehaviour:
   spawnPointsUseAnimation: 0101000101
   spawner: {fileID: 447210132431672466, guid: d7c18ef7817c46b47bd1aa5bda1fbb1c, type: 3}
   useLoopPath: 0
-  dontRandomizeDirection: 0
+  dontRandomizeDirection: 1
   spawnPowerups: 1
   spawnEndlessly: 0
   currentWave: 0
@@ -56164,7 +56166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1331051642
 Transform:
   m_ObjectHideFlags: 0
@@ -65045,7 +65047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b4db5e68d0fd749a35dbf6b7398b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: 2
+  levelToLoad: 3
 --- !u!1 &1994356038
 GameObject:
   m_ObjectHideFlags: 0

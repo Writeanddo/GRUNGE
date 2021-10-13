@@ -3639,6 +3639,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 2b65da6f8d9a4594e896699b8fd7869f, type: 3}
   - {fileID: 8300000, guid: 402cd4c9c6f415047a387951aa2ebff6, type: 3}
   - {fileID: 8300000, guid: bcb47d216127d684bb8055f0ea331fc1, type: 3}
+  - {fileID: 8300000, guid: 4bde914cac5cc594a93f7e0465626b83, type: 3}
   gooPickupSounds:
   - {fileID: 8300000, guid: 92b28b9e3de12114eaa4007c5001cd9a, type: 3}
   - {fileID: 8300000, guid: e05a6e01eead41d4cb0dd18b1f73d006, type: 3}

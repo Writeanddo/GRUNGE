@@ -9,12 +9,15 @@ Other sfx to add:
 - Level transitions
 - play the game and find out
 
+- Gatling Goobers sometimes refuse to notice player
+  - Occured at top left of workbench, throwable props were involved
+
+- Scion Slimes get stuck leaving kitchen left
 - If projectiles overlap with an enemy the frame they spawn, they don't explode (frustrating)
   - This also applies to hand grabbing
 
 - Make text pixel-perfect
-- Stump appears over and under enemies
-
+- Bounceback on grabbles hitting objects can send player flying if they collide
 - Music doesn't loop seamlessly in webgl build
 - Crosshair is jittery when player / camera moves
   - Would need to make crosshair a UI element - bit of a pain in the ass, so do it later
@@ -22,8 +25,9 @@ Other sfx to add:
   - Need to wait until powerup is picked up or despawns before spawning another one
 - Improve scion slime bullet patterns
 
+// Stump appears over and under enemies
 // Make enemies see thru porch
-//Make goo regen over time (slowly)
+// Make goo regen over time (slowly)
 
 
 IDEAS 

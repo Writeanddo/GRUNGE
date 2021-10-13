@@ -37,7 +37,6 @@ public class ScytheProjectile : MonoBehaviour
         hitEnemies = new List<Transform>();
 
         tilt = AngleBetweenMouse(transform) - 90;
-        print(tilt);
 
         StartCoroutine(InitializeDelay());
     }
@@ -56,23 +55,22 @@ public class ScytheProjectile : MonoBehaviour
 
         if (!hasHitPlayer)
         {
-            if (timer < 0.6f)
-            {
-                // no clue
-                transform.position = new Vector2(startPos.x + (radius * MCos(alpha) * MCos(tilt)) - (1f * MSin(alpha) * MSin(tilt)),
-                                                 startPos.y + (radius * MCos(alpha) * MSin(tilt)) + (1f * MSin(alpha) * MCos(tilt)));
-                alpha += 8f;
-            }
-            else
-            {
-                transform.position = Vector2.MoveTowards(transform.position, ply.transform.position, Mathf.Clamp(Vector2.Distance(transform.position, ply.transform.position)/3, 0.05f, 1.5f));
-            }
+            //if (timer < 0.6f)
 
-            if(alpha >= 180 && !clearedEnemies)
+            startPos = ply.transform.position + focusPoint;
+
+            // no clue
+            transform.position = new Vector2(startPos.x + (radius * MCos(alpha) * MCos(tilt)) - (1f * MSin(alpha) * MSin(tilt)),
+                                             startPos.y + (radius * MCos(alpha) * MSin(tilt)) + (1f * MSin(alpha) * MCos(tilt)));
+            alpha += 8f;
+
+            //transform.position = Vector2.MoveTowards(transform.position, ply.transform.position, Mathf.Clamp(Vector2.Distance(transform.position, ply.transform.position)/3, 0.05f, 1.5f));
+
+            if (alpha >= 180 && !clearedEnemies)
             {
                 hitEnemies.Clear();
                 clearedEnemies = true;
-            }    
+            }
 
             sprite.Rotate(new Vector3(0, 0, -25));
         }

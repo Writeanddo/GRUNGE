@@ -103,6 +103,8 @@ MonoBehaviour:
   useParentPosition: 0
   sortMultiplier: 1
   yOffset: 0
+  minLayer: -1000
+  maxLayer: 1000
 --- !u!70 &5376384999165176059
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,18 +136,24 @@ MonoBehaviour:
   canBeGrabbed: 1
   isProp: 1
   canBreak: 1
+  breakFromPropContact: 0
+  breakFromCharacterContact: 0
+  rotatePropFragments: 0
   hitsBeforeBreak: 6
   baseDamageUponHitting: 15
-  objectOffsetWhenHeld: {x: 0, y: 0}
+  objectOffsetWhenHeld: {x: 0, y: 0.55}
   handOffsetWhenHeld: {x: 0, y: 0}
   isHeld: 0
   isBeingThrown: 0
   damagedSprite: {fileID: 0}
+  heldSprite: {fileID: 0}
+  damagedHeldSprite: {fileID: 0}
   propFragments:
   - {fileID: 8664462155839289350, guid: 645c846a414297f4c9377d93471090b3, type: 3}
   - {fileID: 8142517316469874988, guid: 645c846a414297f4c9377d93471090b3, type: 3}
   - {fileID: -3292824461219988629, guid: 645c846a414297f4c9377d93471090b3, type: 3}
   propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
+  breakSound: {fileID: 0}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!50 &5376384999165176053

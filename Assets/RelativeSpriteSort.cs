@@ -7,17 +7,17 @@ public class RelativeSpriteSort : MonoBehaviour
     public Renderer targetSpriteRenderer;
     public int layerOffset;
 
-    SpriteRenderer spr;
+    Renderer rend;
 
     // Start is called before the first frame update
     void Start()
     {
-        spr = GetComponent<SpriteRenderer>();
+        rend = GetComponent<Renderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        spr.sortingOrder = targetSpriteRenderer.sortingOrder + layerOffset;
+        rend.sortingOrder = targetSpriteRenderer.sortingOrder + layerOffset;
     }
 }

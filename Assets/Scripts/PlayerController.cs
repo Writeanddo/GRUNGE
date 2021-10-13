@@ -29,8 +29,10 @@ public class PlayerController : MonoBehaviour
     public Transform heldObject;
 
     float speedMultiplier = 1;
+    float storedMaxSpeed;
     bool playedDieSequence;
-    bool isMeleeLunging;
+    bool chargingAttack;
+    bool chargeReady;
 
     Transform crosshair;
     Transform gun;
@@ -69,6 +71,7 @@ public class PlayerController : MonoBehaviour
         hgm = FindObjectOfType<HandGrabManager>();
         rb = GetComponent<Rigidbody2D>();
         gm = FindObjectOfType<GameManager>();
+        storedMaxSpeed = stats.maxSpeed;
 
         StartCoroutine(GooRegen());
     }
@@ -160,7 +163,7 @@ public class PlayerController : MonoBehaviour
             hgm.CheckAndPlayClip("Blank");
             CheckAndPlayClip("Blank", gunAnim);
 
-            if(!reloading)
+            if (!reloading)
                 CheckAndPlayClip(gunPrefix + "_" + dir, gunTwoHandedAnim);
             else
                 CheckAndPlayClip("Blank", gunTwoHandedAnim);
@@ -191,12 +194,12 @@ public class PlayerController : MonoBehaviour
         // Shoot gun
         if (Input.GetButton("Fire1"))
         {
-            if (!reloading && stats.goo >= stats.shotGooUsage)
+            if (!reloading && stats.goo >= stats.shotGooUsage && !chargingAttack)
                 FireGun();
         }
 
         // Reload sound
-        if (Input.GetButtonDown("Fire1") && !reloading)
+        if (Input.GetButtonDown("Fire1") && !reloading && !chargingAttack)
         {
             Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
             gun.transform.position -= offset;
@@ -206,7 +209,7 @@ public class PlayerController : MonoBehaviour
         // Shoot hand / perform secondary weapon action
         if (Input.GetButtonDown("Fire2"))
         {
-            if (canLaunchHand)
+            if (canLaunchHand && stats.currentWeapon < 10)
             {
                 if (!handLaunched)
                 {
@@ -230,13 +233,37 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-            else
+            else if (!reloading)
             {
                 if (stats.currentWeapon == 10)
                 {
-
+                    stats.maxSpeed = storedMaxSpeed * 0.5f;
+                    StartCoroutine(PrepareChargeAttack());
                 }
             }
+        }
+
+        // Release charge
+        if (Input.GetButtonUp("Fire2") && !reloading)
+        {
+            if (stats.currentWeapon == 10)
+            {
+                if (chargingAttack && chargeReady)
+                {
+                    gm.PlaySFX(gm.playerSfx[2]);
+                    reloading = true;
+                    Instantiate(projectiles[2], transform.position, Quaternion.identity);
+                    StartCoroutine(WaitForGunReload(0.82f));
+                }
+                else
+                {
+                    chargingAttack = false;
+                }
+
+                stats.maxSpeed = storedMaxSpeed;
+            }
+
+            chargeReady = false;
         }
 
         // Convert goo into health
@@ -245,6 +272,27 @@ public class PlayerController : MonoBehaviour
             siphoningHealth = true;
             StartCoroutine(ConvertGooToHealth());
         }
+    }
+
+    IEnumerator PrepareChargeAttack()
+    {
+        chargingAttack = true;
+        float timer = 0;
+        gm.PlaySFXStoppablePriority(gm.playerSfx[11], 1);
+
+        while (timer < 0.5f && chargingAttack)
+        {
+            timer += Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+
+        if (chargingAttack)
+        {
+            gm.PlaySFX(gm.playerSfx[4]);
+            chargeReady = true;
+        }
+        
+            gm.StopPrioritySFX();
     }
 
     IEnumerator GooRegen()
@@ -427,10 +475,6 @@ public class PlayerController : MonoBehaviour
         {
             stats.shotGooUsage = 0;
             gm.PlaySFX(gm.playerSfx[2]);
-            Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
-            gun.transform.position -= offset;
-            //isMeleeLunging = true;
-            //rb.velocity += (Vector2)offset * 15;
             reloading = true;
             Instantiate(projectiles[2], transform.position, Quaternion.identity);
 
@@ -439,12 +483,6 @@ public class PlayerController : MonoBehaviour
             //StartCoroutine(MeleeLungeCooldown());
             StartCoroutine(WaitForGunReload(0.82f));
         }
-    }
-
-    IEnumerator MeleeLungeCooldown()
-    {
-        yield return new WaitForSeconds(0.1f);
-        isMeleeLunging = false;
     }
 
     string GetCompassDirection(float angle)

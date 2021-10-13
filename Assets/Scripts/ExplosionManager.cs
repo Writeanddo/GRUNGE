@@ -41,6 +41,12 @@ public class ExplosionManager : MonoBehaviour
                 //print("Distance: " + distance + ", Damage: " + damage);
                 h.GetComponent<EnemyScript>().ReceiveDamage(damage);
             }
+
+            if(h.tag == "Breakable")
+            {
+                Grabbable g = h.GetComponent<Grabbable>();
+                g.TakeDamage(this.gameObject, damage);
+            }
         }
 
         if(gibs.Length > 0)

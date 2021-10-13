@@ -117,7 +117,7 @@ public class Grabbable : MonoBehaviour
         {
             // Change damage based on how many hits we've taken
             float damageMultiplier = 1;
-            if (!isProp && (collision.tag == "Enemy" || collision.tag == "Wall"))
+            if (!isProp && (collision.tag == "Enemy" || collision.tag == "Wall" || collision.tag == "Breakable"))
             {
                 switch (thisEnemy.stats.currentShieldValue)
                 {
@@ -137,11 +137,11 @@ public class Grabbable : MonoBehaviour
                 }
             }
 
-            if ((collision.tag == "Enemy" || collision.tag == "Wall") && !hitEnemies.Contains(collision.transform))
+            if ((collision.tag == "Enemy" || collision.tag == "Wall" || collision.tag == "Breakable") && !hitEnemies.Contains(collision.transform))
             {
                 if (canBreak)
                 {
-                    TakeDamage(collision.gameObject);
+                    TakeDamage(collision.gameObject, 1);
                 }
 
                 hitEnemies.Add(collision.transform);
@@ -152,10 +152,18 @@ public class Grabbable : MonoBehaviour
                     int damage = Mathf.RoundToInt(baseDamageUponHitting * Mathf.Clamp(rb.velocity.magnitude / 6, 1, 2.5f) * damageMultiplier);
                     e.ReceiveDamage(damage);
                 }
+
+                if(collision.tag == "Breakable")
+                {
+                    Grabbable g = collision.GetComponent<Grabbable>();
+                    if (g.breakFromPropContact)
+                        g.TakeDamage(gameObject, 10);
+                }
+                    
             }
 
             // Damage self if we get slammed into a concrete wall at mach eleven
-            if (collision.tag == "Wall" && !isProp)
+            if ((collision.tag == "Wall" || collision.tag == "Breakable") && !isProp)
             {
                 int damage = Mathf.RoundToInt(baseDamageUponHitting * Mathf.Clamp(rb.velocity.magnitude / 6, 1, 2.5f) * damageMultiplier);
                 thisEnemy.ReceiveDamage(Mathf.RoundToInt(thisEnemy.stats.maxHealth / 2f + 1));
@@ -170,7 +178,7 @@ public class Grabbable : MonoBehaviour
             {
                 if (canBreak)
                 {
-                    TakeDamage(collision.gameObject);
+                    TakeDamage(collision.gameObject, 1);
                 }
             }
         }
@@ -180,13 +188,13 @@ public class Grabbable : MonoBehaviour
             if (canBreak)
             {
                 print("Making me killing you");
-                TakeDamage(collision.gameObject);
+                TakeDamage(collision.gameObject, 1);
             }
     }
 
-    public void TakeDamage(GameObject g)
+    public void TakeDamage(GameObject g, int damage)
     {
-        hitsTaken++;
+        hitsTaken += damage;
 
         if (hitsTaken >= hitsBeforeBreak && !breaking)
         {

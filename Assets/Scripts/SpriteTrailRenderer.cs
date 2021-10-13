@@ -43,7 +43,10 @@ public class SpriteTrailRenderer : MonoBehaviour
     private void OnDestroy()
     {
         foreach (SpriteRenderer g in clones)
-            Destroy(g.gameObject);
+        {
+            if(g != null)
+                Destroy(g.gameObject);
+        }
     }
 
     public void StartTrailCoroutine()

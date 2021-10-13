@@ -253,6 +253,11 @@ public class GameManager : MonoBehaviour
         priorityStoppableSfxSource.PlayOneShot(clip);
     }
 
+    public void StopPrioritySFX()
+    {
+        priorityStoppableSfxSource.Stop();
+    }
+
     public void PlayGooSFX(AudioClip clip)
     {
         gooSource.Stop();
@@ -309,6 +314,8 @@ public class GameManager : MonoBehaviour
         else if (levelName == "2_cabin_interior")
         {
             ply.canMove = true;
+            //PlayMusic();
+            //ewm.StartWaves();
         }
         else if (levelName == "3_basement")
         {
@@ -377,6 +384,10 @@ public class GameManager : MonoBehaviour
         ply.stats.currentWeapon = gunIndex;
         switch(gunIndex)
         {
+            case 10:
+                gunTimer = 30;
+                ply.canLaunchHand = false;
+                break;
             default:
                 gunTimer = 30;
                 break;

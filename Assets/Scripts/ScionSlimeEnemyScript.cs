@@ -35,7 +35,7 @@ public class ScionSlimeEnemyScript : EnemyScript
         for (int i = 0; i < 3; i++)
         {
             EnemyProjectile p = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<EnemyProjectile>();
-            p.Launch(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * p.speed);
+            p.Launch(new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * p.speed/2);
         }
         StartCoroutine(Reload());
     }
