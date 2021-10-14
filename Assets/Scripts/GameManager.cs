@@ -325,7 +325,7 @@ public class GameManager : MonoBehaviour
         }
         else if (levelName == "4_boss")
         {
-            PlayMusic();
+            /*PlayMusic();
             yield return new WaitForSeconds(1.5f);
             camControl.overridePosition = true;
             Transform t = GameObject.Find("Boss").transform;
@@ -356,10 +356,12 @@ public class GameManager : MonoBehaviour
             }
 
             camControl.overridePosition = false;
-            ply.canMove = true;
+            
 
             t.GetComponent<EnemyScript>().UpdateMovement();
             ewm.StartWaves();
+            */
+            ply.canMove = true;
         }
         else if (levelName == "endless")
         {

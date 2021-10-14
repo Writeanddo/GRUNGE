@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyInstantiator : MonoBehaviour
 {
     public GameObject enemyToSpawn;
+    public bool spawningPowerup;
 
     public void SelfDestruct()
     {
@@ -13,6 +14,8 @@ public class EnemyInstantiator : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+        GameObject g = Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+        if (spawningPowerup)
+            FindObjectOfType<EnemyWaveManager>().currentlySpawnedPowerup = g;
     }
 }

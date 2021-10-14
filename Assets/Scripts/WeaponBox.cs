@@ -6,6 +6,7 @@ public class WeaponBox : MonoBehaviour
 {
     public int gunIndex;
 
+    SpriteRenderer spr;
     GameManager gm;
     Animator anim;
     AudioSource audio;
@@ -13,6 +14,7 @@ public class WeaponBox : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spr = GetComponent<SpriteRenderer>();
         gm = FindObjectOfType<GameManager>();
         anim = GetComponent<Animator>();
         audio = GetComponentInChildren<AudioSource>();
@@ -29,6 +31,21 @@ public class WeaponBox : MonoBehaviour
                 anim.Play("KnuckleBox");
                 break;
         }
+
+        StartCoroutine(DestroyAfterTime());
+    }
+
+    IEnumerator DestroyAfterTime()
+    {
+        yield return new WaitForSeconds(15);
+        for(int i = 0; i < 25; i++)
+        {
+            spr.color = new Color(1, 1, 1, 0.35f);
+            yield return new WaitForSeconds(0.1f);
+            spr.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
+        }
+        Destroy(this.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

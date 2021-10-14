@@ -55,16 +55,17 @@ public class ScytheProjectile : MonoBehaviour
 
         if (!hasHitPlayer)
         {
-            //if (timer < 0.6f)
+            if (timer < 0.6f)
+            {
+                //startPos = ply.transform.position + focusPoint;
 
-            startPos = ply.transform.position + focusPoint;
-
-            // no clue
-            transform.position = new Vector2(startPos.x + (radius * MCos(alpha) * MCos(tilt)) - (1f * MSin(alpha) * MSin(tilt)),
-                                             startPos.y + (radius * MCos(alpha) * MSin(tilt)) + (1f * MSin(alpha) * MCos(tilt)));
-            alpha += 8f;
-
-            //transform.position = Vector2.MoveTowards(transform.position, ply.transform.position, Mathf.Clamp(Vector2.Distance(transform.position, ply.transform.position)/3, 0.05f, 1.5f));
+                // no clue
+                transform.position = new Vector2(startPos.x + (radius * MCos(alpha) * MCos(tilt)) - (1f * MSin(alpha) * MSin(tilt)),
+                                                 startPos.y + (radius * MCos(alpha) * MSin(tilt)) + (1f * MSin(alpha) * MCos(tilt)));
+                alpha += 8f;
+            }
+            else // MAYBE get rid of this
+                transform.position = Vector2.MoveTowards(transform.position, ply.transform.position, Mathf.Clamp(Vector2.Distance(transform.position, ply.transform.position) / 3, 0.05f, 1.5f));
 
             if (alpha >= 180 && !clearedEnemies)
             {

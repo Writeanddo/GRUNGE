@@ -3428,6 +3428,7 @@ MonoBehaviour:
   - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
   - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
   - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+  - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
   isInBasement: 0
 --- !u!1 &287284777
 GameObject:
@@ -3441,9 +3442,9 @@ GameObject:
   - component: {fileID: 287284781}
   - component: {fileID: 287284780}
   - component: {fileID: 287284779}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Level1Props_0 (11)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4052,9 +4053,9 @@ GameObject:
   - component: {fileID: 413127474}
   - component: {fileID: 413127477}
   - component: {fileID: 413127478}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Level1Props_0 (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4728,9 +4729,9 @@ GameObject:
   - component: {fileID: 565324218}
   - component: {fileID: 565324217}
   - component: {fileID: 565324220}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Level1Props_2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40987,6 +40988,7 @@ MonoBehaviour:
   - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
   - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
   - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+  - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
   isInBasement: 0
 --- !u!61 &697884460
 BoxCollider2D:
@@ -41940,9 +41942,9 @@ GameObject:
   m_Component:
   - component: {fileID: 730872633}
   - component: {fileID: 730872634}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Level1Props_0 (12)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42148,7 +42150,7 @@ MonoBehaviour:
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
-    delayBetweenSpawning: 3
+    delayBetweenSpawning: 1
     pointToSpawnAt: 1
     useRandomPoint: 0
     timeAfterWave: 2
@@ -42172,8 +42174,8 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
-    delayBetweenSpawning: 3
-    pointToSpawnAt: 1
+    delayBetweenSpawning: 1.5
+    pointToSpawnAt: 2
     useRandomPoint: 0
     timeAfterWave: 1
   - enemiesToSpawn:
@@ -42187,12 +42189,47 @@ MonoBehaviour:
     useRandomPoint: 0
     timeAfterWave: 2
   - enemiesToSpawn:
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    delayBetweenSpawning: 2
+    pointToSpawnAt: 0
+    useRandomPoint: 1
+    timeAfterWave: 3
+  - enemiesToSpawn:
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
-    delayBetweenSpawning: 2
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    delayBetweenSpawning: 2.5
+    pointToSpawnAt: 3
+    useRandomPoint: 1
+    timeAfterWave: 3
+  - enemiesToSpawn:
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    delayBetweenSpawning: 1.5
+    pointToSpawnAt: 3
+    useRandomPoint: 1
+    timeAfterWave: 3
+  - enemiesToSpawn:
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    delayBetweenSpawning: 1.5
     pointToSpawnAt: 3
     useRandomPoint: 1
     timeAfterWave: 1
@@ -42201,13 +42238,25 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
-    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
-    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
-    delayBetweenSpawning: 2
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    delayBetweenSpawning: 1.5
     pointToSpawnAt: 3
     useRandomPoint: 1
-    timeAfterWave: 4
+    timeAfterWave: 2
+  - enemiesToSpawn:
+    - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    delayBetweenSpawning: 1
+    pointToSpawnAt: 3
+    useRandomPoint: 1
+    timeAfterWave: 0
   enemyPath:
   - {fileID: 172992569}
   - {fileID: 621894139}
@@ -42243,6 +42292,7 @@ MonoBehaviour:
   spawnPowerups: 1
   spawnEndlessly: 0
   currentWave: 0
+  currentlySpawnedPowerup: {fileID: 0}
 --- !u!1 &785781077
 GameObject:
   m_ObjectHideFlags: 0
@@ -55977,9 +56027,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1211210800}
   - component: {fileID: 1211210801}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Level1Props_0 (8)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56054,9 +56104,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1250920160}
   - component: {fileID: 1250920161}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Level1Props_0 (7)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58795,9 +58845,9 @@ GameObject:
   - component: {fileID: 1360397607}
   - component: {fileID: 1360397608}
   - component: {fileID: 1360397609}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Level1Props_0 (5)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59067,7 +59117,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645426700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.25, y: 2.34, z: 0}
+  m_LocalPosition: {x: 23.31, y: 1.71, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1277678621}
@@ -59213,9 +59263,9 @@ GameObject:
   - component: {fileID: 1648701829}
   - component: {fileID: 1648701828}
   - component: {fileID: 1648701831}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: WashingMachines
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64529,9 +64579,9 @@ GameObject:
   - component: {fileID: 1829496887}
   - component: {fileID: 1829496886}
   - component: {fileID: 1829496885}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Level1Props_0 (4)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64703,9 +64753,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1873063551}
   - component: {fileID: 1873063552}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Level1Props_0 (9)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64762,9 +64812,9 @@ GameObject:
   - component: {fileID: 1926548104}
   - component: {fileID: 1926548106}
   - component: {fileID: 1926548107}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Level1Props_0
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65131,9 +65181,9 @@ GameObject:
   - component: {fileID: 1994739086}
   - component: {fileID: 1994739089}
   - component: {fileID: 1994739090}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Level1Props_0 (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65462,9 +65512,9 @@ GameObject:
   - component: {fileID: 2140220230}
   - component: {fileID: 2140220229}
   - component: {fileID: 2140220227}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Level1Props_0 (10)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65812,7 +65862,7 @@ PrefabInstance:
         type: 3}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: 843f02d1ee4baed489f892efb3af8a6c, type: 3}
+      objectReference: {fileID: 8300000, guid: a21ab3aa0f9628a42b0a014aab281afd, type: 3}
     - target: {fileID: 8795129235089351262, guid: af3b070ce755e0340acbb957102e96c4,
         type: 3}
       propertyPath: playerSfx.Array.data[11]

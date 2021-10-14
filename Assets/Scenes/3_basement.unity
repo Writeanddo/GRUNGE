@@ -2996,7 +2996,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 233663404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33, y: 12.25, z: 0}
+  m_LocalPosition: {x: 32, y: 12.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -27610,6 +27610,7 @@ MonoBehaviour:
   spawnPowerups: 1
   spawnEndlessly: 0
   currentWave: 0
+  currentlySpawnedPowerup: {fileID: 0}
 --- !u!1 &756191899
 GameObject:
   m_ObjectHideFlags: 0
@@ -48928,6 +48929,73 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79a51e8b18157014ba9c8a331bf7813e, type: 3}
+--- !u!1 &1993325386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1993325388}
+  - component: {fileID: 1993325387}
+  m_Layer: 15
+  m_Name: SlimeWall
+  m_TagString: Wall
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!60 &1993325387
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993325386}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.40488434, y: 0.7791548}
+      - {x: -1.7056084, y: 0.16178703}
+      - {x: -0.8840828, y: -0.058169365}
+      - {x: -1.4343567, y: -0.9562483}
+      - {x: -0.21705246, y: -0.9352436}
+      - {x: 0.5383606, y: -1.5565205}
+      - {x: 0.67980194, y: -2.2261076}
+      - {x: 0.9619293, y: -2.3774872}
+      - {x: 1.3649216, y: -2.2601318}
+      - {x: 1.3301582, y: 0.30130482}
+      - {x: 0.9510565, y: 0.30901712}
+--- !u!4 &1993325388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1993325386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 61.69, y: 13.81, z: 1.8105469}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2030722911
 GameObject:
   m_ObjectHideFlags: 0
@@ -49497,7 +49565,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2093650171
   m_SortingLayer: -1
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_Sprite: {fileID: 8292865456575377976, guid: a2a3c05404a311f41b92aac5682d8ea0,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

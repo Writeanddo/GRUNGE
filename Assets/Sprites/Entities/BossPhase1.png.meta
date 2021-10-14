@@ -1,0 +1,1616 @@
+fileFormatVersion: 2
+guid: 05103aa974546d948b5ed17d2cfe80f2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4451949949586916690
+    second: BossPhase1_0
+  - first:
+      213: 5109353750853805172
+    second: BossPhase1_1
+  - first:
+      213: 7003846540746400597
+    second: BossPhase1_2
+  - first:
+      213: -7710265455655775948
+    second: BossPhase1_3
+  - first:
+      213: -1373361128780578213
+    second: BossPhase1_4
+  - first:
+      213: 7157991559604644008
+    second: BossPhase1_5
+  - first:
+      213: 7698912636905789529
+    second: BossPhase1_6
+  - first:
+      213: -7507573239320677107
+    second: BossPhase1_7
+  - first:
+      213: -1758407726909819366
+    second: BossPhase1_8
+  - first:
+      213: 7656542364190968272
+    second: BossPhase1_9
+  - first:
+      213: -4589336814071186264
+    second: BossPhase1_10
+  - first:
+      213: -2342976820109803543
+    second: BossPhase1_11
+  - first:
+      213: 2550920547011998834
+    second: BossPhase1_12
+  - first:
+      213: 732288713418811381
+    second: BossPhase1_13
+  - first:
+      213: -5795053212755672537
+    second: BossPhase1_14
+  - first:
+      213: -742602947535476521
+    second: BossPhase1_15
+  - first:
+      213: -220245796908341680
+    second: BossPhase1_16
+  - first:
+      213: -189812872041172689
+    second: BossPhase1_17
+  - first:
+      213: -756600539615302177
+    second: BossPhase1_18
+  - first:
+      213: -2419843303959905715
+    second: BossPhase1_19
+  - first:
+      213: -6593229927896095084
+    second: BossPhase1_20
+  - first:
+      213: 6516724093100957282
+    second: BossPhase1_21
+  - first:
+      213: 1354971247043621662
+    second: BossPhase1_22
+  - first:
+      213: -5839354137741406139
+    second: BossPhase1_23
+  - first:
+      213: 6542234786446483180
+    second: BossPhase1_24
+  - first:
+      213: 4464326839359629301
+    second: BossPhase1_25
+  - first:
+      213: -6340413604505020575
+    second: BossPhase1_26
+  - first:
+      213: -1688396622460895331
+    second: BossPhase1_27
+  - first:
+      213: 8696939947550256041
+    second: BossPhase1_28
+  - first:
+      213: -7739513096278920260
+    second: BossPhase1_29
+  - first:
+      213: -720168093387343371
+    second: BossPhase1_30
+  - first:
+      213: 8928612140161624007
+    second: BossPhase1_31
+  - first:
+      213: -8224216922516967143
+    second: BossPhase1_32
+  - first:
+      213: 2624052815871458160
+    second: BossPhase1_33
+  - first:
+      213: 9206013130460271358
+    second: BossPhase1_34
+  - first:
+      213: -6479689161490970280
+    second: BossPhase1_35
+  - first:
+      213: 1050496049190948230
+    second: BossPhase1_36
+  - first:
+      213: 1335630725339686838
+    second: BossPhase1_37
+  - first:
+      213: -1218140824084541510
+    second: BossPhase1_38
+  - first:
+      213: 2613324727423799874
+    second: BossPhase1_39
+  - first:
+      213: -992670205033815365
+    second: BossPhase1_40
+  - first:
+      213: -1281682176152850831
+    second: BossPhase1_41
+  - first:
+      213: 2079589453916506722
+    second: BossPhase1_42
+  - first:
+      213: 4434878702815032194
+    second: BossPhase1_43
+  - first:
+      213: 728620462888035332
+    second: BossPhase1_44
+  - first:
+      213: -5355544232980137569
+    second: BossPhase1_45
+  - first:
+      213: 8207131849165439519
+    second: BossPhase1_46
+  - first:
+      213: 8719477712744006528
+    second: BossPhase1_47
+  - first:
+      213: -7531719920884349324
+    second: BossPhase1_48
+  - first:
+      213: -2929101024951123238
+    second: BossPhase1_49
+  - first:
+      213: -423859634639354069
+    second: BossPhase1_50
+  - first:
+      213: -2037471222477624213
+    second: BossPhase1_51
+  - first:
+      213: 7111580709801583571
+    second: BossPhase1_52
+  - first:
+      213: -5413251853511942282
+    second: BossPhase1_53
+  - first:
+      213: 4319349354078216146
+    second: BossPhase1_54
+  - first:
+      213: 2590364998168868030
+    second: BossPhase1_55
+  - first:
+      213: 2844987884331034209
+    second: BossPhase1_56
+  - first:
+      213: -1718511748763258466
+    second: BossPhase1_57
+  - first:
+      213: -5197372992764477630
+    second: BossPhase1_58
+  - first:
+      213: 63090610754262289
+    second: BossPhase1_59
+  - first:
+      213: 7020900590554825220
+    second: BossPhase1_60
+  - first:
+      213: 1629101212462940712
+    second: BossPhase1_61
+  - first:
+      213: -3301342637190498621
+    second: BossPhase1_62
+  - first:
+      213: 6738257428516694238
+    second: BossPhase1_63
+  - first:
+      213: -8038009539701565429
+    second: BossPhase1_64
+  - first:
+      213: 4056371579242813970
+    second: BossPhase1_65
+  - first:
+      213: 9145527001137731893
+    second: BossPhase1_66
+  - first:
+      213: 6703512346769218904
+    second: BossPhase1_67
+  - first:
+      213: -3841007348340289566
+    second: BossPhase1_68
+  - first:
+      213: -3835076124599781059
+    second: BossPhase1_69
+  - first:
+      213: -6703149704494912174
+    second: BossPhase1_70
+  - first:
+      213: -3021563881967418957
+    second: BossPhase1_71
+  - first:
+      213: -7651293273033392100
+    second: BossPhase1_72
+  - first:
+      213: 1506238294671056407
+    second: BossPhase1_73
+  - first:
+      213: 977901464265777726
+    second: BossPhase1_74
+  - first:
+      213: -2017746981462243370
+    second: BossPhase1_75
+  - first:
+      213: -7040598307710089368
+    second: BossPhase1_76
+  - first:
+      213: 2441875482276514482
+    second: BossPhase1_77
+  - first:
+      213: 4764917428566679879
+    second: BossPhase1_78
+  - first:
+      213: 4245446464240984740
+    second: BossPhase1_79
+  - first:
+      213: 1999514772345664776
+    second: BossPhase1_80
+  - first:
+      213: -1518205987676297926
+    second: BossPhase1_81
+  - first:
+      213: 6700654867684704334
+    second: BossPhase1_82
+  - first:
+      213: 8470172142131211536
+    second: BossPhase1_83
+  - first:
+      213: 976783588521247270
+    second: BossPhase1_84
+  - first:
+      213: 6197488224610261075
+    second: BossPhase1_85
+  - first:
+      213: -3110915213309170151
+    second: BossPhase1_86
+  - first:
+      213: -1318042641523888785
+    second: BossPhase1_87
+  - first:
+      213: -2801122990118713694
+    second: BossPhase1_88
+  - first:
+      213: 4888553642516381599
+    second: BossPhase1_89
+  - first:
+      213: -3285514129715603563
+    second: BossPhase1_90
+  - first:
+      213: -3358589050405362842
+    second: BossPhase1_91
+  - first:
+      213: 6096273285189346
+    second: BossPhase1_92
+  - first:
+      213: 4683687191812219816
+    second: BossPhase1_93
+  - first:
+      213: -3090059241991951753
+    second: BossPhase1_94
+  - first:
+      213: 2893811162959275026
+    second: BossPhase1_95
+  - first:
+      213: 3118490425270853956
+    second: BossPhase1_96
+  - first:
+      213: -5165837901305718412
+    second: BossPhase1_97
+  - first:
+      213: -5100796180181295271
+    second: BossPhase1_98
+  - first:
+      213: -3195452110690240615
+    second: BossPhase1_99
+  - first:
+      213: -5725441968473424467
+    second: BossPhase1_100
+  - first:
+      213: 1017201745251593667
+    second: BossPhase1_101
+  - first:
+      213: 1224448952260736046
+    second: BossPhase1_102
+  - first:
+      213: -1423945265630453775
+    second: BossPhase1_103
+  - first:
+      213: -4308452261136306158
+    second: BossPhase1_104
+  - first:
+      213: 4174542665601721085
+    second: BossPhase1_105
+  - first:
+      213: -8726579368145490754
+    second: BossPhase1_106
+  - first:
+      213: -8670840058267805380
+    second: BossPhase1_107
+  - first:
+      213: 4721981580028494816
+    second: BossPhase1_108
+  - first:
+      213: 3318303888419704549
+    second: BossPhase1_109
+  - first:
+      213: 3747847660959686781
+    second: BossPhase1_110
+  - first:
+      213: -4304389530455048081
+    second: BossPhase1_111
+  - first:
+      213: 3251008458506477195
+    second: BossPhase1_112
+  - first:
+      213: 4877754884970599394
+    second: BossPhase1_113
+  - first:
+      213: -9218130218720813845
+    second: BossPhase1_114
+  - first:
+      213: 4084619343260693897
+    second: BossPhase1_115
+  - first:
+      213: 7675837496031837604
+    second: BossPhase1_116
+  - first:
+      213: 1703981404825303826
+    second: BossPhase1_117
+  - first:
+      213: 4747955388507604027
+    second: BossPhase1_118
+  - first:
+      213: -6596345005188896783
+    second: BossPhase1_119
+  - first:
+      213: -6602676831233941418
+    second: BossPhase1_120
+  - first:
+      213: 8616151456304696744
+    second: BossPhase1_121
+  - first:
+      213: 7709538619092873705
+    second: BossPhase1_122
+  - first:
+      213: 9192644299909998029
+    second: BossPhase1_123
+  - first:
+      213: 4922819290172723213
+    second: BossPhase1_124
+  - first:
+      213: 6351865628631335242
+    second: BossPhase1_125
+  - first:
+      213: -402376436406292398
+    second: BossPhase1_126
+  - first:
+      213: 6707628315364912692
+    second: BossPhase1_127
+  - first:
+      213: 231075762218317019
+    second: BossPhase1_128
+  - first:
+      213: -4501668740232990321
+    second: BossPhase1_129
+  - first:
+      213: -72177300322701121
+    second: BossPhase1_130
+  - first:
+      213: 1137557801150781954
+    second: BossPhase1_131
+  - first:
+      213: 2776405840768227903
+    second: BossPhase1_132
+  - first:
+      213: -3175288327776831302
+    second: BossPhase1_133
+  - first:
+      213: 6724341845474795253
+    second: BossPhase1_134
+  - first:
+      213: -6961319013960435213
+    second: BossPhase1_135
+  - first:
+      213: -9091699077038820509
+    second: BossPhase1_136
+  - first:
+      213: 6565651828102928195
+    second: BossPhase1_137
+  - first:
+      213: -4433261599170021498
+    second: BossPhase1_138
+  - first:
+      213: 6555098451652543621
+    second: BossPhase1_139
+  - first:
+      213: -987414855453732856
+    second: BossPhase1_140
+  - first:
+      213: 208320483545630876
+    second: BossPhase1_141
+  - first:
+      213: -7532262537552384694
+    second: BossPhase1_142
+  - first:
+      213: 2388323261174962496
+    second: BossPhase1_143
+  - first:
+      213: -7250390220104237077
+    second: BossPhase1_144
+  - first:
+      213: -4061715736348362798
+    second: BossPhase1_145
+  - first:
+      213: 3177316940989651505
+    second: BossPhase1_146
+  - first:
+      213: -8313789264822170016
+    second: BossPhase1_147
+  - first:
+      213: 6489094788264685407
+    second: BossPhase1_148
+  - first:
+      213: 4604405225394297778
+    second: BossPhase1_149
+  - first:
+      213: 5629473986874499114
+    second: BossPhase1_150
+  - first:
+      213: 8586466960864831930
+    second: BossPhase1_151
+  - first:
+      213: -300454574578296304
+    second: BossPhase1_152
+  - first:
+      213: -1759634589639651527
+    second: BossPhase1_153
+  - first:
+      213: 8849807134094451621
+    second: BossPhase1_154
+  - first:
+      213: -4028643003486652838
+    second: BossPhase1_155
+  - first:
+      213: 7103261734418747166
+    second: BossPhase1_156
+  - first:
+      213: -5019740684035106030
+    second: BossPhase1_157
+  - first:
+      213: 7739964191875584219
+    second: BossPhase1_158
+  - first:
+      213: -4395848672954338010
+    second: BossPhase1_159
+  - first:
+      213: -724632928152118009
+    second: BossPhase1_160
+  - first:
+      213: -4570008550418690135
+    second: BossPhase1_161
+  - first:
+      213: 1107905206542584422
+    second: BossPhase1_162
+  - first:
+      213: 8831633606726484926
+    second: BossPhase1_163
+  - first:
+      213: 1249157354178203065
+    second: BossPhase1_164
+  - first:
+      213: 6410598294474659163
+    second: BossPhase1_165
+  - first:
+      213: 1847370521244639474
+    second: BossPhase1_166
+  - first:
+      213: -4016177905784455227
+    second: BossPhase1_167
+  - first:
+      213: -8514106864116380400
+    second: BossPhase1_168
+  - first:
+      213: 879108916357536657
+    second: BossPhase1_169
+  - first:
+      213: -3246182216184585810
+    second: BossPhase1_170
+  - first:
+      213: 3819646764489351375
+    second: BossPhase1_171
+  - first:
+      213: -4025354228141385207
+    second: BossPhase1_172
+  - first:
+      213: -5313971283616063283
+    second: BossPhase1_173
+  - first:
+      213: -449551624434511323
+    second: BossPhase1_174
+  - first:
+      213: -6926158855466293360
+    second: BossPhase1_175
+  - first:
+      213: -1423635347345989096
+    second: BossPhase1_176
+  - first:
+      213: 8582494698893654413
+    second: BossPhase1_177
+  - first:
+      213: -1207224816885214034
+    second: BossPhase1_178
+  - first:
+      213: -1035963052224370723
+    second: BossPhase1_179
+  - first:
+      213: -367930869621559839
+    second: BossPhase1_180
+  - first:
+      213: -1337387172454410624
+    second: BossPhase1_181
+  - first:
+      213: 4096676578189456133
+    second: BossPhase1_182
+  - first:
+      213: 436531970578971470
+    second: BossPhase1_183
+  - first:
+      213: -6903130647239564544
+    second: BossPhase1_184
+  - first:
+      213: -7306886855251601111
+    second: BossPhase1_185
+  - first:
+      213: 1465193314179408114
+    second: BossPhase1_186
+  - first:
+      213: -1537546814497453611
+    second: BossPhase1_187
+  - first:
+      213: -8987423660692845077
+    second: BossPhase1_188
+  - first:
+      213: 8688019319792983950
+    second: BossPhase1_189
+  - first:
+      213: -2531485312374340145
+    second: BossPhase1_190
+  - first:
+      213: -8177178396978605886
+    second: BossPhase1_191
+  - first:
+      213: 536717230421773811
+    second: BossPhase1_192
+  - first:
+      213: -4963581750621121807
+    second: BossPhase1_193
+  - first:
+      213: 1142538475369999857
+    second: BossPhase1_194
+  - first:
+      213: 7558013952928422136
+    second: BossPhase1_195
+  - first:
+      213: 1185975693279964482
+    second: BossPhase1_196
+  - first:
+      213: -473104357709289462
+    second: BossPhase1_197
+  - first:
+      213: -4310998970149723282
+    second: BossPhase1_198
+  - first:
+      213: 6447024162852720296
+    second: BossPhase1_199
+  - first:
+      213: 5105269266107135194
+    second: BossPhase1_200
+  - first:
+      213: -4940171741449305452
+    second: BossPhase1_201
+  - first:
+      213: 7394030996047274942
+    second: BossPhase1_202
+  - first:
+      213: 133918615362207134
+    second: BossPhase1_203
+  - first:
+      213: -4341210574973334511
+    second: BossPhase1_204
+  - first:
+      213: -8973559759378804972
+    second: BossPhase1_205
+  - first:
+      213: 4565536769252612289
+    second: BossPhase1_206
+  - first:
+      213: 3791429412833797544
+    second: BossPhase1_207
+  - first:
+      213: -15906670481599046
+    second: BossPhase1_208
+  - first:
+      213: 6753710440610517110
+    second: BossPhase1_209
+  - first:
+      213: 2769449913943504244
+    second: BossPhase1_210
+  - first:
+      213: -6163343077474857449
+    second: BossPhase1_211
+  - first:
+      213: 3802853267734471967
+    second: BossPhase1_212
+  - first:
+      213: -4507765532671214570
+    second: BossPhase1_213
+  - first:
+      213: -900011223472840554
+    second: BossPhase1_214
+  - first:
+      213: -2139171833785517782
+    second: BossPhase1_215
+  - first:
+      213: -9112486810179497254
+    second: BossPhase1_216
+  - first:
+      213: -3653765780331684011
+    second: BossPhase1_217
+  - first:
+      213: 1072983695220810199
+    second: BossPhase1_218
+  - first:
+      213: 7865495451800538071
+    second: BossPhase1_219
+  - first:
+      213: 2873883327681495112
+    second: BossPhase1_220
+  - first:
+      213: 941840125835211249
+    second: BossPhase1_221
+  - first:
+      213: 7255417473557550609
+    second: BossPhase1_222
+  - first:
+      213: 2943130348873519025
+    second: BossPhase1_223
+  - first:
+      213: 5352999221294850704
+    second: BossPhase1_224
+  - first:
+      213: 4579732906945837895
+    second: BossPhase1_225
+  - first:
+      213: -7292569355168473864
+    second: BossPhase1_226
+  - first:
+      213: -6589592594303259040
+    second: BossPhase1_227
+  - first:
+      213: 5520092358658307043
+    second: BossPhase1_228
+  - first:
+      213: -6612230849874424440
+    second: BossPhase1_229
+  - first:
+      213: 628082075195787931
+    second: BossPhase1_230
+  - first:
+      213: 2619237104101764797
+    second: BossPhase1_231
+  - first:
+      213: -5083172990581259368
+    second: BossPhase1_232
+  - first:
+      213: 8101012186702993372
+    second: BossPhase1_233
+  - first:
+      213: -5602996363188010564
+    second: BossPhase1_234
+  - first:
+      213: 214531866126222942
+    second: BossPhase1_235
+  - first:
+      213: 301324262342220948
+    second: BossPhase1_236
+  - first:
+      213: -6013723361637786671
+    second: BossPhase1_237
+  - first:
+      213: 5310551667873223585
+    second: BossPhase1_238
+  - first:
+      213: -3598260500633509294
+    second: BossPhase1_239
+  - first:
+      213: -5426231798242431634
+    second: BossPhase1_240
+  - first:
+      213: 8639433987701062273
+    second: BossPhase1_241
+  - first:
+      213: -5605032034956399309
+    second: BossPhase1_242
+  - first:
+      213: 7039281186420262994
+    second: BossPhase1_243
+  - first:
+      213: -8535637973139909834
+    second: BossPhase1_244
+  - first:
+      213: 1334882511006558187
+    second: BossPhase1_245
+  - first:
+      213: -2510356474228838291
+    second: BossPhase1_246
+  - first:
+      213: 8774328514717651217
+    second: BossPhase1_247
+  - first:
+      213: 3546130446971431280
+    second: BossPhase1_248
+  - first:
+      213: -5869693699066533309
+    second: BossPhase1_249
+  - first:
+      213: -7128536296171456695
+    second: BossPhase1_250
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossPhase1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25542f644e088cd30800000000000000
+      internalID: 4451949949586916690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47463777a2218e640800000000000000
+      internalID: 5109353750853805172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 553a9822259a23160800000000000000
+      internalID: 7003846540746400597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4311ca73b62aff490800000000000000
+      internalID: -7710265455655775948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 320
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5244ba6457d0fce0800000000000000
+      internalID: -1373361128780578213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a8aa77166b465360800000000000000
+      internalID: 7157991559604644008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_6
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 320
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 958198fa04808da60800000000000000
+      internalID: 7698912636905789529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 320
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d05ff096aedbfc790800000000000000
+      internalID: -7507573239320677107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 320
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a16fc332d71e897e0800000000000000
+      internalID: -1758407726909819366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 320
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d90551d6b0814a60800000000000000
+      internalID: 7656542364190968272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_10
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 320
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8acf9a2ab766f40c0800000000000000
+      internalID: -4589336814071186264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ef7168eef21c7fd0800000000000000
+      internalID: -2342976820109803543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_12
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 160
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27435eed8b0b66320800000000000000
+      internalID: 2550920547011998834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 160
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f72b5c74bc992a00800000000000000
+      internalID: 732288713418811381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_14
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 160
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72246377ec5d39fa0800000000000000
+      internalID: -5795053212755672537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_15
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 160
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d86dfebd8eb1b5f0800000000000000
+      internalID: -742602947535476521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_16
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 160
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05661085d9781fcf0800000000000000
+      internalID: -220245796908341680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_17
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 160
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f217034d236ad5df0800000000000000
+      internalID: -189812872041172689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_18
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 160
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdd6c5f51d30085f0800000000000000
+      internalID: -756600539615302177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_19
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 160
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4abc5ff55dfa6ed0800000000000000
+      internalID: -2419843303959905715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_20
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 160
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 496674120542084a0800000000000000
+      internalID: -6593229927896095084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_21
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 160
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e138c190e007a50800000000000000
+      internalID: 6516724093100957282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_22
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 160
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1337e49b23ddc210800000000000000
+      internalID: 1354971247043621662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5405736995276fea0800000000000000
+      internalID: -5839354137741406139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cee985340efaaca50800000000000000
+      internalID: 6542234786446483180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_25
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f7e54d7b9974fd30800000000000000
+      internalID: 4464326839359629301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_26
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1679c6e6b635208a0800000000000000
+      internalID: -6340413604505020575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_27
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9fbf36a73c9198e0800000000000000
+      internalID: -1688396622460895331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_28
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ab23aecdccb1b870800000000000000
+      internalID: 8696939947550256041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_29
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb3bfc938d9b79490800000000000000
+      internalID: -7739513096278920260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_30
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f9b3174fe27106f0800000000000000
+      internalID: -720168093387343371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_31
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c7e2978f6dc8eb70800000000000000
+      internalID: 8928612140161624007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_32
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 911be916846bddd80800000000000000
+      internalID: -8224216922516967143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_33
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07bb1e912228a6420800000000000000
+      internalID: 2624052815871458160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossPhase1_34
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 0
+        width: 128
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef29aa6aa2452cf70800000000000000
+      internalID: 9206013130460271358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

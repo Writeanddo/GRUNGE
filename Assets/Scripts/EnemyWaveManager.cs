@@ -29,7 +29,7 @@ public class EnemyWaveManager : MonoBehaviour
     public int currentWave;
 
     GameObject lastPowerupSpawned;
-
+    public GameObject currentlySpawnedPowerup;
     GameManager gm;
 
     // Start is called before the first frame update
@@ -108,13 +108,13 @@ public class EnemyWaveManager : MonoBehaviour
         {
             float rand = Random.Range(0, 1f);
             print("Powerup chance was " + rand);
-            if (rand > 0.75f)
+            if (rand > 0.75f && currentlySpawnedPowerup == null)
             {
                 SpawnPowerup();
-                yield return new WaitForSeconds(7);
+                yield return new WaitForSeconds(9);
             }
 
-            yield return new WaitForSeconds(7);
+            yield return new WaitForSeconds(9);
         }
     }
 

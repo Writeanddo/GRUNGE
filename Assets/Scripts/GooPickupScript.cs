@@ -22,7 +22,27 @@ public class GooPickupScript : MonoBehaviour
 
         rb.velocity = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10) * 2);
         rb.angularVelocity = Random.Range(-100, 100);
+
+        CheckIfStuck();
     }
+
+    void CheckIfStuck()
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, 0.5f);
+
+        for (int i = 0; i < cols.Length; i++)
+        {
+            if (cols[i].tag == "Wall")
+            {
+                Vector3 dir = ((Vector2)transform.position - cols[i].ClosestPoint(transform.position)).normalized;
+                transform.position = (Vector3)cols[i].ClosestPoint(transform.position) + dir;
+                rb.velocity = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10) * 2);
+                print("Got unstuck");
+                break;
+            }
+        }
+    }
+
 
     // Update is called once per frame
     void FixedUpdate()

@@ -4012,7 +4012,34 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    delayBetweenSpawning: 2
+    pointToSpawnAt: 2
+    useRandomPoint: 1
+    timeAfterWave: 0
+  - enemiesToSpawn:
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    delayBetweenSpawning: 2
+    pointToSpawnAt: 2
+    useRandomPoint: 1
+    timeAfterWave: 0
+  - enemiesToSpawn:
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    delayBetweenSpawning: 2
+    pointToSpawnAt: 2
+    useRandomPoint: 1
+    timeAfterWave: 0
+  - enemiesToSpawn:
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     delayBetweenSpawning: 2
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -4035,6 +4062,7 @@ MonoBehaviour:
   spawnPowerups: 0
   spawnEndlessly: 0
   currentWave: 0
+  currentlySpawnedPowerup: {fileID: 0}
 --- !u!1 &933719037
 GameObject:
   m_ObjectHideFlags: 0
@@ -18933,7 +18961,7 @@ GameObject:
   - component: {fileID: 1121019134}
   m_Layer: 2
   m_Name: CabinSlope
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26818,7 +26846,7 @@ GameObject:
   - component: {fileID: 1814187110}
   m_Layer: 2
   m_Name: CabinSlope (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

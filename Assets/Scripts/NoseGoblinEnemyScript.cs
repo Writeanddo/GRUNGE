@@ -58,7 +58,7 @@ public class NoseGoblinEnemyScript : EnemyScript
     public void LaunchProjectile()
     {
         Instantiate(projectile, transform.position, Quaternion.identity);
-        rb.velocity = (transform.position - ply.transform.position).normalized * 1;
+        rb.velocity = (transform.position - ply.transform.position).normalized * 2;
         StartCoroutine(Reload());
     }
 

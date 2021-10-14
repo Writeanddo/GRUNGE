@@ -1,6 +1,5 @@
 GRUNGE BUGS + FIXES
 
-- Goo drops and goo splats get stuck in walls regularly
 - Should have sound play when hand shoots out
 - Objects (vase, saw, etc) should play sound when they hit a wall or shatter
 Other sfx to add:
@@ -12,7 +11,6 @@ Other sfx to add:
 - Gatling Goobers sometimes refuse to notice player
   - Occured at top left of workbench, throwable props were involved
 
-- Scion Slimes get stuck leaving kitchen left
 - If projectiles overlap with an enemy the frame they spawn, they don't explode (frustrating)
   - This also applies to hand grabbing
 
@@ -21,10 +19,17 @@ Other sfx to add:
 - Music doesn't loop seamlessly in webgl build
 - Crosshair is jittery when player / camera moves
   - Would need to make crosshair a UI element - bit of a pain in the ass, so do it later
-- Multiple powerups can spawn on same point
-  - Need to wait until powerup is picked up or despawns before spawning another one
 - Improve scion slime bullet patterns
+- Shield icon needs to follow player when not centered
+- Issues with scion slime shadows when hit
 
+- Maybe make final enemy explode after a while if its held, sometimes I forget I'm holding it
+
+//? Porch has collision issues, can't damage enemies when you fling them into it
+//? Can throw enemies through skinny walls
+//? Scion Slimes get stuck leaving kitchen left
+// Goo drops and goo splats get stuck in walls regularly
+// Multiple powerups can spawn on same point
 // Stump appears over and under enemies
 // Make enemies see thru porch
 // Make goo regen over time (slowly)

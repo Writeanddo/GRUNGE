@@ -7,12 +7,17 @@ public class PotionPickup : MonoBehaviour
     PlayerController ply;
     GameManager gm;
     Grabbable g;
+    SpriteRenderer spr;
+
     // Start is called before the first frame update
     void Start()
     {
+        spr = GetComponent<SpriteRenderer>();
         g = GetComponent<Grabbable>();
         gm = FindObjectOfType<GameManager>();
         ply = FindObjectOfType<PlayerController>();
+
+        StartCoroutine(DestroyAfterTime());
     }
 
     private void FixedUpdate()
@@ -29,12 +34,28 @@ public class PotionPickup : MonoBehaviour
         }
     }
 
+    IEnumerator DestroyAfterTime()
+    {
+        yield return new WaitForSeconds(15);
+        for (int i = 0; i < 25; i++)
+        {
+            spr.color = new Color(1, 1, 1, 0.35f);
+            yield return new WaitForSeconds(0.1f);
+            spr.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
+        }
+        Destroy(this.gameObject);
+    }
+
     void UseItem()
     {
         gm.PlayPrioritySFX(gm.generalSfx[12]);
         ply.stats.health = ply.stats.maxHealth;
         ply.stats.goo = ply.stats.maxGoo;
-        ply.heldObject = null;
+
+        if(ply.heldObject == this.gameObject)
+            ply.heldObject = null;
+
         Destroy(this.gameObject);
     }
 }

@@ -47,11 +47,11 @@ public class GatlingGooberEnemyScript : EnemyScript
         {
             gm.PlaySFX(gm.generalSfx[10]);
             Instantiate(projectile, handPositions[0].position, Quaternion.identity);
-            rb.velocity = (transform.position - ply.transform.position).normalized * 3f;
+            rb.velocity = (transform.position - ply.transform.position).normalized * 2f;
             yield return new WaitForSeconds(0.25f);
             gm.PlaySFX(gm.generalSfx[10]);
             Instantiate(projectile, handPositions[1].position, Quaternion.identity);
-            rb.velocity = (transform.position - ply.transform.position).normalized * 3f;
+            rb.velocity = (transform.position - ply.transform.position).normalized * 2f;
             yield return new WaitForSeconds(0.75f);
         }
         StartCoroutine(Reload());

@@ -12,6 +12,7 @@ public class BoogernautEnemyScript : EnemyScript
     public LayerMask laserHitMask;
     public LayerMask damageHitMask;
     public bool attacking;
+    public bool isDamaged;
 
     bool rotatingLaser;
 

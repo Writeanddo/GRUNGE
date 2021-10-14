@@ -167,6 +167,10 @@ public class Grabbable : MonoBehaviour
             {
                 int damage = Mathf.RoundToInt(baseDamageUponHitting * Mathf.Clamp(rb.velocity.magnitude / 6, 1, 2.5f) * damageMultiplier);
                 thisEnemy.ReceiveDamage(Mathf.RoundToInt(thisEnemy.stats.maxHealth / 2f + 1));
+
+                // Slow velocity to prevent clipping through it
+                if (collision.tag == "Wall")
+                    rb.velocity = -rb.velocity*0.1f;
             }
         }
 
@@ -202,11 +206,11 @@ public class Grabbable : MonoBehaviour
             if (breakSound != null)
                 gm.PlaySFX(breakSound);
 
-            if (g.tag == "Grabbable")
+            /*if (g.tag == "Grabbable")
             {
                 Rigidbody2D grb = g.GetComponent<Rigidbody2D>();
-                grb.velocity = -grb.velocity;
-            }
+                grb.velocity = -grb.velocity*0.25f;
+            }*/
 
             foreach (Sprite s in propFragments)
             {

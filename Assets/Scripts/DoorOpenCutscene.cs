@@ -72,7 +72,8 @@ public class DoorOpenCutscene : MonoBehaviour
         wallToDisable.SetActive(false);
 
         ewm.StartWaves();
-        
+        gm.PlayMusic();
+
         Destroy(this.gameObject);
     }
 
@@ -91,10 +92,7 @@ public class DoorOpenCutscene : MonoBehaviour
         Instantiate(bigExplosion, new Vector3(-10.75f, -2.25f, 0), Quaternion.identity);
         gm.PlaySFX(secondExplosionSound);
 
-        Instantiate(initialEnemies[0], new Vector2(-14, -6), Quaternion.identity);
-        Instantiate(initialEnemies[1], new Vector2(-15, -7), Quaternion.identity);
-        Instantiate(initialEnemies[2], new Vector2(-15, -5), Quaternion.identity);
-        Instantiate(initialEnemies[3], new Vector2(-14, -8), Quaternion.identity);
+        Instantiate(initialEnemies[4], new Vector2(-14, -6), Quaternion.identity);
 
         wallToDisable.SetActive(false);
 
@@ -130,7 +128,6 @@ public class DoorOpenCutscene : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            gm.PlayMusic();
             GetComponent<Animator>().Play("DoorOpen");
         }
     }
