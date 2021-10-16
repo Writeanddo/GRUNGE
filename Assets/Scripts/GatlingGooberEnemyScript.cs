@@ -13,6 +13,7 @@ public class GatlingGooberEnemyScript : EnemyScript
     {
         //rechargingAttack = true;
         GetReferences();
+        gibSpawnYOffset = -1f;
     }
 
     // Update is called once per frame

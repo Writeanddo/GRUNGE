@@ -1,7 +1,112 @@
 fileFormatVersion: 2
 guid: 43133b88d7d0b964e80895ef1aef63a3
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -1392689338651189535
+    second: BoogernautArmor_0
+  - first:
+      213: -5721742809794959268
+    second: BoogernautArmor_1
+  - first:
+      213: -4209954587127209728
+    second: BoogernautArmor_2
+  - first:
+      213: 7172137745840535102
+    second: BoogernautArmor_3
+  - first:
+      213: 8828004994528919704
+    second: BoogernautArmor_4
+  - first:
+      213: 6918574546999037633
+    second: BoogernautArmor_5
+  - first:
+      213: 4822691920879901084
+    second: BoogernautArmor_6
+  - first:
+      213: 5867523078129167711
+    second: BoogernautArmor_7
+  - first:
+      213: -7875555270195268408
+    second: BoogernautArmor_8
+  - first:
+      213: 2089475995019876368
+    second: BoogernautArmor_9
+  - first:
+      213: 2521157760904078719
+    second: BoogernautArmor_10
+  - first:
+      213: 8297378325832232825
+    second: BoogernautArmor_11
+  - first:
+      213: -8209667362489828651
+    second: BoogernautArmor_12
+  - first:
+      213: -6686263718865152995
+    second: BoogernautArmor_13
+  - first:
+      213: -5487190809362970778
+    second: BoogernautArmor_14
+  - first:
+      213: -2350481412532720408
+    second: BoogernautArmor_15
+  - first:
+      213: -6297012859452543523
+    second: BoogernautArmor_16
+  - first:
+      213: -5765071959656442730
+    second: BoogernautArmor_17
+  - first:
+      213: -1395838336808611969
+    second: BoogernautArmor_18
+  - first:
+      213: 338408750229180714
+    second: BoogernautArmor_19
+  - first:
+      213: -7808842593564045859
+    second: BoogernautArmor_20
+  - first:
+      213: -2664693177731495712
+    second: BoogernautArmor_21
+  - first:
+      213: -1376188992844788681
+    second: BoogernautArmor_22
+  - first:
+      213: 528225940087601184
+    second: BoogernautArmor_23
+  - first:
+      213: -8707121136834487023
+    second: BoogernautArmor_24
+  - first:
+      213: -4742151478186470593
+    second: BoogernautArmor_25
+  - first:
+      213: 7504124739031579008
+    second: BoogernautArmor_26
+  - first:
+      213: 1788570647972733799
+    second: BoogernautArmor_27
+  - first:
+      213: -1253789871240058569
+    second: BoogernautArmor_28
+  - first:
+      213: 3837435824587705183
+    second: BoogernautArmor_29
+  - first:
+      213: -8902888478886366563
+    second: BoogernautArmor_30
+  - first:
+      213: 798443548732232598
+    second: BoogernautArmor_31
+  - first:
+      213: 646926961318996246
+    second: BoogernautArmor_32
+  - first:
+      213: 2331609777338808535
+    second: BoogernautArmor_33
+  - first:
+      213: -1705689612265898744
+    second: BoogernautArmor_34
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,7 +214,406 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BoogernautArmor_0
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eed83fdc6c2cace0800000000000000
+      internalID: -1392689338651189535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_6
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c99513510c4ade240800000000000000
+      internalID: 4822691920879901084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_8
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c43e0f453864b290800000000000000
+      internalID: -7875555270195268408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f75286930a3fcf220800000000000000
+      internalID: 2521157760904078719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_11
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97f614e30a5362370800000000000000
+      internalID: 8297378325832232825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dafcaec707611e80800000000000000
+      internalID: -8209667362489828651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_13
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d14d572b29e9533a0800000000000000
+      internalID: -6686263718865152995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_15
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ec24d2db99616fd0800000000000000
+      internalID: -2350481412532720408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_16
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddda346da248c98a0800000000000000
+      internalID: -6297012859452543523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0287110a1b2a45700800000000000000
+      internalID: 528225940087601184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_24
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11d5fa655771a2780800000000000000
+      internalID: -8707121136834487023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f331a970b5e703eb0800000000000000
+      internalID: -4742151478186470593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_26
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 089b23c01b1042860800000000000000
+      internalID: 7504124739031579008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_28
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 739e0c541c4a99ee0800000000000000
+      internalID: -1253789871240058569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_29
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5b88e40d8f414530800000000000000
+      internalID: 3837435824587705183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_31
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 693136f5d24a41b00800000000000000
+      internalID: 798443548732232598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_32
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 619aa0dc4a85af800800000000000000
+      internalID: 646926961318996246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_33
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d87b153dba8b5020800000000000000
+      internalID: 2331609777338808535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BoogernautArmor_34
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80d31d3b55c2458e0800000000000000
+      internalID: -1705689612265898744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CarCutsceneManager : MonoBehaviour
 {
     public AudioClip[] sfx;
-
+    public Sprite[] carSprites;
     Animator anim;
     PlayerController ply;
     GameManager gm;

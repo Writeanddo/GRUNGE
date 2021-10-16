@@ -197,30 +197,70 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3113670538551359734, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: layerOffset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5948206160728454837, guid: bcea7985f80783e45be8e61ad44ea633,
         type: 3}
       propertyPath: laserHitMask.m_Bits
       value: 40961
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948206160728454837, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: stats.pathSpeedMultiplier
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948206160728454837, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: stats.noticedSpeedMultiplier
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5948206160728454840, guid: bcea7985f80783e45be8e61ad44ea633,
         type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5948206160728454840, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.3341161
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948206160728454840, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.2367288
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948206160728454840, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.2367288
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948206160728454840, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.049999997
+      objectReference: {fileID: 0}
     - target: {fileID: 5948206160728454842, guid: bcea7985f80783e45be8e61ad44ea633,
         type: 3}
       propertyPath: m_Name
-      value: Boogernaut (1)
+      value: Boogernaut
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948206160728454842, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5948206160728454843, guid: bcea7985f80783e45be8e61ad44ea633,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.79
+      value: -6.81
       objectReference: {fileID: 0}
     - target: {fileID: 5948206160728454843, guid: bcea7985f80783e45be8e61ad44ea633,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.89
+      value: 11.32
       objectReference: {fileID: 0}
     - target: {fileID: 5948206160728454843, guid: bcea7985f80783e45be8e61ad44ea633,
         type: 3}
@@ -266,6 +306,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948206160728454847, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.08700132
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948206160728454847, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948206160728454847, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 3.7735777
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948206160728454847, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.04444045
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948206160728454847, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_Direction
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948206160728454847, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8228584319601630939, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: layerOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8236140565135088702, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: layerOffset
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcea7985f80783e45be8e61ad44ea633, type: 3}
@@ -19020,6 +19100,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3796603763920091005, guid: c30a8e2d715c50344aaafd6d5351cfa4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5125806062275587564, guid: 18470f7073737064ebbb659f0a03b25b,
+        type: 3}
+    - target: {fileID: 3796603763920091005, guid: c30a8e2d715c50344aaafd6d5351cfa4,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3796603763920091007, guid: c30a8e2d715c50344aaafd6d5351cfa4,
         type: 3}
       propertyPath: minLayer
@@ -19038,12 +19129,12 @@ PrefabInstance:
     - target: {fileID: 3796603764674773065, guid: c30a8e2d715c50344aaafd6d5351cfa4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: -18.5
       objectReference: {fileID: 0}
     - target: {fileID: 3796603764674773065, guid: c30a8e2d715c50344aaafd6d5351cfa4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3796603764674773065, guid: c30a8e2d715c50344aaafd6d5351cfa4,
         type: 3}
@@ -114044,6 +114135,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121030493282817287, guid: 9e81df25b679c3f499ab951836cfa433,
+        type: 3}
+      propertyPath: stats.goo
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 9121030493282817304, guid: 9e81df25b679c3f499ab951836cfa433,
         type: 3}

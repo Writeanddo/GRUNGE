@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Breakable
   - BreakableIgnoreProjectiles
+  - Hand
+  - Explosion
   layers:
   - Default
   - TransparentFX

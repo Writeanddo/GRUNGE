@@ -38,8 +38,18 @@ public class Grabbable : MonoBehaviour
     bool breaking;
     int defaultLayer;
 
+    bool hasInitialized;
+
     void Start()
     {
+        Initialize();
+    }
+
+    public void Initialize()
+    {
+        if (hasInitialized)
+            return;
+
         if (!isProp)
             thisEnemy = GetComponent<EnemyScript>();
         else
@@ -53,6 +63,7 @@ public class Grabbable : MonoBehaviour
         col = GetComponent<Collider2D>();
         gm = FindObjectOfType<GameManager>();
         defaultLayer = gameObject.layer;
+        hasInitialized = true;
     }
 
     // Update is called once per frame
@@ -61,7 +72,12 @@ public class Grabbable : MonoBehaviour
         if (!isHeld)
         {
             if (isProp)
+            {
                 rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, 0.15f);
+
+                if (rb.velocity.magnitude < 0.5f)
+                    isBeingThrown = false;
+            }
         }
 
         if (spr != null)
@@ -101,6 +117,8 @@ public class Grabbable : MonoBehaviour
 
             gameObject.layer = 8;
         }
+
+        print("Heldstate: " + state);
     }
 
     IEnumerator ColliderEnableDelay()

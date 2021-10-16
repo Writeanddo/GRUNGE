@@ -31,6 +31,8 @@ public abstract class EnemyScript : MonoBehaviour
     public GameObject[] splatterDrops;
     public GameObject enemyExplosion;
 
+    public LayerMask playerScanIgnoreMask;
+
     [HideInInspector]
     public Grabbable g;
     [HideInInspector]
@@ -47,6 +49,8 @@ public abstract class EnemyScript : MonoBehaviour
     public EnemyScript raycastHitEnemy;
     [HideInInspector]
     public EnemyWaveManager waves;
+    [HideInInspector]
+    public float gibSpawnYOffset = 0;
 
     public bool rechargingAttack;
     float randSpeedMultiplier;
@@ -60,7 +64,7 @@ public abstract class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     public void CheckIfHeld()
@@ -95,6 +99,14 @@ public abstract class EnemyScript : MonoBehaviour
 
     public void GetReferences()
     {
+        int layer1 = LayerMask.NameToLayer("ExplosiveProjectileNoHit");
+        int layer2 = LayerMask.NameToLayer("Enemy");
+
+        int mask1 = 1 << layer1;
+        int mask2 = 2 << layer2;
+
+        playerScanIgnoreMask = mask1 | mask2;
+
         stats.maxHealth = stats.health;
         g = GetComponent<Grabbable>();
         gm = FindObjectOfType<GameManager>();
@@ -260,7 +272,7 @@ public abstract class EnemyScript : MonoBehaviour
             scanDistance = 25;
 
         //Debug.DrawRay(transform.position, dir * scanDistance, Color.red, Time.deltaTime);
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 1, dir, scanDistance);
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 1, dir, scanDistance, ~playerScanIgnoreMask);
         if (hit)
         {
             if (hit.transform.tag == "Player")
@@ -400,10 +412,12 @@ public abstract class EnemyScript : MonoBehaviour
     {
         gm.ScreenShake(6);
         gm.PlaySFXStoppable(gm.generalSfx[0], Random.Range(0.85f, 1.15f));
+
+        Vector2 gibSpawnPos = new Vector2(transform.position.x, transform.position.y - 0.5f + gibSpawnYOffset);
         for (int i = 0; i < stats.numGooDrops; i++)
         {
-            Instantiate(gooDrops[Random.Range(0, gooDrops.Length)], new Vector2(transform.position.x, transform.position.y - 0.5f), Quaternion.identity);
-            Instantiate(splatterDrops[Random.Range(0, splatterDrops.Length)], transform.position, Quaternion.identity);
+            Instantiate(gooDrops[Random.Range(0, gooDrops.Length)], gibSpawnPos, Quaternion.identity);
+            Instantiate(splatterDrops[Random.Range(0, splatterDrops.Length)], gibSpawnPos, Quaternion.identity);
         }
         Destroy(this.gameObject);
     }
@@ -411,10 +425,11 @@ public abstract class EnemyScript : MonoBehaviour
     public void ExplodeBig()
     {
         gm.ScreenShake(10);
+        Vector2 gibSpawnPos = new Vector2(transform.position.x, transform.position.y - 0.5f + gibSpawnYOffset);
         for (int i = 0; i < stats.numGooDrops; i++)
         {
-            Instantiate(gooDrops[Random.Range(0, gooDrops.Length)], transform.position, Quaternion.identity);
-            Instantiate(splatterDrops[Random.Range(0, splatterDrops.Length)], transform.position, Quaternion.identity);
+            Instantiate(gooDrops[Random.Range(0, gooDrops.Length)], gibSpawnPos, Quaternion.identity);
+            Instantiate(splatterDrops[Random.Range(0, splatterDrops.Length)], gibSpawnPos, Quaternion.identity);
         }
         Instantiate(enemyExplosion, transform.position, transform.rotation);
         Destroy(this.gameObject);

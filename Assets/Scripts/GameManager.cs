@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     Slider healthSlider;
     Image healthFill;
     Image shieldImage;
+    RectTransform shieldTransform;
 
     Image screenBlackout;
     Image quitBlackout;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
     AudioSource prioritySfxSource; // Will duck volume on normal sound effects
     Animator shieldAnim;
     Text pauseText;
+    Text gunNameText;
     EnemyWaveManager ewm;
     TextboxManager text;
 
@@ -81,12 +83,15 @@ public class GameManager : MonoBehaviour
         prioritySfxSource = GameObject.Find("GamePrioritySFX").GetComponent<AudioSource>();
         priorityStoppableSfxSource= GameObject.Find("GamePriorityStoppableSFX").GetComponent<AudioSource>();
         shieldAnim = GameObject.Find("ShieldImage").GetComponent<Animator>();
+        shieldTransform = shieldAnim.GetComponent<RectTransform>();
         gooSliderText = GameObject.Find("GooSliderNumber").GetComponent<Text>();
-
         screenBlackout = GameObject.Find("ScreenBlackout").GetComponent<Image>();
         quitBlackout = GameObject.Find("QuitPanel").GetComponent<Image>();
         pauseText = GameObject.Find("QuitText").GetComponent<Text>();
         weaponTimerText = GameObject.Find("WeaponTimerText").GetComponent<Text>();
+        gunNameText = GameObject.Find("WeaponNameText").GetComponent<Text>();
+        gunNameText.text = "";
+        weaponTimerText.text = "";
         quitYes = GameObject.Find("QuitYesButton").GetComponent<RectTransform>();
         quitNo = GameObject.Find("QuitNoButton").GetComponent<RectTransform>();
         shieldImage = GameObject.Find("ShieldImage").GetComponent<Image>();
@@ -149,6 +154,7 @@ public class GameManager : MonoBehaviour
                 }
 
                 CheckAndPlayClip("Shield_" + heldEnemy.stats.currentShieldValue, shieldAnim);
+                shieldAnim.transform.position = new Vector2(ply.transform.position.x, ply.transform.position.y + 1);
             }
             else if (heldEnemy != null && !shieldExploding)
             {
@@ -166,6 +172,7 @@ public class GameManager : MonoBehaviour
                 {
                     ply.stats.currentWeapon = 0;
                     weaponTimerText.text = "";
+                    gunNameText.text = "";
                 }
             }
 
@@ -387,11 +394,23 @@ public class GameManager : MonoBehaviour
         switch(gunIndex)
         {
             case 10:
-                gunTimer = 30;
+                gunNameText.text = "THRESH";
+                gunTimer = 20;
                 ply.canLaunchHand = false;
                 break;
-            default:
-                gunTimer = 30;
+
+            case 1:
+                gunNameText.text = "SHOT\nGUN";
+                gunTimer = 15;
+                break;
+            case 2:
+                gunNameText.text = "TOMMY\nGUN";
+                gunTimer = 15;
+                break;
+            case 11:
+                gunNameText.text = "BRASS\nKNUCKLES";
+                gunTimer = 15;
+                ply.canLaunchHand = false;
                 break;
         }
     }

@@ -8,22 +8,27 @@ public class BoogernautEnemyScript : EnemyScript
     Transform laserImpact;
     SpriteRenderer laser;
     AudioSource sfx;
+    HandGrabManager hgm;
 
+    public List<SpriteRenderer> armor;
+    public List<GameObject> armorGrabbables;
     public LayerMask laserHitMask;
     public LayerMask damageHitMask;
     public bool attacking;
     public bool isDamaged;
 
     bool rotatingLaser;
-
+    bool canSpawnArmor = true;
     
     // Start is called before the first frame update
     void Start()
     {
+        hgm = FindObjectOfType<HandGrabManager>();
         laserOrigin = transform.GetChild(1);
         laser = laserOrigin.transform.GetChild(0).GetComponent<SpriteRenderer>();
         laserImpact = laserOrigin.GetChild(1);
         sfx = GetComponentInChildren<AudioSource>();
+        gibSpawnYOffset = -1.25f;
         GetReferences();
     }
 
@@ -57,7 +62,7 @@ public class BoogernautEnemyScript : EnemyScript
                 if(!rechargingAttack)
                     StartCoroutine(LaserDamage());
                 else
-                    MoveTowardsPlayer();
+                    MoveAwayFromPlayer();
             }
             else
                 FollowPath();
@@ -137,5 +142,47 @@ public class BoogernautEnemyScript : EnemyScript
             timePassed += Time.fixedDeltaTime;
         }
         rotatingLaser = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        // Detach armor if we get hit by a missile or if hand grabs it
+        if (canSpawnArmor)
+        {
+            if (other.tag == "Hand" && ply.handLaunched)
+            {
+                if (armor.Count > 0)
+                    stats.health -= 30;
+                DetachArmorPiece(true);
+            }
+            else if (other.tag == "Explosion")
+                DetachArmorPiece(false);
+        }
+    }
+
+    public void DetachArmorPiece(bool handIsGrabbing)
+    {
+        if(canSpawnArmor && armor.Count > 0)
+        {
+            // Randomly choose an armor piece to detach
+            int rand = Random.Range(0, armor.Count);
+            GameObject g = Instantiate(armorGrabbables[rand], new Vector2(transform.position.x, transform.position.y - 0.5f + gibSpawnYOffset), Quaternion.identity);
+            if (!handIsGrabbing)
+                g.GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)).normalized * 5;
+            else
+                hgm.GrabObject(g);
+
+            armor[rand].color = Color.clear;
+            armor.Remove(armor[rand]);
+            armorGrabbables.Remove(armorGrabbables[rand]);
+            canSpawnArmor = false;
+            StartCoroutine(WaitForHandRetract());
+        }
+    }
+
+    IEnumerator WaitForHandRetract()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canSpawnArmor = true;
     }
 }

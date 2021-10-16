@@ -10,6 +10,7 @@ Other sfx to add:
 
 - Gatling Goobers sometimes refuse to notice player
   - Occured at top left of workbench, throwable props were involved
+- Gatling goober goo gibs can spawn in wall
 
 - If projectiles overlap with an enemy the frame they spawn, they don't explode (frustrating)
   - This also applies to hand grabbing

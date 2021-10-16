@@ -71,26 +71,33 @@ public class HandGrabManager : MonoBehaviour
         {
             if (collision.tag == "Grabbable" || collision.tag == "Enemy")
             {
-                heldObjectGrabbable = collision.GetComponentInChildren<Grabbable>();
-                if (!heldObjectGrabbable.canBeGrabbed)
-                    return;
-
-                gm.PlaySFX(gm.playerSfx[3], 1);
-                collision.transform.parent = transform;
-                player.heldObject = collision.transform;
-                
-                heldObjectSort = collision.GetComponentInChildren<DynamicSpriteSort>();
-                heldObjectSpr = collision.GetComponentInChildren<SpriteRenderer>();
-                heldObjectSort.overrideSort = true;
-                heldObjectGrabbable.SetHeldState(true);
-
-                player.handLaunched = false;
+                GrabObject(collision.gameObject);
 
             }
             // Stop extending hand if we hit a wall
             else if (collision.tag == "Wall")
                 player.handLaunched = false;
         }
+    }
+
+    public void GrabObject(GameObject g)
+    {
+        print("Grabbed " + g.name);
+        heldObjectGrabbable = g.GetComponentInChildren<Grabbable>();
+        heldObjectGrabbable.Initialize();
+        if (!heldObjectGrabbable.canBeGrabbed)
+            return;
+
+        gm.PlaySFX(gm.playerSfx[3], 1);
+        g.transform.parent = transform;
+        player.heldObject = g.transform;
+
+        heldObjectSort = g.GetComponentInChildren<DynamicSpriteSort>();
+        heldObjectSpr = g.GetComponentInChildren<SpriteRenderer>();
+        heldObjectSort.overrideSort = true;
+        heldObjectGrabbable.SetHeldState(true);
+
+        player.handLaunched = false;
     }
 
     public void CheckAndPlayClip(string clipName)

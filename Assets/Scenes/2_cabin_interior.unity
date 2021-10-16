@@ -65773,6 +65773,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 790483375}
+    - target: {fileID: 5136466606607781944, guid: af3b070ce755e0340acbb957102e96c4,
+        type: 3}
+      propertyPath: m_Name
+      value: WeaponNameText
+      objectReference: {fileID: 0}
     - target: {fileID: 7262442417273161350, guid: af3b070ce755e0340acbb957102e96c4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
