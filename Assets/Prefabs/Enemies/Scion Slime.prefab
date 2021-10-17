@@ -143,7 +143,7 @@ MonoBehaviour:
     pathSpeedMultiplier: 1.75
     damageCooldown: 3
     inaccuracyMultiplier: 1
-    noticePlayerDistance: 15
+    noticePlayerDistance: 8
     noticedSpeedMultiplier: 0
     numGooDrops: 5
     movementAccuracy: 0.15
@@ -158,7 +158,11 @@ MonoBehaviour:
   splatterDrops:
   - {fileID: 5964755380321203904, guid: c6ab297770cc52b4c93441d5365f0062, type: 3}
   - {fileID: 2899660369439385843, guid: d820562ffd847ec4a9dd58ed628ff84c, type: 3}
+  nonRandomDrops: []
   enemyExplosion: {fileID: 0}
+  playerScanIgnoreMask:
+    serializedVersion: 2
+    m_Bits: 0
   g: {fileID: 0}
   anim: {fileID: 0}
   spr: {fileID: 0}
@@ -167,6 +171,7 @@ MonoBehaviour:
   gm: {fileID: 0}
   raycastHitEnemy: {fileID: 0}
   waves: {fileID: 0}
+  gibSpawnYOffset: 0
   rechargingAttack: 0
   projectile: {fileID: 3902567511009530099, guid: 8b00c43966796634ca7438961f36d977,
     type: 3}
@@ -366,6 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: 0
   minLayer: -1000

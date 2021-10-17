@@ -7,6 +7,7 @@ public class DynamicSpriteSort : MonoBehaviour
 {
     public bool overrideSort;
     public bool useParentPosition;
+    public Transform positionReference;
     public int sortMultiplier = 1;
     public float yOffset = 0;
     public int minLayer = -1000;
@@ -39,6 +40,8 @@ public class DynamicSpriteSort : MonoBehaviour
             float yPos;
             if (useParentPosition)
                 yPos = transform.parent.position.y;
+            else if(positionReference != null)
+                yPos = positionReference.position.y;
             else
                 yPos = transform.position.y;
             sort = Mathf.Clamp(Mathf.RoundToInt((player.transform.position.y - yPos + yOffset) * 10) * sortMultiplier, minLayer, maxLayer);

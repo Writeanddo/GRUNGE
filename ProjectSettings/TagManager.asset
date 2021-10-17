@@ -11,6 +11,7 @@ TagManager:
   - BreakableIgnoreProjectiles
   - Hand
   - Explosion
+  - GibRemover
   layers:
   - Default
   - TransparentFX

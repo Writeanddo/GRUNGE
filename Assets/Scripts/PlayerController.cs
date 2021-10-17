@@ -335,11 +335,13 @@ public class PlayerController : MonoBehaviour
         while (e.stats.currentShieldValue > 1 && chargingAttack)
         {
             timer = 0;
-            gm.PlaySFXStoppablePriority(gm.playerSfx[12], 1);
+            float multiplier = 3 - (e.stats.currentShieldValue*0.5f);
+
+            gm.PlaySFXStoppablePriority(gm.playerSfx[12], multiplier / 2f);
             while (timer < 1f && chargingAttack)
             {
                 timer += Time.fixedDeltaTime;
-                handShaker.transform.localPosition = new Vector2(0, 0.33f*Mathf.Sin(timer * 8 * Mathf.PI));
+                handShaker.transform.localPosition = new Vector2(0, 0.33f * multiplier * Mathf.Sin(timer * 8 * Mathf.PI * multiplier));
                 yield return new WaitForFixedUpdate();
             }
 

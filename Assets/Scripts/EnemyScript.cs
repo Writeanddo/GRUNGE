@@ -169,8 +169,7 @@ public abstract class EnemyScript : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        // TEMP TEMP TEMP?
-        //stats.currentShieldValue = 4;
+        stats.currentShieldValue = 4;
         g.isBeingThrown = false;
     }
 

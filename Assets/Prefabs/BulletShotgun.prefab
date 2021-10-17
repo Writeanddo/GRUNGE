@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 5168354353443126882, guid: c41dec152b318634c9f49aca174eee87,
     type: 3}
+  speed: 24
 --- !u!50 &407128934
 Rigidbody2D:
   serializedVersion: 4
@@ -181,6 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 5
   yOffset: 0
   minLayer: 0

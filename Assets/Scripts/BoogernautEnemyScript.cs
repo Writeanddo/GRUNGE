@@ -82,8 +82,9 @@ public class BoogernautEnemyScript : EnemyScript
         // Get initial angle
         Vector3 diff = ply.transform.position - laserOrigin.transform.position;
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        int rotRounded = Mathf.RoundToInt(rot_z) / 90;
-        rot_z = rotRounded * 90;
+        int roundedAngle = Mathf.RoundToInt(rot_z) / 90;
+        rot_z = roundedAngle * 90;
+        print(rot_z);
 
         gm.PlaySFX(gm.generalSfx[18]);
         yield return new WaitForSeconds(0.75f);
@@ -112,7 +113,7 @@ public class BoogernautEnemyScript : EnemyScript
                     if (ply.heldObject != null && ply.heldObject.tag == "Enemy")
                         ply.heldObject.GetComponent<EnemyScript>().ReceiveShieldDamage();
                     else
-                        ply.ReceiveDamage(15);
+                        ply.ReceiveDamage(16);
                     hitPlayer = true;
                 }
             }

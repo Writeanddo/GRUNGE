@@ -253,6 +253,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 1
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: 0
   minLayer: -1000
@@ -550,6 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: 1
   minLayer: -1000
@@ -709,15 +711,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 160
+    health: 180
     maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4
     damage: 2
     pathSpeedMultiplier: 2
-    damageCooldown: 4
+    damageCooldown: 3
     inaccuracyMultiplier: 1
-    noticePlayerDistance: 15
+    noticePlayerDistance: 8
     noticedSpeedMultiplier: 0.75
     numGooDrops: 16
     movementAccuracy: 0.1

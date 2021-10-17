@@ -120,6 +120,9 @@ public class EnemyWaveManager : MonoBehaviour
 
     void SpawnPowerup()
     {
+        if (powerupSpawnPoints.Length == 0)
+            return;
+
         gm.PlaySFX(gm.generalSfx[14]);
         int rand = Random.Range(0, gm.powerups.Length);
         int randPosition = Random.Range(0, powerupSpawnPoints.Length);

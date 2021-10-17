@@ -40,11 +40,13 @@ public class BossEnemyScript : EnemyScript
             gm.PlaySFX(gm.generalSfx[9]);
             yield return new WaitForSeconds(0.5f);
         }
-        StartCoroutine(ShootPatterns());
+
+        if(ply.stats.health > 0)
+            StartCoroutine(ShootPatterns());
     }
 
     public void SpawnProjectile()
     {
-        Instantiate(projectile, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+        Instantiate(projectile, transform.position + new Vector3(0, 2, 0), Quaternion.identity);
     }
 }

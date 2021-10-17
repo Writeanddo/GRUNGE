@@ -304,6 +304,20 @@ public class GameManager : MonoBehaviour
         transform.position = Vector2.zero;
     }
 
+    IEnumerator ScreenShakeCoroutine(float intensity, float duration)
+    {
+        while(duration > 0)
+        {
+            cam.localPosition = new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f)) * intensity;
+            if(duration < Time.fixedDeltaTime*10)
+                intensity /= 1.25f;
+
+            duration -= Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate(); 
+        }
+        //transform.position = Vector2.zero;
+    }
+
     IEnumerator LevelStartSequence()
     {
         screenBlackout.color = Color.black;
@@ -352,22 +366,18 @@ public class GameManager : MonoBehaviour
             }
 
             PlaySFX(generalSfx[6]);
-            //t.GetComponent<Animator>().Play("BossRoar");
-            yield return new WaitForSeconds(3);
+            t.GetComponent<Animator>().Play("BossRoar");
+            StartCoroutine(ScreenShakeCoroutine(2, 5));
+            yield return new WaitForSeconds(2.5f);
 
             cam.localPosition = Vector2.zero;
 
-            yield return new WaitForSeconds(2);
-
-            while (Vector3.Distance(camControl.transform.position, ply.transform.position) > 10.1f)
-            {
-                camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(ply.transform.position.x, ply.transform.position.y, camControl.transform.position.z), 0.1f);
-                yield return null;
-            }
+            yield return new WaitForSeconds(3f);
 
             camControl.secondTarget = t;
+            yield return new WaitForEndOfFrame();
             camControl.overridePosition = false;
-            
+            transform.position = Vector2.zero;
 
             t.GetComponent<EnemyScript>().UpdateMovement();
             ewm.StartWaves();

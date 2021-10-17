@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProjectileScript : MonoBehaviour
 {
     public GameObject explosion;
+    public float speed = 32;
     Rigidbody2D rb;
     Transform crosshair;
     GameManager gm;
@@ -15,7 +16,7 @@ public class ProjectileScript : MonoBehaviour
     {
         gm = FindObjectOfType<GameManager>();
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.right*32;
+        rb.velocity = transform.right*speed;
         StartCoroutine(InitialWallDelay());
     }
 
