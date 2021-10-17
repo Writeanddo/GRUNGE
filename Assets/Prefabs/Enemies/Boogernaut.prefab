@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSpriteRenderer: {fileID: 5948206159873016207}
-  layerOffset: 0
+  layerOffset: 1
 --- !u!1 &3234509471832421645
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,15 +225,15 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -501625675
+  m_SortingLayer: 1
+  m_SortingOrder: 101
   m_Sprite: {fileID: 21300000, guid: def56ef154636af4c89afad3c1fcecfd, type: 3}
   m_Color: {r: 0.94366735, g: 1, b: 0.6745283, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 1, y: 0.16}
+  m_Size: {x: 0, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -624,8 +624,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.050000034, y: -1.6525583}
-  m_Size: {x: 1.104961, y: 0.5998445}
+  m_Offset: {x: -0.049999997, y: -1.3341161}
+  m_Size: {x: 1.2367288, y: 1.2367288}
   m_Direction: 1
 --- !u!50 &5948206160728454846
 Rigidbody2D:
@@ -639,7 +639,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 25
+  m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -661,9 +661,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.044440556, y: -1.375484}
-  m_Size: {x: 1.3718466, y: 1.1966017}
-  m_Direction: 1
+  m_Offset: {x: -0.04444045, y: -0.08700132}
+  m_Size: {x: 1.86, y: 3.7735777}
+  m_Direction: 0
 --- !u!114 &5519443544083345675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,17 +709,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 250
+    health: 160
     maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4
     damage: 2
-    pathSpeedMultiplier: 0
-    damageCooldown: 3.5
+    pathSpeedMultiplier: 2
+    damageCooldown: 4
     inaccuracyMultiplier: 1
     noticePlayerDistance: 15
-    noticedSpeedMultiplier: 0
-    numGooDrops: 5
+    noticedSpeedMultiplier: 0.75
+    numGooDrops: 16
     movementAccuracy: 0.1
     animationWalkSpeedMultiplier: 0.5
     animationPrefix: Boogernaut
@@ -729,18 +729,12 @@ MonoBehaviour:
   - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
   - {fileID: 3108804696350449111, guid: 5f97728e4b7dc434ab4ffd9b89b509fa, type: 3}
   - {fileID: 3660314827033038993, guid: 5d8def5a87ab818408895c79865adb80, type: 3}
-  - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
-  - {fileID: 3108804696350449111, guid: 5f97728e4b7dc434ab4ffd9b89b509fa, type: 3}
-  - {fileID: 3660314827033038993, guid: 5d8def5a87ab818408895c79865adb80, type: 3}
   splatterDrops:
   - {fileID: 2899660369439385843, guid: d820562ffd847ec4a9dd58ed628ff84c, type: 3}
   - {fileID: 5964755380321203904, guid: c6ab297770cc52b4c93441d5365f0062, type: 3}
-  - {fileID: 2899660369439385843, guid: d820562ffd847ec4a9dd58ed628ff84c, type: 3}
-  - {fileID: 5964755380321203904, guid: c6ab297770cc52b4c93441d5365f0062, type: 3}
-  - {fileID: 2899660369439385843, guid: d820562ffd847ec4a9dd58ed628ff84c, type: 3}
-  - {fileID: 5964755380321203904, guid: c6ab297770cc52b4c93441d5365f0062, type: 3}
-  enemyExplosion: {fileID: 2365832917940531935, guid: 3a844fd218d4d3e4ca234fe6515259fd,
-    type: 3}
+  nonRandomDrops:
+  - {fileID: 2365832917940531935, guid: 3a844fd218d4d3e4ca234fe6515259fd, type: 3}
+  enemyExplosion: {fileID: 0}
   playerScanIgnoreMask:
     serializedVersion: 2
     m_Bits: 0
@@ -764,7 +758,7 @@ MonoBehaviour:
   - {fileID: 4581051222017843176, guid: 56fe0cf6ea5bb6b49b1b2e0fec88c81c, type: 3}
   laserHitMask:
     serializedVersion: 2
-    m_Bits: 41473
+    m_Bits: 8193
   damageHitMask:
     serializedVersion: 2
     m_Bits: 512
@@ -866,7 +860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSpriteRenderer: {fileID: 5948206159873016207}
-  layerOffset: 0
+  layerOffset: 1
 --- !u!1 &7931274107814257512
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,4 +957,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSpriteRenderer: {fileID: 5948206159873016207}
-  layerOffset: 0
+  layerOffset: 1

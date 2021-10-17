@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 8293718595754571671}
   m_Layer: 13
   m_Name: EnemyExplosionBig
-  m_TagString: Explosion
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bb2836d6092a34aa0e494b5573f860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 27
+  damage: 0
   knockbackMultiplier: 1
   explosionSound: {fileID: 8300000, guid: 03db76317fc3fda4f9479a5b6b751965, type: 3}
   gibs:

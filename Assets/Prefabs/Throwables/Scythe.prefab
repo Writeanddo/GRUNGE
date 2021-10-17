@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6986833941511571375}
   - component: {fileID: 6986833941511571374}
   - component: {fileID: 6986833941511571361}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Scythe
   m_TagString: Grabbable
   m_Icon: {fileID: 0}
@@ -103,6 +103,8 @@ MonoBehaviour:
   useParentPosition: 0
   sortMultiplier: 1
   yOffset: 0
+  minLayer: -1000
+  maxLayer: 1000
 --- !u!70 &6986833941511571372
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,6 +136,9 @@ MonoBehaviour:
   canBeGrabbed: 1
   isProp: 1
   canBreak: 1
+  breakFromPropContact: 0
+  breakFromCharacterContact: 0
+  rotatePropFragments: 0
   hitsBeforeBreak: 6
   baseDamageUponHitting: 15
   objectOffsetWhenHeld: {x: 0, y: 0}
@@ -141,10 +146,13 @@ MonoBehaviour:
   isHeld: 0
   isBeingThrown: 0
   damagedSprite: {fileID: 0}
+  heldSprite: {fileID: 0}
+  damagedHeldSprite: {fileID: 0}
   propFragments:
   - {fileID: 4730634129639533197, guid: 645c846a414297f4c9377d93471090b3, type: 3}
   - {fileID: -2643920112234610624, guid: 645c846a414297f4c9377d93471090b3, type: 3}
   propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
+  breakSound: {fileID: 0}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!50 &6986833941511571374

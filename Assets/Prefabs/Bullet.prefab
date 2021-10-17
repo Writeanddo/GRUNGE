@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
-  sortMultiplier: 1
+  sortMultiplier: 5
   yOffset: 0
   minLayer: 0
   maxLayer: 0

@@ -3630,6 +3630,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7cb9173b29ecbbd4c915a32e69aafc4e, type: 3}
   - {fileID: 8300000, guid: 7dcccfcec789b6146b86f8e2bd423356, type: 3}
   - {fileID: 8300000, guid: 059ac64a9c6315949b117aea29c4c021, type: 3}
+  - {fileID: 8300000, guid: 1a3142099d769b341b920d771cd15692, type: 3}
   playerSfx:
   - {fileID: 8300000, guid: 490fbd67b2e5a4b4d94fedc170680407, type: 3}
   - {fileID: 8300000, guid: d71a84ee7cd51e942ad5ae0a4b6f8eed, type: 3}
@@ -3643,6 +3644,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 402cd4c9c6f415047a387951aa2ebff6, type: 3}
   - {fileID: 8300000, guid: bcb47d216127d684bb8055f0ea331fc1, type: 3}
   - {fileID: 8300000, guid: 4bde914cac5cc594a93f7e0465626b83, type: 3}
+  - {fileID: 8300000, guid: ee59ebd821631f14e92db901fb464e4e, type: 3}
   gooPickupSounds:
   - {fileID: 8300000, guid: 92b28b9e3de12114eaa4007c5001cd9a, type: 3}
   - {fileID: 8300000, guid: e05a6e01eead41d4cb0dd18b1f73d006, type: 3}
@@ -3739,7 +3741,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 130839
+    m_Bits: 261911
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0

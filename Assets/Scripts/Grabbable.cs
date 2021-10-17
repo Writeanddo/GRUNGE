@@ -117,8 +117,6 @@ public class Grabbable : MonoBehaviour
 
             gameObject.layer = 8;
         }
-
-        print("Heldstate: " + state);
     }
 
     IEnumerator ColliderEnableDelay()

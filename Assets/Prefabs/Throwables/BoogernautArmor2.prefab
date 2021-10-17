@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4581051222017843183}
   - component: {fileID: 4581051222017843182}
   - component: {fileID: 4581051222017843177}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: BoogernautArmor2
   m_TagString: Grabbable
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ MonoBehaviour:
   breakFromPropContact: 0
   breakFromCharacterContact: 0
   rotatePropFragments: 0
-  hitsBeforeBreak: 6
+  hitsBeforeBreak: 1
   baseDamageUponHitting: 15
   objectOffsetWhenHeld: {x: 0, y: 0}
   handOffsetWhenHeld: {x: 0, y: 0}
@@ -150,9 +150,10 @@ MonoBehaviour:
     type: 3}
   damagedHeldSprite: {fileID: 0}
   propFragments:
-  - {fileID: -8209667362489828651, guid: 43133b88d7d0b964e80895ef1aef63a3, type: 3}
-  - {fileID: 8297378325832232825, guid: 43133b88d7d0b964e80895ef1aef63a3, type: 3}
-  - {fileID: 2521157760904078719, guid: 43133b88d7d0b964e80895ef1aef63a3, type: 3}
+  - {fileID: 798443548732232598, guid: 43133b88d7d0b964e80895ef1aef63a3, type: 3}
+  - {fileID: 646926961318996246, guid: 43133b88d7d0b964e80895ef1aef63a3, type: 3}
+  - {fileID: 2331609777338808535, guid: 43133b88d7d0b964e80895ef1aef63a3, type: 3}
+  - {fileID: -1705689612265898744, guid: 43133b88d7d0b964e80895ef1aef63a3, type: 3}
   propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
   breakSound: {fileID: 0}
   rb: {fileID: 0}

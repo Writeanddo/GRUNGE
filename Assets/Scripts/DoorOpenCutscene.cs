@@ -41,7 +41,7 @@ public class DoorOpenCutscene : MonoBehaviour
         }
         else
         {
-            if (ewm.currentWave == 3 && !hasExploded)
+            if (ewm.currentWave == 1 && !hasExploded)
             {
                 hasExploded = true;
                 StartCoroutine(ExplodeBasementCoroutine());

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 155923096958015767}
   - component: {fileID: 155923096958015766}
   - component: {fileID: 3000765922085063569}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: TommygunBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4664095299218697676}
   - component: {fileID: 7300444879227246177}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: AudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}

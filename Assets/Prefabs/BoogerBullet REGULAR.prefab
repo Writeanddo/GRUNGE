@@ -119,6 +119,8 @@ MonoBehaviour:
   useParentPosition: 0
   sortMultiplier: 1
   yOffset: 0
+  minLayer: 0
+  maxLayer: 0
 --- !u!1 &3902567511009530099
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd65bb2eecc9c948901336df94ba7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 9
+  speed: 6
   damage: 15
   inaccuracyModifier: 0
   overrideDirection: 0

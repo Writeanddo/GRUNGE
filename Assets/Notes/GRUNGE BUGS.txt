@@ -10,25 +10,45 @@ Other sfx to add:
 
 - Gatling Goobers sometimes refuse to notice player
   - Occured at top left of workbench, throwable props were involved
-- Gatling goober goo gibs can spawn in wall
+
 
 - If projectiles overlap with an enemy the frame they spawn, they don't explode (frustrating)
   - This also applies to hand grabbing
 
 - Make text pixel-perfect
-- Bounceback on grabbles hitting objects can send player flying if they collide
 - Music doesn't loop seamlessly in webgl build
 - Crosshair is jittery when player / camera moves
   - Would need to make crosshair a UI element - bit of a pain in the ass, so do it later
 - Improve scion slime bullet patterns
 - Shield icon needs to follow player when not centered
-- Issues with scion slime shadows when hit
-
 - Maybe make final enemy explode after a while if its held, sometimes I forget I'm holding it
 
+01:20
+Threw skinny at fence in first area. skinny phased through fence at specific angle.
+01:49 
+Threw fatty at toilet corner, looks weird
+03:08
+Threw skinny at wall in kitchen, power of grunge toast caused it to phase through wall at specific angle
+04:05
+Hands look weird when flinging towards boxes and barrels on third floor
+04:23
+// Player phases under wall on top of 3rd floor
+
+10;08
+Charge spitter immediately after realizing that the charges were hitting me, throwing it caused it to propel really weirdly in a different direction entirely, before walking into a wall and exploding
+17:08 
+Goofy ass motherfucker doesn't even care anymore (neither do I apparently as I continued to grab him and charge him without testing around with him at all)
+18:05
+I throw an object at the wall and it causes me to bounce off of it
+18:15
+Rocket sprite (as well as possibly other gun variants, not that I've seen any appear on this floor so far) projectile fires under the candle
+
+//? Bounceback on grabbles hitting objects can send player flying if they collide
 //? Porch has collision issues, can't damage enemies when you fling them into it
 //? Can throw enemies through skinny walls
 //? Scion Slimes get stuck leaving kitchen left
+//? Gatling goober goo gibs can spawn in wall
+// Issues with scion slime shadows when hit
 // Goo drops and goo splats get stuck in walls regularly
 // Multiple powerups can spawn on same point
 // Stump appears over and under enemies

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 155923096958015753}
   - component: {fileID: 155923096958015767}
   - component: {fileID: 155923096958015766}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: KnuckleBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4723270299368974221}
   - component: {fileID: 812699745796530138}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: AudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}

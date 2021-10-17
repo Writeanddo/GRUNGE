@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7020928291246141669}
   - component: {fileID: 7020928291246141668}
   - component: {fileID: 7020928291246141675}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Skull
   m_TagString: Grabbable
   m_Icon: {fileID: 0}

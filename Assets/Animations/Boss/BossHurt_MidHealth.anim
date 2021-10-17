@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BossDie
+  m_Name: BossHurt_MidHealth
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,7 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -5999534734459318484, guid: 3cac7fdc91668784d9a2682fa2c0d1f7,
+      value: {fileID: -220245796908341680, guid: 05103aa974546d948b5ed17d2cfe80f2,
         type: 3}
     attribute: m_Sprite
     path: 
@@ -41,7 +41,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -5999534734459318484, guid: 3cac7fdc91668784d9a2682fa2c0d1f7, type: 3}
+    - {fileID: -220245796908341680, guid: 05103aa974546d948b5ed17d2cfe80f2, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

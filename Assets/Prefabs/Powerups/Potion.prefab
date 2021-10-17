@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2315255062283567794}
   - component: {fileID: 2315255062283567795}
   - component: {fileID: 2315255062283567796}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Potion
   m_TagString: Grabbable
   m_Icon: {fileID: 0}
@@ -150,6 +150,8 @@ MonoBehaviour:
   isHeld: 0
   isBeingThrown: 0
   damagedSprite: {fileID: 0}
+  heldSprite: {fileID: 0}
+  damagedHeldSprite: {fileID: 0}
   propFragments:
   - {fileID: -6225211857267148141, guid: b87d5da4fa27e814a8b328bc661e956b, type: 3}
   - {fileID: -3976805010709264475, guid: b87d5da4fa27e814a8b328bc661e956b, type: 3}
@@ -257,7 +259,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8464685702424234745}
   - component: {fileID: 2398909108818450845}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: AudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}

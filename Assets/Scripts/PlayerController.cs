@@ -31,8 +31,9 @@ public class PlayerController : MonoBehaviour
     float speedMultiplier = 1;
     float storedMaxSpeed;
     bool playedDieSequence;
-    bool chargingAttack;
-    bool chargeReady;
+    public bool chargingAttack;
+    public bool chargeReady;
+    bool rightClickReleased;
 
     Transform crosshair;
     Transform gun;
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
     Transform gunTwoHandedTargetPos;
     Transform handTargetPos;
     Transform handHolder;
+    Transform handShaker;
     Transform hand;
     Animator anim;
     Animator gunAnim;
@@ -63,7 +65,8 @@ public class PlayerController : MonoBehaviour
         gunAnim = gun.GetComponent<Animator>();
         handTargetPos = anim.transform.GetChild(2);
         handHolder = anim.transform.GetChild(3);
-        hand = anim.transform.GetChild(3).GetChild(0);
+        handShaker = anim.transform.GetChild(3).GetChild(0);
+        hand = anim.transform.GetChild(3).GetChild(0).GetChild(0);
         gunTwoHandedTargetPos = anim.transform.GetChild(4);
         gunTwoHandedHolder = anim.transform.GetChild(5);
         gunTwoHandedAnim = gunTwoHandedHolder.GetChild(0).GetComponent<Animator>();
@@ -209,30 +212,35 @@ public class PlayerController : MonoBehaviour
         // Shoot hand / perform secondary weapon action
         if (Input.GetButtonDown("Fire2"))
         {
-            if (canLaunchHand && stats.currentWeapon < 10)
+            // Hand launch
+            if (stats.currentWeapon < 10)
             {
-                if (!handLaunched)
+                // If we aren't holding an object, launch hand
+                if (heldObject == null && canLaunchHand)
                 {
-                    Vector2 dir = (crosshair.position - handTargetPos.position).normalized;
-                    if (heldObject == null)
+                    if (!handLaunched)
                     {
+                        Vector2 dir = (crosshair.position - handTargetPos.position).normalized;
+
                         // launch hand
                         //gm.PlaySFX(gm.playerSfx[4], 0.9f);
                         handLaunched = true;
                         canLaunchHand = false;
+                        rightClickReleased = false;
                         StartCoroutine(WaitForHandHit((Vector2)handTargetPos.position + dir * 15));
                     }
-                    else
+                }
+                // If we're holding an object and its an enemy, charge it until we release rmb
+                else if (heldObject != null && rightClickReleased)
+                {
+                    if (heldObject.tag == "Enemy")
                     {
-                        // throw held object
-                        gm.PlaySFX(gm.playerSfx[2]);
-                        hgm.ThrowItem(dir * 75);
-                        handHolder.transform.position += (Vector3)dir;
-                        canLaunchHand = false;
-                        StartCoroutine(HandCooldown());
+                        StartCoroutine(ChargeHeldEnemy());
                     }
                 }
             }
+
+            // Scythe procedure
             else if (!reloading)
             {
                 if (stats.currentWeapon == 10)
@@ -243,9 +251,30 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // Release charge
+        // Throw held item / Release charge
         if (Input.GetButtonUp("Fire2") && !reloading)
         {
+            // Have to release RMB once before being able to charge again (to prevent immediate charge upon grab)
+            if (!rightClickReleased && (handLaunched || heldObject != null))
+                rightClickReleased = true;
+
+            else if (heldObject != null && rightClickReleased)
+            {
+                // Throw held object
+                Vector2 dir = (crosshair.position - handTargetPos.position).normalized;
+
+                // throw held object
+                gm.PlaySFX(gm.playerSfx[2]);
+                hgm.ThrowItem(dir * 75);
+                handHolder.transform.position += (Vector3)dir;
+                canLaunchHand = false;
+                StartCoroutine(HandCooldown());
+                rightClickReleased = false;
+                chargingAttack = false;
+
+                stats.maxSpeed = storedMaxSpeed;
+
+            }
             if (stats.currentWeapon == 10)
             {
                 if (chargingAttack && chargeReady)
@@ -291,8 +320,36 @@ public class PlayerController : MonoBehaviour
             gm.PlaySFX(gm.playerSfx[4]);
             chargeReady = true;
         }
-        
-            gm.StopPrioritySFX();
+
+        gm.StopPrioritySFX();
+    }
+
+    IEnumerator ChargeHeldEnemy()
+    {
+        EnemyScript e = heldObject.GetComponent<EnemyScript>();
+        chargingAttack = true;
+        float timer = 0;
+        yield return new WaitForSeconds(0.25f);
+        stats.maxSpeed = storedMaxSpeed * 0.5f;
+
+        while (e.stats.currentShieldValue > 1 && chargingAttack)
+        {
+            timer = 0;
+            gm.PlaySFXStoppablePriority(gm.playerSfx[12], 1);
+            while (timer < 1f && chargingAttack)
+            {
+                timer += Time.fixedDeltaTime;
+                handShaker.transform.localPosition = new Vector2(0, 0.33f*Mathf.Sin(timer * 8 * Mathf.PI));
+                yield return new WaitForFixedUpdate();
+            }
+
+            if (chargingAttack)
+                e.ReceiveShieldDamage();
+        }
+
+        handShaker.transform.localPosition = Vector2.zero;
+        stats.maxSpeed = storedMaxSpeed;
+        gm.StopPrioritySFX();
     }
 
     IEnumerator GooRegen()
@@ -449,9 +506,9 @@ public class PlayerController : MonoBehaviour
             gm.ScreenShake(3f);
             Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
             gun.transform.position -= offset;
-            Instantiate(projectiles[0], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 70));
-            Instantiate(projectiles[0], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 90));
-            Instantiate(projectiles[0], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 110));
+            Instantiate(projectiles[3], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 70));
+            Instantiate(projectiles[3], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 90));
+            Instantiate(projectiles[3], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 110));
             reloading = true;
 
             stats.goo -= stats.shotGooUsage;

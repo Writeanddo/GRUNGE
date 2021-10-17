@@ -650,7 +650,10 @@ SpriteAtlas:
   - {fileID: -5146880458040057289, guid: a74f7617433e7ae4e964151604cbbe5f, type: 3}
   - {fileID: -428431067453858579, guid: a74f7617433e7ae4e964151604cbbe5f, type: 3}
   - {fileID: -8669780860867361269, guid: a74f7617433e7ae4e964151604cbbe5f, type: 3}
-  - {fileID: 21300000, guid: 1b2278a790723aa4c933f55d7fbb15b7, type: 3}
+  - {fileID: 555961329920010797, guid: 1b2278a790723aa4c933f55d7fbb15b7, type: 3}
+  - {fileID: -8772812082460603825, guid: 1b2278a790723aa4c933f55d7fbb15b7, type: 3}
+  - {fileID: -97627533710697999, guid: 1b2278a790723aa4c933f55d7fbb15b7, type: 3}
+  - {fileID: 6290306052798215378, guid: 1b2278a790723aa4c933f55d7fbb15b7, type: 3}
   - {fileID: -6229014163905673489, guid: 3772d5c7452555b49898c8f5aec89986, type: 3}
   - {fileID: -6808251867241356728, guid: 3772d5c7452555b49898c8f5aec89986, type: 3}
   - {fileID: 6229396948892565648, guid: 3772d5c7452555b49898c8f5aec89986, type: 3}
@@ -2145,7 +2148,10 @@ SpriteAtlas:
   - CabinStumps_2
   - CabinStumps_1
   - CabinStumps_0
-  - FenceBreaks
+  - FenceBreaks_3
+  - FenceBreaks_2
+  - FenceBreaks_1
+  - FenceBreaks_0
   - PitTotemGibs_1
   - PitTotemGibs_0
   - PitTotemGibs_5

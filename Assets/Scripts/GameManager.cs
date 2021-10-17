@@ -154,7 +154,8 @@ public class GameManager : MonoBehaviour
                 }
 
                 CheckAndPlayClip("Shield_" + heldEnemy.stats.currentShieldValue, shieldAnim);
-                shieldAnim.transform.position = new Vector2(ply.transform.position.x, ply.transform.position.y + 1);
+                Vector2 offset = ply.transform.position - cam.transform.position;
+                shieldTransform.anchoredPosition = new Vector2(offset.x * 32, 64 + offset.y * 32);
             }
             else if (heldEnemy != null && !shieldExploding)
             {
@@ -214,6 +215,8 @@ public class GameManager : MonoBehaviour
     public void StopMusic()
     {
         musicSource.Stop();
+        musicTrack1.Stop();
+        musicTrack2.Stop();
     }
 
     private void Update()
@@ -332,8 +335,8 @@ public class GameManager : MonoBehaviour
         }
         else if (levelName == "4_boss")
         {
-            /*PlayMusic();
-            yield return new WaitForSeconds(1.5f);
+            PlayMusic();
+            yield return new WaitForSeconds(1f);
             camControl.overridePosition = true;
             Transform t = GameObject.Find("Boss").transform;
 
@@ -344,12 +347,12 @@ public class GameManager : MonoBehaviour
             while (timer > 0)
             {
                 camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(t.position.x, t.position.y, camControl.transform.position.z), 0.1f);
-                timer -= Time.deltaTime;
-                yield return null;
+                timer -= Time.fixedDeltaTime;
+                yield return new WaitForFixedUpdate();
             }
 
             PlaySFX(generalSfx[6]);
-            t.GetComponent<Animator>().Play("BossRoar");
+            //t.GetComponent<Animator>().Play("BossRoar");
             yield return new WaitForSeconds(3);
 
             cam.localPosition = Vector2.zero;
@@ -362,12 +365,13 @@ public class GameManager : MonoBehaviour
                 yield return null;
             }
 
+            camControl.secondTarget = t;
             camControl.overridePosition = false;
             
 
             t.GetComponent<EnemyScript>().UpdateMovement();
             ewm.StartWaves();
-            */
+            
             ply.canMove = true;
         }
         else if (levelName == "endless")

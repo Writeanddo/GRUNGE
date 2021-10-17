@@ -30,6 +30,7 @@ public class BoogernautEnemyScript : EnemyScript
         sfx = GetComponentInChildren<AudioSource>();
         gibSpawnYOffset = -1.25f;
         GetReferences();
+        StartCoroutine(Reload());
     }
 
     void FixedUpdate()
@@ -61,8 +62,10 @@ public class BoogernautEnemyScript : EnemyScript
             {
                 if(!rechargingAttack)
                     StartCoroutine(LaserDamage());
-                else
+                else if (Vector3.Distance(transform.position, ply.transform.position) < 7)
                     MoveAwayFromPlayer();
+                else
+                    MoveTowardsPlayer();
             }
             else
                 FollowPath();
@@ -79,8 +82,14 @@ public class BoogernautEnemyScript : EnemyScript
         // Get initial angle
         Vector3 diff = ply.transform.position - laserOrigin.transform.position;
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
+        int rotRounded = Mathf.RoundToInt(rot_z) / 90;
+        rot_z = rotRounded * 90;
+
+        gm.PlaySFX(gm.generalSfx[18]);
+        yield return new WaitForSeconds(0.75f);
+
         rotatingLaser = true;
-        StartCoroutine(RotateLaser(rot_z - 45));
+        StartCoroutine(RotateLaser(rot_z - 30));
 
         while (rotatingLaser)
         {
@@ -103,7 +112,7 @@ public class BoogernautEnemyScript : EnemyScript
                     if (ply.heldObject != null && ply.heldObject.tag == "Enemy")
                         ply.heldObject.GetComponent<EnemyScript>().ReceiveShieldDamage();
                     else
-                        ply.ReceiveDamage(13);
+                        ply.ReceiveDamage(15);
                     hitPlayer = true;
                 }
             }
@@ -134,10 +143,11 @@ public class BoogernautEnemyScript : EnemyScript
         //yield return new WaitForSeconds(0.33f);
         float amountRotated = 0f;
         float timePassed = 0;
-        while (amountRotated < 90)
+        float rotAmount = 0.65f;
+        while (amountRotated < 60)
         {
-            laserOrigin.transform.rotation = Quaternion.Euler(0f, 0f, laserOrigin.transform.rotation.eulerAngles.z + 1.125f);
-            amountRotated += 1.125f;
+            laserOrigin.transform.rotation = Quaternion.Euler(0f, 0f, laserOrigin.transform.rotation.eulerAngles.z + rotAmount);
+            amountRotated += rotAmount;
             yield return new WaitForFixedUpdate();
             timePassed += Time.fixedDeltaTime;
         }

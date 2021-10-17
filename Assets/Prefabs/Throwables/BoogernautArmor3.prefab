@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2365832917940531930}
   - component: {fileID: 2365832917940531933}
   - component: {fileID: 2365832917940531932}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: BoogernautArmor3
   m_TagString: Grabbable
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   breakFromCharacterContact: 0
   rotatePropFragments: 0
   hitsBeforeBreak: 6
-  baseDamageUponHitting: 15
+  baseDamageUponHitting: 30
   objectOffsetWhenHeld: {x: 0, y: 0}
   handOffsetWhenHeld: {x: 0, y: 0}
   isHeld: 0

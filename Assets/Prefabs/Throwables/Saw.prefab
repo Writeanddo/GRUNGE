@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5376384999165176052}
   - component: {fileID: 5376384999165176053}
   - component: {fileID: 5376384999165176054}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Saw
   m_TagString: Grabbable
   m_Icon: {fileID: 0}

@@ -29,6 +29,8 @@ public abstract class EnemyScript : MonoBehaviour
     public bool noticedPlayer;
     public GameObject[] gooDrops;
     public GameObject[] splatterDrops;
+    public GameObject[] nonRandomDrops;
+
     public GameObject enemyExplosion;
 
     public LayerMask playerScanIgnoreMask;
@@ -64,7 +66,7 @@ public abstract class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public void CheckIfHeld()
@@ -101,11 +103,19 @@ public abstract class EnemyScript : MonoBehaviour
     {
         int layer1 = LayerMask.NameToLayer("ExplosiveProjectileNoHit");
         int layer2 = LayerMask.NameToLayer("Enemy");
+        int layer3 = LayerMask.NameToLayer("Prop");
+        int layer4 = LayerMask.NameToLayer("Gibs");
+        int layer5 = LayerMask.NameToLayer("GibNoContact");
+        int layer6 = LayerMask.NameToLayer("HeldItem");
 
         int mask1 = 1 << layer1;
-        int mask2 = 2 << layer2;
+        int mask2 = 1 << layer2;
+        int mask3 = 1 << layer3;
+        int mask4 = 1 << layer4;
+        int mask5 = 1 << layer5;
+        int mask6 = 1 << layer6;
 
-        playerScanIgnoreMask = mask1 | mask2;
+        playerScanIgnoreMask = ~(mask1 | mask2 | mask3 | mask4 | mask5 | mask6);
 
         stats.maxHealth = stats.health;
         g = GetComponent<Grabbable>();
@@ -159,7 +169,8 @@ public abstract class EnemyScript : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        stats.currentShieldValue = 4;
+        // TEMP TEMP TEMP?
+        //stats.currentShieldValue = 4;
         g.isBeingThrown = false;
     }
 
@@ -186,7 +197,7 @@ public abstract class EnemyScript : MonoBehaviour
             Vector2 dir = Vector2.zero;
 
             // Move towards nearest node
-            if(waves.enemyPath.Length > 0)
+            if (waves.enemyPath.Length > 0)
                 dir = ((Vector2)waves.enemyPath[currentNode].transform.position - (Vector2)transform.position).normalized;
 
             rb.velocity = Vector2.Lerp(rb.velocity, dir * randSpeedMultiplier * stats.pathSpeedMultiplier, stats.movementAccuracy);
@@ -271,10 +282,10 @@ public abstract class EnemyScript : MonoBehaviour
         if (noticedPlayer)
             scanDistance = 25;
 
-        //Debug.DrawRay(transform.position, dir * scanDistance, Color.red, Time.deltaTime);
-        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 1, dir, scanDistance, ~playerScanIgnoreMask);
+        RaycastHit2D hit = Physics2D.CircleCast(transform.position, 1, dir, scanDistance, playerScanIgnoreMask);
         if (hit)
         {
+            Debug.DrawRay(transform.position, ((Vector3)hit.point - transform.position), Color.red, Time.deltaTime);
             if (hit.transform.tag == "Player")
             {
                 timeSinceLastSeenPlayer = 0;
@@ -419,6 +430,9 @@ public abstract class EnemyScript : MonoBehaviour
             Instantiate(gooDrops[Random.Range(0, gooDrops.Length)], gibSpawnPos, Quaternion.identity);
             Instantiate(splatterDrops[Random.Range(0, splatterDrops.Length)], gibSpawnPos, Quaternion.identity);
         }
+        for(int i = 0; i < nonRandomDrops.Length; i++)
+            Instantiate(nonRandomDrops[i], gibSpawnPos, Quaternion.identity);
+
         Destroy(this.gameObject);
     }
 

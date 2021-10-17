@@ -10,10 +10,12 @@ public class WeaponBox : MonoBehaviour
     GameManager gm;
     Animator anim;
     AudioSource audio;
+    PlayerController ply;
 
     // Start is called before the first frame update
     void Start()
     {
+        ply = FindObjectOfType<PlayerController>();
         spr = GetComponent<SpriteRenderer>();
         gm = FindObjectOfType<GameManager>();
         anim = GetComponent<Animator>();
@@ -52,6 +54,9 @@ public class WeaponBox : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            if (ply.heldObject == this.gameObject)
+                ply.heldObject = null;
+
             gm.PickupGun(gunIndex);
             Destroy(this.gameObject);
         }

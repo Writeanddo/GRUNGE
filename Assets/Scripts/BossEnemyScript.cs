@@ -33,18 +33,18 @@ public class BossEnemyScript : EnemyScript
 
     IEnumerator ShootPatterns()
     {
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(5f);
         for (int i = 0; i < 3; i++)
         {
-            anim.Play("BossShoot", -1, 0);
+            anim.Play("BossShoot_Healthy", -1, 0);
             gm.PlaySFX(gm.generalSfx[9]);
-            for (int j = 0; j < 2; j++)
-            {
-                Instantiate(projectile, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
-                yield return new WaitForSeconds(0.15f);
-            }
             yield return new WaitForSeconds(0.5f);
         }
         StartCoroutine(ShootPatterns());
+    }
+
+    public void SpawnProjectile()
+    {
+        Instantiate(projectile, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
     }
 }

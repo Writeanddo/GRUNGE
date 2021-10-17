@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4037936409879823111}
   - component: {fileID: 4037936409879823104}
   - component: {fileID: 4037936409879823105}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Vase
   m_TagString: Grabbable
   m_Icon: {fileID: 0}
@@ -103,6 +103,8 @@ MonoBehaviour:
   useParentPosition: 0
   sortMultiplier: 1
   yOffset: 0
+  minLayer: -1000
+  maxLayer: 1000
 --- !u!70 &4037936409879823109
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,6 +136,9 @@ MonoBehaviour:
   canBeGrabbed: 1
   isProp: 1
   canBreak: 1
+  breakFromPropContact: 0
+  breakFromCharacterContact: 0
+  rotatePropFragments: 0
   hitsBeforeBreak: 4
   baseDamageUponHitting: 15
   objectOffsetWhenHeld: {x: 0, y: -0.5}
@@ -142,11 +147,14 @@ MonoBehaviour:
   isBeingThrown: 0
   damagedSprite: {fileID: 2860107995555303533, guid: 645c846a414297f4c9377d93471090b3,
     type: 3}
+  heldSprite: {fileID: 0}
+  damagedHeldSprite: {fileID: 0}
   propFragments:
   - {fileID: -5862477768317700069, guid: 645c846a414297f4c9377d93471090b3, type: 3}
   - {fileID: 2421176678690666362, guid: 645c846a414297f4c9377d93471090b3, type: 3}
   - {fileID: -4418247739881566961, guid: 645c846a414297f4c9377d93471090b3, type: 3}
   propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
+  breakSound: {fileID: 0}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!50 &4037936409879823104

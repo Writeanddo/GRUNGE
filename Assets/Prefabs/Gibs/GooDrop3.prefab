@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9c0302022922942b58b4f24c1f5f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupDistance: 5
+  pickupDistance: 6
   gooAmount: 2
 --- !u!58 &3660314827033038994
 CircleCollider2D:

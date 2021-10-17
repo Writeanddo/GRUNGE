@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 155923096958015753}
   - component: {fileID: 155923096958015767}
   - component: {fileID: 155923096958015766}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: ShotgunBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7871044842246680076}
   - component: {fileID: 7638929423849955669}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: AudioSource
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -103,6 +103,8 @@ MonoBehaviour:
   useParentPosition: 0
   sortMultiplier: 1
   yOffset: 0
+  minLayer: 0
+  maxLayer: 0
 --- !u!50 &3108804696350449099
 Rigidbody2D:
   serializedVersion: 4
@@ -152,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9c0302022922942b58b4f24c1f5f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupDistance: 5
+  pickupDistance: 6
   gooAmount: 2
 --- !u!58 &3108804696350449110
 CircleCollider2D:

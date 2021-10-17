@@ -35,7 +35,7 @@ public class GatlingGooberEnemyScript : EnemyScript
         else
             FollowPath();
 
-        if (!rechargingAttack && noticedPlayer)
+        if (!rechargingAttack && noticedPlayer && ply.stats.health > 0)
         {
             rechargingAttack = true;
             StartCoroutine(LaunchProjectile());
@@ -49,7 +49,7 @@ public class GatlingGooberEnemyScript : EnemyScript
             gm.PlaySFX(gm.generalSfx[10]);
             Instantiate(projectile, handPositions[0].position, Quaternion.identity);
             rb.velocity = (transform.position - ply.transform.position).normalized * 2f;
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.33f);
             gm.PlaySFX(gm.generalSfx[10]);
             Instantiate(projectile, handPositions[1].position, Quaternion.identity);
             rb.velocity = (transform.position - ply.transform.position).normalized * 2f;

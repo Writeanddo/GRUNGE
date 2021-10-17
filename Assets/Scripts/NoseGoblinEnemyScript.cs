@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class NoseGoblinEnemyScript : EnemyScript
 {
-    bool shooting;
+    public bool shooting;
     public GameObject projectile;
     float randReloadSpeed;
 
@@ -67,7 +67,7 @@ public class NoseGoblinEnemyScript : EnemyScript
         yield return new WaitForSeconds(0.2f);
         shooting = false;
 
-        yield return new WaitForSeconds(Mathf.Clamp(randReloadSpeed, 0, 10));
+        yield return new WaitForSeconds(Mathf.Clamp(randReloadSpeed, 0, 5));
         rechargingAttack = false;
     }
 }
