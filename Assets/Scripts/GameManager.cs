@@ -52,6 +52,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] powerups;
     public TextAsset dialogSourceFile;
 
+    TextboxManager.TextData[] cachedTextData;
+
     float gunTimer = 10;
     bool shieldExploding;
     int storedGooAmount;
@@ -100,6 +102,9 @@ public class GameManager : MonoBehaviour
 
         ewm = FindObjectOfType<EnemyWaveManager>();
         text = FindObjectOfType<TextboxManager>();
+
+        if(dialogSourceFile != null)
+            cachedTextData = JsonHelper.FromJson<TextboxManager.TextData>(dialogSourceFile.text);
 
         StartCoroutine(LevelStartSequence());
     }
@@ -193,10 +198,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public IEnumerator WaitForTextCompletion()
+    public IEnumerator WaitForTextCompletion(string id)
     {
-        TextboxManager.TextData[] t = JsonHelper.FromJson<TextboxManager.TextData>(dialogSourceFile.text);
-        yield return text.PrintAllText(t);
+        yield return text.PrintSingleText(GetTextDataFromID(id));
+    }
+
+    TextboxManager.TextData GetTextDataFromID(string id)
+    {
+        foreach(TextboxManager.TextData t in cachedTextData)
+        {
+            if (t.id == id)
+                return t;
+        }
+        return null;
     }
 
     public void ShieldHit()
@@ -367,8 +381,9 @@ public class GameManager : MonoBehaviour
 
             PlaySFX(generalSfx[6]);
             t.GetComponent<Animator>().Play("BossRoar");
-            StartCoroutine(ScreenShakeCoroutine(2, 5));
-            yield return new WaitForSeconds(2.5f);
+            yield return new WaitForSeconds(0.5f);
+            StartCoroutine(ScreenShakeCoroutine(2, 4.5f));
+            yield return new WaitForSeconds(2f);
 
             cam.localPosition = Vector2.zero;
 
@@ -392,6 +407,11 @@ public class GameManager : MonoBehaviour
             musicTrack2.Play();
             ply.canMove = true;
         }
+        else if(levelName == "tutorial")
+        {
+            canPause = false;
+            StartCoroutine(FindObjectOfType<TutorialManager>().IntroDialog());
+        }
         else
             ply.canMove = true;
     }
@@ -399,6 +419,50 @@ public class GameManager : MonoBehaviour
     public void LevelOverSequenece()
     {
         StartCoroutine(LevelOverSequenceCoroutine());
+    }
+
+    public IEnumerator BossPhase1DieCutscene()
+    {
+        StopMusic();
+
+        // Destroy all other enemies and projectiles
+        EnemyScript[] enemies = FindObjectsOfType<EnemyScript>();
+        EnemyProjectile[] projectiles = FindObjectsOfType<EnemyProjectile>();
+
+        for (int i = 0; i < enemies.Length; i++)
+            if (enemies[i].name != "Boss")
+                Destroy(enemies[i].gameObject);
+        for (int i = 0; i < projectiles.Length; i++)
+            Destroy(projectiles[i].gameObject);
+
+        ply.canLaunchHand = false;
+        camControl.overridePosition = true;
+        ply.transform.position = new Vector2(0, 200);
+        Transform t = GameObject.Find("Boss").transform;
+        ply.canMove = false;
+        ply.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        BossEnemyScript b = t.GetComponent<BossEnemyScript>();
+        Instantiate(b.enemyExplosion, new Vector2(t.position.x + Random.Range(-1f, 1f) * 2, t.position.y + Random.Range(-1f, 1f) * 2), Quaternion.identity);
+
+        float timer = 0.5f;
+        while (timer > 0)
+        {
+            camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(t.position.x, t.position.y, camControl.transform.position.z), 0.2f);
+            timer -= Time.fixedDeltaTime;
+            yield return new WaitForFixedUpdate();
+        }
+
+        PlaySFX(generalSfx[7]);
+        //StartCoroutine(LoadVictoryLevel());
+        for (int i = 2; i < 15; i++)
+        {
+            Instantiate(b.enemyExplosion, new Vector2(t.position.x + Random.Range(-1f, 1f) * 2, t.position.y + Random.Range(-1f, 1f) * 2), Quaternion.identity);
+            yield return new WaitForSeconds(1f / (i*1.5f));
+        }
+        Instantiate(b.bigExplosion, new Vector2(t.position.x, t.position.y), Quaternion.identity);
+        yield return new WaitForSeconds(0.15f);
+        b.GetComponent<Animator>().Play("BossDead");
     }
 
     public void PickupGun(int gunIndex)

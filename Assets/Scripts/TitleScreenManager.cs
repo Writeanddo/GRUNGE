@@ -7,12 +7,13 @@ using UnityEngine.Audio;
 
 public class TitleScreenManager : MonoBehaviour
 {
-    public RectTransform[] menuScreens;
     public RectTransform kgScreen;
     public RectTransform quitButton;
     int activeMenuScreen = 0;
     public AudioClip titleIntro;
     public AudioMixer mixer;
+    public AudioClip[] uiSfx;
+    public TitleScreenExplosionManager screenTransitionFX;
     AudioSource music;
     AudioSource sfx;
     Image blackout;
@@ -47,7 +48,7 @@ public class TitleScreenManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         music = GameObject.Find("Music").GetComponent<AudioSource>();
         cam = FindObjectOfType<Camera>().transform;
-        music.PlayOneShot(titleIntro);
+        //music.PlayOneShot(titleIntro);
         sfx = GameObject.Find("SFX").GetComponent<AudioSource>();
         blackout = GameObject.Find("ScreenBlackout").GetComponent<Image>();
         musicToggle = GameObject.Find("MusicToggle").GetComponent<Toggle>();
@@ -114,19 +115,10 @@ public class TitleScreenManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (activeMenuScreen == 0)
-        {
-            cam.transform.position = Vector2.Lerp(cam.transform.position, new Vector3(0, 0, -10), 0.3f);
-            camArrived = (Vector2.Distance(cam.transform.position, new Vector2(0, 0)) < 1);
-        }
-        else
-        {
-            cam.transform.position = Vector2.Lerp(cam.transform.position, new Vector3(75, 0, -10), 0.3f);
-            camArrived = (Vector2.Distance(cam.transform.position, new Vector2(75, 0)) < 1);
-        }
+
     }
 
-    public IEnumerator MenuScreenButtonTransition(int nextScreen, int buttonToRemainOnNewScreen, MenuScreen from, MenuScreen to)
+    /*public IEnumerator MenuScreenButtonTransition(int nextScreen, int buttonToRemainOnNewScreen, MenuScreen from, MenuScreen to)
     {
         RectTransform[] fromRects = new RectTransform[from.buttons.Length];
         RectTransform[] toRects = new RectTransform[to.buttons.Length];
@@ -209,7 +201,7 @@ public class TitleScreenManager : MonoBehaviour
         foreach (Button b in from.buttons)
             b.interactable = true;
 
-    }
+    }*/
 
     IEnumerator LerpButtonTowards(RectTransform button, bool active, Vector3 startPosition, Vector3 endPosition)
     {
@@ -236,6 +228,14 @@ public class TitleScreenManager : MonoBehaviour
     public void StartGame()
     {
         StartCoroutine(LoadLevelCoroutine());
+    }
+
+    public IEnumerator MoveToScreen(MenuScreen from, MenuScreen to)
+    {
+        screenTransitionFX.Explode();
+        yield return new WaitForEndOfFrame();
+        from.rectTransform.anchoredPosition = new Vector2(0, 1000);
+        to.rectTransform.anchoredPosition = Vector2.zero;
     }
 
     IEnumerator LoadLevelCoroutine()

@@ -202,7 +202,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Reload sound
-        if (Input.GetButtonDown("Fire1") && !reloading && !chargingAttack)
+        if (Input.GetButtonDown("Fire1") && !reloading && (stats.currentWeapon != 11 && !chargingAttack))
         {
             Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
             gun.transform.position -= offset;
@@ -231,7 +231,7 @@ public class PlayerController : MonoBehaviour
                     }
                 }
                 // If we're holding an object and its an enemy, charge it until we release rmb
-                else if (heldObject != null && rightClickReleased)
+                else if (heldObject != null && rightClickReleased && canLaunchHand)
                 {
                     if (heldObject.tag == "Enemy")
                     {
@@ -258,7 +258,7 @@ public class PlayerController : MonoBehaviour
             if (!rightClickReleased && (handLaunched || heldObject != null))
                 rightClickReleased = true;
 
-            else if (heldObject != null && rightClickReleased)
+            else if (heldObject != null && rightClickReleased && canLaunchHand)
             {
                 // Throw held object
                 Vector2 dir = (crosshair.position - handTargetPos.position).normalized;
@@ -268,7 +268,7 @@ public class PlayerController : MonoBehaviour
                 hgm.ThrowItem(dir * 75);
                 handHolder.transform.position += (Vector3)dir;
                 canLaunchHand = false;
-                StartCoroutine(HandCooldown());
+                StartCoroutine(HandAfterThrowingCooldown());
                 rightClickReleased = false;
                 chargingAttack = false;
 
@@ -330,7 +330,7 @@ public class PlayerController : MonoBehaviour
         chargingAttack = true;
         float timer = 0;
         yield return new WaitForSeconds(0.25f);
-        stats.maxSpeed = storedMaxSpeed * 0.5f;
+        //stats.maxSpeed = storedMaxSpeed * 0.5f;
 
         while (e.stats.currentShieldValue > 1 && chargingAttack)
         {
@@ -381,6 +381,8 @@ public class PlayerController : MonoBehaviour
     IEnumerator Die()
     {
         playedDieSequence = true;
+        chargingAttack = false;
+        chargeReady = false;
         isDying = true;
         rb.isKinematic = true;
         rb.velocity = Vector2.zero;
@@ -414,6 +416,9 @@ public class PlayerController : MonoBehaviour
     {
         hgm.CheckAndPlayClip("Hand_Grab" + GetCompassDirectionFourDirectional(AngleBetweenMouse(hand.transform)));
 
+        // Perform frame 1 scan for enemies that might've already been in our collider
+        hgm.InitialGrabbableScan();
+
         Vector3 storedPos = handHolder.transform.position;
         while (handLaunched && Vector2.Distance(transform.position, handHolder.transform.position) < 6 && Vector2.Distance(handHolder.transform.position, targetPos) > 0.25f)
         {
@@ -430,8 +435,13 @@ public class PlayerController : MonoBehaviour
         while (Vector2.Distance(handHolder.transform.position, handTargetPos.position) > 0.25f)
             yield return null;
 
-        //yield return new WaitForSeconds(0.25f);
-        canLaunchHand = true;
+        if (heldObject != null)
+        {
+            print("Hit enemy, waiting");
+            StartCoroutine(HandReturnToBodyCooldown());
+        }
+        else
+            canLaunchHand = true;
     }
 
     public void ReceiveDamage(int damage)
@@ -457,9 +467,15 @@ public class PlayerController : MonoBehaviour
         spr.transform.localPosition = Vector2.zero;
     }
 
-    IEnumerator HandCooldown()
+    IEnumerator HandAfterThrowingCooldown()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.15f);
+        canLaunchHand = true;
+    }
+
+    IEnumerator HandReturnToBodyCooldown()
+    {
+        yield return new WaitForSeconds(0.05f);
         canLaunchHand = true;
     }
 

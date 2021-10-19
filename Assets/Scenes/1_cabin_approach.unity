@@ -189,6 +189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: -0.5
   minLayer: -1000
@@ -1707,6 +1708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: -1
   minLayer: -1000
@@ -1844,6 +1846,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: 0.5
   minLayer: -1000
@@ -2249,6 +2252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: -0.5
   minLayer: -1000
@@ -2753,6 +2757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: 0
   minLayer: -1000
@@ -3881,6 +3886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: -6
   minLayer: -1000
@@ -4170,6 +4176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: -1
   minLayer: -1000
@@ -26631,6 +26638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: -1
   minLayer: -1000
@@ -27112,6 +27120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: -0.5
   minLayer: -1000
@@ -27314,6 +27323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: -0.5
   minLayer: -1000
@@ -27563,6 +27573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: -1
   minLayer: -1000

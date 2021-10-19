@@ -96,6 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 5
   yOffset: 0
   minLayer: 0
@@ -148,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 1348247911687997046, guid: ff4d447c97d2bdf4ab28ffb2323b7831,
     type: 3}
+  speed: 32
 --- !u!50 &8341310762048589308
 Rigidbody2D:
   serializedVersion: 4
@@ -184,4 +186,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.67

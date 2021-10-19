@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5168354353443126887}
   - component: {fileID: 5168354353443126881}
-  - component: {fileID: 5168354353443126880}
+  - component: {fileID: 5736585316492934117}
   m_Layer: 13
   m_Name: EnemyExplosionFX
   m_TagString: Untagged
@@ -49,7 +49,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.5
---- !u!114 &5168354353443126880
+--- !u!114 &5736585316492934117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bb2836d6092a34aa0e494b5573f860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 27
   knockbackMultiplier: 1
   explosionSound: {fileID: 8300000, guid: ddbb6186e343e4c4aba1b35a8fbd2264, type: 3}
   gibs: []

@@ -80,6 +80,25 @@ public class HandGrabManager : MonoBehaviour
         }
     }
 
+    public void InitialGrabbableScan()
+    {
+        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, 0.67f);
+        foreach (Collider2D c in cols)
+        {
+            if (c.tag == "Grabbable" || c.tag == "Enemy")
+            {
+                GrabObject(c.gameObject);
+                break;
+            }
+            // Stop extending hand if we hit a wall
+            else if (c.tag == "Wall")
+            {
+                player.handLaunched = false;
+                break;
+            }
+        }
+    }
+
     public void GrabObject(GameObject g)
     {
         print("Grabbed " + g.name);

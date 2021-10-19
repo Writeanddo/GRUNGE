@@ -1,0 +1,33 @@
+{
+    "Items": [
+        {
+            "id": "TutorialIntro",
+            "dialog": [
+                "GLAD YOU COULD MAKE\\IT, SON.",
+                "I KNOW YOU'RE A SMART\\KID, SO I'LL KEEP\\THIS SHORT..."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "",
+            "dialog": [
+                
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "",
+            "dialog": [
+                "GIVE 'EM HELL, SON..."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "",
+            "dialog": [
+                "GIVE 'EM HELL, SON..."
+            ],
+            "portraitIndex": 2
+        }
+    ]
+}

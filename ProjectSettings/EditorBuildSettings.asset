@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Logo.unity
     guid: c308564d284edd148aef74f03d991ac8
   - enabled: 1
+    path: Assets/Scenes/titlescreen.unity
+    guid: 4edb981d1dd78df4ba500be15dc40bf9
+  - enabled: 1
     path: Assets/Scenes/1_cabin_approach.unity
     guid: 77c047c81cd11274cb4b815cadbd1ce9
   - enabled: 1

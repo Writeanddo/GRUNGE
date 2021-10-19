@@ -77,6 +77,37 @@ public class TextboxManager : MonoBehaviour
         textbox.anchoredPosition = new Vector2(0, -500f);
     }
 
+    public IEnumerator PrintSingleText(TextData t)
+    {
+        textbox.anchoredPosition = new Vector2(0, -240f);
+
+        for (int i = 0; i < t.dialog.Length; i++)
+        {
+            string line = InsertLineBreaks(t.dialog[i]);
+            for (int j = 0; j < t.dialog[i].Length; j++)
+            {
+                if (j % 4 == 0)
+                {
+                    dialogPortrait.sprite = portraitFrames[t.portraitIndex + 1];
+                    gm.PlaySFXStoppable(gm.generalSfx[11], Random.Range(0.5f, 0.8f));
+                }
+                else if (j % 2 == 0)
+                    dialogPortrait.sprite = portraitFrames[t.portraitIndex];
+
+                dialogText.text = line.Substring(0, j + 1);
+                yield return new WaitForSeconds(0.025f);
+            }
+            dialogPortrait.sprite = portraitFrames[t.portraitIndex];
+            dialogText.text = line;
+
+            pressEIcon.color = Color.white;
+            yield return WaitForKeyPress();
+            pressEIcon.color = Color.clear;
+        }
+
+        textbox.anchoredPosition = new Vector2(0, -500f);
+    }
+
     IEnumerator WaitForKeyPress()
     {
         while (!Input.GetKeyDown(KeyCode.E))

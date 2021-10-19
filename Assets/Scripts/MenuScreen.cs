@@ -15,37 +15,24 @@ public class MenuScreen : MonoBehaviour
     [System.Serializable]
     public class ScreenTransitionInfo
     {
-        public int nextScreenDepth;
-        public int nextScreenRemainingButton;
         public MenuScreen screenToMoveTo;
-        public TransitionType transitionType;
     }
 
-    public Button[] buttons;
-    public ScreenTransitionInfo[] transitions;
-
+    public MenuScreen[] targetScreens;
     [HideInInspector]
-    public Vector2[] buttonsActivePosition;
-    public int moveAmount;
-    public int activeButtonIndex;
-
+    public RectTransform rectTransform;
     TitleScreenManager tsm;
 
     // Start is called before the first frame update
     void Start()
     {
+        rectTransform = GetComponent<RectTransform>();
         tsm = FindObjectOfType<TitleScreenManager>();
-
-        buttonsActivePosition = new Vector2[buttons.Length];
-        for (int i = 0; i < buttonsActivePosition.Length; i++)
-            buttonsActivePosition[i] = buttons[i].GetComponent<RectTransform>().anchoredPosition;
     }
 
     public void ButtonWasPressed(int button)
     {
-        activeButtonIndex = button;
-        ScreenTransitionInfo s = transitions[button];
-        if (s.transitionType == TransitionType.buttonLerp)
-            StartCoroutine(tsm.MenuScreenButtonTransition(s.nextScreenDepth, s.nextScreenRemainingButton, this, s.screenToMoveTo));
+        MenuScreen s = targetScreens[button];
+        StartCoroutine(tsm.MoveToScreen(this, s));
     }
 }

@@ -35,7 +35,7 @@ public class CarCutsceneManager : MonoBehaviour
         StartCoroutine(StopPlayer());
         ply.transform.parent = null;
         yield return new WaitForSeconds(1f);
-        yield return gm.WaitForTextCompletion();
+        yield return gm.WaitForTextCompletion("ExitCar");
         gm.PlaySFX(sfx[1]);
         anim.Play("CarLeave");
         yield return new WaitForSeconds(1f);

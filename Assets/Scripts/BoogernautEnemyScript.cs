@@ -9,6 +9,7 @@ public class BoogernautEnemyScript : EnemyScript
     SpriteRenderer laser;
     AudioSource sfx;
     HandGrabManager hgm;
+    Animator laserStart;
 
     public List<SpriteRenderer> armor;
     public List<GameObject> armorGrabbables;
@@ -19,13 +20,14 @@ public class BoogernautEnemyScript : EnemyScript
 
     bool rotatingLaser;
     bool canSpawnArmor = true;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         hgm = FindObjectOfType<HandGrabManager>();
         laserOrigin = transform.GetChild(1);
-        laser = laserOrigin.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        laserStart = laserOrigin.transform.GetChild(0).GetComponent<Animator>();
+        laser = laserStart.transform.GetChild(0).GetComponent<SpriteRenderer>();
         laserImpact = laserOrigin.GetChild(1);
         sfx = GetComponentInChildren<AudioSource>();
         gibSpawnYOffset = -1.25f;
@@ -60,7 +62,7 @@ public class BoogernautEnemyScript : EnemyScript
         {
             if (noticedPlayer && ply.stats.health > 0)
             {
-                if(!rechargingAttack)
+                if (!rechargingAttack)
                     StartCoroutine(LaserDamage());
                 else if (Vector3.Distance(transform.position, ply.transform.position) < 7)
                     MoveAwayFromPlayer();
@@ -82,26 +84,24 @@ public class BoogernautEnemyScript : EnemyScript
         // Get initial angle
         Vector3 diff = ply.transform.position - laserOrigin.transform.position;
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        int roundedAngle = Mathf.RoundToInt(rot_z) / 90;
-        rot_z = roundedAngle * 90;
-        print(rot_z);
-
+        rot_z += Random.Range(-15, 15);
         gm.PlaySFX(gm.generalSfx[18]);
         yield return new WaitForSeconds(0.75f);
-
+        laserStart.Play("LaserStemStart", -1, 0);
         rotatingLaser = true;
-        StartCoroutine(RotateLaser(rot_z - 30));
+        StartCoroutine(RotateLaser(rot_z));
 
         while (rotatingLaser)
         {
-            Vector2 hitPos;
             RaycastHit2D hit = Physics2D.Raycast(laserOrigin.transform.position, laserOrigin.transform.right, 50, laserHitMask);
             Debug.DrawLine(laserOrigin.transform.position, hit.point, Color.blue);
-            hitPos = laser.transform.InverseTransformDirection(hit.point);
 
-            laserImpact.transform.position = new Vector2(hit.point.x, hit.point.y + 0.191f);
+            laserImpact.transform.rotation = Quaternion.identity;
             laser.transform.localPosition = new Vector2(Vector3.Distance(laserOrigin.transform.position, hit.point) / 2, laser.transform.localPosition.y);
             laser.size = new Vector2(laser.transform.localPosition.x * 2, laser.size.y);
+
+            yield return new WaitForEndOfFrame(); 
+            laserImpact.transform.position = hit.point;
 
             if (!hitPlayer)
             {
@@ -121,6 +121,7 @@ public class BoogernautEnemyScript : EnemyScript
             yield return new WaitForFixedUpdate();
         }
 
+        laserStart.Play("LaserStemBlank", -1, 0);
         laser.size = new Vector2(0, laser.size.y);
 
         StartCoroutine(Reload());
@@ -140,14 +141,15 @@ public class BoogernautEnemyScript : EnemyScript
             zAngle += 360;
 
         laserOrigin.transform.rotation = Quaternion.Euler(0f, 0f, zAngle);
+
         sfx.PlayOneShot(gm.generalSfx[13]);
         //yield return new WaitForSeconds(0.33f);
         float amountRotated = 0f;
         float timePassed = 0;
-        float rotAmount = 0.65f;
+        float rotAmount = 0.7f;
         while (amountRotated < 60)
         {
-            laserOrigin.transform.rotation = Quaternion.Euler(0f, 0f, laserOrigin.transform.rotation.eulerAngles.z + rotAmount);
+            //laserOrigin.transform.rotation = Quaternion.Euler(0f, 0f, laserOrigin.transform.rotation.eulerAngles.z + rotAmount);
             amountRotated += rotAmount;
             yield return new WaitForFixedUpdate();
             timePassed += Time.fixedDeltaTime;
@@ -173,7 +175,7 @@ public class BoogernautEnemyScript : EnemyScript
 
     public void DetachArmorPiece(bool handIsGrabbing)
     {
-        if(canSpawnArmor && armor.Count > 0)
+        if (canSpawnArmor && armor.Count > 0)
         {
             // Randomly choose an armor piece to detach
             int rand = Random.Range(0, armor.Count);
