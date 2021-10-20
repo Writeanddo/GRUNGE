@@ -21,6 +21,7 @@ public class LevelSelectManager : MonoBehaviour
     VideoPlayer videoPlayer;
 
     string storedVhsText = "";
+    string[] levelNames = new string[6] { "TUTORIAL", "THE FRONT YARD", "THE HOUSE", "THE BASEMENT", "THE PIT", "ENDLESS" };
     int vhsTextOffset;
     
     // Start is called before the first frame update
@@ -72,6 +73,7 @@ public class LevelSelectManager : MonoBehaviour
         tvStaticAnimation.Play("LevelSelectStatic", -1, 0);
 
         vhsTextOffset = 0;
+        storedVhsText = "     "+levelNames[selectedLevelIndex]+"     TIME: N/A     KILLS: N/A";
         videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, levelPreviewVideos[index]+".mp4");
         RestartPreview();
     }
@@ -96,7 +98,7 @@ public class LevelSelectManager : MonoBehaviour
 
     IEnumerator VHSTextLoop()
     {
-        storedVhsText = "     TIME: 1:00     KILLS: 21";
+        storedVhsText = "     TUTORIAL     TIME: N/A     KILLS: N/A";
         //storedVhsText = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         vhsTextOffset = 0;
 

@@ -345,7 +345,11 @@ public class GameManager : MonoBehaviour
 
         string levelName = SceneManager.GetActiveScene().name;
 
-        if (levelName == "1_cabin_approach")
+        if (levelName == "0_tutorial")
+        {
+            StartCoroutine(FindObjectOfType<TutorialManager>().IntroDialog());
+        }
+        else if (levelName == "1_cabin_approach")
         {
             canPause = false;
         }
@@ -399,18 +403,13 @@ public class GameManager : MonoBehaviour
             
             ply.canMove = true;
         }
-        else if (levelName == "endless")
+        else if (levelName == "6_endless")
         {
             musicTrack1.clip = musicStems[0];
             musicTrack2.clip = musicStems[1];
             musicTrack1.Play();
             musicTrack2.Play();
             ply.canMove = true;
-        }
-        else if(levelName == "tutorial")
-        {
-            canPause = false;
-            StartCoroutine(FindObjectOfType<TutorialManager>().IntroDialog());
         }
         else
             ply.canMove = true;
@@ -634,6 +633,12 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LoadLevelCoroutine(int level)
     {
+        yield return FadeToBlack();
+        SceneManager.LoadScene(level);
+    }
+
+    public IEnumerator FadeToBlack()
+    {
         screenBlackout.rectTransform.anchoredPosition = Vector2.zero;
         while (screenBlackout.color.a < 1)
         {
@@ -641,7 +646,16 @@ public class GameManager : MonoBehaviour
             sfxSource.volume -= 0.075f;
             yield return new WaitForSeconds(0.05f);
         }
-        SceneManager.LoadScene(level);
+    }
+
+    public IEnumerator FadeFromBlack()
+    {
+        screenBlackout.rectTransform.anchoredPosition = Vector2.zero;
+        while (screenBlackout.color.a > 0)
+        {
+            screenBlackout.color = new Color(0, 0, 0, screenBlackout.color.a - 0.075f);
+            yield return new WaitForSeconds(0.05f);
+        }
     }
 
     IEnumerator LoadVictoryLevel()

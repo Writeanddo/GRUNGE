@@ -4,28 +4,204 @@
             "id": "TutorialIntro",
             "dialog": [
                 "GLAD YOU COULD MAKE\\IT, SON.",
-                "I KNOW YOU'RE A SMART\\KID, SO I'LL KEEP\\THIS SHORT..."
+                "I KNOW YOU'RE A SMART\\KID, SO I'LL KEEP\\THIS SHORT.",
+                "FIRST OFF, GIVE THOSE\\NEW DUDS A TEST DRIVE.\\\\(WASD)"
             ],
             "portraitIndex": 2
         },
         {
-            "id": "",
+            "id": "WalkingFollowup",
             "dialog": [
-                
+                "LOOKS GOOD TO ME. HOW'S\\IT FEEL?"
             ],
             "portraitIndex": 2
         },
         {
-            "id": "",
+            "id": "WalkingFollowup2",
             "dialog": [
-                "GIVE 'EM HELL, SON..."
+                "IT RIDES UP IN THE CROTCH\\A LITTLE BIT."
+            ],
+            "portraitIndex": 0
+        },
+        {
+            "id": "WalkingFollowup3",
+            "dialog": [
+                "YOU GET USED TO IT.",
+                "NOW, LET'S BEGIN\\YOUR TRAINING."
             ],
             "portraitIndex": 2
         },
         {
-            "id": "",
+            "id": "GrabEnemy",
             "dialog": [
-                "GIVE 'EM HELL, SON..."
+                "TRY GRABBING THIS DUMMY\\NEXT TO ME.\\\\(RIGHT MOUSE BUTTON)"
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "GrabEnemyFollowup",
+            "dialog": [
+                "GOOD.",
+                "NOW HURTLE IT AT\\THIS WALL.\\\\(RIGHT MOUSE BUTTON)"
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "ThrowEnemyFollowup",
+            "dialog": [
+                "LOOKS LIKE YOU'VE\\GOT THE HANG OF IT.",
+                "GRABBING AND THROWING ARE\\THE MEAT AND POTATOES OF\\ANY EXTERMINATOR'S\\ARSENAL.",
+                "HOWEVER, THERE'S SOME\\LIMITATIONS TO THE\\SYSTEM.",
+                "YOU CAN ONLY GRAB SHINY,\\BLUE THINGS.",
+                "THIS APPLIES TO ENEMIES\\AND OTHER OBJECTS ALIKE."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "ThrowEnemyFollowup2",
+            "dialog": [
+                "PUT IT TO THE TEST.\\TAKE OUT THESE GOONS."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "ThrowEnemyFollowupNonSoftlock",
+            "dialog": [
+                "NOW YOU'RE REALLY COOKING\\WITH GAS. LET'S CONTINUE."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "ThrowEnemyFollowupSoftlock",
+            "dialog": [
+                "HEY, KID... YOU DIDN'T\\GET THEM ALL.",
+                "AND NOW YOU'VE GOT\\YOURSELF STUCK.",
+                "WELL, LOOKS LIKE WE'RE\\DONE HERE. GO HOME.",
+                "...JUST KIDDING. YOU'VE\\STILL GOT ANOTHER TOOL\\AT YOUR DISPOSAL."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "GunIntro",
+            "dialog": [
+                "THROUGH THE POWER OF MAD\\SCIENCE, YOUR ROCKET\\PISTOL CONVERTS RAW GOO\\INTO AMMUNITION."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "GunIntro2",
+            "dialog": [
+                "HERE'S SOME TO GET YOU\\STARTED. DON'T SPEND IT\\ALL IN ONE PLACE."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "GunIntro3",
+            "dialog": [
+                "TRY BLOWING UP THESE\\GREEN THINGS TO GET\\AMMO BACK.\\(LEFT MOUSE BUTTON)",
+                "DON'T WORRY, THEY'RE\\HARMLESS. I KEEP THEM\\DOPED UP."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "HealIntro",
+            "dialog": [
+                "EASY-PEASY.",
+                "BY THE WAY, THERE'S ONE\\MORE THING YOU CAN\\USE GOO FOR."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "HealIntro2",
+            "dialog": [
+                "WHAT THE HELL, OLD MAN?\\THAT HURT!"
+            ],
+            "portraitIndex": 0
+        },
+        {
+            "id": "HealIntro3",
+            "dialog": [
+                "COOL YOUR JETS, BOY...",
+                "IF YOUR GOO METER'S AT\\LEAST HALF FULL, YOU CAN\\CONVERT IT INTO HEALTH.",
+                "TRY IT NOW.\\\\(PRESS E)"
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "HealFollowup",
+            "dialog": [
+                "BE CAREFUL WITH HOW YOU\\SPEND YOUR GOO.\\IT COULD SAVE YOUR\\LIFE SOMEDAY.",
+                "WE'RE ALMOST DONE HERE.\\JUST A COUPLE THINGS\\TO COVER."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "ChargeIntro",
+            "dialog": [
+                "GRAB THIS DUMMY AGAIN.\\THERE'S SOMETHING YOU\\OUGHTTA KNOW."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "ShieldDemonstration",
+            "dialog": [
+                "SEE THAT SHIELD ABOVE\\YOUR HEAD?",
+                "AS LONG AS YOU'RE HOLDIN'\\AN ENEMY, IT'LL PROTECT\\YOU FROM INCOMING\\BULLETS.",
+                "BUT IF YOU TAKE MORE THAN\\3 SHOTS, IT'LL EXPLODE...\\AND THAT'S BAD NEWS.",
+                "LEMME GIVE YOU A\\DEMONSTRATION."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "ShieldDemonstration2",
+            "dialog": [
+                "NOW WOULD BE A VERY GOOD\\TIME TO GET RID OF THAT\\BASTARD.",
+                "FORTUNATELY, THE MORE\\HITS AN ENEMY TAKES\\BEFORE YOU THROW IT...",
+                "...THE MORE DAMAGE IT'LL\\DO IF IT HITS SOMETHIN'!",
+                "CHUCK THAT GUY AT A WALL\\AND SEE FOR YOURSELF."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "ChargeDemonstration",
+            "dialog": [
+                "ONE LAST THING...",
+                "STRICTLY SPEAKING, PROS\\DON'T DO THIS...",
+                "BUT THAT'S CAUSE THEY'RE\\A BUNCHA PANSIES!!",
+                "IF YOU HOLD THE RIGHT\\MOUSE BUTTON INSTEAD OF\\PRESSING IT...",
+                "...YOU CAN MANUALLY\\\"CHARGE\" AN ENEMY UP\\BEFORE YOU THROW IT."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "ChargeDemonstration2",
+            "dialog": [
+                "GIVE IT A SHOT."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "ChargeRetry",
+            "dialog": [
+                "NO, NO... TRY AGAIN, BUT\\HOLD THE RIGHT MOUSE\\BUTTON INSTEAD OF\\JUST CLICKING IT!"
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "TutorialEnd",
+            "dialog": [
+                "...",
+                "YOU'RE READY.",
+                "JUST IN TIME, TOO...\\WE GOT A JOB.",
+                "HEAD OUT TO MY CAR\\AND I'LL MEET YOU THERE.",
+                "IF YOU EVER WANNA HEAR ME\\TALK AGAIN, YOU KNOW\\WHERE TO FIND ME."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "CarDialog",
+            "dialog": [
+                "YEAH. UH HUH."
             ],
             "portraitIndex": 2
         }

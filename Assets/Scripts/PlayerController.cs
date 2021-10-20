@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public bool canMove;
     public bool isDying;
+    public bool canShoot = true;
     public bool reloading;
     public bool siphoningHealth;
     public bool handLaunched;
@@ -197,12 +198,12 @@ public class PlayerController : MonoBehaviour
         // Shoot gun
         if (Input.GetButton("Fire1"))
         {
-            if (!reloading && stats.goo >= stats.shotGooUsage && !chargingAttack)
+            if (canShoot && !reloading && stats.goo >= stats.shotGooUsage && !chargingAttack)
                 FireGun();
         }
 
         // Reload sound
-        if (Input.GetButtonDown("Fire1") && !reloading && (stats.currentWeapon != 11 && !chargingAttack))
+        if (canShoot && Input.GetButtonDown("Fire1") && !reloading && (stats.currentWeapon != 11 && !chargingAttack))
         {
             Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
             gun.transform.position -= offset;
@@ -303,6 +304,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void ForceRightClickRelease()
+    {
+        rightClickReleased = true;
+    }
+
     IEnumerator PrepareChargeAttack()
     {
         chargingAttack = true;
@@ -335,7 +341,7 @@ public class PlayerController : MonoBehaviour
         while (e.stats.currentShieldValue > 1 && chargingAttack)
         {
             timer = 0;
-            float multiplier = 3 - (e.stats.currentShieldValue*0.5f);
+            float multiplier = 3 - (e.stats.currentShieldValue * 0.5f);
 
             gm.PlaySFXStoppablePriority(gm.playerSfx[12], multiplier / 2f);
             while (timer < 1f && chargingAttack)
@@ -351,7 +357,8 @@ public class PlayerController : MonoBehaviour
 
         handShaker.transform.localPosition = Vector2.zero;
         stats.maxSpeed = storedMaxSpeed;
-        gm.StopPrioritySFX();
+        if(e.stats.currentShieldValue > 1)
+            gm.StopPrioritySFX();
     }
 
     IEnumerator GooRegen()
@@ -400,6 +407,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator ConvertGooToHealth()
     {
+        gm.PlaySFX(gm.generalSfx[12]);
         stats.health += Mathf.RoundToInt(stats.maxHealth * 0.28f);
         stats.goo -= Mathf.RoundToInt(stats.maxGoo * 0.5f);
         yield return new WaitForSeconds(0.5f);
@@ -499,6 +507,14 @@ public class PlayerController : MonoBehaviour
         Vector3 relative = reference.transform.InverseTransformPoint(crosshair.position);
         float angle = Mathf.Atan2(-relative.x, relative.y) * Mathf.Rad2Deg;
         return -angle;
+    }
+
+    public void Freeze()
+    {
+        string dir = GetCompassDirection(AngleBetweenMouse(transform));
+        CheckAndPlayClip("Player_Face" + dir);
+        rb.velocity = Vector2.zero;
+        canMove = false;
     }
 
     void FireGun()

@@ -86,16 +86,16 @@ public class TextboxManager : MonoBehaviour
             string line = InsertLineBreaks(t.dialog[i]);
             for (int j = 0; j < t.dialog[i].Length; j++)
             {
-                if (j % 4 == 0)
+                if (j % 6 == 0)
                 {
                     dialogPortrait.sprite = portraitFrames[t.portraitIndex + 1];
                     gm.PlaySFXStoppable(gm.generalSfx[11], Random.Range(0.5f, 0.8f));
                 }
-                else if (j % 2 == 0)
+                else if (j % 3 == 0)
                     dialogPortrait.sprite = portraitFrames[t.portraitIndex];
 
                 dialogText.text = line.Substring(0, j + 1);
-                yield return new WaitForSeconds(0.025f);
+                yield return new WaitForFixedUpdate();
             }
             dialogPortrait.sprite = portraitFrames[t.portraitIndex];
             dialogText.text = line;

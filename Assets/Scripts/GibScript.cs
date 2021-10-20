@@ -53,7 +53,6 @@ public class GibScript : MonoBehaviour
                 Vector3 dir = ((Vector2)transform.position - cols[i].ClosestPoint(transform.position)).normalized;
                 transform.position = (Vector3)cols[i].ClosestPoint(transform.position) + dir;
                 rb.velocity = new Vector2(Random.Range(-10, 10), Random.Range(-10, 10) * 2);
-                print("Got unstuck");
                 break;
             }
         }

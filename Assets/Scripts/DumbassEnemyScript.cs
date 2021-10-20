@@ -13,7 +13,7 @@ public class DumbassEnemyScript : EnemyScript
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        CheckIfHeld();
     }
 
     public override void UpdateMovement()

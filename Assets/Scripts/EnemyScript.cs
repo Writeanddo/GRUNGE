@@ -437,6 +437,7 @@ public abstract class EnemyScript : MonoBehaviour
 
     public void ExplodeBig()
     {
+        print("Big explosion");
         gm.ScreenShake(10);
         Vector2 gibSpawnPos = new Vector2(transform.position.x, transform.position.y - 0.5f + gibSpawnYOffset);
         for (int i = 0; i < stats.numGooDrops; i++)

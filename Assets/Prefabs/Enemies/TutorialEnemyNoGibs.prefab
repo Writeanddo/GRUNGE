@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 3072996831571118073}
   - component: {fileID: 6144586552007309192}
   m_Layer: 14
-  m_Name: TutorialEnemy
+  m_Name: TutorialEnemyNoGibs
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 1
+    health: 3
     maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4
@@ -246,19 +246,14 @@ MonoBehaviour:
     inaccuracyMultiplier: 1
     noticePlayerDistance: 15
     noticedSpeedMultiplier: 2
-    numGooDrops: 15
+    numGooDrops: 0
     movementAccuracy: 0.1
     animationWalkSpeedMultiplier: 0.5
     animationPrefix: 
     useDirctionalAnimation: 0
   noticedPlayer: 0
-  gooDrops:
-  - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
-  - {fileID: 3108804696350449111, guid: 5f97728e4b7dc434ab4ffd9b89b509fa, type: 3}
-  - {fileID: 3660314827033038993, guid: 5d8def5a87ab818408895c79865adb80, type: 3}
-  splatterDrops:
-  - {fileID: 2899660369439385843, guid: d820562ffd847ec4a9dd58ed628ff84c, type: 3}
-  - {fileID: 5964755380321203904, guid: c6ab297770cc52b4c93441d5365f0062, type: 3}
+  gooDrops: []
+  splatterDrops: []
   nonRandomDrops: []
   enemyExplosion: {fileID: 5168354353443126882, guid: 11768c7001b06cf498521a2489be8b52,
     type: 3}

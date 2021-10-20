@@ -63,6 +63,9 @@ public class TitleScreenManager : MonoBehaviour
             PlayerPrefs.SetInt("GRUNGE_MUSIC_ENABLED", 1);
         }
 
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+            GameObject.Find("TitleExitButton").transform.position = new Vector2(0, 100);
+
         sfxEnabled = PlayerPrefs.GetInt("GRUNGE_SFX_ENABLED");
         musicEnabled = PlayerPrefs.GetInt("GRUNGE_MUSIC_ENABLED");
 
