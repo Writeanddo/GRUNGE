@@ -32,6 +32,9 @@ public class MenuScreen : MonoBehaviour
 
     public void ButtonWasPressed(int button)
     {
+        if (tsm.performingScreenTransition)
+            return;
+
         MenuScreen s = targetScreens[button];
         StartCoroutine(tsm.MoveToScreen(this, s));
     }

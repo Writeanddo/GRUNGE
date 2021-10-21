@@ -13,7 +13,7 @@ public class TitleScreenManager : MonoBehaviour
     public AudioClip titleIntro;
     public AudioMixer mixer;
     public AudioClip[] uiSfx;
-    public TitleScreenExplosionManager screenTransitionFX;
+    public Animator screenTransitionFX;
     AudioSource music;
     AudioSource sfx;
     Image blackout;
@@ -30,6 +30,7 @@ public class TitleScreenManager : MonoBehaviour
     bool lerpKG;
     bool loadingGame;
     public bool camArrived;
+    public bool performingScreenTransition;
 
     int sfxEnabled;
     int musicEnabled;
@@ -235,10 +236,14 @@ public class TitleScreenManager : MonoBehaviour
 
     public IEnumerator MoveToScreen(MenuScreen from, MenuScreen to)
     {
-        screenTransitionFX.Explode();
-        yield return new WaitForEndOfFrame();
+        sfx.PlayOneShot(uiSfx[3]);
+        performingScreenTransition = true;
+        screenTransitionFX.Play("ScreenTransition", -1, 0);
+        yield return new WaitForSeconds(0.25f);
         from.rectTransform.anchoredPosition = new Vector2(0, 1000);
         to.rectTransform.anchoredPosition = Vector2.zero;
+        yield return new WaitForSeconds(0.25f);
+        performingScreenTransition = false;
     }
 
     IEnumerator LoadLevelCoroutine()

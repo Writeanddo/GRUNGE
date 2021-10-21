@@ -92,6 +92,9 @@ TextureImporter:
   - first:
       213: 1174404281915584658
     second: ButtonsNew_14
+  - first:
+      213: -6033818515662023099
+    second: ButtonsNew_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -222,33 +225,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ButtonsNew_15
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 11
-        width: 96
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c534bf4f6c7261250800000000000000
-      internalID: 5914958896064840540
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: ButtonsNew_0
       rect:
         serializedVersion: 2
         x: 0
         y: 107
-        width: 96
+        width: 192
         height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -267,12 +249,12 @@ TextureImporter:
       name: ButtonsNew_1
       rect:
         serializedVersion: 2
-        x: 96
-        y: 107
+        x: 192
+        y: 11
         width: 96
         height: 21
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -521,7 +503,7 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 11
-        width: 96
+        width: 192
         height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -532,6 +514,27 @@ TextureImporter:
       bones: []
       spriteID: 290b64ed8725c4010800000000000000
       internalID: 1174404281915584658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ButtonsNew_15
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 11
+        width: 96
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5465ace4702934ca0800000000000000
+      internalID: -6033818515662023099
       vertices: []
       indices: 
       edges: []

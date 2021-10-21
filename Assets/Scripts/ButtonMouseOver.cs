@@ -32,12 +32,13 @@ public class ButtonMouseOver : MonoBehaviour
             target = new Vector2(offset, 0);
 
         t.anchoredPosition = Vector2.Lerp(t.anchoredPosition, startPos + target, 0.5f);
-
+        if (tsm.performingScreenTransition)
+            mouseOver = false;
     }
 
     private void OnMouseEnter()
     {
-        if (b.interactable)
+        if (b.interactable && !tsm.performingScreenTransition)
         {
             mouseOver = true;
             int rand = Random.Range(0, 3);

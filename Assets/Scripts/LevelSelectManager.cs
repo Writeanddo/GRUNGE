@@ -10,10 +10,10 @@ public class LevelSelectManager : MonoBehaviour
     public int furthestUnlockedLevel;
     public int selectedLevelIndex;
     public string[] levelPreviewVideos;
-    
-    Image[] dotBorders = new Image[6];
-    Image[] dotConnecters = new Image[5];
-    Image dot;
+    public Sprite[] unlockedIcons;
+    public Sprite[] selectedIcons;
+
+    Image[] dotIcons = new Image[6];
     Text vhsText;
 
     Animator tvStaticAnimation;
@@ -33,16 +33,12 @@ public class LevelSelectManager : MonoBehaviour
         vhsText = GameObject.Find("VHSStatsText").GetComponent<Text>();
 
         for(int i = 1; i <= 6; i++)
-            dotBorders[i-1] = transform.GetChild(i).GetComponent<Image>();
-        for(int i = 7; i <= 11; i++)
-            dotConnecters[i-7] = transform.GetChild(i).GetComponent<Image>();
-
-        dot = GameObject.Find("SelectedLevelDot").GetComponent<Image>();
+            dotIcons[i-1] = transform.GetChild(i).GetComponent<Image>();
 
         if (!PlayerPrefs.HasKey("GRUNGE_FURTHEST_UNLOCKED_LEVEL"))
             PlayerPrefs.SetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL", 0);
         else
-            PlayerPrefs.SetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL", 0);
+            PlayerPrefs.SetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL", 1);
 
         StartCoroutine(VHSTextLoop());
         UpdateUnlockedLevels(PlayerPrefs.GetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL"));
@@ -54,9 +50,10 @@ public class LevelSelectManager : MonoBehaviour
 
         for (int i = 0; i <= furthestUnlockedLevel; i++)
         {
-            dotBorders[i].color = Color.white;
-            if(i > 0)
-                dotConnecters[i - 1].color = Color.white;
+            if (i == selectedLevelIndex)
+                dotIcons[i].sprite = selectedIcons[i];
+            else
+                dotIcons[i].sprite = unlockedIcons[i];
         }
 
         SetSelectedLevel(furthestUnlockedLevel);
@@ -68,7 +65,14 @@ public class LevelSelectManager : MonoBehaviour
             return;
 
         selectedLevelIndex = index;
-        dot.rectTransform.anchoredPosition = new Vector2((index * 128f) - 320f, -80f);
+
+        for (int i = 0; i <= furthestUnlockedLevel; i++)
+        {
+            if (i == selectedLevelIndex)
+                dotIcons[i].sprite = selectedIcons[i];
+            else
+                dotIcons[i].sprite = unlockedIcons[i];
+        }
 
         tvStaticAnimation.Play("LevelSelectStatic", -1, 0);
 
@@ -107,7 +111,7 @@ public class LevelSelectManager : MonoBehaviour
             string s = "";
             s += storedVhsText.Substring(vhsTextOffset, storedVhsText.Length - vhsTextOffset);
             s += storedVhsText.Substring(0, vhsTextOffset);
-            s = s.Substring(0, Mathf.Min(20, s.Length));
+            s = s.Substring(0, Mathf.Min(22, s.Length));
 
             vhsText.text = s;
             yield return new WaitForSeconds(0.1f);

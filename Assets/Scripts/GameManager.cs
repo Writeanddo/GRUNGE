@@ -422,7 +422,9 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator BossPhase1DieCutscene()
     {
+        canPause = false;
         StopMusic();
+        ewm.ForceStopSpawningEnemies();
 
         // Destroy all other enemies and projectiles
         EnemyScript[] enemies = FindObjectsOfType<EnemyScript>();
@@ -438,7 +440,7 @@ public class GameManager : MonoBehaviour
         camControl.overridePosition = true;
         ply.transform.position = new Vector2(0, 200);
         Transform t = GameObject.Find("Boss").transform;
-        ply.canMove = false;
+        ply.Freeze();
         ply.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
         BossEnemyScript b = t.GetComponent<BossEnemyScript>();
@@ -447,7 +449,7 @@ public class GameManager : MonoBehaviour
         float timer = 0.5f;
         while (timer > 0)
         {
-            camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(t.position.x, t.position.y, camControl.transform.position.z), 0.2f);
+            camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(t.position.x, t.position.y + 2, camControl.transform.position.z), 0.2f);
             timer -= Time.fixedDeltaTime;
             yield return new WaitForFixedUpdate();
         }
@@ -462,6 +464,12 @@ public class GameManager : MonoBehaviour
         Instantiate(b.bigExplosion, new Vector2(t.position.x, t.position.y), Quaternion.identity);
         yield return new WaitForSeconds(0.15f);
         b.GetComponent<Animator>().Play("BossDead");
+
+        // Transformation begins here
+        SpriteRenderer bossHeart = GameObject.Find("BossHeart").GetComponent<SpriteRenderer>();
+        bossHeart.color = Color.white;
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(FindObjectOfType<BossPhase2Manager>().PlayTransformationCutscene());
     }
 
     public void PickupGun(int gunIndex)

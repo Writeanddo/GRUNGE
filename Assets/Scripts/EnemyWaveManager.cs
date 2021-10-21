@@ -51,6 +51,11 @@ public class EnemyWaveManager : MonoBehaviour
             StopAllCoroutines();
     }
 
+    public void ForceStopSpawningEnemies()
+    {
+        StopAllCoroutines();
+    }
+
     IEnumerator ProcessWavesCoroutine()
     {
         isSpawningEnemies = true;
