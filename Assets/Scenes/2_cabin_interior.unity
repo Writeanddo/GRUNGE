@@ -60611,7 +60611,7 @@ GameObject:
   - component: {fileID: 1660739353}
   - component: {fileID: 1660739352}
   - component: {fileID: 1660739354}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: WALL COLLISION
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -63622,6 +63622,33 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
+  - first: {x: -22, y: 9, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 31
+      m_TileSpriteIndex: 31
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
+  - first: {x: -21, y: 9, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 31
+      m_TileSpriteIndex: 31
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
+  - first: {x: -20, y: 9, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 31
+      m_TileSpriteIndex: 31
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
   - first: {x: -9, y: 9, z: 0}
     second:
       serializedVersion: 2
@@ -65432,8 +65459,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 3
+    m_Data: {fileID: 11400000, guid: 1605ab734c0eefe4dbb6f448c87eefa1, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: c7e5409c44422b34996dbba70ce322f0, type: 2}
   - m_RefCount: 518
@@ -65501,8 +65528,9 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 3
+    m_Data: {fileID: -3604746307523819372, guid: 8343d8b4001cb4448a2ad0c44c09530f,
+      type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 2420974846197446251, guid: b840476e452969040a5429c42583d9db,
       type: 3}
@@ -65510,7 +65538,7 @@ Tilemap:
     m_Data: {fileID: -2364603340910737852, guid: b8c070799f85a7f41b548d315d2ee616,
       type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 520
+  - m_RefCount: 523
     m_Data:
       e00: 1
       e01: 0
@@ -65529,7 +65557,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 520
+  - m_RefCount: 523
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -66568,7 +66596,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b4db5e68d0fd749a35dbf6b7398b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: 3
+  levelToLoad: 1
 --- !u!1 &1994356038
 GameObject:
   m_ObjectHideFlags: 0

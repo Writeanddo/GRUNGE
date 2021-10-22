@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
         musicTrack2 = GameObject.Find("GameMusicTrackInstruments").GetComponent<AudioSource>();
         gooSource = GameObject.Find("GameGooPickupSFX").GetComponent<AudioSource>();
         prioritySfxSource = GameObject.Find("GamePrioritySFX").GetComponent<AudioSource>();
-        priorityStoppableSfxSource= GameObject.Find("GamePriorityStoppableSFX").GetComponent<AudioSource>();
+        priorityStoppableSfxSource = GameObject.Find("GamePriorityStoppableSFX").GetComponent<AudioSource>();
         shieldAnim = GameObject.Find("ShieldImage").GetComponent<Animator>();
         shieldTransform = shieldAnim.GetComponent<RectTransform>();
         gooSliderText = GameObject.Find("GooSliderNumber").GetComponent<Text>();
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
         ewm = FindObjectOfType<EnemyWaveManager>();
         text = FindObjectOfType<TextboxManager>();
 
-        if(dialogSourceFile != null)
+        if (dialogSourceFile != null)
             cachedTextData = JsonHelper.FromJson<TextboxManager.TextData>(dialogSourceFile.text);
 
         StartCoroutine(LevelStartSequence());
@@ -200,12 +200,15 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator WaitForTextCompletion(string id)
     {
+        while (text.isPrinting)
+            yield return null;
+
         yield return text.PrintSingleText(GetTextDataFromID(id));
     }
 
     TextboxManager.TextData GetTextDataFromID(string id)
     {
-        foreach(TextboxManager.TextData t in cachedTextData)
+        foreach (TextboxManager.TextData t in cachedTextData)
         {
             if (t.id == id)
                 return t;
@@ -320,14 +323,14 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ScreenShakeCoroutine(float intensity, float duration)
     {
-        while(duration > 0)
+        while (duration > 0)
         {
             cam.localPosition = new Vector2(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f)) * intensity;
-            if(duration < Time.fixedDeltaTime*10)
+            if (duration < Time.fixedDeltaTime * 10)
                 intensity /= 1.25f;
 
             duration -= Time.fixedDeltaTime;
-            yield return new WaitForFixedUpdate(); 
+            yield return new WaitForFixedUpdate();
         }
         //transform.position = Vector2.zero;
     }
@@ -347,6 +350,7 @@ public class GameManager : MonoBehaviour
 
         if (levelName == "0_tutorial")
         {
+            PlayMusic();
             StartCoroutine(FindObjectOfType<TutorialManager>().IntroDialog());
         }
         else if (levelName == "1_cabin_approach")
@@ -400,7 +404,7 @@ public class GameManager : MonoBehaviour
 
             t.GetComponent<EnemyScript>().UpdateMovement();
             ewm.StartWaves();
-            
+
             ply.canMove = true;
         }
         else if (levelName == "6_endless")
@@ -459,7 +463,7 @@ public class GameManager : MonoBehaviour
         for (int i = 2; i < 15; i++)
         {
             Instantiate(b.enemyExplosion, new Vector2(t.position.x + Random.Range(-1f, 1f) * 2, t.position.y + Random.Range(-1f, 1f) * 2), Quaternion.identity);
-            yield return new WaitForSeconds(1f / (i*1.5f));
+            yield return new WaitForSeconds(1f / (i * 1.5f));
         }
         Instantiate(b.bigExplosion, new Vector2(t.position.x, t.position.y), Quaternion.identity);
         yield return new WaitForSeconds(0.15f);
@@ -476,7 +480,7 @@ public class GameManager : MonoBehaviour
     {
         PlaySFX(generalSfx[12]);
         ply.stats.currentWeapon = gunIndex;
-        switch(gunIndex)
+        switch (gunIndex)
         {
             case 10:
                 gunNameText.text = "THRESH";
@@ -504,7 +508,7 @@ public class GameManager : MonoBehaviour
     {
         string levelName = SceneManager.GetActiveScene().name;
 
-        if(levelName == "1_cabin_approach")
+        if (levelName == "1_cabin_approach")
         {
             camControl.overridePosition = true;
             Transform t = GameObject.Find("CabinDoorHole").transform;
@@ -513,7 +517,7 @@ public class GameManager : MonoBehaviour
             ply.GetComponentInChildren<Animator>().Play("Player_FaceS");
             ply.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             StartCoroutine(ReverseFadeMusic());
-            
+
 
             float timer = 2.25f;
             while (timer > 0)
@@ -530,6 +534,8 @@ public class GameManager : MonoBehaviour
             }
 
             GameObject.Find("LevelLoader").transform.position = new Vector3(9, 21.5f, 0);
+
+            UpdateUnlockedLevels(2);
 
             camControl.overridePosition = false;
             ply.canMove = true;
@@ -559,6 +565,8 @@ public class GameManager : MonoBehaviour
 
             camControl.overridePosition = false;
             ply.canMove = true;
+
+            UpdateUnlockedLevels(3);
         }
         else if (levelName == "3_basement")
         {
@@ -584,7 +592,11 @@ public class GameManager : MonoBehaviour
             }
 
             camControl.overridePosition = false;
+
+
+            yield return WaitForTextCompletion("PlaytestOver");
             ply.canMove = true;
+            //UpdateUnlockedLevels(4);
         }
         else if (levelName == "4_boss")
         {
@@ -617,6 +629,15 @@ public class GameManager : MonoBehaviour
                 yield return new WaitForSeconds(0.25f);
             }
         }
+
+        PlayerPrefs.Save();
+    }
+
+    void UpdateUnlockedLevels(int level)
+    {
+        if (PlayerPrefs.GetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL") < level)
+            PlayerPrefs.SetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL", level);
+
     }
 
     public IEnumerator GameOverSequence()
@@ -636,7 +657,15 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int level)
     {
+        PlayerPrefs.SetInt("GRUNGE_LOAD_TO_LEVEL_SELECT", 1);
+        PlayerPrefs.Save();
         StartCoroutine(LoadLevelCoroutine(level));
+    }
+
+    public void ReloadLevel()
+    {
+        int loadedLevel = SceneManager.GetActiveScene().buildIndex;
+        StartCoroutine(LoadLevelCoroutine(loadedLevel));
     }
 
     IEnumerator LoadLevelCoroutine(int level)
@@ -691,9 +720,9 @@ public class GameManager : MonoBehaviour
 
         musicTrack1.volume = 0;
         musicTrack2.volume = 1;
-        
+
     }
-    
+
     public IEnumerator ReverseFadeMusic()
     {
         while (musicTrack2.volume > 0)

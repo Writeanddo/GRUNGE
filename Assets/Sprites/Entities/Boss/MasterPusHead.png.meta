@@ -11,6 +11,9 @@ TextureImporter:
   - first:
       213: -8807728909845066507
     second: MasterPusHead_2
+  - first:
+      213: 38813196100869701
+    second: MasterPusHead_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -120,34 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MasterPusHead_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 128
-        height: 112
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3e2f6c13cc1556c0800000000000000
-      internalID: -4155383456858165698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: MasterPusHead_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
-        width: 128
-        height: 112
+        x: 96
+        y: 160
+        width: 96
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,10 +147,10 @@ TextureImporter:
       name: MasterPusHead_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 0
         y: 0
-        width: 128
-        height: 112
+        width: 96
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,6 +160,27 @@ TextureImporter:
       bones: []
       spriteID: 5fc0fbac839a4c580800000000000000
       internalID: -8807728909845066507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MasterPusHead_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 96
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54e903e6564e98000800000000000000
+      internalID: 38813196100869701
       vertices: []
       indices: 
       edges: []

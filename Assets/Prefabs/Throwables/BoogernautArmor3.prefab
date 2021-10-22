@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: 0
   minLayer: -1000
@@ -147,8 +148,7 @@ MonoBehaviour:
   isBeingThrown: 0
   damagedSprite: {fileID: -1392689338651189535, guid: 43133b88d7d0b964e80895ef1aef63a3,
     type: 3}
-  heldSprite: {fileID: -7875555270195268408, guid: 43133b88d7d0b964e80895ef1aef63a3,
-    type: 3}
+  heldSprite: {fileID: 0}
   damagedHeldSprite: {fileID: 0}
   propFragments:
   - {fileID: -2350481412532720408, guid: 43133b88d7d0b964e80895ef1aef63a3, type: 3}

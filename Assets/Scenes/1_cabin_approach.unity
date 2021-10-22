@@ -2075,6 +2075,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7262442418590132486, guid: af3b070ce755e0340acbb957102e96c4,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7262442418656696039, guid: af3b070ce755e0340acbb957102e96c4,
         type: 3}
       propertyPath: m_audioClip
@@ -2155,6 +2160,11 @@ PrefabInstance:
       propertyPath: dialogSourceFile
       value: 
       objectReference: {fileID: 4900000, guid: ec0288cf6b7b5d74d96b761c49270d6a, type: 3}
+    - target: {fileID: 8795129235089351262, guid: af3b070ce755e0340acbb957102e96c4,
+        type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 8300000, guid: 7842d4cfe4239394c88ece618dbd011e, type: 3}
     - target: {fileID: 9005605816546485554, guid: af3b070ce755e0340acbb957102e96c4,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2565,6 +2575,7 @@ GameObject:
   - component: {fileID: 627353486}
   - component: {fileID: 627353485}
   - component: {fileID: 627353487}
+  - component: {fileID: 627353488}
   m_Layer: 2
   m_Name: BattleActivator
   m_TagString: Untagged
@@ -2627,6 +2638,103 @@ MonoBehaviour:
   doorHole: {fileID: 191095703}
   enemyToSpawn: {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455,
     type: 3}
+--- !u!82 &627353488
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627353484}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4646052889504987979, guid: 70760ee80613de74d9c588ba04e09015,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 19a00c7965b327141b6dd4b8c9773d94, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &673764078
 GameObject:
   m_ObjectHideFlags: 0
@@ -27324,7 +27432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b4db5e68d0fd749a35dbf6b7398b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: 2
+  levelToLoad: 1
 --- !u!61 &1835454030
 BoxCollider2D:
   m_ObjectHideFlags: 0

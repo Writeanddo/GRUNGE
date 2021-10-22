@@ -8,8 +8,7 @@ public class CabinWaveSpawner : MonoBehaviour
     public GameObject enemyToSpawn;
 
     GameManager gm;
-    AudioSource inAudio;
-    AudioSource outAudio;
+    AudioSource windAudio;
 
     bool canCollide = true;
 
@@ -17,8 +16,7 @@ public class CabinWaveSpawner : MonoBehaviour
     void Start()
     {
         gm = FindObjectOfType<GameManager>();
-        inAudio = GameObject.Find("GameMusicTrackInstruments").GetComponent<AudioSource>();
-        outAudio = GameObject.Find("GameMusicTrackDrums").GetComponent<AudioSource>();
+        windAudio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -35,7 +33,8 @@ public class CabinWaveSpawner : MonoBehaviour
             Instantiate(enemyToSpawn, doorHole.transform.position, Quaternion.identity);
             gm.PlaySFX(gm.generalSfx[15]);
             FindObjectOfType<EnemyWaveManager>().StartWaves();
-            StartCoroutine(gm.FadeMusic());
+            gm.PlayMusic();
+            windAudio.Stop();
             canCollide = false;
         }
     }

@@ -15,7 +15,7 @@ public class TextboxManager : MonoBehaviour
     }
 
     public TextData[] t;
-
+    public bool isPrinting;
     public string[] testLines;
     public Sprite[] portraitFrames;
 
@@ -45,6 +45,7 @@ public class TextboxManager : MonoBehaviour
 
     public IEnumerator PrintAllText(TextData[] texts)
     {
+        isPrinting = true;
         textbox.anchoredPosition = new Vector2(0, -240f);
 
         foreach (TextData t in texts)
@@ -75,10 +76,12 @@ public class TextboxManager : MonoBehaviour
         }
 
         textbox.anchoredPosition = new Vector2(0, -500f);
+        isPrinting = false;
     }
 
     public IEnumerator PrintSingleText(TextData t)
     {
+        isPrinting = true;
         textbox.anchoredPosition = new Vector2(0, -240f);
 
         for (int i = 0; i < t.dialog.Length; i++)
@@ -106,6 +109,7 @@ public class TextboxManager : MonoBehaviour
         }
 
         textbox.anchoredPosition = new Vector2(0, -500f);
+        isPrinting = false;
     }
 
     IEnumerator WaitForKeyPress()

@@ -199,9 +199,26 @@
             "portraitIndex": 2
         },
         {
+            "id": "TutorialLeaveEarly",
+            "dialog": [
+                "WHAT? YOU'RE LEAVING?",
+                "WELL, IF YOU THINK YOU'RE\\READY THEN I GUESS\\THAT'S FINE.",
+                "IT'S YOUR CALL..."
+            ],
+            "portraitIndex": 2
+        },
+        {
             "id": "CarDialog",
             "dialog": [
                 "YEAH. UH HUH."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "PlaytestOver",
+            "dialog": [
+                "THAT'S THE LAST LEVEL\\FOR NOW.",
+                "WE'LL HAVE THE FINAL BOSS\\READY BEFORE HALLOWEEN."
             ],
             "portraitIndex": 2
         }

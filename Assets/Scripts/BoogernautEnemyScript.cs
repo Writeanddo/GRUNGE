@@ -6,6 +6,7 @@ public class BoogernautEnemyScript : EnemyScript
 {
     Transform laserOrigin;
     Transform laserImpact;
+    Transform laserHolder;
     SpriteRenderer laser;
     AudioSource sfx;
     HandGrabManager hgm;
@@ -26,7 +27,8 @@ public class BoogernautEnemyScript : EnemyScript
     {
         hgm = FindObjectOfType<HandGrabManager>();
         laserOrigin = transform.GetChild(1);
-        laserStart = laserOrigin.transform.GetChild(0).GetComponent<Animator>();
+        laserHolder = laserOrigin.transform.GetChild(0);
+        laserStart = laserHolder.transform.GetChild(0).GetComponent<Animator>();
         laser = laserStart.transform.GetChild(0).GetComponent<SpriteRenderer>();
         laserImpact = laserOrigin.GetChild(1);
         sfx = GetComponentInChildren<AudioSource>();
@@ -113,7 +115,7 @@ public class BoogernautEnemyScript : EnemyScript
                     if (ply.heldObject != null && ply.heldObject.tag == "Enemy")
                         ply.heldObject.GetComponent<EnemyScript>().ReceiveShieldDamage();
                     else
-                        ply.ReceiveDamage(16);
+                        ply.ReceiveDamage(23);
                     hitPlayer = true;
                 }
             }
@@ -140,7 +142,7 @@ public class BoogernautEnemyScript : EnemyScript
         if (zAngle < 0)
             zAngle += 360;
 
-        laserOrigin.transform.rotation = Quaternion.Euler(0f, 0f, zAngle);
+        laserHolder.transform.rotation = Quaternion.Euler(0f, 0f, zAngle);
 
         sfx.PlayOneShot(gm.generalSfx[13]);
         //yield return new WaitForSeconds(0.33f);

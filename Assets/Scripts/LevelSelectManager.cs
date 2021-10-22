@@ -37,8 +37,6 @@ public class LevelSelectManager : MonoBehaviour
 
         if (!PlayerPrefs.HasKey("GRUNGE_FURTHEST_UNLOCKED_LEVEL"))
             PlayerPrefs.SetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL", 0);
-        else
-            PlayerPrefs.SetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL", 1);
 
         StartCoroutine(VHSTextLoop());
         UpdateUnlockedLevels(PlayerPrefs.GetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL"));
@@ -89,6 +87,8 @@ public class LevelSelectManager : MonoBehaviour
 
     IEnumerator WaitAndLoadLevel()
     {
+        PlayerPrefs.SetInt("GRUNGE_LOAD_TO_LEVEL_SELECT", 1);
+        PlayerPrefs.Save();
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(selectedLevelIndex + 2);
     }

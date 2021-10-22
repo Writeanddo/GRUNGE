@@ -8,12 +8,14 @@ public class BossEnemyScript : EnemyScript
     public GameObject bigExplosion;
     bool shooting;
     bool dead;
+    int storedHealth;
     string animationSuffix;
 
     // Start is called before the first frame update
     void Start()
     {
         GetReferences();
+        storedHealth = stats.health;
     }
 
     // Update is called once per frame
@@ -26,6 +28,12 @@ public class BossEnemyScript : EnemyScript
             animationSuffix = "MidHealth";
         else
             animationSuffix = "Healthy";
+
+        if (!shooting && storedHealth > stats.health)
+        {
+            anim.Play("BossHurt_" + animationSuffix, -1, 0);
+            storedHealth = stats.health;
+        }
 
         if (stats.health <= 0 && !dead)
         {
@@ -43,8 +51,10 @@ public class BossEnemyScript : EnemyScript
 
     IEnumerator ShootPatterns()
     {
+        shooting = false;
         anim.Play("BossIdle_" + animationSuffix, -1, 0);
         yield return new WaitForSeconds(5f);
+        shooting = true;
         for (int i = 0; i < 3; i++)
         {
             anim.Play("BossShoot_"+animationSuffix, -1, 0);

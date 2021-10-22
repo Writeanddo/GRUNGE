@@ -2242,6 +2242,11 @@ PrefabInstance:
       propertyPath: music
       value: 
       objectReference: {fileID: 8300000, guid: 843f02d1ee4baed489f892efb3af8a6c, type: 3}
+    - target: {fileID: 8795129235089351262, guid: af3b070ce755e0340acbb957102e96c4,
+        type: 3}
+      propertyPath: dialogSourceFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 2066ee25bb40f5246b6eec5a46dcc7c6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af3b070ce755e0340acbb957102e96c4, type: 3}
 --- !u!20 &214431078 stripped
@@ -49636,7 +49641,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2093650171
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 8292865456575377976, guid: a2a3c05404a311f41b92aac5682d8ea0,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -49694,7 +49699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b4db5e68d0fd749a35dbf6b7398b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: 4
+  levelToLoad: 1
 --- !u!58 &2065061347
 CircleCollider2D:
   m_ObjectHideFlags: 0

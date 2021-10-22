@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1a080bc78ace1134c8b400d50f1c9805, type: 3}
-    totalSpriteSurfaceArea: 4890918
+    totalSpriteSurfaceArea: 9245289
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -77,6 +77,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 7ed9a8327b1656a4889c84ad6516517e, type: 3}
   - {fileID: 21300000, guid: 40eb527222e922243b6edbdc4685ccf8, type: 3}
   - {fileID: 21300000, guid: 64cf10a29b1cb924b87fdfc859f3eabe, type: 3}
+  - {fileID: 21300000, guid: b057d1b2040c061418f16b9b259e0ec5, type: 3}
   - {fileID: 21300000, guid: 994f5b443fe455f4ea7e4cc0a0db8f9d, type: 3}
   - {fileID: 7254826624406407848, guid: 10c9f7d46355dd0448bd2272e4a9986f, type: 3}
   - {fileID: 5914958896064840540, guid: 10c9f7d46355dd0448bd2272e4a9986f, type: 3}
@@ -142,9 +143,12 @@ SpriteAtlas:
   - {fileID: 8291513228598893908, guid: 9db2372796c439f4b98d5ab6f2f93474, type: 3}
   - {fileID: 441081068177025613, guid: 9db2372796c439f4b98d5ab6f2f93474, type: 3}
   - {fileID: 21300000, guid: c92735977462b974f919770e9f6ac2ec, type: 3}
+  - {fileID: 21300000, guid: 48dbb6181b0b629468ace727f83bfb37, type: 3}
   - {fileID: 21300000, guid: 6d289b78bdabd044e98b69a1ad2ca20e, type: 3}
   - {fileID: 21300000, guid: 07fbd998e4e16b04f91ac1a4f70e0a8c, type: 3}
   - {fileID: 21300000, guid: 52c7437aa346ead47b13b740a1ef0166, type: 3}
+  - {fileID: 5412086268284726026, guid: 4ac2f14b347980e4989423f53845eba5, type: 3}
+  - {fileID: 9169877530624898698, guid: 4ac2f14b347980e4989423f53845eba5, type: 3}
   - {fileID: 21300000, guid: 4f28b16b92c90fd418d160923ad5a9a0, type: 3}
   - {fileID: 21300000, guid: 0281fadbe924776428e6574bc95e2cf4, type: 3}
   - {fileID: 21300000, guid: 594261eb48b84ec4d8724fd55ae670ec, type: 3}
@@ -229,6 +233,7 @@ SpriteAtlas:
   - 0
   - EButton
   - HandCrosshair
+  - 2
   - TitleScreenBG_RESIZE
   - ButtonsNew_14
   - ButtonsNew_15
@@ -294,9 +299,12 @@ SpriteAtlas:
   - LevelSelectButtons_0
   - LevelSelectButtons_3
   - TitleScreenBG
+  - 3
   - Thumbnail
   - TitleScreenArt
   - TubLogo
+  - Slider_1
+  - Slider_0
   - 1
   - TVBorder
   - Empty

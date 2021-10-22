@@ -14,6 +14,9 @@ public class TitleScreenManager : MonoBehaviour
     public AudioMixer mixer;
     public AudioClip[] uiSfx;
     public Animator screenTransitionFX;
+    public RectTransform levelSelectScreen;
+    public RectTransform topScreen;
+
     AudioSource music;
     AudioSource sfx;
     Image blackout;
@@ -32,16 +35,13 @@ public class TitleScreenManager : MonoBehaviour
     public bool camArrived;
     public bool performingScreenTransition;
 
-    int sfxEnabled;
-    int musicEnabled;
-
     int camTargetPosition;
 
 
     List<IEnumerator> activeButtonCoroutines;
 
-    Toggle musicToggle;
-    Toggle sfxToggle;
+    Slider musicSlider;
+    Slider sfxSlider;
 
     void Start()
     {
@@ -52,31 +52,35 @@ public class TitleScreenManager : MonoBehaviour
         //music.PlayOneShot(titleIntro);
         sfx = GameObject.Find("SFX").GetComponent<AudioSource>();
         blackout = GameObject.Find("ScreenBlackout").GetComponent<Image>();
-        musicToggle = GameObject.Find("MusicToggle").GetComponent<Toggle>();
-        sfxToggle = GameObject.Find("SFXToggle").GetComponent<Toggle>();
+        musicSlider = GameObject.Find("MusicSlider").GetComponent<Slider>();
+        sfxSlider = GameObject.Find("SFXSlider").GetComponent<Slider>();
 
         activeButtonCoroutines = new List<IEnumerator>();
 
         // First time setup
-        if (!PlayerPrefs.HasKey("GRUNGE_SFX_ENABLED"))
+        if (!PlayerPrefs.HasKey("GRUNGE_SFX_VOLUME"))
         {
-            PlayerPrefs.SetInt("GRUNGE_SFX_ENABLED", 1);
-            PlayerPrefs.SetInt("GRUNGE_MUSIC_ENABLED", 1);
+            PlayerPrefs.SetInt("GRUNGE_SFX_VOLUME", -4);
+            PlayerPrefs.SetInt("GRUNGE_MUSIC_VOLUME", -8);
         }
 
-        if (Application.platform == RuntimePlatform.WebGLPlayer)
-            GameObject.Find("TitleExitButton").transform.position = new Vector2(0, 100);
+        // Check if loading from title screen or if loading from level
+        int loadPosition = PlayerPrefs.GetInt("GRUNGE_LOAD_TO_LEVEL_SELECT");
 
-        sfxEnabled = PlayerPrefs.GetInt("GRUNGE_SFX_ENABLED");
-        musicEnabled = PlayerPrefs.GetInt("GRUNGE_MUSIC_ENABLED");
+        if (loadPosition == 1)
+            levelSelectScreen.anchoredPosition = Vector2.zero;
+        else
+            topScreen.anchoredPosition = Vector2.zero;
 
-        if (sfxEnabled == 0)
-            sfxToggle.isOn = false;
-        if (musicEnabled == 0)
-            musicToggle.isOn = false;
+        //if (Application.platform == RuntimePlatform.WebGLPlayer)
+        //GameObject.Find("TitleExitButton").transform.position = new Vector2(0, 100);
 
-        ToggleMusicEnabled();
-        ToggleSFXEnabled();
+        sfxSlider.value = PlayerPrefs.GetInt("GRUNGE_SFX_VOLUME") / 4;
+        musicSlider.value = PlayerPrefs.GetInt("GRUNGE_MUSIC_VOLUME") / 4;
+        UpdateMusicVolume();
+        UpdateSFXVolume();
+
+        StartCoroutine(FadeInScreen());
     }
 
     public void PlayMusic()
@@ -84,34 +88,30 @@ public class TitleScreenManager : MonoBehaviour
         music.Play();
     }
 
-    public void ToggleMusicEnabled()
+    public void UpdateMusicVolume()
     {
-        float volume;
-        int state = 0;
-        if (musicToggle.isOn)
-        {
-            state = 1;
-            volume = -5.0f;
-        }
-        else
-            volume = -80.0f;
+        if (musicSlider == null)
+            return;
 
-        PlayerPrefs.SetInt("GRUNGE_MUSIC_ENABLED", state);
+        int volume = (int)musicSlider.value * 4;
+
+        if (volume == -40)
+            volume = -80;
+
+        PlayerPrefs.SetInt("GRUNGE_MUSIC_VOLUME", volume);
         mixer.SetFloat("MusicVolume", volume);
     }
-    public void ToggleSFXEnabled()
+    public void UpdateSFXVolume()
     {
-        int state = 0;
-        float volume;
-        if (sfxToggle.isOn)
-        {
-            state = 1;
-            volume = 0.0f;
-        }
-        else
-            volume = -80.0f;
+        if (sfxSlider == null)
+            return;
 
-        PlayerPrefs.SetInt("GRUNGE_SFX_ENABLED", state);
+        int volume = (int)sfxSlider.value * 4;
+
+        if (volume == -40)
+            volume = -80;
+
+        PlayerPrefs.SetInt("GRUNGE_SFX_VOLUME", volume);
         mixer.SetFloat("SFXVolume", volume);
         mixer.SetFloat("PrioritySFXVolume", volume);
     }
@@ -229,9 +229,9 @@ public class TitleScreenManager : MonoBehaviour
         //SetMenuScreen(0);
     }
 
-    public void StartGame()
+    public void StopMusic()
     {
-        StartCoroutine(LoadLevelCoroutine());
+        music.Stop();
     }
 
     public IEnumerator MoveToScreen(MenuScreen from, MenuScreen to)
@@ -246,17 +246,21 @@ public class TitleScreenManager : MonoBehaviour
         performingScreenTransition = false;
     }
 
-    IEnumerator LoadLevelCoroutine()
+    IEnumerator FadeInScreen()
     {
-        loadingGame = true;
-        blackout.rectTransform.anchoredPosition = Vector2.zero;
-        while (blackout.color.a < 1)
+        while (blackout.color.a > 0)
         {
-            blackout.color = new Color(0, 0, 0, blackout.color.a + 0.075f);
-            music.volume -= 0.075f;
-            yield return new WaitForSeconds(0.05f);
+            blackout.color = new Color(0, 0, 0, blackout.color.a - 0.075f);
+            yield return new WaitForFixedUpdate();
+            yield return new WaitForFixedUpdate();
         }
-        SceneManager.LoadScene(1);
+        blackout.rectTransform.anchoredPosition = new Vector2(0, -3000);
+        
+    }
+
+    public void SavePlayerPrefs()
+    {
+        PlayerPrefs.Save();
     }
 
     public void QuitGame()

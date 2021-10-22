@@ -138,10 +138,10 @@ public class Grabbable : MonoBehaviour
                 switch (thisEnemy.stats.currentShieldValue)
                 {
                     case (3):
-                        damageMultiplier = 1.5f;
+                        damageMultiplier = 2f;
                         break;
                     case (2):
-                        damageMultiplier = 2;
+                        damageMultiplier = 3f;
                         break;
                     case (1):
                         if (!hasExploded)

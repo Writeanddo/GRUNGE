@@ -29,6 +29,9 @@ public class LoadMainLevel : MonoBehaviour
             }
         }
 
+        // So we know we're loading from the title screen
+        PlayerPrefs.SetInt("GRUNGE_LOAD_TO_LEVEL_SELECT", 0);
+
         focusText.color = Color.clear;
         vp.url = System.IO.Path.Combine(Application.streamingAssetsPath, "TubLogo.mp4");
         vp.Play();

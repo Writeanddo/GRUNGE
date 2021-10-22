@@ -1,0 +1,1712 @@
+fileFormatVersion: 2
+guid: e17f04495708f5a458dfe83e31071243
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7240012608489486811
+    second: BossSkullBullets_0
+  - first:
+      213: -107129079444007022
+    second: BossSkullBullets_1
+  - first:
+      213: 5310458936799768743
+    second: BossSkullBullets_2
+  - first:
+      213: -6423552813812222574
+    second: BossSkullBullets_3
+  - first:
+      213: -1428638149134220716
+    second: BossSkullBullets_4
+  - first:
+      213: -740976460882371931
+    second: BossSkullBullets_5
+  - first:
+      213: 6278979042641107976
+    second: BossSkullBullets_6
+  - first:
+      213: -5573340717991468386
+    second: BossSkullBullets_7
+  - first:
+      213: -392140487874954083
+    second: BossSkullBullets_8
+  - first:
+      213: 6511233271663172855
+    second: BossSkullBullets_9
+  - first:
+      213: 1589839223394931447
+    second: BossSkullBullets_10
+  - first:
+      213: -7461359800544003417
+    second: BossSkullBullets_11
+  - first:
+      213: 6371090652182973460
+    second: BossSkullBullets_12
+  - first:
+      213: -9126689034027928668
+    second: BossSkullBullets_13
+  - first:
+      213: -3055877972977481150
+    second: BossSkullBullets_14
+  - first:
+      213: -7250255568518905965
+    second: BossSkullBullets_15
+  - first:
+      213: -2972683091332837472
+    second: BossSkullBullets_16
+  - first:
+      213: -1961708011519150767
+    second: BossSkullBullets_17
+  - first:
+      213: -4050918061790062140
+    second: BossSkullBullets_18
+  - first:
+      213: 1642089582500067873
+    second: BossSkullBullets_19
+  - first:
+      213: 6431899745870536606
+    second: BossSkullBullets_20
+  - first:
+      213: 5693737716104323982
+    second: BossSkullBullets_21
+  - first:
+      213: 7530316418740761149
+    second: BossSkullBullets_22
+  - first:
+      213: -7191448971910069007
+    second: BossSkullBullets_23
+  - first:
+      213: -2368017356388099752
+    second: BossSkullBullets_24
+  - first:
+      213: 5479048902948164806
+    second: BossSkullBullets_25
+  - first:
+      213: -5400905736360264289
+    second: BossSkullBullets_26
+  - first:
+      213: 6211388451741192560
+    second: BossSkullBullets_27
+  - first:
+      213: 7889839384788317773
+    second: BossSkullBullets_28
+  - first:
+      213: -3053451114991454847
+    second: BossSkullBullets_29
+  - first:
+      213: 949952065168405187
+    second: BossSkullBullets_30
+  - first:
+      213: -892277337457830081
+    second: BossSkullBullets_31
+  - first:
+      213: -3324492985278451581
+    second: BossSkullBullets_32
+  - first:
+      213: -5536446673452466339
+    second: BossSkullBullets_33
+  - first:
+      213: 3216957441108095776
+    second: BossSkullBullets_34
+  - first:
+      213: -5702393008861134533
+    second: BossSkullBullets_35
+  - first:
+      213: 7460260281298967378
+    second: BossSkullBullets_36
+  - first:
+      213: -2674986155281265092
+    second: BossSkullBullets_37
+  - first:
+      213: -7166230679150362005
+    second: BossSkullBullets_38
+  - first:
+      213: -3769796583859428875
+    second: BossSkullBullets_39
+  - first:
+      213: -6232922193527640556
+    second: BossSkullBullets_40
+  - first:
+      213: -2565578731554072469
+    second: BossSkullBullets_41
+  - first:
+      213: 8751017753671440336
+    second: BossSkullBullets_42
+  - first:
+      213: 2836004075947896390
+    second: BossSkullBullets_43
+  - first:
+      213: -4575386895080286542
+    second: BossSkullBullets_44
+  - first:
+      213: -1870892751254276344
+    second: BossSkullBullets_45
+  - first:
+      213: -2853960390460978253
+    second: BossSkullBullets_46
+  - first:
+      213: -5133630023328431267
+    second: BossSkullBullets_47
+  - first:
+      213: 4181392326567621062
+    second: BossSkullBullets_48
+  - first:
+      213: -289839337527335887
+    second: BossSkullBullets_49
+  - first:
+      213: -9019238833368014584
+    second: BossSkullBullets_50
+  - first:
+      213: -2195674152772933000
+    second: BossSkullBullets_51
+  - first:
+      213: 1242699506051522044
+    second: BossSkullBullets_52
+  - first:
+      213: 4695377442760847485
+    second: BossSkullBullets_53
+  - first:
+      213: -2262167683186419122
+    second: BossSkullBullets_54
+  - first:
+      213: 6159641260854205014
+    second: BossSkullBullets_55
+  - first:
+      213: -6952875006565007590
+    second: BossSkullBullets_56
+  - first:
+      213: 3655641259134426586
+    second: BossSkullBullets_57
+  - first:
+      213: -4725316703374845621
+    second: BossSkullBullets_58
+  - first:
+      213: -1225165804698004533
+    second: BossSkullBullets_59
+  - first:
+      213: -157093269891448822
+    second: BossSkullBullets_60
+  - first:
+      213: -5284409027763218087
+    second: BossSkullBullets_61
+  - first:
+      213: 4093462094714672307
+    second: BossSkullBullets_62
+  - first:
+      213: -6831209469797712040
+    second: BossSkullBullets_63
+  - first:
+      213: 8054913380709850097
+    second: BossSkullBullets_64
+  - first:
+      213: -1466416607821904804
+    second: BossSkullBullets_65
+  - first:
+      213: 7344324055911932762
+    second: BossSkullBullets_66
+  - first:
+      213: -7880704892605238991
+    second: BossSkullBullets_67
+  - first:
+      213: -230744511630781033
+    second: BossSkullBullets_68
+  - first:
+      213: 1065187764476368495
+    second: BossSkullBullets_69
+  - first:
+      213: 5248774526812705722
+    second: BossSkullBullets_70
+  - first:
+      213: -1041741624552034454
+    second: BossSkullBullets_71
+  - first:
+      213: -140770357199492426
+    second: BossSkullBullets_72
+  - first:
+      213: -4456728890040455540
+    second: BossSkullBullets_73
+  - first:
+      213: 2823408787703941943
+    second: BossSkullBullets_74
+  - first:
+      213: -3671091925040010580
+    second: BossSkullBullets_75
+  - first:
+      213: 1614983287480638324
+    second: BossSkullBullets_76
+  - first:
+      213: 6168407746674245582
+    second: BossSkullBullets_77
+  - first:
+      213: -4224521773800506275
+    second: BossSkullBullets_78
+  - first:
+      213: 6000321463013837162
+    second: BossSkullBullets_79
+  - first:
+      213: -8046195355937194108
+    second: BossSkullBullets_80
+  - first:
+      213: 7571261823999373631
+    second: BossSkullBullets_81
+  - first:
+      213: -6803321129086992626
+    second: BossSkullBullets_82
+  - first:
+      213: -8231983325839730695
+    second: BossSkullBullets_83
+  - first:
+      213: 5956087778313571729
+    second: BossSkullBullets_84
+  - first:
+      213: -6459024083470547585
+    second: BossSkullBullets_85
+  - first:
+      213: 4128479030424024350
+    second: BossSkullBullets_86
+  - first:
+      213: 6819476928195259896
+    second: BossSkullBullets_87
+  - first:
+      213: -2406294276499546971
+    second: BossSkullBullets_88
+  - first:
+      213: -7711007470781144087
+    second: BossSkullBullets_89
+  - first:
+      213: -4243434800934252500
+    second: BossSkullBullets_90
+  - first:
+      213: -7514805072126484318
+    second: BossSkullBullets_91
+  - first:
+      213: 8749199880746745119
+    second: BossSkullBullets_92
+  - first:
+      213: 418749082123112451
+    second: BossSkullBullets_93
+  - first:
+      213: -6577553955150096505
+    second: BossSkullBullets_94
+  - first:
+      213: -5780467450513499029
+    second: BossSkullBullets_95
+  - first:
+      213: -852898389976974593
+    second: BossSkullBullets_96
+  - first:
+      213: 7463061672384980978
+    second: BossSkullBullets_97
+  - first:
+      213: 6285386304723192373
+    second: BossSkullBullets_98
+  - first:
+      213: 2336808370399265014
+    second: BossSkullBullets_99
+  - first:
+      213: -2566463939897087608
+    second: BossSkullBullets_100
+  - first:
+      213: 8255360188425374877
+    second: BossSkullBullets_101
+  - first:
+      213: 7001501438648008759
+    second: BossSkullBullets_102
+  - first:
+      213: -6189715510964354401
+    second: BossSkullBullets_103
+  - first:
+      213: 9073829404584543848
+    second: BossSkullBullets_104
+  - first:
+      213: 6797862131773485453
+    second: BossSkullBullets_105
+  - first:
+      213: -8571039465016069865
+    second: BossSkullBullets_106
+  - first:
+      213: -9093505527564806533
+    second: BossSkullBullets_107
+  - first:
+      213: 9056032072742784432
+    second: BossSkullBullets_108
+  - first:
+      213: -1856797075520887882
+    second: BossSkullBullets_109
+  - first:
+      213: -9198390518841566025
+    second: BossSkullBullets_110
+  - first:
+      213: -2598941974695347425
+    second: BossSkullBullets_111
+  - first:
+      213: -9204596437523568400
+    second: BossSkullBullets_112
+  - first:
+      213: 6228050724489276238
+    second: BossSkullBullets_113
+  - first:
+      213: 2439964024429400661
+    second: BossSkullBullets_114
+  - first:
+      213: 2749987159502048986
+    second: BossSkullBullets_115
+  - first:
+      213: -1039937583639118384
+    second: BossSkullBullets_116
+  - first:
+      213: 141294364917445905
+    second: BossSkullBullets_117
+  - first:
+      213: -2739222180359387542
+    second: BossSkullBullets_118
+  - first:
+      213: -5771846118835120860
+    second: BossSkullBullets_119
+  - first:
+      213: -7235470094045550852
+    second: BossSkullBullets_120
+  - first:
+      213: 3392597116946737790
+    second: BossSkullBullets_121
+  - first:
+      213: -8040459357686205292
+    second: BossSkullBullets_122
+  - first:
+      213: 6440495958878256766
+    second: BossSkullBullets_123
+  - first:
+      213: 5184636780897482524
+    second: BossSkullBullets_124
+  - first:
+      213: 5068134249725372953
+    second: BossSkullBullets_125
+  - first:
+      213: 4894629816305932876
+    second: BossSkullBullets_126
+  - first:
+      213: 8281311534097503978
+    second: BossSkullBullets_127
+  - first:
+      213: 6698642694902294695
+    second: BossSkullBullets_128
+  - first:
+      213: 2950105259228670039
+    second: BossSkullBullets_129
+  - first:
+      213: -2877042059550194185
+    second: BossSkullBullets_130
+  - first:
+      213: -1564638007056296580
+    second: BossSkullBullets_131
+  - first:
+      213: 7384713987177266947
+    second: BossSkullBullets_132
+  - first:
+      213: -5357023673851087551
+    second: BossSkullBullets_133
+  - first:
+      213: 3900444731086154649
+    second: BossSkullBullets_134
+  - first:
+      213: 7097580499465220944
+    second: BossSkullBullets_135
+  - first:
+      213: -7977111907574511119
+    second: BossSkullBullets_136
+  - first:
+      213: -5228034350606379816
+    second: BossSkullBullets_137
+  - first:
+      213: -6897430073875303556
+    second: BossSkullBullets_138
+  - first:
+      213: -5657023283036617286
+    second: BossSkullBullets_139
+  - first:
+      213: 1539087519455917417
+    second: BossSkullBullets_140
+  - first:
+      213: 6853124492067155109
+    second: BossSkullBullets_141
+  - first:
+      213: 5403526925237226609
+    second: BossSkullBullets_142
+  - first:
+      213: -7001830532879774147
+    second: BossSkullBullets_143
+  - first:
+      213: -5749145913873724123
+    second: BossSkullBullets_144
+  - first:
+      213: -5286693092713015154
+    second: BossSkullBullets_145
+  - first:
+      213: 8809203530240452411
+    second: BossSkullBullets_146
+  - first:
+      213: -304510767952438338
+    second: BossSkullBullets_147
+  - first:
+      213: -3707741605791597763
+    second: BossSkullBullets_148
+  - first:
+      213: 5109083716420348159
+    second: BossSkullBullets_149
+  - first:
+      213: -5598865002512270601
+    second: BossSkullBullets_150
+  - first:
+      213: 4754560219216668898
+    second: BossSkullBullets_151
+  - first:
+      213: 1720000510445499412
+    second: BossSkullBullets_152
+  - first:
+      213: 7411320684323400323
+    second: BossSkullBullets_153
+  - first:
+      213: 8191810043543259711
+    second: BossSkullBullets_154
+  - first:
+      213: -2336884446030948134
+    second: BossSkullBullets_155
+  - first:
+      213: 542266932276246848
+    second: BossSkullBullets_156
+  - first:
+      213: 3476758571959571001
+    second: BossSkullBullets_157
+  - first:
+      213: -8962595112390290560
+    second: BossSkullBullets_158
+  - first:
+      213: 2619972495270357246
+    second: BossSkullBullets_159
+  - first:
+      213: -3065699904111403153
+    second: BossSkullBullets_160
+  - first:
+      213: 825128582174787056
+    second: BossSkullBullets_161
+  - first:
+      213: 495872460610868328
+    second: BossSkullBullets_162
+  - first:
+      213: 1583945885818225670
+    second: BossSkullBullets_163
+  - first:
+      213: -7816625207595431654
+    second: BossSkullBullets_164
+  - first:
+      213: 5365806662113558548
+    second: BossSkullBullets_165
+  - first:
+      213: 6982186354027408350
+    second: BossSkullBullets_166
+  - first:
+      213: -4100679674764939790
+    second: BossSkullBullets_167
+  - first:
+      213: -16402236518502790
+    second: BossSkullBullets_168
+  - first:
+      213: 2457173490249234423
+    second: BossSkullBullets_169
+  - first:
+      213: -171262421614820157
+    second: BossSkullBullets_170
+  - first:
+      213: 6939407781433719517
+    second: BossSkullBullets_171
+  - first:
+      213: 2626820114400450526
+    second: BossSkullBullets_172
+  - first:
+      213: -2984319210377839528
+    second: BossSkullBullets_173
+  - first:
+      213: 499126380906272372
+    second: BossSkullBullets_174
+  - first:
+      213: 8517999307206729365
+    second: BossSkullBullets_175
+  - first:
+      213: -7875156962692773794
+    second: BossSkullBullets_176
+  - first:
+      213: 4552132061019651441
+    second: BossSkullBullets_177
+  - first:
+      213: -4560069137327810831
+    second: BossSkullBullets_178
+  - first:
+      213: -7474930996477441831
+    second: BossSkullBullets_179
+  - first:
+      213: 2817241972559651795
+    second: BossSkullBullets_180
+  - first:
+      213: 3682691144826213320
+    second: BossSkullBullets_181
+  - first:
+      213: 7329963417421606415
+    second: BossSkullBullets_182
+  - first:
+      213: -8304947697257673827
+    second: BossSkullBullets_183
+  - first:
+      213: -799597656747634527
+    second: BossSkullBullets_184
+  - first:
+      213: 485492853523259578
+    second: BossSkullBullets_185
+  - first:
+      213: 3993077058240598489
+    second: BossSkullBullets_186
+  - first:
+      213: 7524438597524718488
+    second: BossSkullBullets_187
+  - first:
+      213: 9058034695506270412
+    second: BossSkullBullets_188
+  - first:
+      213: 669657723082666741
+    second: BossSkullBullets_189
+  - first:
+      213: 7195075798821295486
+    second: BossSkullBullets_190
+  - first:
+      213: -4759131131871546754
+    second: BossSkullBullets_191
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossSkullBullets_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd97d52bb11b97460800000000000000
+      internalID: 7240012608489486811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29710aa7ba6638ef0800000000000000
+      internalID: -107129079444007022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a0bf3a544a82b940800000000000000
+      internalID: 5310458936799768743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 295f2c0dfb4fad6a0800000000000000
+      internalID: -6423552813812222574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45288403c257c2ce0800000000000000
+      internalID: -1428638149134220716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aa1e2ea5d587b5f0800000000000000
+      internalID: -740976460882371931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_6
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80cdebcfb2a632750800000000000000
+      internalID: 6278979042641107976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e92e5e3552487a2b0800000000000000
+      internalID: -5573340717991468386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9c3a2ecd46de8af0800000000000000
+      internalID: -392140487874954083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fc103f992c8c5a50800000000000000
+      internalID: 6511233271663172855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f21070b95e301610800000000000000
+      internalID: 1589839223394931447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aaf13b1bcce37890800000000000000
+      internalID: -7461359800544003417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_12
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41c8d235139aa6850800000000000000
+      internalID: 6371090652182973460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_13
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a3ff47cdac775180800000000000000
+      internalID: -9126689034027928668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24a8cbf9c275795d0800000000000000
+      internalID: -3055877972977481150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_15
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39ff1a359fae16b90800000000000000
+      internalID: -7250255568518905965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_16
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0afcb477a78eeb6d0800000000000000
+      internalID: -2972683091332837472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_17
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 155fc5405fc96c4e0800000000000000
+      internalID: -1961708011519150767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_18
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c91ac84c7f38c7c0800000000000000
+      internalID: -4050918061790062140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_19
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a394e66cfd9c610800000000000000
+      internalID: 1642089582500067873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9fd98fbdb2b24950800000000000000
+      internalID: 6431899745870536606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8364ac3948340f40800000000000000
+      internalID: 5693737716104323982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32b551b2ee018860800000000000000
+      internalID: 7530316418740761149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_23
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f4c3f01347d23c90800000000000000
+      internalID: -7191448971910069007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_24
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 859178ab2cc132fd0800000000000000
+      internalID: -2368017356388099752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_25
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c4183fa2fd790c40800000000000000
+      internalID: 5479048902948164806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_26
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9d70e619d02c05b0800000000000000
+      internalID: -5400905736360264289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_27
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0715ff333e8433650800000000000000
+      internalID: 6211388451741192560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_28
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d46b1394e175e7d60800000000000000
+      internalID: 7889839384788317773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_29
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 185f9e78366ff95d0800000000000000
+      internalID: -3053451114991454847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c2f206ce58ee2d00800000000000000
+      internalID: 949952065168405187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_31
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f37d1b33d7efd93f0800000000000000
+      internalID: -892277337457830081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_32
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 380333a6e370dd1d0800000000000000
+      internalID: -3324492985278451581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_33
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5ff8f675179a23b0800000000000000
+      internalID: -5536446673452466339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_34
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0233cce9fbde4ac20800000000000000
+      internalID: 3216957441108095776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_35
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b31492165c70dd0b0800000000000000
+      internalID: -5702393008861134533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_36
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25bd7ce133b288760800000000000000
+      internalID: 7460260281298967378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_37
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3e4f53b34a80ead0800000000000000
+      internalID: -2674986155281265092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_38
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b628cb66a2f6c8c90800000000000000
+      internalID: -7166230679150362005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_39
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f1e39feafdfeabc0800000000000000
+      internalID: -3769796583859428875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41ee226d9463089a0800000000000000
+      internalID: -6232922193527640556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_41
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b681c669cbb356cd0800000000000000
+      internalID: -2565578731554072469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_42
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d719b6384cd17970800000000000000
+      internalID: 8751017753671440336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_43
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e2f686ea28b5720800000000000000
+      internalID: 2836004075947896390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_44
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b613c04cd5f080c0800000000000000
+      internalID: -4575386895080286542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_45
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 807b2a484f04906e0800000000000000
+      internalID: -1870892751254276344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_46
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bbc9835522b468d0800000000000000
+      internalID: -2853960390460978253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSkullBullets_47
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d538a3361bea1c8b0800000000000000
+      internalID: -5133630023328431267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

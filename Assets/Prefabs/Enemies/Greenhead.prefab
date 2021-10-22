@@ -230,7 +230,7 @@ MonoBehaviour:
   breakFromCharacterContact: 0
   rotatePropFragments: 0
   hitsBeforeBreak: 0
-  baseDamageUponHitting: 12
+  baseDamageUponHitting: 15
   objectOffsetWhenHeld: {x: 0, y: 0}
   handOffsetWhenHeld: {x: 0, y: 0}
   isHeld: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
     maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4
-    damage: 6
+    damage: 8
     pathSpeedMultiplier: 1
     damageCooldown: 0.75
     inaccuracyMultiplier: 1

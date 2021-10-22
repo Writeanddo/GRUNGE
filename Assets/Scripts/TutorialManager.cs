@@ -6,6 +6,7 @@ public class TutorialManager : MonoBehaviour
 {
     public GameObject spawner;
     public GameObject[] itemsToSpawn;
+    public Transform[] spawnPoints;
     public GameObject stairsBlocker;
     public Animator camAnimator;
 
@@ -44,7 +45,7 @@ public class TutorialManager : MonoBehaviour
         yield return gm.WaitForTextCompletion("WalkingFollowup");
         yield return gm.WaitForTextCompletion("WalkingFollowup2");
         yield return gm.WaitForTextCompletion("WalkingFollowup3");
-        SpawnObject(new Vector2(15, -0.5f), itemsToSpawn[0]);
+        SpawnObject(spawnPoints[0].position, itemsToSpawn[0]);
         yield return gm.WaitForTextCompletion("GrabEnemy");
         ply.canMove = true;
         ply.canLaunchHand = true;
@@ -64,10 +65,12 @@ public class TutorialManager : MonoBehaviour
         ply.Freeze();
         yield return gm.WaitForTextCompletion("ThrowEnemyFollowup");
 
-        SpawnObject(new Vector2(17, 0), itemsToSpawn[0]);
-        SpawnObject(new Vector2(7, -2.5F), itemsToSpawn[1]);
-        SpawnObject(new Vector2(20, -5), itemsToSpawn[2]);
-        SpawnObject(new Vector2(4, -6.5F), itemsToSpawn[2]);
+        
+        SpawnObject(spawnPoints[0].position, itemsToSpawn[0]);
+        SpawnObject(spawnPoints[1].position, itemsToSpawn[2]);
+        SpawnObject(spawnPoints[2].position, itemsToSpawn[1]);
+        SpawnObject(spawnPoints[3].position, itemsToSpawn[2]);
+
         yield return gm.WaitForTextCompletion("ThrowEnemyFollowup2");
         ply.canMove = true;
 
@@ -119,8 +122,8 @@ public class TutorialManager : MonoBehaviour
         
         ply.stats.goo = 60;
         yield return gm.WaitForTextCompletion("GunIntro2");
-        SpawnObject(new Vector2(8, -0.5F), itemsToSpawn[3]);
-        SpawnObject(new Vector2(18, -0.5F), itemsToSpawn[3]);
+        SpawnObject(spawnPoints[0].position, itemsToSpawn[3]);
+        SpawnObject(spawnPoints[2].position, itemsToSpawn[3]);
         yield return gm.WaitForTextCompletion("GunIntro3");
 
         EnemyScript[] e = FindObjectsOfType<EnemyScript>();
@@ -161,7 +164,7 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         ply.Freeze();
         yield return gm.WaitForTextCompletion("HealFollowup");
-        SpawnObject(new Vector2(15, -0.5f), itemsToSpawn[5]);
+        SpawnObject(spawnPoints[0].position, itemsToSpawn[5]);
         yield return gm.WaitForTextCompletion("ChargeIntro");
         ply.canMove = true;
         ply.canLaunchHand = true;
@@ -190,7 +193,7 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         ply.Freeze();
         yield return gm.WaitForTextCompletion("ChargeDemonstration");
-        SpawnObject(new Vector2(15, -0.5f), itemsToSpawn[5]);
+        SpawnObject(spawnPoints[0].position, itemsToSpawn[5]);
         yield return gm.WaitForTextCompletion("ChargeDemonstration2");
         ply.canMove = true;
         ply.canLaunchHand = true;
@@ -211,7 +214,7 @@ public class TutorialManager : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.5f);
                 ply.Freeze();
-                SpawnObject(new Vector2(15, -0.5f), itemsToSpawn[5]);
+                SpawnObject(spawnPoints[0].position, itemsToSpawn[5]);
                 yield return gm.WaitForTextCompletion("ChargeRetry");
                 e4 = FindObjectOfType<EnemyScript>();
                 ply.canMove = true;
@@ -250,6 +253,9 @@ public class TutorialManager : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
+        {
+            PlayerPrefs.SetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL", 1);
             exitedDoor = true;
+        }
     }
 }

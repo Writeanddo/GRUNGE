@@ -23,7 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3_basement.unity
     guid: 2e0b9336a71bba54c951f0e8655ce7fd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/4_boss.unity
     guid: d5916985f7bf6ac428ce107005d31b81
   m_configObjects: {}
