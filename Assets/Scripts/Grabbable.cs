@@ -54,7 +54,7 @@ public class Grabbable : MonoBehaviour
             thisEnemy = GetComponent<EnemyScript>();
         else
         {
-            spr = GetComponent<SpriteRenderer>();
+            spr = GetComponentInChildren<SpriteRenderer>();
             defaultSprite = spr.sprite;
         }
 

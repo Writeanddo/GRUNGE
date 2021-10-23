@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1ae2bcd4a425c6042a99119bbc314f5f, type: 3}
-    totalSpriteSurfaceArea: 1702035
+    totalSpriteSurfaceArea: 1705107
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -503,6 +503,18 @@ SpriteAtlas:
   - {fileID: 4624237177274564115, guid: a2a3c05404a311f41b92aac5682d8ea0, type: 3}
   - {fileID: -9218937931207671048, guid: a2a3c05404a311f41b92aac5682d8ea0, type: 3}
   - {fileID: 3064472410013618357, guid: a2a3c05404a311f41b92aac5682d8ea0, type: 3}
+  - {fileID: 6775828261525792201, guid: 370f30749bbc69f43810879b093897ef, type: 3}
+  - {fileID: 5810259711888851116, guid: 370f30749bbc69f43810879b093897ef, type: 3}
+  - {fileID: -1372327549717093787, guid: 370f30749bbc69f43810879b093897ef, type: 3}
+  - {fileID: 8394854372161604221, guid: 370f30749bbc69f43810879b093897ef, type: 3}
+  - {fileID: -836114479239207252, guid: 370f30749bbc69f43810879b093897ef, type: 3}
+  - {fileID: -3876563656888731966, guid: 370f30749bbc69f43810879b093897ef, type: 3}
+  - {fileID: 3607284055007262553, guid: 370f30749bbc69f43810879b093897ef, type: 3}
+  - {fileID: 3442815818941839905, guid: 370f30749bbc69f43810879b093897ef, type: 3}
+  - {fileID: -6569343608480698526, guid: 370f30749bbc69f43810879b093897ef, type: 3}
+  - {fileID: 641856237229463713, guid: 370f30749bbc69f43810879b093897ef, type: 3}
+  - {fileID: 3423676228130338347, guid: 370f30749bbc69f43810879b093897ef, type: 3}
+  - {fileID: -6518547878362458300, guid: 370f30749bbc69f43810879b093897ef, type: 3}
   - {fileID: -8777005540185937256, guid: 955011a476d50294eb10e2a0d5f1ba9f, type: 3}
   - {fileID: -6849486884537636677, guid: 955011a476d50294eb10e2a0d5f1ba9f, type: 3}
   - {fileID: -1920307043323893403, guid: 955011a476d50294eb10e2a0d5f1ba9f, type: 3}
@@ -2224,6 +2236,18 @@ SpriteAtlas:
   - GoodoorOpen_17
   - GoodoorOpen_18
   - GoodoorOpen_19
+  - TutorialRug_11
+  - TutorialRug_10
+  - TutorialRug_4
+  - TutorialRug_5
+  - TutorialRug_6
+  - TutorialRug_7
+  - TutorialRug_0
+  - TutorialRug_1
+  - TutorialRug_2
+  - TutorialRug_3
+  - TutorialRug_8
+  - TutorialRug_9
   - Level2SlimeTile_0
   - Level2SlimeTile_1
   - Level2SlimeTile_2

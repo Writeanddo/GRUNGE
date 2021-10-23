@@ -14,6 +14,9 @@ public class DumbassEnemyScript : EnemyScript
     void FixedUpdate()
     {
         CheckIfHeld();
+
+        if (!g.isHeld && g.canBreak)
+            rb.velocity = Vector2.zero;
     }
 
     public override void UpdateMovement()

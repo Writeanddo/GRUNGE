@@ -19,6 +19,7 @@ public class BoogernautEnemyScript : EnemyScript
     public bool attacking;
     public bool isDamaged;
 
+    int targetDistanceFromPlayer = 7;
     bool rotatingLaser;
     bool canSpawnArmor = true;
 
@@ -39,6 +40,12 @@ public class BoogernautEnemyScript : EnemyScript
 
     void FixedUpdate()
     {
+        if(stats.health < stats.maxHealth*0.5f)
+        {
+            targetDistanceFromPlayer = 12;
+            stats.noticedSpeedMultiplier = 2f;
+        }
+
         SetWalkSpeed();
 
         if (!ply.isDying)
@@ -66,7 +73,7 @@ public class BoogernautEnemyScript : EnemyScript
             {
                 if (!rechargingAttack)
                     StartCoroutine(LaserDamage());
-                else if (Vector3.Distance(transform.position, ply.transform.position) < 7)
+                else if (Vector3.Distance(transform.position, ply.transform.position) < targetDistanceFromPlayer)
                     MoveAwayFromPlayer();
                 else
                     MoveTowardsPlayer();
@@ -86,16 +93,17 @@ public class BoogernautEnemyScript : EnemyScript
         // Get initial angle
         Vector3 diff = ply.transform.position - laserOrigin.transform.position;
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-        rot_z += Random.Range(-15, 15);
+        //rot_z += Random.Range(-15, 15);
         gm.PlaySFX(gm.generalSfx[18]);
         yield return new WaitForSeconds(0.75f);
         laserStart.Play("LaserStemStart", -1, 0);
         rotatingLaser = true;
-        StartCoroutine(RotateLaser(rot_z));
+        StartCoroutine(RotateLaser(rot_z-15));
 
         while (rotatingLaser)
         {
             RaycastHit2D hit = Physics2D.Raycast(laserOrigin.transform.position, laserOrigin.transform.right, 50, laserHitMask);
+            print("Scanning");
             Debug.DrawLine(laserOrigin.transform.position, hit.point, Color.blue);
 
             laserImpact.transform.rotation = Quaternion.identity;
@@ -142,7 +150,7 @@ public class BoogernautEnemyScript : EnemyScript
         if (zAngle < 0)
             zAngle += 360;
 
-        laserHolder.transform.rotation = Quaternion.Euler(0f, 0f, zAngle);
+        laserOrigin.transform.rotation = Quaternion.Euler(0f, 0f, zAngle);
 
         sfx.PlayOneShot(gm.generalSfx[13]);
         //yield return new WaitForSeconds(0.33f);
@@ -151,7 +159,7 @@ public class BoogernautEnemyScript : EnemyScript
         float rotAmount = 0.7f;
         while (amountRotated < 60)
         {
-            //laserOrigin.transform.rotation = Quaternion.Euler(0f, 0f, laserOrigin.transform.rotation.eulerAngles.z + rotAmount);
+            laserOrigin.transform.rotation = Quaternion.Euler(0f, 0f, laserOrigin.transform.rotation.eulerAngles.z + (rotAmount*0.5f));
             amountRotated += rotAmount;
             yield return new WaitForFixedUpdate();
             timePassed += Time.fixedDeltaTime;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,14 +19,12 @@ public class GameManager : MonoBehaviour
 
     Image screenBlackout;
     Image quitBlackout;
-    Image gameOverImage;
-    Image tryAgainImage;
-    Image retryImage;
     Text gooSliderText;
     Text weaponTimerText;
+    TextMeshProUGUI killsText;
+    TextMeshProUGUI timerText;
+    RectTransform levelEndScreen;
 
-    RectTransform quitYes;
-    RectTransform quitNo;
     EnemyScript heldEnemy;
     AudioSource musicSource;
     AudioSource musicTrack1;
@@ -36,7 +35,7 @@ public class GameManager : MonoBehaviour
     AudioSource gooSource;
     AudioSource prioritySfxSource; // Will duck volume on normal sound effects
     Animator shieldAnim;
-    Text pauseText;
+    TextMeshProUGUI pauseText;
     Text gunNameText;
     EnemyWaveManager ewm;
     TextboxManager text;
@@ -61,6 +60,9 @@ public class GameManager : MonoBehaviour
     int storedSfxPriority;
     Color gooColor;
     Color healthColor;
+
+    int kills = 0;
+    float timer = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -87,18 +89,18 @@ public class GameManager : MonoBehaviour
         shieldAnim = GameObject.Find("ShieldImage").GetComponent<Animator>();
         shieldTransform = shieldAnim.GetComponent<RectTransform>();
         gooSliderText = GameObject.Find("GooSliderNumber").GetComponent<Text>();
+        killsText = GameObject.Find("KillsNumberText").GetComponent<TextMeshProUGUI>();
+        timerText = GameObject.Find("LevelTimeText").GetComponent<TextMeshProUGUI>();
+
         screenBlackout = GameObject.Find("ScreenBlackout").GetComponent<Image>();
         quitBlackout = GameObject.Find("QuitPanel").GetComponent<Image>();
-        pauseText = GameObject.Find("QuitText").GetComponent<Text>();
+        levelEndScreen = GameObject.Find("LevelStatsLayout").GetComponent<RectTransform>();
+        pauseText = GameObject.Find("PausedText").GetComponent<TextMeshProUGUI>();
         weaponTimerText = GameObject.Find("WeaponTimerText").GetComponent<Text>();
         gunNameText = GameObject.Find("WeaponNameText").GetComponent<Text>();
         gunNameText.text = "";
         weaponTimerText.text = "";
-        quitYes = GameObject.Find("QuitYesButton").GetComponent<RectTransform>();
-        quitNo = GameObject.Find("QuitNoButton").GetComponent<RectTransform>();
         shieldImage = GameObject.Find("ShieldImage").GetComponent<Image>();
-        gameOverImage = GameObject.Find("GameOverImage").GetComponent<Image>();
-        tryAgainImage = GameObject.Find("TryAgainImage").GetComponent<Image>();
 
         ewm = FindObjectOfType<EnemyWaveManager>();
         text = FindObjectOfType<TextboxManager>();
@@ -113,6 +115,14 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         UpdateUI();
+
+        if(!gameOver && ewm.isSpawningEnemies)
+            timer += Time.fixedDeltaTime;
+    }
+
+    public void IncreaseKills()
+    {
+        kills++;
     }
 
     void UpdateUI()
@@ -642,17 +652,21 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator GameOverSequence()
     {
-        screenBlackout.rectTransform.anchoredPosition = new Vector2(0, 2000);
+        int minutes = Mathf.FloorToInt(timer / 60F);
+        int seconds = Mathf.FloorToInt(timer - minutes * 60);
+        int milliseconds = Mathf.FloorToInt(((timer - (minutes * 60) - seconds)) * 100);
+        string niceTime = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
+        timerText.text = niceTime;
 
+        killsText.text = kills.ToString();
+
+        PlaySFX(generalSfx[19]);
+        screenBlackout.rectTransform.anchoredPosition = new Vector2(0, 2000);
         quitBlackout.color = new Color(0, 0, 0, 0.5f);
-        gameOverImage.rectTransform.anchoredPosition = Vector2.zero;
-        yield return new WaitForSeconds(2);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        gameOverImage.rectTransform.anchoredPosition = new Vector2(0, -2000);
-        tryAgainImage.rectTransform.anchoredPosition = Vector2.zero;
-        quitYes.anchoredPosition = new Vector2(quitYes.anchoredPosition.x, -256f);
-        quitNo.anchoredPosition = new Vector2(quitNo.anchoredPosition.x, -256f);
+        levelEndScreen.anchoredPosition = Vector2.zero;
+        yield return null;
     }
 
     public void LoadLevel(int level)

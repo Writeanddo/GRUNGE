@@ -12,6 +12,8 @@ Other sfx to add:
 
 - If projectiles overlap with an enemy the frame they spawn, they don't explode (frustrating)
   // This also applies to hand grabbing
+  - Also applies to walls
+
 - Maybe make final enemy explode after a while if its held, sometimes I forget I'm holding it
 
 01:20
@@ -34,11 +36,11 @@ I throw an object at the wall and it causes me to bounce off of it
 18:15
 Rocket sprite (as well as possibly other gun variants, not that I've seen any appear on this floor so far) projectile fires under the candle
 
-- Gibs can STILL SPAWN IN WALLS if hit at the right angle (something to do with tilemap collider maybe?)
+
 - Make weapon crates grabbable (easy)
 - Can advance text while paused
 - Can't fire rocket while charging enemy
-- Every once in a while the releasedRightMouse trigger doesn't go off
+- Every once in a while the releasedRightMouse trigger doesn't go off (and sometimes you can't stop charging? weird shit)
 - Add car door open sprites
 - Maybe make music fade at end of each level with sound effect, hotline miami style
 - Add ambience to beginning of cabin level
@@ -47,10 +49,11 @@ Rocket sprite (as well as possibly other gun variants, not that I've seen any ap
 
 
 //? Bounceback on grabbles hitting objects can send player flying if they collide
-//? Porch has collision issues, can't damage enemies when you fling them into it
 //? Can throw enemies through skinny walls
-//? Scion Slimes get stuck leaving kitchen left
 //? Gatling Goobers sometimes refuse to notice player - Occured at top left of workbench, throwable props were involved
+// Porch has collision issues, can't damage enemies when you fling them into it
+// Scion Slimes get stuck leaving kitchen left
+// Gibs can STILL SPAWN IN WALLS if hit at the right angle (something to do with tilemap collider maybe?)
 // Shield icon needs to follow player when not centered
 // Issues with scion slime shadows when hit
 // Goo drops and goo splats get stuck in walls regularly

@@ -907,13 +907,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 180
+    health: 250
     maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4
     damage: 2
     pathSpeedMultiplier: 2
-    damageCooldown: 3
+    damageCooldown: 2
     inaccuracyMultiplier: 1
     noticePlayerDistance: 8
     noticedSpeedMultiplier: 0.75

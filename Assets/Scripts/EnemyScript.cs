@@ -432,7 +432,7 @@ public abstract class EnemyScript : MonoBehaviour
         for(int i = 0; i < nonRandomDrops.Length; i++)
             Instantiate(nonRandomDrops[i], gibSpawnPos, Quaternion.identity);
 
-        Destroy(this.gameObject);
+        Die();
     }
 
     public void ExplodeBig()
@@ -446,6 +446,12 @@ public abstract class EnemyScript : MonoBehaviour
             Instantiate(splatterDrops[Random.Range(0, splatterDrops.Length)], gibSpawnPos, Quaternion.identity);
         }
         Instantiate(enemyExplosion, transform.position, transform.rotation);
+        Die();
+    }
+
+    void Die()
+    {
+        gm.IncreaseKills();
         Destroy(this.gameObject);
     }
 }

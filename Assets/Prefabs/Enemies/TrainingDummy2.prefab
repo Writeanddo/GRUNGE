@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3796603763920091006}
   - component: {fileID: 3796603763920091005}
   - component: {fileID: 3796603763920091007}
-  m_Layer: 14
+  m_Layer: 17
   m_Name: EnemySprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,9 +116,9 @@ GameObject:
   - component: {fileID: 3796603764674773069}
   - component: {fileID: 3072996831571118073}
   - component: {fileID: 6144586552007309192}
-  m_Layer: 14
+  m_Layer: 17
   m_Name: TrainingDummy2
-  m_TagString: Enemy
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,7 +162,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3796603764674773064}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -204,13 +204,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canBeGrabbed: 0
-  isProp: 0
-  canBreak: 0
-  breakFromPropContact: 0
+  isProp: 1
+  canBreak: 1
+  breakFromPropContact: 1
   breakFromCharacterContact: 0
   rotatePropFragments: 0
-  hitsBeforeBreak: 0
-  baseDamageUponHitting: 8
+  hitsBeforeBreak: 1
+  baseDamageUponHitting: 15
   objectOffsetWhenHeld: {x: 0, y: 0}
   handOffsetWhenHeld: {x: 0, y: 0}
   isHeld: 0
@@ -218,9 +218,14 @@ MonoBehaviour:
   damagedSprite: {fileID: 0}
   heldSprite: {fileID: 0}
   damagedHeldSprite: {fileID: 0}
-  propFragments: []
-  propGib: {fileID: 0}
-  breakSound: {fileID: 0}
+  propFragments:
+  - {fileID: -3541814901859303043, guid: 41e5a961d0dd2f0478d1ced57ab0887b, type: 3}
+  - {fileID: -1410698030307045709, guid: 41e5a961d0dd2f0478d1ced57ab0887b, type: 3}
+  - {fileID: -6090082518756089203, guid: 41e5a961d0dd2f0478d1ced57ab0887b, type: 3}
+  - {fileID: 877284183246971935, guid: 41e5a961d0dd2f0478d1ced57ab0887b, type: 3}
+  - {fileID: 2979294420235075873, guid: 41e5a961d0dd2f0478d1ced57ab0887b, type: 3}
+  propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
+  breakSound: {fileID: 8300000, guid: 7cb9173b29ecbbd4c915a32e69aafc4e, type: 3}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!114 &6144586552007309192
@@ -230,15 +235,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3796603764674773064}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d66438fdbb4df5a4c8347bb8336c6e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 1
+    health: 100
     maxHealth: 0
-    overrideDeath: 0
+    overrideDeath: 1
     currentShieldValue: 4
     damage: 2
     pathSpeedMultiplier: 1

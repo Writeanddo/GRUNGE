@@ -30,7 +30,7 @@ public class CabinWaveSpawner : MonoBehaviour
         if(collision.tag == "Player" && canCollide)
         {
             doorHole.color = Color.white;
-            Instantiate(enemyToSpawn, doorHole.transform.position, Quaternion.identity);
+            //Instantiate(enemyToSpawn, doorHole.transform.position, Quaternion.identity);
             gm.PlaySFX(gm.generalSfx[15]);
             FindObjectOfType<EnemyWaveManager>().StartWaves();
             gm.PlayMusic();
