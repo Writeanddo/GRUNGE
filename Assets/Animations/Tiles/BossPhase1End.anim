@@ -652,7 +652,7 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 7.75
-    functionName: PlayTransformationCutscene
+    functionName: SetupArena
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

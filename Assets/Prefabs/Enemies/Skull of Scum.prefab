@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 413173979199878699}
   - component: {fileID: 413173979199878696}
+  - component: {fileID: 8455755848889822336}
   m_Layer: 14
   m_Name: EnemySprite
   m_TagString: Untagged
@@ -67,10 +68,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -501625675
-  m_SortingLayer: 1
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -5536446673452466339, guid: e17f04495708f5a458dfe83e31071243,
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_Sprite: {fileID: -6232922193527640556, guid: e17f04495708f5a458dfe83e31071243,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -82,6 +83,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8455755848889822336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413173979199878697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45f2903e2ffe4a40866094664ddbd87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overrideSort: 0
+  useParentPosition: 0
+  positionReference: {fileID: 0}
+  sortMultiplier: 1
+  yOffset: 0
+  minLayer: -1000
+  maxLayer: 1000
 --- !u!1 &413173979988312349
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +114,7 @@ GameObject:
   - component: {fileID: 413173979988312345}
   - component: {fileID: 1994715164704245420}
   - component: {fileID: 413173979988312346}
+  - component: {fileID: 9094085888352746228}
   m_Layer: 14
   m_Name: Skull of Scum
   m_TagString: Enemy
@@ -149,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70bf660450d24c24bac43673b6312d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canBeGrabbed: 0
+  canBeGrabbed: 1
   isProp: 0
   canBreak: 0
   breakFromPropContact: 0
@@ -185,23 +206,24 @@ MonoBehaviour:
     health: 30
     maxHealth: 0
     overrideDeath: 0
-    currentShieldValue: 4
+    currentShieldValue: 1
     damage: 2
     pathSpeedMultiplier: 1
     damageCooldown: 2
     inaccuracyMultiplier: 1
-    noticePlayerDistance: 15
+    noticePlayerDistance: 8
     noticedSpeedMultiplier: 2
-    numGooDrops: 5
+    numGooDrops: 0
     movementAccuracy: 0.1
     animationWalkSpeedMultiplier: 0.5
     animationPrefix: 
-    useDirctionalAnimation: 1
+    useDirctionalAnimation: 0
   noticedPlayer: 0
   gooDrops: []
   splatterDrops: []
   nonRandomDrops: []
-  enemyExplosion: {fileID: 0}
+  enemyExplosion: {fileID: 5168354353443126882, guid: 11768c7001b06cf498521a2489be8b52,
+    type: 3}
   playerScanIgnoreMask:
     serializedVersion: 2
     m_Bits: 0
@@ -215,4 +237,21 @@ MonoBehaviour:
   waves: {fileID: 0}
   gibSpawnYOffset: 0
   rechargingAttack: 0
+  currentNode: -1
   targetVelocity: {x: 0, y: 0}
+--- !u!58 &9094085888352746228
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413173979988312349}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03, y: -0.12}
+  serializedVersion: 2
+  m_Radius: 0.83

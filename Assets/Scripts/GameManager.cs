@@ -381,6 +381,7 @@ public class GameManager : MonoBehaviour
         }
         else if (levelName == "4_boss")
         {
+            canPause = false;
             PlayMusic();
             yield return new WaitForSeconds(1f);
             camControl.overridePosition = true;
@@ -414,7 +415,7 @@ public class GameManager : MonoBehaviour
 
             t.GetComponent<EnemyScript>().UpdateMovement();
             ewm.StartWaves();
-
+            canPause = true;
             ply.canMove = true;
         }
         else if (levelName == "6_endless")
@@ -450,9 +451,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < projectiles.Length; i++)
             Destroy(projectiles[i].gameObject);
 
-        ply.canLaunchHand = false;
         camControl.overridePosition = true;
-        ply.transform.position = new Vector2(0, 200);
         Transform t = GameObject.Find("Boss").transform;
         ply.Freeze();
         ply.GetComponent<Rigidbody2D>().velocity = Vector2.zero;

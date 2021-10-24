@@ -44,7 +44,8 @@ Rocket sprite (as well as possibly other gun variants, not that I've seen any ap
 - Add car door open sprites
 - Maybe make music fade at end of each level with sound effect, hotline miami style
 - Add ambience to beginning of cabin level
-
+- Hide and show crosshair during cutscenes
+- Make boss intro cutscene skippable
 
 
 

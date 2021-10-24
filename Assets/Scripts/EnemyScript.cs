@@ -57,7 +57,10 @@ public abstract class EnemyScript : MonoBehaviour
     public bool rechargingAttack;
     float randSpeedMultiplier;
     float timeSinceLastSeenPlayer;
-    int currentNode = -1;
+
+    [HideInInspector]
+    public int currentNode = -1;
+
     int pathDirection = 1;
     bool readyToExplode = false;
 

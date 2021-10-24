@@ -4261,6 +4261,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 059ac64a9c6315949b117aea29c4c021, type: 3}
   - {fileID: 8300000, guid: 1a3142099d769b341b920d771cd15692, type: 3}
   - {fileID: 8300000, guid: 24330dc3f08fac44aadfc345107b7085, type: 3}
+  - {fileID: 8300000, guid: f4865e307ceae9b478c5b190d7842a0e, type: 3}
   playerSfx:
   - {fileID: 8300000, guid: 490fbd67b2e5a4b4d94fedc170680407, type: 3}
   - {fileID: 8300000, guid: d71a84ee7cd51e942ad5ae0a4b6f8eed, type: 3}
