@@ -19,16 +19,15 @@ public class LevelLoader : MonoBehaviour
         if(collision.tag == "Player")
         {
             PlayerController p = FindObjectOfType<PlayerController>();
-            p.canMove = false;
-            p.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            p.GetComponentInChildren<Animator>().SetFloat("WalkSpeed", 0);
+            p.Freeze();
             LoadLevel();
         }
     }
 
     public void LoadLevel()
     {
-        gm.LoadLevel(levelToLoad);
+        gm.LevelCompleteSequence();
+        //gm.LoadLevel(levelToLoad);
     }
 
     public void LoadLevelHard()

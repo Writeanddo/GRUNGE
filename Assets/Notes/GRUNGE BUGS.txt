@@ -8,6 +8,9 @@ Other sfx to add:
 - Level transitions
 - play the game and find out
 
+// = problem solved
+//? = problem solved in theory, untested
+~ = problem abandoned / not worth solving
 
 
 - If projectiles overlap with an enemy the frame they spawn, they don't explode (frustrating)
@@ -42,16 +45,17 @@ Rocket sprite (as well as possibly other gun variants, not that I've seen any ap
 - Can't fire rocket while charging enemy
 - Every once in a while the releasedRightMouse trigger doesn't go off (and sometimes you can't stop charging? weird shit)
 - Add car door open sprites
-- Maybe make music fade at end of each level with sound effect, hotline miami style
+- Play splat sound when adjusting SFX for volume reference
 - Add ambience to beginning of cabin level
+- Maybe make basement level only begin once you step on the pentagram
 - Hide and show crosshair during cutscenes
 - Make boss intro cutscene skippable
-
 
 
 //? Bounceback on grabbles hitting objects can send player flying if they collide
 //? Can throw enemies through skinny walls
 //? Gatling Goobers sometimes refuse to notice player - Occured at top left of workbench, throwable props were involved
+// Maybe make music fade at end of each level with sound effect, hotline miami style
 // Porch has collision issues, can't damage enemies when you fling them into it
 // Scion Slimes get stuck leaving kitchen left
 // Gibs can STILL SPAWN IN WALLS if hit at the right angle (something to do with tilemap collider maybe?)

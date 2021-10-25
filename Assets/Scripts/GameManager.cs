@@ -651,6 +651,18 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator GameOverSequence()
     {
+        ShowResultsScreen(true);
+        yield return null;
+    }
+
+    public void LevelCompleteSequence()
+    {
+        StopMusic();
+        ShowResultsScreen(false);
+    }
+
+    void ShowResultsScreen(bool isGameOver)
+    {
         int minutes = Mathf.FloorToInt(timer / 60F);
         int seconds = Mathf.FloorToInt(timer - minutes * 60);
         int milliseconds = Mathf.FloorToInt(((timer - (minutes * 60) - seconds)) * 100);
@@ -665,7 +677,6 @@ public class GameManager : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         levelEndScreen.anchoredPosition = Vector2.zero;
-        yield return null;
     }
 
     public void LoadLevel(int level)

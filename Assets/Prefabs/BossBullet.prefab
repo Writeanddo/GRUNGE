@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  damage: 15
+  damage: 11
   inaccuracyModifier: 0
   overrideDirection: 1
 --- !u!50 &8886358451050246488
