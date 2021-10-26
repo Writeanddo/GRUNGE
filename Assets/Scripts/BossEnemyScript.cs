@@ -6,6 +6,7 @@ public class BossEnemyScript : EnemyScript
 {
     public GameObject projectile;
     public GameObject bigExplosion;
+    public GameObject idol;
     bool shooting;
     bool dead;
     int storedHealth;
@@ -39,6 +40,7 @@ public class BossEnemyScript : EnemyScript
         {
             StopAllCoroutines();
             anim.Play("BossDie");
+            ply.stats.health = Mathf.Max(ply.stats.health, 75);
             dead = true;
             StartCoroutine(gm.BossPhase1DieCutscene());
         }
@@ -54,15 +56,24 @@ public class BossEnemyScript : EnemyScript
         shooting = false;
         anim.Play("BossIdle_" + animationSuffix, -1, 0);
         yield return new WaitForSeconds(5f);
-        shooting = true;
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 2; i++)
         {
-            anim.Play("BossShoot_"+animationSuffix, -1, 0);
-            gm.PlaySFX(gm.generalSfx[9]);
-            yield return new WaitForSeconds(0.5f);
-        }
+            shooting = true;
+            for (int j = 0; j < 3; j++)
+            {
+                anim.Play("BossShoot_" + animationSuffix, -1, 0);
+                gm.PlaySFX(gm.generalSfx[9]);
+                yield return new WaitForSeconds(0.5f);
+            }
 
-        if(ply.stats.health > 0)
+            if (ply.stats.health <= 0)
+                yield break;
+
+            yield return new WaitForSeconds(5);
+        }
+        Instantiate(idol, transform.position, Quaternion.identity);
+
+        if (ply.stats.health > 0)
             StartCoroutine(ShootPatterns());
     }
 

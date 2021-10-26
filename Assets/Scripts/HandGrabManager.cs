@@ -105,7 +105,10 @@ public class HandGrabManager : MonoBehaviour
         heldObjectGrabbable = g.GetComponentInChildren<Grabbable>();
         heldObjectGrabbable.Initialize();
         if (!heldObjectGrabbable.canBeGrabbed)
+        {
+            player.handLaunched = false;
             return;
+        }
 
         gm.PlaySFX(gm.playerSfx[3], 1);
         g.transform.parent = transform;

@@ -9,6 +9,7 @@ public class EnemyWaveManager : MonoBehaviour
     public class EnemyWave
     {
         public List<GameObject> enemiesToSpawn = new List<GameObject>();
+        public int wavePower = 0; // Used in endless mode to make sure we don't spawn too many tough enemies
         public float delayBetweenSpawning = 2;
         public int pointToSpawnAt;
         public bool useRandomPoint;
@@ -20,6 +21,7 @@ public class EnemyWaveManager : MonoBehaviour
     public Transform[] enemyPath;
     public Transform[] spawnPoints;
     public Transform[] powerupSpawnPoints;
+    public bool[] lockedSpawnPoints;
     public bool[] spawnPointsUseAnimation;
     public GameObject spawner;
     public bool useLoopPath;
@@ -27,6 +29,9 @@ public class EnemyWaveManager : MonoBehaviour
     public bool spawnPowerups = true;
     public bool spawnEndlessly;
     public int currentWave;
+    public int numWavesCleared;
+
+    public float endlessSpawnTime = 2.5f;
 
     GameObject lastPowerupSpawned;
     public GameObject currentlySpawnedPowerup;
@@ -40,8 +45,14 @@ public class EnemyWaveManager : MonoBehaviour
 
     public void StartWaves()
     {
+        if (gm.playingEndlessMode)
+        {
+            waves = gm.endlessModeWaves;
+            spawnEndlessly = true;
+        }
+
         StartCoroutine(ProcessWavesCoroutine());
-        if(spawnPowerups)
+        if (spawnPowerups)
             StartCoroutine(SpawnPowerupsLoop());
     }
 
@@ -56,37 +67,76 @@ public class EnemyWaveManager : MonoBehaviour
         StopAllCoroutines();
     }
 
+    IEnumerator EndlessDifficultyIncreaser()
+    {
+        yield return new WaitForSeconds(10);
+        endlessSpawnTime = Mathf.Clamp(endlessSpawnTime * 0.93f, 1.25f, 4);
+        StartCoroutine(EndlessDifficultyIncreaser());
+    }
+
     IEnumerator ProcessWavesCoroutine()
     {
+        if (gm.playingEndlessMode)
+            StartCoroutine(EndlessDifficultyIncreaser());
+
         isSpawningEnemies = true;
+        int accumulatedPower = 0;
         bool loopedOnce = false;
         while (spawnEndlessly || !loopedOnce)
         {
             for (int i = 0; i < waves.Length; i++)
             {
-                currentWave = i;
-                foreach (GameObject g in waves[i].enemiesToSpawn)
+                // Randomly choose wave if in endless mode
+                if (gm.playingEndlessMode)
+                {
+                    accumulatedPower++;
+                    int lastWave = currentWave;
+                    while(currentWave == lastWave || waves[currentWave].wavePower > accumulatedPower)
+                        currentWave = Random.Range(0, waves.Length);
+
+                    accumulatedPower -= waves[currentWave].wavePower;
+                }
+                else
+                    currentWave = i;
+
+                foreach (GameObject g in waves[currentWave].enemiesToSpawn)
                 {
                     Transform spawnPoint = null;
                     int pointIndex = 0;
-                    if (waves[i].useRandomPoint)
+                    if (waves[currentWave].useRandomPoint)
+                    {
                         pointIndex = Random.Range(0, spawnPoints.Length);
+                        while (lockedSpawnPoints[pointIndex])
+                            pointIndex = Random.Range(0, spawnPoints.Length);
+                    }
                     else
-                        pointIndex = waves[i].pointToSpawnAt;
+                        pointIndex = waves[currentWave].pointToSpawnAt;
 
                     spawnPoint = spawnPoints[pointIndex];
                     if (spawnPointsUseAnimation[pointIndex])
                     {
-                        EnemyInstantiator e = Instantiate(spawner, spawnPoint.position, Quaternion.identity).GetComponent<EnemyInstantiator>();
-                        e.enemyToSpawn = g;
+                        if (gm.enemiesInLevel.Count < 15)
+                        {
+                            EnemyInstantiator e = Instantiate(spawner, spawnPoint.position, Quaternion.identity).GetComponent<EnemyInstantiator>();
+                            e.enemyToSpawn = g;
+                        }
                     }
                     else
                         Instantiate(g, spawnPoint.position, Quaternion.identity);
 
-                    yield return new WaitForSeconds(waves[i].delayBetweenSpawning);
+                    float delayBetweenEnemies = waves[currentWave].delayBetweenSpawning;
+                    if (gm.playingEndlessMode)
+                        delayBetweenEnemies = endlessSpawnTime;
+                    yield return new WaitForSeconds(delayBetweenEnemies);
                 }
 
-                yield return new WaitForSeconds(waves[i].timeAfterWave);
+                float delay = waves[currentWave].timeAfterWave;
+                if (gm.playingEndlessMode)
+                {
+                    delay = endlessSpawnTime;
+                }
+                yield return new WaitForSeconds(delay);
+                numWavesCleared++;
             }
             loopedOnce = true;
         }

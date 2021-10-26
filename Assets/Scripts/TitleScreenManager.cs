@@ -72,7 +72,6 @@ public class TitleScreenManager : MonoBehaviour
         else
             topScreen.anchoredPosition = Vector2.zero;
 
-        //if (Application.platform == RuntimePlatform.WebGLPlayer)
         //GameObject.Find("TitleExitButton").transform.position = new Vector2(0, 100);
 
         sfxSlider.value = PlayerPrefs.GetInt("GRUNGE_SFX_VOLUME") / 4;
@@ -117,10 +116,7 @@ public class TitleScreenManager : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
-    {
-
-    }
+    
 
     /*public IEnumerator MenuScreenButtonTransition(int nextScreen, int buttonToRemainOnNewScreen, MenuScreen from, MenuScreen to)
     {
@@ -255,7 +251,7 @@ public class TitleScreenManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         blackout.rectTransform.anchoredPosition = new Vector2(0, -3000);
-        
+
     }
 
     public void SavePlayerPrefs()

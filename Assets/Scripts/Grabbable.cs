@@ -135,6 +135,14 @@ public class Grabbable : MonoBehaviour
             float damageMultiplier = 1;
             if (!isProp && (collision.tag == "Enemy" || collision.tag == "Wall" || collision.tag == "Breakable"))
             {
+                // Always throw at full charge for some cases
+                if(thisEnemy.stats.alwaysThrowAtFullCharge)
+                {
+                    hasExploded = true;
+                    thisEnemy.ExplodeBig();
+                    return;
+                }
+
                 switch (thisEnemy.stats.currentShieldValue)
                 {
                     case (3):

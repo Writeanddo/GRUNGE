@@ -104,6 +104,20 @@
             "portraitIndex": 2
         },
         {
+            "id": "GunIntro4",
+            "dialog": [
+                "HOW COME?"
+            ],
+            "portraitIndex": 0
+        },
+        {
+            "id": "GunIntro5",
+            "dialog": [
+                "STOP ASKING QUESTIONS AND\\JUST BLOW UP THE\\SLIME GUYS."
+            ],
+            "portraitIndex": 2
+        },
+        {
             "id": "HealIntro",
             "dialog": [
                 "EASY-PEASY.",

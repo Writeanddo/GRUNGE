@@ -32,7 +32,12 @@ public class CabinWaveSpawner : MonoBehaviour
             doorHole.color = Color.white;
             //Instantiate(enemyToSpawn, doorHole.transform.position, Quaternion.identity);
             gm.PlaySFX(gm.generalSfx[15]);
-            FindObjectOfType<EnemyWaveManager>().StartWaves();
+            EnemyWaveManager e = FindObjectOfType<EnemyWaveManager>();
+            e.StartWaves();
+            e.lockedSpawnPoints[0] = false;
+            e.lockedSpawnPoints[1] = false;
+            e.lockedSpawnPoints[2] = true;
+            e.lockedSpawnPoints[3] = false;
             gm.PlayMusic();
             windAudio.Stop();
             canCollide = false;

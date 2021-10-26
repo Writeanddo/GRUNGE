@@ -31,17 +31,26 @@ public class BossPhase2EnemyScript : EnemyScript
     void Start()
     {
         GetReferences();
+        spr = transform.GetChild(1).GetComponent<SpriteRenderer>();
         prb = ply.GetComponent<Rigidbody2D>();
         bpm = FindObjectOfType<BossPhase2Manager>();
         bossLaser = transform.GetChild(0).GetComponent<Animator>();
         initialPosition = transform.position;
         combatCoroutine = CombatLoop();
         StartCoroutine(combatCoroutine);
+        StartCoroutine(GooDropSpawnLoop());
     }
 
     void FixedUpdate()
     {
         UpdateMovement();
+    }
+
+    IEnumerator GooDropSpawnLoop()
+    {
+        yield return new WaitForSeconds(Random.Range(0.1f, 0.5f));
+        Instantiate(splatterDrops[Random.Range(0, 2)], transform.position, Quaternion.identity);
+        StartCoroutine(GooDropSpawnLoop());
     }
 
     IEnumerator CombatLoop()
@@ -51,14 +60,14 @@ public class BossPhase2EnemyScript : EnemyScript
         // 1 - Scum Skull circle pattern
         // 2 - Slow moving snot bubbles
 
+        bpm.SetNodePath(0);
         currentNode = -1;
         while (true)
         {
             int lastAttack = currentAttack;
-            while(currentAttack == lastAttack)
+            while (currentAttack == lastAttack)
                 currentAttack = Random.Range(0, 3);
 
-            bpm.SetNodePath(currentAttack);
             switch (currentAttack)
             {
                 case 0:
@@ -71,27 +80,25 @@ public class BossPhase2EnemyScript : EnemyScript
                     break;
             }
 
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2);
         }
     }
 
     IEnumerator LaserAttack()
     {
-        for (int i = 0; i < 2; i++)
-        {
-            gm.PlaySFX(gm.generalSfx[20]);
-            yield return new WaitForSeconds(0.1f);
-            bossLaser.Play("BossLaser", -1, 0);
-            yield return new WaitForSeconds(5);
-        }
+        gm.PlaySFX(gm.generalSfx[20]);
+        yield return new WaitForSeconds(0.1f);
+        bossLaser.Play("BossLaser", -1, 0);
+        yield return new WaitForSeconds(2);
     }
 
     IEnumerator GhostBulletsAttack()
     {
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 4; i++)
         {
+            print(i);
             if ((i + 1) % 2 == 0)
-                projectileAngleOffset = Mathf.PI / 2;
+                projectileAngleOffset = Mathf.PI / 4;
             else
                 projectileAngleOffset = 0;
 
@@ -131,14 +138,14 @@ public class BossPhase2EnemyScript : EnemyScript
     {
         if (currentAttack == 0)
         {
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 40; i++)
             {
                 float rand = Random.Range(3.75f, 10);
                 Vector2 spawnPos = transform.position + Vector3.up * rand;
                 int dir = Random.Range(0, 2);
                 if (dir == 0)
                     dir = -1;
-                Vector3 vel = new Vector3(dir, Random.Range(-1, 1f) * 0.85f).normalized;
+                Vector3 vel = new Vector3(dir, Random.Range(-1, 1f) * 0.65f).normalized;
                 Quaternion lookAt = Quaternion.LookRotation(transform.forward, vel);
                 EnemyProjectile e = Instantiate(projectiles[0], spawnPos, Quaternion.identity).GetComponent<EnemyProjectile>();
                 e.transform.rotation = lookAt;
@@ -152,11 +159,15 @@ public class BossPhase2EnemyScript : EnemyScript
             int sides = 8;
             for (int i = 0; i < sides; i++)
             {
-
                 float val = (i / (float)sides * 2 * Mathf.PI) + projectileAngleOffset;
                 Vector3 pos = new Vector2(Mathf.Cos(val), Mathf.Sin(val)).normalized;
-                ScumSkullEnemyScript s = Instantiate(projectiles[1], transform.position + pos + headHoleOffset, Quaternion.identity).GetComponent<ScumSkullEnemyScript>();
-                s.targetVelocity = (Vector2)pos * 6;
+
+                int enemy = 2;
+                if (i % 2 == 0)
+                    enemy = 1;
+
+                ScumSkullEnemyScript s = Instantiate(projectiles[enemy], transform.position + pos + headHoleOffset, Quaternion.identity).GetComponent<ScumSkullEnemyScript>();
+                s.targetVelocity = (Vector2)pos * 10;
                 //yield return new WaitForSeconds(0.1f);
                 //gm.PlaySFXStoppable(gm.generalSfx[3], 1);
             }

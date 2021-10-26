@@ -27594,6 +27594,7 @@ MonoBehaviour:
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 5948206160728454842, guid: bcea7985f80783e45be8e61ad44ea633, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 2
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -27605,7 +27606,8 @@ MonoBehaviour:
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
-    delayBetweenSpawning: 2
+    wavePower: 0
+    delayBetweenSpawning: 2.5
     pointToSpawnAt: 2
     useRandomPoint: 1
     timeAfterWave: 5
@@ -27616,7 +27618,8 @@ MonoBehaviour:
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
-    delayBetweenSpawning: 2
+    wavePower: 0
+    delayBetweenSpawning: 2.5
     pointToSpawnAt: 2
     useRandomPoint: 1
     timeAfterWave: 4
@@ -27627,7 +27630,8 @@ MonoBehaviour:
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
-    delayBetweenSpawning: 2
+    wavePower: 0
+    delayBetweenSpawning: 2.5
     pointToSpawnAt: 2
     useRandomPoint: 1
     timeAfterWave: 5
@@ -27638,7 +27642,8 @@ MonoBehaviour:
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
-    delayBetweenSpawning: 2
+    wavePower: 0
+    delayBetweenSpawning: 2.5
     pointToSpawnAt: 2
     useRandomPoint: 1
     timeAfterWave: 4
@@ -27649,7 +27654,8 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
-    delayBetweenSpawning: 2
+    wavePower: 0
+    delayBetweenSpawning: 2.5
     pointToSpawnAt: 2
     useRandomPoint: 1
     timeAfterWave: 5
@@ -27666,6 +27672,7 @@ MonoBehaviour:
   powerupSpawnPoints:
   - {fileID: 1701698550}
   - {fileID: 1231357404}
+  lockedSpawnPoints: 00000000
   spawnPointsUseAnimation: 01010101
   spawner: {fileID: 447210132431672466, guid: d7c18ef7817c46b47bd1aa5bda1fbb1c, type: 3}
   useLoopPath: 1
@@ -27673,6 +27680,7 @@ MonoBehaviour:
   spawnPowerups: 1
   spawnEndlessly: 1
   currentWave: 0
+  endlessSpawnTime: 2.5
   currentlySpawnedPowerup: {fileID: 0}
 --- !u!1001 &787569354
 PrefabInstance:
@@ -38791,7 +38799,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1396256122}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.119, y: 2.25, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1646202354}
@@ -38973,7 +38981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 3
+    health: 350
     maxHealth: 0
     overrideDeath: 1
     currentShieldValue: 4
@@ -38988,6 +38996,7 @@ MonoBehaviour:
     animationWalkSpeedMultiplier: 0.5
     animationPrefix: 
     useDirctionalAnimation: 1
+    alwaysThrowAtFullCharge: 0
   noticedPlayer: 0
   gooDrops: []
   splatterDrops: []
@@ -39012,6 +39021,7 @@ MonoBehaviour:
     type: 3}
   bigExplosion: {fileID: 8293718595754571669, guid: 9c2e52b1d9cb84d46b4926acc77c739c,
     type: 3}
+  idol: {fileID: 4438951770520843905, guid: 10842cc58203b164789effb4626d44a5, type: 3}
 --- !u!114 &1466560757
 MonoBehaviour:
   m_ObjectHideFlags: 0

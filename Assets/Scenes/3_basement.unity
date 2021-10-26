@@ -27576,6 +27576,7 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 2
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -27586,6 +27587,7 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 2
     pointToSpawnAt: 1
     useRandomPoint: 0
@@ -27596,6 +27598,7 @@ MonoBehaviour:
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 2
     pointToSpawnAt: 0
     useRandomPoint: 0
@@ -27605,6 +27608,7 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 3
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -27617,6 +27621,7 @@ MonoBehaviour:
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 2
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -27628,6 +27633,7 @@ MonoBehaviour:
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1.5
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -27638,6 +27644,7 @@ MonoBehaviour:
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1.5
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -27649,6 +27656,7 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1.5
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -27657,6 +27665,7 @@ MonoBehaviour:
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1.5
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -27668,6 +27677,7 @@ MonoBehaviour:
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1.5
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -27679,6 +27689,7 @@ MonoBehaviour:
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1.5
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -27690,6 +27701,7 @@ MonoBehaviour:
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1.5
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -27712,6 +27724,7 @@ MonoBehaviour:
   - {fileID: 367854330}
   powerupSpawnPoints:
   - {fileID: 317539110}
+  lockedSpawnPoints: 000000
   spawnPointsUseAnimation: 010101
   spawner: {fileID: 447210132431672466, guid: d7c18ef7817c46b47bd1aa5bda1fbb1c, type: 3}
   useLoopPath: 1
@@ -27719,6 +27732,7 @@ MonoBehaviour:
   spawnPowerups: 1
   spawnEndlessly: 0
   currentWave: 0
+  endlessSpawnTime: 2.5
   currentlySpawnedPowerup: {fileID: 0}
 --- !u!1 &756191899
 GameObject:

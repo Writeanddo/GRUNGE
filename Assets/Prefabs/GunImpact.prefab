@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bb2836d6092a34aa0e494b5573f860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 7
+  damage: 6
   knockbackMultiplier: 0.1
   explosionSound: {fileID: 0}
   gibs: []

@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using io.newgrounds;
 
 public class GameManager : MonoBehaviour
 {
+    core ngCore;
+
     Transform cam;
     CameraController camControl;
     PlayerController ply;
@@ -16,7 +19,7 @@ public class GameManager : MonoBehaviour
     Image healthFill;
     Image shieldImage;
     RectTransform shieldTransform;
-
+    
     Image screenBlackout;
     Image quitBlackout;
     Text gooSliderText;
@@ -39,16 +42,24 @@ public class GameManager : MonoBehaviour
     Text gunNameText;
     EnemyWaveManager ewm;
     TextboxManager text;
+    Animator screenTransition;
 
     public bool paused;
     public bool canPause = true;
     public bool gameOver;
+    public bool playingEndlessMode;
+
     public AudioClip music;
-    public AudioClip[] musicStems;
+    public AudioClip endlessMusic;
     public AudioClip[] generalSfx;
     public AudioClip[] playerSfx;
     public AudioClip[] gooPickupSounds;
     public GameObject[] powerups;
+    public EnemyWaveManager.EnemyWave[] endlessModeWaves;
+
+    //[HideInInspector]
+    public List<EnemyScript> enemiesInLevel;
+
     public TextAsset dialogSourceFile;
 
     TextboxManager.TextData[] cachedTextData;
@@ -70,6 +81,7 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Confined;
         cam = transform.GetChild(0).GetChild(0);
+        ngCore = GetComponent<core>();
         camControl = FindObjectOfType<CameraController>();
         ply = FindObjectOfType<PlayerController>();
         healthSlider = GameObject.Find("HealthSlider").GetComponent<Slider>();
@@ -101,6 +113,7 @@ public class GameManager : MonoBehaviour
         gunNameText.text = "";
         weaponTimerText.text = "";
         shieldImage = GameObject.Find("ShieldImage").GetComponent<Image>();
+        screenTransition = GameObject.Find("ScreenTransition").GetComponent<Animator>();
 
         ewm = FindObjectOfType<EnemyWaveManager>();
         text = FindObjectOfType<TextboxManager>();
@@ -108,6 +121,13 @@ public class GameManager : MonoBehaviour
         if (dialogSourceFile != null)
             cachedTextData = JsonHelper.FromJson<TextboxManager.TextData>(dialogSourceFile.text);
 
+        if (SceneManager.GetActiveScene().buildIndex >= 2)
+        {
+            int endless = PlayerPrefs.GetInt("GRUNGE_IS_ENDLESS");
+            if (endless == 1)
+                playingEndlessMode = true;
+        }       
+        enemiesInLevel = new List<EnemyScript>();
         StartCoroutine(LevelStartSequence());
     }
 
@@ -115,14 +135,42 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         UpdateUI();
+        enemiesInLevel.RemoveAll(item => item == null);
 
-        if(!gameOver && ewm.isSpawningEnemies)
+        if (!gameOver && ewm.isSpawningEnemies && !paused)
             timer += Time.fixedDeltaTime;
     }
 
     public void IncreaseKills()
     {
         kills++;
+    }
+
+    // Basement time: 10987
+    // Basement kills: 10986
+    // Front lawn time: 10982
+    // Front lawn kills: 10983
+    // House time: 10985
+    // House kills: 10984
+    // Overall kills: 10980
+    int GetIdFromLevelIndex(int index, bool isTime)
+    {
+        int[] timeIds = new int[3] { 10982, 10985, 10987 };
+        int[] killIds = new int[3] { 10983, 10984, 10986};
+
+        if (isTime)
+            return timeIds[index - 3];
+        else
+            return killIds[index - 3];
+    }
+
+    public void PostScore(int id, int value)
+    {
+        io.newgrounds.components.ScoreBoard.postScore scoreToPost = new io.newgrounds.components.ScoreBoard.postScore();
+        scoreToPost.id = id;
+        scoreToPost.value = value;
+        scoreToPost.callWith(ngCore);
+        print("Posted score " + id);
     }
 
     void UpdateUI()
@@ -248,7 +296,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !gameOver)
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameOver && canPause)
         {
             paused = !paused;
             Cursor.visible = !paused;
@@ -310,7 +358,10 @@ public class GameManager : MonoBehaviour
 
     public void PlayMusic()
     {
-        musicSource.clip = music;
+        if (playingEndlessMode)
+            musicSource.clip = endlessMusic;
+        else
+            musicSource.clip = music;
         musicSource.Play();
     }
 
@@ -418,14 +469,6 @@ public class GameManager : MonoBehaviour
             canPause = true;
             ply.canMove = true;
         }
-        else if (levelName == "6_endless")
-        {
-            musicTrack1.clip = musicStems[0];
-            musicTrack2.clip = musicStems[1];
-            musicTrack1.Play();
-            musicTrack2.Play();
-            ply.canMove = true;
-        }
         else
             ply.canMove = true;
     }
@@ -444,7 +487,10 @@ public class GameManager : MonoBehaviour
         // Destroy all other enemies and projectiles
         EnemyScript[] enemies = FindObjectsOfType<EnemyScript>();
         EnemyProjectile[] projectiles = FindObjectsOfType<EnemyProjectile>();
+        BossIdolScript idol = FindObjectOfType<BossIdolScript>();
 
+        if (idol != null)
+            Destroy(idol.gameObject);
         for (int i = 0; i < enemies.Length; i++)
             if (enemies[i].name != "Boss")
                 Destroy(enemies[i].gameObject);
@@ -663,6 +709,13 @@ public class GameManager : MonoBehaviour
 
     void ShowResultsScreen(bool isGameOver)
     {
+        // Submit to scoreboard if we're playing endless mode
+        if(playingEndlessMode && isGameOver)
+        {
+            PostScore(GetIdFromLevelIndex(SceneManager.GetActiveScene().buildIndex, false), kills);
+            PostScore(GetIdFromLevelIndex(SceneManager.GetActiveScene().buildIndex, true), Mathf.RoundToInt(timer * 1000));
+        }
+
         int minutes = Mathf.FloorToInt(timer / 60F);
         int seconds = Mathf.FloorToInt(timer - minutes * 60);
         int milliseconds = Mathf.FloorToInt(((timer - (minutes * 60) - seconds)) * 100);
@@ -694,7 +747,12 @@ public class GameManager : MonoBehaviour
 
     IEnumerator LoadLevelCoroutine(int level)
     {
-        yield return FadeToBlack();
+        screenBlackout.rectTransform.anchoredPosition = Vector2.zero;
+        PlaySFX(generalSfx[3]);
+        screenTransition.Play("ScreenTransition", -1, 0);
+        yield return new WaitForSeconds(0.25f);
+        screenBlackout.color = Color.black;
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(level);
     }
 

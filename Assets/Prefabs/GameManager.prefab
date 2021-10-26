@@ -747,6 +747,108 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &4964025332919442656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 107439945742280869}
+  - component: {fileID: 7064779087156899995}
+  - component: {fileID: 5632143910299782827}
+  m_Layer: 5
+  m_Name: ScreenTransition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &107439945742280869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4964025332919442656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8795129235089351261}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &7064779087156899995
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4964025332919442656}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -501625675
+  m_SortingLayer: 1
+  m_SortingOrder: 10000
+  m_Sprite: {fileID: 2847061654965539089, guid: ce16060655a501b41871de07c11712d8,
+    type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 16, y: 11.25}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!95 &5632143910299782827
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4964025332919442656}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 42855685e9c7fba4798bdd7665cd88c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5001625767354039633
 GameObject:
   m_ObjectHideFlags: 0
@@ -2243,7 +2345,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4198,6 +4300,7 @@ GameObject:
   - component: {fileID: 8795129235089351261}
   - component: {fileID: 8795129235089351262}
   - component: {fileID: 8911635763527194494}
+  - component: {fileID: 7232364173179997723}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -4220,6 +4323,7 @@ Transform:
   - {fileID: 7262442418920225392}
   - {fileID: 7262442418656696036}
   - {fileID: 7262442417474545512}
+  - {fileID: 107439945742280869}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4238,8 +4342,9 @@ MonoBehaviour:
   paused: 0
   canPause: 1
   gameOver: 0
+  playingEndlessMode: 0
   music: {fileID: 8300000, guid: 0992e8af23deebc4db3018ceacc93808, type: 3}
-  musicStems: []
+  endlessMusic: {fileID: 8300000, guid: 9137b0b91a13d51419713d779e8e5ffb, type: 3}
   generalSfx:
   - {fileID: 8300000, guid: 02dfc8722ec43e742b01be509723819e, type: 3}
   - {fileID: 8300000, guid: 975ce33c5c5510f439966ea1bd94d4a6, type: 3}
@@ -4262,6 +4367,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1a3142099d769b341b920d771cd15692, type: 3}
   - {fileID: 8300000, guid: 24330dc3f08fac44aadfc345107b7085, type: 3}
   - {fileID: 8300000, guid: f4865e307ceae9b478c5b190d7842a0e, type: 3}
+  - {fileID: 8300000, guid: c15ba0a56d260bd4e9abcf7780efbba5, type: 3}
+  - {fileID: 8300000, guid: 9a89d20d206964042ac89d3fca61b5dd, type: 3}
   playerSfx:
   - {fileID: 8300000, guid: 490fbd67b2e5a4b4d94fedc170680407, type: 3}
   - {fileID: 8300000, guid: d71a84ee7cd51e942ad5ae0a4b6f8eed, type: 3}
@@ -4284,6 +4391,118 @@ MonoBehaviour:
   - {fileID: 155923096958015756, guid: 99f1dbb006be999478978015d41e205a, type: 3}
   - {fileID: 155923096958015756, guid: 8c952fa0f9a84d445bbe3aac5f1da67a, type: 3}
   - {fileID: 2315255062283567803, guid: 3d6e68447100a1d4bb58de018b2b1ad0, type: 3}
+  endlessModeWaves:
+  - enemiesToSpawn:
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    wavePower: 0
+    delayBetweenSpawning: 0
+    pointToSpawnAt: 0
+    useRandomPoint: 1
+    timeAfterWave: 0
+  - enemiesToSpawn:
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    wavePower: 1
+    delayBetweenSpawning: 0
+    pointToSpawnAt: 0
+    useRandomPoint: 1
+    timeAfterWave: 0
+  - enemiesToSpawn:
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    wavePower: 1
+    delayBetweenSpawning: 0
+    pointToSpawnAt: 0
+    useRandomPoint: 1
+    timeAfterWave: 0
+  - enemiesToSpawn:
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    wavePower: 0
+    delayBetweenSpawning: 0
+    pointToSpawnAt: 0
+    useRandomPoint: 1
+    timeAfterWave: 0
+  - enemiesToSpawn:
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
+    wavePower: 2
+    delayBetweenSpawning: 0
+    pointToSpawnAt: 0
+    useRandomPoint: 1
+    timeAfterWave: 0
+  - enemiesToSpawn:
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 5948206160728454842, guid: bcea7985f80783e45be8e61ad44ea633, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    wavePower: 2
+    delayBetweenSpawning: 0
+    pointToSpawnAt: 0
+    useRandomPoint: 1
+    timeAfterWave: 0
+  - enemiesToSpawn:
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 5948206160728454842, guid: bcea7985f80783e45be8e61ad44ea633, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    wavePower: 2
+    delayBetweenSpawning: 0
+    pointToSpawnAt: 0
+    useRandomPoint: 1
+    timeAfterWave: 0
+  - enemiesToSpawn:
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    wavePower: 2
+    delayBetweenSpawning: 0
+    pointToSpawnAt: 0
+    useRandomPoint: 1
+    timeAfterWave: 0
+  - enemiesToSpawn:
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    wavePower: 0
+    delayBetweenSpawning: 0
+    pointToSpawnAt: 0
+    useRandomPoint: 1
+    timeAfterWave: 0
+  - enemiesToSpawn:
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    wavePower: 1
+    delayBetweenSpawning: 0
+    pointToSpawnAt: 0
+    useRandomPoint: 1
+    timeAfterWave: 0
+  enemiesInLevel: []
   dialogSourceFile: {fileID: 0}
 --- !u!114 &8911635763527194494
 MonoBehaviour:
@@ -4299,6 +4518,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windowedX: 1024
   windowedY: 720
+--- !u!114 &7232364173179997723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8795129235089351260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eaa7ff83bd030e4ab100b1690f028e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  app_id: 52350:sKKm2I7K
+  session_id: 
+  aes_base64_key: qFT8fruQn6rKUPpZMQcXhg==
+  output_network_data: 0
 --- !u!1 &8795129235442573353
 GameObject:
   m_ObjectHideFlags: 0

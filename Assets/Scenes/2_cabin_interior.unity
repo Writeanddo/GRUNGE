@@ -42379,7 +42379,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738494104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.26, y: 21.16, z: -31.457031}
+  m_LocalPosition: {x: -8.26, y: 23.07, z: -31.457031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -42466,6 +42466,7 @@ MonoBehaviour:
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1
     pointToSpawnAt: 1
     useRandomPoint: 0
@@ -42477,9 +42478,10 @@ MonoBehaviour:
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 2
     pointToSpawnAt: 3
-    useRandomPoint: 0
+    useRandomPoint: 1
     timeAfterWave: 3
   - enemiesToSpawn:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
@@ -42490,6 +42492,7 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1.5
     pointToSpawnAt: 2
     useRandomPoint: 0
@@ -42500,6 +42503,7 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 2
     pointToSpawnAt: 0
     useRandomPoint: 0
@@ -42510,6 +42514,7 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 2
     pointToSpawnAt: 0
     useRandomPoint: 1
@@ -42522,6 +42527,7 @@ MonoBehaviour:
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 2.5
     pointToSpawnAt: 3
     useRandomPoint: 1
@@ -42534,6 +42540,7 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1.5
     pointToSpawnAt: 3
     useRandomPoint: 1
@@ -42545,6 +42552,7 @@ MonoBehaviour:
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1.5
     pointToSpawnAt: 3
     useRandomPoint: 1
@@ -42557,6 +42565,7 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1.5
     pointToSpawnAt: 3
     useRandomPoint: 1
@@ -42569,6 +42578,7 @@ MonoBehaviour:
     - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1
     pointToSpawnAt: 3
     useRandomPoint: 1
@@ -42601,6 +42611,7 @@ MonoBehaviour:
   - {fileID: 317104751}
   - {fileID: 1241812666}
   - {fileID: 1834350162}
+  lockedSpawnPoints: 01000000
   spawnPointsUseAnimation: 0101000101
   spawner: {fileID: 447210132431672466, guid: d7c18ef7817c46b47bd1aa5bda1fbb1c, type: 3}
   useLoopPath: 0
@@ -42608,6 +42619,7 @@ MonoBehaviour:
   spawnPowerups: 1
   spawnEndlessly: 0
   currentWave: 0
+  endlessSpawnTime: 2.5
   currentlySpawnedPowerup: {fileID: 0}
 --- !u!1 &785781077
 GameObject:
@@ -56305,16 +56317,6 @@ CompositeCollider2D:
         Y: 100000000
       - X: 100000000
         Y: 100000000
-  - m_Collider: {fileID: 1331051647}
-    m_ColliderPaths:
-    - - X: -90000000
-        Y: 30000000
-      - X: -90000000
-        Y: 130000000
-      - X: -220000000
-        Y: 130000000
-      - X: -220000000
-        Y: 30000000
   - m_Collider: {fileID: 275075636}
     m_ColliderPaths:
     - - X: -80000000
@@ -56325,6 +56327,16 @@ CompositeCollider2D:
         Y: -10000000
       - X: -220000000
         Y: -90000000
+  - m_Collider: {fileID: 1331051647}
+    m_ColliderPaths:
+    - - X: -90000000
+        Y: 30000000
+      - X: -90000000
+        Y: 130000000
+      - X: -220000000
+        Y: 130000000
+      - X: -220000000
+        Y: 30000000
   m_CompositePaths:
     m_Paths:
     - - {x: 25, y: -12.997071}
@@ -66904,7 +66916,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994356038}
   m_LocalRotation: {x: -0, y: -0, z: -0.70710576, w: 0.70710784}
-  m_LocalPosition: {x: -25.76, y: -2.74, z: -31.457031}
+  m_LocalPosition: {x: -26.91, y: -2.74, z: -31.457031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

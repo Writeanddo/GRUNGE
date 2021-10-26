@@ -33,7 +33,7 @@ public class DoorOpenCutscene : MonoBehaviour
     {
         if (!isInBasement)
         {
-            if (ewm.currentWave == 3 && !hasExploded)
+            if (ewm.numWavesCleared >= 3 && !hasExploded)
             {
                 hasExploded = true;
                 StartCoroutine(ExplodeBedroomCoroutine());
@@ -41,7 +41,7 @@ public class DoorOpenCutscene : MonoBehaviour
         }
         else
         {
-            if (ewm.currentWave == 1 && !hasExploded)
+            if (ewm.numWavesCleared >= 1 && !hasExploded)
             {
                 hasExploded = true;
                 StartCoroutine(ExplodeBasementCoroutine());
@@ -91,7 +91,7 @@ public class DoorOpenCutscene : MonoBehaviour
 
         Instantiate(bigExplosion, new Vector3(-10.75f, -2.25f, 0), Quaternion.identity);
         gm.PlaySFX(secondExplosionSound);
-
+        FindObjectOfType<EnemyWaveManager>().lockedSpawnPoints[0] = false;
         Instantiate(initialEnemies[4], new Vector2(-14, -6), Quaternion.identity);
 
         wallToDisable.SetActive(false);

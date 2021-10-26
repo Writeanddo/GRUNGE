@@ -125,6 +125,8 @@ public class TutorialManager : MonoBehaviour
         SpawnObject(spawnPoints[0].position, itemsToSpawn[3]);
         SpawnObject(spawnPoints[2].position, itemsToSpawn[3]);
         yield return gm.WaitForTextCompletion("GunIntro3");
+        yield return gm.WaitForTextCompletion("GunIntro4");
+        yield return gm.WaitForTextCompletion("GunIntro5");
 
         EnemyScript[] e = FindObjectsOfType<EnemyScript>();
         ply.canMove = true;

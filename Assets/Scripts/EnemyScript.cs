@@ -23,6 +23,7 @@ public abstract class EnemyScript : MonoBehaviour
         public float animationWalkSpeedMultiplier = 0.5f;
         public string animationPrefix;
         public bool useDirctionalAnimation = true;
+        public bool alwaysThrowAtFullCharge;
     }
 
     public EnemyStats stats;
@@ -131,7 +132,7 @@ public abstract class EnemyScript : MonoBehaviour
         randSpeedMultiplier = Random.Range(1.5f, 2.25f);
         currentNode = GetNearestNode();
         crosshair = GameObject.Find("Crosshair");
-        //StartCoroutine(FlashFromDamage());
+        gm.enemiesInLevel.Add(this);
     }
 
     public void MoveTowardsPlayer()
@@ -156,6 +157,11 @@ public abstract class EnemyScript : MonoBehaviour
         }
     }
 
+    public void FaceTowardsVelocity()
+    {
+        CheckAndPlayClip(stats.animationPrefix + "_Face" + GetCompassPointFromAngle(AngleBetween(transform.position + (Vector3)rb.velocity.normalized)));
+    }
+
     public void GetThrown()
     {
         StartCoroutine(GetThrownCoroutine());
@@ -165,7 +171,7 @@ public abstract class EnemyScript : MonoBehaviour
     {
         while (rb.velocity.magnitude > 0.5f)
         {
-            if (!readyToExplode)
+            if (!readyToExplode && !stats.alwaysThrowAtFullCharge)
                 rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, 0.15f);
             else
                 gameObject.layer = LayerMask.NameToLayer("ExplosiveProjectile");
