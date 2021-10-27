@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyProjectile : MonoBehaviour
+public class SnotProjectile : MonoBehaviour
 {
     public float speed = 4;
     public int damage = 5;
@@ -16,9 +16,16 @@ public class EnemyProjectile : MonoBehaviour
     [HideInInspector]
     public bool delayFinished;
 
+    GameManager gm;
+    Animator anim;
+    bool popping;
+
     // Start is called before the first frame update
     void Start()
     {
+        gm = FindObjectOfType<GameManager>();
+        anim = GetComponentInChildren<Animator>();
+
         ply = FindObjectOfType<PlayerController>();
         if (!overrideDirection)
             Launch((ply.transform.position - transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * inaccuracyModifier).normalized * speed);
@@ -37,14 +44,11 @@ public class EnemyProjectile : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         delayFinished = true;
     }
-
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D (Collider2D collision)
     {
-        ProjectileHit(collision);
-    }
+        if (popping)
+            return;
 
-    public void ProjectileHit(Collider2D collision)
-    {
         if (collision.tag == "Player")
         {
             if (ply.heldObject != null && ply.heldObject.tag == "Enemy")
@@ -53,9 +57,22 @@ public class EnemyProjectile : MonoBehaviour
             }
             else
                 ply.ReceiveDamage(damage);
-            Destroy(this.gameObject);
+
+            Pop();
         }
         if (collision.tag == "Wall" && delayFinished)
-            Destroy(this.gameObject);
+            Pop();
+    }
+
+    public void Pop()
+    {
+        popping = true;
+        rb.velocity = Vector2.zero;
+        anim.Play("SnotPop", -1, 0);
+    }
+
+    public void SelfDestruct()
+    {
+        Destroy(this.gameObject);
     }
 }

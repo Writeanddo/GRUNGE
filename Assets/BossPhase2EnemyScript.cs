@@ -78,10 +78,19 @@ public class BossPhase2EnemyScript : EnemyScript
         }
     }
 
+    public void Freeze()
+    {
+
+    }
+
     IEnumerator GooDropSpawnLoop()
     {
         yield return new WaitForSeconds(Random.Range(0.1f, 0.5f));
-        Instantiate(splatterDrops[Random.Range(0, 2)], transform.position, Quaternion.identity);
+        int gooChance = Random.Range(0, 3);
+        if(gooChance > 0)
+            Instantiate(splatterDrops[Random.Range(0, 2)], transform.position, Quaternion.identity);
+        else
+            Instantiate(gooDrops[Random.Range(0, 2)], transform.position, Quaternion.identity);
         StartCoroutine(GooDropSpawnLoop());
     }
 
@@ -92,6 +101,7 @@ public class BossPhase2EnemyScript : EnemyScript
         currentNode = -1;
         currentPathIndex = index;
         stats.pathSpeedMultiplier = 2 + index;
+        anim.SetFloat("ShootSpeed", Mathf.Clamp((currentPathIndex * 0.25f) + 1, 1, 2));
     }
 
     IEnumerator CombatLoop()
@@ -116,6 +126,7 @@ public class BossPhase2EnemyScript : EnemyScript
                     yield return GhostBulletsAttack();
                     break;
                 case 2:
+                    yield return SnotBallAttack();
                     break;
             }
 
@@ -141,15 +152,20 @@ public class BossPhase2EnemyScript : EnemyScript
             else
                 projectileAngleOffset = 0;
 
-            anim.Play("BossShoot_" + animationSuffix, -1, 0);
-            yield return new WaitForSeconds(2f / Mathf.Clamp(currentPathIndex, 1, 3));
+            //anim.Play("BossShoot_" + animationSuffix, -1, 0);
+            SpawnCurrentProjectiles();
+            yield return new WaitForSeconds(3.5f / Mathf.Clamp(currentPathIndex, 1, 3));
         }
         yield return null;
     }
 
     IEnumerator SnotBallAttack()
     {
-        yield return null;
+        for (int i = 0; i < 8*Mathf.Clamp(1 + currentPathIndex*0.25f, 1, 3); i++)
+        {
+            anim.Play("BossShoot_" + animationSuffix, -1, 0);
+            yield return new WaitForSeconds(0.5f / Mathf.Clamp(currentPathIndex, 1, 3));
+        }
     }
 
 
@@ -193,7 +209,7 @@ public class BossPhase2EnemyScript : EnemyScript
                 yield return new WaitForSeconds(0.05f);
             }
         }
-        if (currentAttack == 1)
+        else if (currentAttack == 1)
         {
             int sides = 8;
             for (int i = 0; i < sides; i++)
@@ -211,6 +227,10 @@ public class BossPhase2EnemyScript : EnemyScript
                 //gm.PlaySFXStoppable(gm.generalSfx[3], 1);
             }
             yield return new WaitForSeconds(0.5f);
+        }
+        else if(currentAttack == 2)
+        {
+            SnotProjectile s = Instantiate(projectiles[3], transform.position + headHoleOffset, Quaternion.identity).GetComponent<SnotProjectile>();
         }
     }
 

@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 1500
+    health: 2500
     maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4
@@ -232,7 +232,10 @@ MonoBehaviour:
     useDirctionalAnimation: 1
     alwaysThrowAtFullCharge: 0
   noticedPlayer: 0
-  gooDrops: []
+  gooDrops:
+  - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
+  - {fileID: 3108804696350449111, guid: 5f97728e4b7dc434ab4ffd9b89b509fa, type: 3}
+  - {fileID: 3660314827033038993, guid: 5d8def5a87ab818408895c79865adb80, type: 3}
   splatterDrops:
   - {fileID: 2899660369439385843, guid: d820562ffd847ec4a9dd58ed628ff84c, type: 3}
   - {fileID: 5964755380321203904, guid: c6ab297770cc52b4c93441d5365f0062, type: 3}
@@ -256,6 +259,7 @@ MonoBehaviour:
   - {fileID: 617464210433818943, guid: 46943f816ca3e3c4c98d4072c4b81307, type: 3}
   - {fileID: 413173979988312349, guid: b7bc79785ec74de468e908f4de33d403, type: 3}
   - {fileID: 413173979988312349, guid: cc5d5caa3577c5e4592e7c80bd692ce0, type: 3}
+  - {fileID: 3576737373088521000, guid: d4cbb793903f1d141b66d80b477edad1, type: 3}
   lastFrameXPos: 0
   lastFrameYPos: 0
 --- !u!95 &5637243934282301896

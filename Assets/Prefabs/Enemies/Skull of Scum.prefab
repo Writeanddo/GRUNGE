@@ -227,7 +227,7 @@ MonoBehaviour:
     health: 2
     maxHealth: 0
     overrideDeath: 0
-    currentShieldValue: 1
+    currentShieldValue: 4
     damage: 8
     pathSpeedMultiplier: 1
     damageCooldown: 2

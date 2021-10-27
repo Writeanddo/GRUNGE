@@ -114757,7 +114757,7 @@ PrefabInstance:
     - target: {fileID: 9121030493282817287, guid: 9e81df25b679c3f499ab951836cfa433,
         type: 3}
       propertyPath: stats.currentWeapon
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9121030493282817304, guid: 9e81df25b679c3f499ab951836cfa433,
         type: 3}
