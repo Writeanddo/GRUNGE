@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 30
+    health: 2
     maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4
@@ -234,15 +234,20 @@ MonoBehaviour:
     inaccuracyMultiplier: 1
     noticePlayerDistance: 8
     noticedSpeedMultiplier: 2
-    numGooDrops: 0
+    numGooDrops: 2
     movementAccuracy: 0.1
     animationWalkSpeedMultiplier: 0.5
     animationPrefix: SkullNoGrab
     useDirctionalAnimation: 0
     alwaysThrowAtFullCharge: 1
   noticedPlayer: 0
-  gooDrops: []
-  splatterDrops: []
+  gooDrops:
+  - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
+  - {fileID: 3108804696350449111, guid: 5f97728e4b7dc434ab4ffd9b89b509fa, type: 3}
+  - {fileID: 3660314827033038993, guid: 5d8def5a87ab818408895c79865adb80, type: 3}
+  splatterDrops:
+  - {fileID: 2899660369439385843, guid: d820562ffd847ec4a9dd58ed628ff84c, type: 3}
+  - {fileID: 5964755380321203904, guid: c6ab297770cc52b4c93441d5365f0062, type: 3}
   nonRandomDrops: []
   enemyExplosion: {fileID: 5168354353443126882, guid: 11768c7001b06cf498521a2489be8b52,
     type: 3}

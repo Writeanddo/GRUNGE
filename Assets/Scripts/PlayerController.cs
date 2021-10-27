@@ -29,12 +29,16 @@ public class PlayerController : MonoBehaviour
     public bool canLaunchHand = true;
     public Transform heldObject;
 
+    [HideInInspector]
+    public Vector2 additionalForce;
+
     float speedMultiplier = 1;
     float storedMaxSpeed;
     bool playedDieSequence;
     public bool chargingAttack;
     public bool chargeReady;
     bool rightClickReleased;
+    bool throwingScythe;
 
     Transform crosshair;
     Transform gun;
@@ -93,6 +97,7 @@ public class PlayerController : MonoBehaviour
 
         gun.transform.position = Vector2.Lerp(gun.transform.position, gunTargetPos.position, 0.25f);
         gunTwoHandedHolder.transform.position = Vector2.Lerp(gunTwoHandedHolder.transform.position, gunTwoHandedTargetPos.position, 0.25f);
+        gunTwoHandedHolder.transform.localRotation = Quaternion.Lerp(gunTwoHandedHolder.transform.localRotation, Quaternion.identity, 0.25f);
 
         if (!handLaunched)
         {
@@ -118,15 +123,17 @@ public class PlayerController : MonoBehaviour
 
         float damping = 0.5f;
 
-        if (rb.velocity.magnitude > stats.maxSpeed)
+        if (additionalForce == Vector2.zero && rb.velocity.magnitude > stats.maxSpeed)
         {
             rb.velocity -= rb.velocity * 0.1f;
         }
         else
         {
-            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.ClampMagnitude(speed, 1) * stats.maxSpeed * speedMultiplier, damping);
+            rb.velocity = (Vector3.ClampMagnitude(speed, 1) * stats.maxSpeed * speedMultiplier) + (Vector3)additionalForce;
             stats.speed = rb.velocity.magnitude;
         }
+
+        additionalForce = Vector2.Lerp(additionalForce, Vector2.zero, 0.1f);
     }
 
     void UpdateMovementAnimations()
@@ -164,10 +171,10 @@ public class PlayerController : MonoBehaviour
         // If current weapon index is 10 or greater, we're using a two-handed weapon
         if (stats.currentWeapon >= 10)
         {
+            stats.shotGooUsage = 0;
             hgm.CheckAndPlayClip("Blank");
             CheckAndPlayClip("Blank", gunAnim);
-
-            if (!reloading)
+            if (!throwingScythe)
                 CheckAndPlayClip(gunPrefix + "_" + dir, gunTwoHandedAnim);
             else
                 CheckAndPlayClip("Blank", gunTwoHandedAnim);
@@ -246,7 +253,8 @@ public class PlayerController : MonoBehaviour
             {
                 if (stats.currentWeapon == 10)
                 {
-                    stats.maxSpeed = storedMaxSpeed * 0.5f;
+                    // temp?
+                    //stats.maxSpeed = storedMaxSpeed * 0.75f;
                     StartCoroutine(PrepareChargeAttack());
                 }
             }
@@ -281,15 +289,13 @@ public class PlayerController : MonoBehaviour
                 if (chargingAttack && chargeReady)
                 {
                     gm.PlaySFX(gm.playerSfx[2]);
+                    throwingScythe = true;
                     reloading = true;
                     Instantiate(projectiles[2], transform.position, Quaternion.identity);
                     StartCoroutine(WaitForGunReload(0.82f));
                 }
-                else
-                {
-                    chargingAttack = false;
-                }
 
+                chargingAttack = false;
                 stats.maxSpeed = storedMaxSpeed;
             }
 
@@ -357,7 +363,7 @@ public class PlayerController : MonoBehaviour
 
         handShaker.transform.localPosition = Vector2.zero;
         stats.maxSpeed = storedMaxSpeed;
-        if(e.stats.currentShieldValue > 1)
+        if (e.stats.currentShieldValue > 1)
             gm.StopPrioritySFX();
     }
 
@@ -418,6 +424,7 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         reloading = false;
+        throwingScythe = false;
     }
 
     IEnumerator WaitForHandHit(Vector3 targetPos)
@@ -565,14 +572,28 @@ public class PlayerController : MonoBehaviour
         else if (stats.currentWeapon == 10)
         {
             stats.shotGooUsage = 0;
-            gm.PlaySFX(gm.playerSfx[2]);
             reloading = true;
-            Instantiate(projectiles[2], transform.position, Quaternion.identity);
+            Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
+            gunTwoHandedHolder.transform.position += offset * 3;
+            gunTwoHandedHolder.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, gunTwoHandedHolder.transform.localRotation.z - 180));
+            additionalForce = offset * 20;
 
-            stats.goo -= stats.shotGooUsage;
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position + offset, 4);
+            bool hitEnemy = false;
+            for (int i = 0; i < hits.Length; i++)
+            {
+                if (hits[i].tag == "Enemy")
+                {
+                    hits[i].GetComponent<EnemyScript>().ReceiveDamage(30);
+                    hitEnemy = true;
+                }
+            }
+            if (!hitEnemy)
+                gm.PlaySFX(gm.playerSfx[14]);
+            else
+                gm.PlaySFX(gm.playerSfx[13]);
 
-            //StartCoroutine(MeleeLungeCooldown());
-            StartCoroutine(WaitForGunReload(0.82f));
+            StartCoroutine(WaitForGunReload(0.6f));
         }
     }
 

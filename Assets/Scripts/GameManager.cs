@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     TextMeshProUGUI killsText;
     TextMeshProUGUI timerText;
     RectTransform levelEndScreen;
+    RectTransform replayButton;
+    RectTransform quitButton;
 
     EnemyScript heldEnemy;
     AudioSource musicSource;
@@ -103,6 +105,8 @@ public class GameManager : MonoBehaviour
         gooSliderText = GameObject.Find("GooSliderNumber").GetComponent<Text>();
         killsText = GameObject.Find("KillsNumberText").GetComponent<TextMeshProUGUI>();
         timerText = GameObject.Find("LevelTimeText").GetComponent<TextMeshProUGUI>();
+        replayButton = GameObject.Find("QuitYesButton").GetComponent<RectTransform>();
+        quitButton = GameObject.Find("QuitNoButton").GetComponent<RectTransform>();
 
         screenBlackout = GameObject.Find("ScreenBlackout").GetComponent<Image>();
         quitBlackout = GameObject.Find("QuitPanel").GetComponent<Image>();
@@ -126,6 +130,8 @@ public class GameManager : MonoBehaviour
             int endless = PlayerPrefs.GetInt("GRUNGE_IS_ENDLESS");
             if (endless == 1)
                 playingEndlessMode = true;
+            else
+                playingEndlessMode = false;
         }       
         enemiesInLevel = new List<EnemyScript>();
         StartCoroutine(LevelStartSequence());
@@ -729,6 +735,23 @@ public class GameManager : MonoBehaviour
         quitBlackout.color = new Color(0, 0, 0, 0.5f);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        StartCoroutine(LerpResultsScreen(isGameOver));
+    }
+
+    IEnumerator LerpResultsScreen(bool isGameOver)
+    {
+        while (Vector2.Distance(levelEndScreen.anchoredPosition, Vector2.zero) > 1)
+        {
+            levelEndScreen.anchoredPosition = Vector2.Lerp(levelEndScreen.anchoredPosition, Vector2.zero, 0.25f);
+            yield return new WaitForFixedUpdate();
+        }
+
+        if(isGameOver)
+        {
+            replayButton.anchoredPosition = new Vector2(-88, -240);
+            quitButton.anchoredPosition = new Vector2(84, -240);
+        }
+
         levelEndScreen.anchoredPosition = Vector2.zero;
     }
 

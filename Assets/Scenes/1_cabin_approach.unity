@@ -2228,7 +2228,7 @@ PrefabInstance:
     - target: {fileID: 8795129235089351262, guid: af3b070ce755e0340acbb957102e96c4,
         type: 3}
       propertyPath: playingEndlessMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9005605816546485554, guid: af3b070ce755e0340acbb957102e96c4,
         type: 3}
@@ -4344,6 +4344,7 @@ MonoBehaviour:
   spawnPowerups: 0
   spawnEndlessly: 0
   currentWave: 0
+  numWavesCleared: 0
   endlessSpawnTime: 2.5
   currentlySpawnedPowerup: {fileID: 0}
 --- !u!1 &933719037

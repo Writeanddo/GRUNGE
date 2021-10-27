@@ -13,6 +13,7 @@ public class BossPhase2EnemyScript : EnemyScript
     float maxPosChange = 0.2f;
 
     int currentAttack = -1;
+    int currentPathIndex = -1;
     string animationSuffix = "Healthy";
 
     Animator bossLaser;
@@ -44,6 +45,37 @@ public class BossPhase2EnemyScript : EnemyScript
     void FixedUpdate()
     {
         UpdateMovement();
+
+        // Update animations based on how much health we have left
+        if (stats.health < stats.maxHealth * 0.25f)
+        {
+            if (currentPathIndex != 2)
+            {
+                animationSuffix = "NearDeath";
+                SetPath(2);
+            }
+        }
+        else if (stats.health < stats.maxHealth * 0.5f)
+        {
+            if (currentPathIndex != 2)
+            {
+                animationSuffix = "Damaged";
+                SetPath(2);
+            }
+        }
+        else if (stats.health < stats.maxHealth * 0.75f)
+        {
+            if (currentPathIndex != 1)
+            {
+                animationSuffix = "MidHealth";
+                SetPath(1);
+            }
+        }
+        else if (currentPathIndex != 0)
+        {
+            animationSuffix = "Healthy";
+            SetPath(0);
+        }
     }
 
     IEnumerator GooDropSpawnLoop()
@@ -53,6 +85,15 @@ public class BossPhase2EnemyScript : EnemyScript
         StartCoroutine(GooDropSpawnLoop());
     }
 
+    void SetPath(int index)
+    {
+        print("Moved to path " + index);
+        bpm.SetNodePath(index);
+        currentNode = -1;
+        currentPathIndex = index;
+        stats.pathSpeedMultiplier = 2 + index;
+    }
+
     IEnumerator CombatLoop()
     {
         // Attacks:
@@ -60,8 +101,6 @@ public class BossPhase2EnemyScript : EnemyScript
         // 1 - Scum Skull circle pattern
         // 2 - Slow moving snot bubbles
 
-        bpm.SetNodePath(0);
-        currentNode = -1;
         while (true)
         {
             int lastAttack = currentAttack;
@@ -80,7 +119,7 @@ public class BossPhase2EnemyScript : EnemyScript
                     break;
             }
 
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(2f / Mathf.Clamp(currentPathIndex, 1, 3));
         }
     }
 
@@ -103,7 +142,7 @@ public class BossPhase2EnemyScript : EnemyScript
                 projectileAngleOffset = 0;
 
             anim.Play("BossShoot_" + animationSuffix, -1, 0);
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(2f / Mathf.Clamp(currentPathIndex, 1, 3));
         }
         yield return null;
     }
@@ -187,17 +226,13 @@ public class BossPhase2EnemyScript : EnemyScript
     IEnumerator PlayerKnockback()
     {
         ply.ReceiveDamage(stats.damage);
-        ply.Freeze();
-        Vector3 vel = (ply.transform.position - transform.position).normalized * 25;
-        prb.velocity = vel;
+        Vector3 vel = (ply.transform.position - transform.position).normalized * 40;
+        ply.additionalForce = vel;
 
-        while (prb.velocity.magnitude > 0.25f)
-        {
-            prb.velocity = Vector2.Lerp(prb.velocity, Vector2.zero, 0.06f);
+        while (ply.additionalForce.magnitude > 0.25f)
             yield return new WaitForFixedUpdate();
-        }
-        prb.velocity = Vector2.zero;
-        ply.canMove = true;
+        
+        ply.additionalForce = Vector2.zero;
         knockingPlayerBack = false;
     }
 }

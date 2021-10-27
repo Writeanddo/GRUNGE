@@ -441,11 +441,13 @@ MonoBehaviour:
   - {fileID: 2212254252654720857, guid: c4653396b8d845f41adb84df2294e732, type: 3}
   canMove: 0
   isDying: 0
+  canShoot: 1
   reloading: 0
   siphoningHealth: 0
   handLaunched: 0
   canLaunchHand: 1
   heldObject: {fileID: 0}
+  additionalForce: {x: 0, y: 0}
   chargingAttack: 0
   chargeReady: 0
 --- !u!50 &9121030493282817286

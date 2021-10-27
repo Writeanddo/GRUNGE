@@ -57,6 +57,8 @@ Rocket sprite (as well as possibly other gun variants, not that I've seen any ap
 - Basement goo door still appears above scion slime shadows
 - Remove all sources of directional audio, WebGL build doesn't like it one bit
 - Make it so slightly fewer scion slimes appear in endless
+- Nose Goblin managed to stay alive during phase 1 transition (need to make manager also destroy spawn animations)
+- Boss phase 2 can apply knockback when you're dead, cancelling your death animation
 
 //? Bounceback on grabbles hitting objects can send player flying if they collide
 //? Can throw enemies through skinny walls

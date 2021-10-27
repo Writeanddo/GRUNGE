@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1a080bc78ace1134c8b400d50f1c9805, type: 3}
-    totalSpriteSurfaceArea: 9877641
+    totalSpriteSurfaceArea: 9886345
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -189,6 +189,10 @@ SpriteAtlas:
   - {fileID: -2953954974637200062, guid: 85e600ad6b44be94694b387f84269392, type: 3}
   - {fileID: 3020940962318176328, guid: 85e600ad6b44be94694b387f84269392, type: 3}
   - {fileID: 21300000, guid: 1a95e5adb089b654fbea39802295ccb2, type: 3}
+  - {fileID: 1831125372849780921, guid: 85c5890e8b55b074c9523cf83a1239d6, type: 3}
+  - {fileID: 4817526731153335123, guid: 85c5890e8b55b074c9523cf83a1239d6, type: 3}
+  - {fileID: -1454656392970450834, guid: 85c5890e8b55b074c9523cf83a1239d6, type: 3}
+  - {fileID: 2372402171429346550, guid: 85c5890e8b55b074c9523cf83a1239d6, type: 3}
   - {fileID: 21300000, guid: c3e28acef14e45e44aa65341cb76ade2, type: 3}
   - {fileID: -151093062255664227, guid: 26aad46ff61c810408320ebccdb1ee3d, type: 3}
   - {fileID: -6305215162990766123, guid: 26aad46ff61c810408320ebccdb1ee3d, type: 3}
@@ -347,6 +351,10 @@ SpriteAtlas:
   - TVStatic_0
   - TVStatic_1
   - GameOver
+  - LevelEndButtons_0
+  - LevelEndButtons_1
+  - LevelEndButtons_2
+  - LevelEndButtons_3
   - Crosshair
   - GooFill_8
   - GooFill_9

@@ -19613,6 +19613,7 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1
     pointToSpawnAt: 2
     useRandomPoint: 0
@@ -19626,6 +19627,7 @@ MonoBehaviour:
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 2
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -19641,6 +19643,7 @@ MonoBehaviour:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 1
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -19652,6 +19655,7 @@ MonoBehaviour:
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    wavePower: 0
     delayBetweenSpawning: 2
     pointToSpawnAt: 2
     useRandomPoint: 1
@@ -19670,6 +19674,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   powerupSpawnPoints: []
+  lockedSpawnPoints: 
   spawnPointsUseAnimation: 010100
   spawner: {fileID: 447210132431672466, guid: d7c18ef7817c46b47bd1aa5bda1fbb1c, type: 3}
   useLoopPath: 1
@@ -19677,6 +19682,8 @@ MonoBehaviour:
   spawnPowerups: 1
   spawnEndlessly: 0
   currentWave: 0
+  numWavesCleared: 0
+  endlessSpawnTime: 2.5
   currentlySpawnedPowerup: {fileID: 0}
 --- !u!4 &790483375 stripped
 Transform:
@@ -114618,6 +114625,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1057331286752551137, guid: af3b070ce755e0340acbb957102e96c4,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057331286752551137, guid: af3b070ce755e0340acbb957102e96c4,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057331286752551137, guid: af3b070ce755e0340acbb957102e96c4,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057331286752551137, guid: af3b070ce755e0340acbb957102e96c4,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3291977071920947357, guid: af3b070ce755e0340acbb957102e96c4,
         type: 3}
       propertyPath: target
@@ -114726,6 +114753,11 @@ PrefabInstance:
         type: 3}
       propertyPath: stats.goo
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9121030493282817287, guid: 9e81df25b679c3f499ab951836cfa433,
+        type: 3}
+      propertyPath: stats.currentWeapon
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9121030493282817304, guid: 9e81df25b679c3f499ab951836cfa433,
         type: 3}
