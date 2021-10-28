@@ -1337,9 +1337,11 @@ MonoBehaviour:
   - HEY ASSHOLE, IT'S 1980.\CAN'T YOU AFFORD A\FUCKIN' HAIRCUT?
   portraitFrames:
   - {fileID: 699703873648253923, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
-  - {fileID: 8558633213039616950, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
-  - {fileID: 2434629766918126224, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
   - {fileID: -7737748710114358818, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
+  - {fileID: 2434629766918126224, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
+  - {fileID: 8232878538186372548, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
+  - {fileID: 8558633213039616950, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
+  - {fileID: 6504610415572811104, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
 --- !u!1 &6112384528678839096
 GameObject:
   m_ObjectHideFlags: 0
@@ -4221,6 +4223,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f4865e307ceae9b478c5b190d7842a0e, type: 3}
   - {fileID: 8300000, guid: c15ba0a56d260bd4e9abcf7780efbba5, type: 3}
   - {fileID: 8300000, guid: 9a89d20d206964042ac89d3fca61b5dd, type: 3}
+  - {fileID: 8300000, guid: 9a5b4aac8e75bac46aac04ed21bd0e2f, type: 3}
+  - {fileID: 8300000, guid: 9196087164c04f9449198624357804c5, type: 3}
+  - {fileID: 8300000, guid: a7cc2331433b4c244b6c00b0123fbd88, type: 3}
+  - {fileID: 8300000, guid: ee0b258f0c1af9f409cf94821a6b2eec, type: 3}
   playerSfx:
   - {fileID: 8300000, guid: 490fbd67b2e5a4b4d94fedc170680407, type: 3}
   - {fileID: 8300000, guid: d71a84ee7cd51e942ad5ae0a4b6f8eed, type: 3}

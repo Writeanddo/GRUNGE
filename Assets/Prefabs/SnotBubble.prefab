@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3576737373088521001}
   m_Layer: 0
   m_Name: SnotBubble
-  m_TagString: Untagged
+  m_TagString: SnotBubble
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,9 +83,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fb1ca079b3d2d047adbfe78100abe36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  damage: 15
-  inaccuracyModifier: 10
+  speed: 6
+  damage: 18
+  inaccuracyModifier: 5
   overrideDirection: 0
   ply: {fileID: 0}
   rb: {fileID: 0}

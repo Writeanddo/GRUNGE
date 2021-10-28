@@ -104,6 +104,11 @@ public class ScytheProjectile : MonoBehaviour
         {
             //EndSequence();
         }
+
+        if (collision.tag == "SnotBubble")
+        {
+            collision.transform.SendMessage("Pop", false);
+        }
     }
 
     void EndSequence()

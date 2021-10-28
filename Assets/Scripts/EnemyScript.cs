@@ -460,7 +460,10 @@ public abstract class EnemyScript : MonoBehaviour
 
     void Die()
     {
-        gm.IncreaseKills();
-        Destroy(this.gameObject);
+        if (!stats.overrideDeath)
+        {
+            gm.IncreaseKills();
+            Destroy(this.gameObject);
+        }
     }
 }

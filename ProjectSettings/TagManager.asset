@@ -12,6 +12,7 @@ TagManager:
   - Hand
   - Explosion
   - GibRemover
+  - SnotBubble
   layers:
   - Default
   - TransparentFX

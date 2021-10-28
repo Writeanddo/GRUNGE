@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     Image healthFill;
     Image shieldImage;
     RectTransform shieldTransform;
-    
+
     Image screenBlackout;
     Image quitBlackout;
     Text gooSliderText;
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
                 playingEndlessMode = true;
             else
                 playingEndlessMode = false;
-        }       
+        }
         enemiesInLevel = new List<EnemyScript>();
         StartCoroutine(LevelStartSequence());
     }
@@ -162,7 +162,7 @@ public class GameManager : MonoBehaviour
     int GetIdFromLevelIndex(int index, bool isTime)
     {
         int[] timeIds = new int[3] { 10982, 10985, 10987 };
-        int[] killIds = new int[3] { 10983, 10984, 10986};
+        int[] killIds = new int[3] { 10983, 10984, 10986 };
 
         if (isTime)
             return timeIds[index - 3];
@@ -314,6 +314,25 @@ public class GameManager : MonoBehaviour
             else
                 Cursor.lockState = CursorLockMode.None;
         }
+
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            if (Input.GetKeyDown(KeyCode.F10))
+                SetFullscreenMode(!Screen.fullScreen);
+        }
+    }
+
+    void SetFullscreenMode(bool isFullscreen)
+    {
+        int width = 1024;
+        int height = 720;
+        if (isFullscreen)
+        {
+            width = Screen.currentResolution.width;
+            height = Screen.currentResolution.height;
+        }
+
+        Screen.SetResolution(width, height, isFullscreen);
     }
 
 
@@ -545,7 +564,7 @@ public class GameManager : MonoBehaviour
         {
             case 10:
                 gunNameText.text = "THRESH";
-                gunTimer = 20;
+                gunTimer = 999;
                 ply.canLaunchHand = false;
                 break;
 
@@ -716,7 +735,7 @@ public class GameManager : MonoBehaviour
     void ShowResultsScreen(bool isGameOver)
     {
         // Submit to scoreboard if we're playing endless mode
-        if(playingEndlessMode && isGameOver)
+        if (playingEndlessMode && isGameOver)
         {
             PostScore(GetIdFromLevelIndex(SceneManager.GetActiveScene().buildIndex, false), kills);
             PostScore(GetIdFromLevelIndex(SceneManager.GetActiveScene().buildIndex, true), Mathf.RoundToInt(timer * 1000));
@@ -746,7 +765,7 @@ public class GameManager : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
-        if(isGameOver)
+        if (isGameOver)
         {
             replayButton.anchoredPosition = new Vector2(-88, -240);
             quitButton.anchoredPosition = new Vector2(84, -240);

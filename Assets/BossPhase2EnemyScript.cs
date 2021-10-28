@@ -17,6 +17,7 @@ public class BossPhase2EnemyScript : EnemyScript
     string animationSuffix = "Healthy";
 
     Animator bossLaser;
+    Animator summonCircle;
     Rigidbody2D prb;
 
     Vector3 initialPosition;
@@ -27,15 +28,17 @@ public class BossPhase2EnemyScript : EnemyScript
     BossPhase2Manager bpm;
 
     bool knockingPlayerBack;
+    bool isDying;
 
     // Start is called before the first frame update
     void Start()
     {
         GetReferences();
-        spr = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        spr = transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>();
         prb = ply.GetComponent<Rigidbody2D>();
         bpm = FindObjectOfType<BossPhase2Manager>();
         bossLaser = transform.GetChild(0).GetComponent<Animator>();
+        summonCircle = transform.GetChild(2).GetComponent<Animator>();
         initialPosition = transform.position;
         combatCoroutine = CombatLoop();
         StartCoroutine(combatCoroutine);
@@ -44,15 +47,18 @@ public class BossPhase2EnemyScript : EnemyScript
 
     void FixedUpdate()
     {
-        UpdateMovement();
+        if (!isDying)
+            UpdateMovement();
+        else
+            rb.velocity = Vector2.zero;
 
         // Update animations based on how much health we have left
         if (stats.health < stats.maxHealth * 0.25f)
         {
-            if (currentPathIndex != 2)
+            if (currentPathIndex != 3)
             {
                 animationSuffix = "NearDeath";
-                SetPath(2);
+                SetPath(3);
             }
         }
         else if (stats.health < stats.maxHealth * 0.5f)
@@ -76,18 +82,28 @@ public class BossPhase2EnemyScript : EnemyScript
             animationSuffix = "Healthy";
             SetPath(0);
         }
+
+        if(stats.health <= 0 && !isDying)
+        {
+            isDying = true;
+            StartDeathSequence();
+        }
     }
 
-    public void Freeze()
+    public void StartDeathSequence()
     {
-
+        StopAllCoroutines();
+        rb.velocity = Vector2.zero;
+        bpm.StartCoroutine(bpm.DeathSequenceCoroutine());
     }
+
+    
 
     IEnumerator GooDropSpawnLoop()
     {
         yield return new WaitForSeconds(Random.Range(0.1f, 0.5f));
         int gooChance = Random.Range(0, 3);
-        if(gooChance > 0)
+        if(gooChance > 1)
             Instantiate(splatterDrops[Random.Range(0, 2)], transform.position, Quaternion.identity);
         else
             Instantiate(gooDrops[Random.Range(0, 2)], transform.position, Quaternion.identity);
@@ -100,8 +116,8 @@ public class BossPhase2EnemyScript : EnemyScript
         bpm.SetNodePath(index);
         currentNode = -1;
         currentPathIndex = index;
-        stats.pathSpeedMultiplier = 2 + index;
-        anim.SetFloat("ShootSpeed", Mathf.Clamp((currentPathIndex * 0.25f) + 1, 1, 2));
+        stats.pathSpeedMultiplier = 2 + index*0.75f;
+        anim.SetFloat("ShootSpeed", Mathf.Clamp((currentPathIndex * 0.15f) + 1, 1, 2));
     }
 
     IEnumerator CombatLoop()
@@ -152,8 +168,8 @@ public class BossPhase2EnemyScript : EnemyScript
             else
                 projectileAngleOffset = 0;
 
-            //anim.Play("BossShoot_" + animationSuffix, -1, 0);
-            SpawnCurrentProjectiles();
+            gm.PlaySFX(gm.generalSfx[Random.Range(23, 25)]);
+            summonCircle.Play("CircleSpawn", -1, 0);
             yield return new WaitForSeconds(3.5f / Mathf.Clamp(currentPathIndex, 1, 3));
         }
         yield return null;
@@ -200,7 +216,7 @@ public class BossPhase2EnemyScript : EnemyScript
                 int dir = Random.Range(0, 2);
                 if (dir == 0)
                     dir = -1;
-                Vector3 vel = new Vector3(dir, Random.Range(-1, 1f) * 0.65f).normalized;
+                Vector3 vel = new Vector3(dir, Random.Range(-1, 1f)).normalized;
                 Quaternion lookAt = Quaternion.LookRotation(transform.forward, vel);
                 EnemyProjectile e = Instantiate(projectiles[0], spawnPos, Quaternion.identity).GetComponent<EnemyProjectile>();
                 e.transform.rotation = lookAt;
@@ -230,6 +246,7 @@ public class BossPhase2EnemyScript : EnemyScript
         }
         else if(currentAttack == 2)
         {
+            gm.PlaySFX(gm.generalSfx[25]);
             SnotProjectile s = Instantiate(projectiles[3], transform.position + headHoleOffset, Quaternion.identity).GetComponent<SnotProjectile>();
         }
     }

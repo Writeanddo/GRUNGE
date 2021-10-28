@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1a080bc78ace1134c8b400d50f1c9805, type: 3}
-    totalSpriteSurfaceArea: 9886345
+    totalSpriteSurfaceArea: 9967017
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -80,6 +80,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 40eb527222e922243b6edbdc4685ccf8, type: 3}
   - {fileID: 21300000, guid: 64cf10a29b1cb924b87fdfc859f3eabe, type: 3}
   - {fileID: 21300000, guid: b057d1b2040c061418f16b9b259e0ec5, type: 3}
+  - {fileID: 21300000, guid: 7c21c0e3d5fc363499d56744f2ba2cef, type: 3}
   - {fileID: 21300000, guid: 994f5b443fe455f4ea7e4cc0a0db8f9d, type: 3}
   - {fileID: 7254826624406407848, guid: 10c9f7d46355dd0448bd2272e4a9986f, type: 3}
   - {fileID: 5914958896064840540, guid: 10c9f7d46355dd0448bd2272e4a9986f, type: 3}
@@ -100,6 +101,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: e45227e4ff4bdcc4e8bbd68f1d21b3e1, type: 3}
   - {fileID: 21300000, guid: a058a865d8ddcf346bc0fd98ec9c17d6, type: 3}
   - {fileID: 21300000, guid: e77de58539eff33419485343ba142650, type: 3}
+  - {fileID: 8232878538186372548, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
+  - {fileID: 6504610415572811104, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
   - {fileID: 699703873648253923, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
   - {fileID: 2434629766918126224, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
   - {fileID: 8558633213039616950, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
@@ -242,6 +245,7 @@ SpriteAtlas:
   - EButton
   - HandCrosshair
   - 2
+  - Comparison
   - TitleScreenBG_RESIZE
   - ButtonsNew_14
   - ButtonsNew_15
@@ -262,6 +266,8 @@ SpriteAtlas:
   - LevelSelectorTopBar
   - GooMeter
   - TitleBIG
+  - Portraits_4
+  - Portraits_5
   - Portraits_0
   - Portraits_1
   - Portraits_2

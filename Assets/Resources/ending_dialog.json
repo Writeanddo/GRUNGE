@@ -1,0 +1,132 @@
+{
+    "Items": [
+        {
+            "id": "CutsceneBegin",
+            "dialog": [
+                "KID! YOU PULLED IT OFF!",
+                "YOU'RE A REAL NATURAL...\\CLEANEST JOB I'VE SEEN\\IN YEARS!"
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "Chaste1",
+            "dialog": [
+                "I'M AFRAID I CAN'T SAY\\THE SAME."
+            ],
+            "portraitIndex": 4
+        },
+        {
+            "id": "Seb1",
+            "dialog": [
+                "WHAT THE...? WHO THE HELL\\ARE YOU?"
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "Chaste2",
+            "dialog": [
+                "MY NAME IS CHASTE. I'VE\\BEEN HIRED TO DO CONTRACT\\WORK AT THIS LOCATION.",
+                "IN FACT, I WAS JUST ON MY\\WAY OVER WHEN I HEARD\\THE EXPLOSIONS.",
+                "TO MY SURPRISE, SOMEONE\\ELSE HAD ALREADY GOTTEN\\STARTED.",
+                "ALMOST AS THOUGH THEY HAD\\INTERCEPTED MY CALL WITH\\AN ILLEGAL RADIO\\SCANNER.",
+                "ALMOST LIKE THE KIND YOU\\HAVE IN YOUR CAR."
+            ],
+            "portraitIndex": 4
+        },
+        {
+            "id": "Seb2",
+            "dialog": [
+                "...YOU CAN'T PROVE\\THAT'S MINE."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "Slick1",
+            "dialog": [
+                "WHY DON'T YOU JUST STEP\\OFF? THE WAY I SEE IT,\\WE JUST DID YOUR JOB\\FOR YOU."
+            ],
+            "portraitIndex": 0
+        },
+        {
+            "id": "Chaste3",
+            "dialog": [
+                "HARDLY. THIS IS SOME OF\\THE SLOPPIEST WORK I'VE\\SEEN IN MY CAREER.",
+                "WHICH IS WHY I'M WRITING\\YOU TWO UP. UTTER\\DISREGARD FOR\\PROTOCOL."
+            ],
+            "portraitIndex": 4
+        },
+        {
+            "id": "Seb3",
+            "dialog": [
+                "WHAT?!"
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "Slick2",
+            "dialog": [
+                "HUH?!"
+            ],
+            "portraitIndex": 0
+        },
+        {
+            "id": "Chaste4",
+            "dialog": [
+                "THE NOISE POLLUTION...\\NOT TO MENTION THE\\CONTAMINANTS YOU'VE\\RELEASED...",
+                "SURELY YOU UNDERSTAND THE\\SPLATICAN WOULD HAVE MY\\HEAD IF THEY THOUGHT I\\WAS RESPONSIBLE."
+            ],
+            "portraitIndex": 4
+        },
+        {
+            "id": "Slick3",
+            "dialog": [
+                "HOW ABOUT YOU BLOW ME? I\\BUSTED MY ASS DOWN THERE!"
+            ],
+            "portraitIndex": 0
+        },
+        {
+            "id": "Chaste5",
+            "dialog": [
+                "WELL, SINCE YOU'VE BEEN\\SO UNPROFESSIONAL ABOUT\\THIS WHOLE THING...",
+                "...LET ME OFFER YOU THE\\SAME COURTESY."
+            ],
+            "portraitIndex": 4
+        },
+        {
+            "id": "Chaste6",
+            "dialog": [
+                "EAT IT. YOU TWO AREN'T\\CUT OUT TO BE\\EXTERMINATORS."
+            ],
+            "portraitIndex": 4
+        },
+        {
+            "id": "Slick4",
+            "dialog": [
+                "..."
+            ],
+            "portraitIndex": 0
+        },
+        {
+            "id": "Seb4",
+            "dialog": [
+                "..."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "Slick5",
+            "dialog": [
+                "WANNA GET SOMETHING\\TO EAT?"
+            ],
+            "portraitIndex": 0
+        },
+        {
+            "id": "Seb5",
+            "dialog": [
+                "...",
+                "SURE."
+            ],
+            "portraitIndex": 2
+        }
+    ]
+}

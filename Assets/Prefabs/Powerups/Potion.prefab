@@ -217,6 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 1
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: 0
   minLayer: -1000
@@ -337,7 +338,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

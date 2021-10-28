@@ -42,7 +42,7 @@ Rocket sprite (as well as possibly other gun variants, not that I've seen any ap
 
 - Make weapon crates grabbable (easy)
 - Can advance text while paused
-- Can't fire rocket while charging enemy
+// Can't fire rocket while charging enemy
 - Every once in a while the releasedRightMouse trigger doesn't go off (and sometimes you can't stop charging? weird shit)
 - Add car door open sprites
 - Play splat sound when adjusting SFX for volume reference
@@ -51,11 +51,11 @@ Rocket sprite (as well as possibly other gun variants, not that I've seen any ap
 - Hide and show crosshair during cutscenes
 - Make boss intro cutscene skippable
 - FREAK OCCURANCE where enemy spawned all goo gibs in a massive diagonal line along a wall
-- Tutorial shovel doesn't self destruct
+// Tutorial shovel doesn't self destruct
 - Check if user is logged in and advise login at game start
-- TIMER PROBABLY CONTINUES IF PAUSED
+//? TIMER PROBABLY CONTINUES IF PAUSED
 - Basement goo door still appears above scion slime shadows
-- Remove all sources of directional audio, WebGL build doesn't like it one bit
+//? Remove all sources of directional audio, WebGL build doesn't like it one bit
 - Make it so slightly fewer scion slimes appear in endless
 - Nose Goblin managed to stay alive during phase 1 transition (need to make manager also destroy spawn animations)
 - Boss phase 2 can apply knockback when you're dead, cancelling your death animation

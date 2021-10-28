@@ -85,7 +85,7 @@ public class TutorialManager : MonoBehaviour
                 e2.Add(g[i]);
             else if (g[i].name == "TrainingDummy1(Clone)")
                 e1.Add(g[i]);
-            else
+            else if (g[i].name == "Shovel(Clone)")
                 shovel = g[i];
         }
 

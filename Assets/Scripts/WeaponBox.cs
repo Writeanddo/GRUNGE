@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponBox : MonoBehaviour
 {
     public int gunIndex;
+    public bool dontDisappear;
 
     SpriteRenderer spr;
     GameManager gm;
@@ -29,12 +30,16 @@ public class WeaponBox : MonoBehaviour
             case (2):
                 anim.Play("TommygunBox");
                 break;
+            case (10):
+                anim.Play("ScytheBox");
+                break;
             case (11):
                 anim.Play("KnuckleBox");
                 break;
         }
 
-        StartCoroutine(DestroyAfterTime());
+        if(!dontDisappear)
+            StartCoroutine(DestroyAfterTime());
     }
 
     IEnumerator DestroyAfterTime()
@@ -56,6 +61,8 @@ public class WeaponBox : MonoBehaviour
         {
             if (ply.heldObject == this.gameObject)
                 ply.heldObject = null;
+            else if (ply.heldObject != null)
+                FindObjectOfType<HandGrabManager>().DropItem();
 
             gm.PickupGun(gunIndex);
             Destroy(this.gameObject);

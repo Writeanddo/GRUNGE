@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: -7737748710114358818
     second: Portraits_3
+  - first:
+      213: 2657538790404826188
+    second: Portraits_2
+  - first:
+      213: 2448173508182540149
+    second: Portraits_3
+  - first:
+      213: 8232878538186372548
+    second: Portraits_4
+  - first:
+      213: 6504610415572811104
+    second: Portraits_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,7 +115,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 54
+        y: 52
         width: 52
         height: 52
       alignment: 0
@@ -123,8 +135,8 @@ TextureImporter:
       name: Portraits_1
       rect:
         serializedVersion: 2
-        x: 54
-        y: 54
+        x: 52
+        y: 52
         width: 52
         height: 52
       alignment: 0
@@ -144,6 +156,27 @@ TextureImporter:
       name: Portraits_2
       rect:
         serializedVersion: 2
+        x: 104
+        y: 52
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c44a6ea137971e420800000000000000
+      internalID: 2657538790404826188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portraits_3
+      rect:
+        serializedVersion: 2
         x: 0
         y: 0
         width: 52
@@ -155,17 +188,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b3261acf8f56c670800000000000000
-      internalID: 8558633213039616950
+      spriteID: 57ffdbfa5d8a9f120800000000000000
+      internalID: 2448173508182540149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Portraits_3
+      name: Portraits_4
       rect:
         serializedVersion: 2
-        x: 54
+        x: 52
         y: 0
         width: 52
         height: 52
@@ -176,8 +209,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed985646b8efd9490800000000000000
-      internalID: -7737748710114358818
+      spriteID: 4c5398b296f014270800000000000000
+      internalID: 8232878538186372548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portraits_5
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06df586c5b4054a50800000000000000
+      internalID: 6504610415572811104
       vertices: []
       indices: 
       edges: []

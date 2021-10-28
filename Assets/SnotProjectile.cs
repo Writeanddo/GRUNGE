@@ -58,14 +58,19 @@ public class SnotProjectile : MonoBehaviour
             else
                 ply.ReceiveDamage(damage);
 
-            Pop();
+            Pop(false);
         }
         if (collision.tag == "Wall" && delayFinished)
-            Pop();
+            Pop(true);
     }
 
-    public void Pop()
+    public void Pop(bool isSilent)
     {
+        if (popping)
+            return;
+
+        if(!isSilent)
+            gm.PlaySFX(gm.generalSfx[26]);
         popping = true;
         rb.velocity = Vector2.zero;
         anim.Play("SnotPop", -1, 0);

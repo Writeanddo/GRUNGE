@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     bool rightClickReleased;
     bool throwingScythe;
 
+    Vector2 gizmoOffset;
+
     Transform crosshair;
     Transform gun;
     Transform gunTargetPos;
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
     Animator gunAnim;
     Transform gunTwoHandedHolder;
     Animator gunTwoHandedAnim;
+    Animator glintAnim;
     SpriteRenderer spr;
     GameManager gm;
     Rigidbody2D rb;
@@ -75,6 +78,7 @@ public class PlayerController : MonoBehaviour
         gunTwoHandedTargetPos = anim.transform.GetChild(4);
         gunTwoHandedHolder = anim.transform.GetChild(5);
         gunTwoHandedAnim = gunTwoHandedHolder.GetChild(0).GetComponent<Animator>();
+        glintAnim = transform.GetChild(4).GetComponent<Animator>();
 
         hgm = FindObjectOfType<HandGrabManager>();
         rb = GetComponent<Rigidbody2D>();
@@ -205,7 +209,7 @@ public class PlayerController : MonoBehaviour
         // Shoot gun
         if (Input.GetButton("Fire1"))
         {
-            if (canShoot && !reloading && stats.goo >= stats.shotGooUsage && !chargingAttack)
+            if (canShoot && !reloading && stats.goo >= stats.shotGooUsage)
                 FireGun();
         }
 
@@ -330,6 +334,7 @@ public class PlayerController : MonoBehaviour
         if (chargingAttack)
         {
             gm.PlaySFX(gm.playerSfx[4]);
+            glintAnim.Play("ChargeGlint", -1, 0);
             chargeReady = true;
         }
 
@@ -393,6 +398,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Die()
     {
+        gm.canPause = false;
         playedDieSequence = true;
         chargingAttack = false;
         chargeReady = false;
@@ -576,15 +582,22 @@ public class PlayerController : MonoBehaviour
             Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
             gunTwoHandedHolder.transform.position += offset * 3;
             gunTwoHandedHolder.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, gunTwoHandedHolder.transform.localRotation.z - 180));
-            additionalForce = offset * 20;
+            additionalForce = offset * 12;
 
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position + offset, 4);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position + offset*3, 2.75f);
+            gizmoOffset = offset*3;
+
             bool hitEnemy = false;
             for (int i = 0; i < hits.Length; i++)
             {
                 if (hits[i].tag == "Enemy")
                 {
                     hits[i].GetComponent<EnemyScript>().ReceiveDamage(30);
+                    hitEnemy = true;
+                }
+                if(hits[i].tag == "SnotBubble")
+                {
+                    hits[i].SendMessage("Pop", false);
                     hitEnemy = true;
                 }
             }
@@ -595,6 +608,12 @@ public class PlayerController : MonoBehaviour
 
             StartCoroutine(WaitForGunReload(0.6f));
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if(gizmoOffset != Vector2.zero)
+            Gizmos.DrawWireSphere(transform.position + (Vector3)gizmoOffset, 2.75f);
     }
 
     string GetCompassDirection(float angle)

@@ -148,9 +148,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  damage: 11
+  damage: 15
   inaccuracyModifier: 0
   overrideDirection: 1
+  ply: {fileID: 0}
+  rb: {fileID: 0}
+  delayFinished: 0
 --- !u!50 &8886358451050246488
 Rigidbody2D:
   serializedVersion: 4

@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: 0
   minLayer: -1000
@@ -163,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunIndex: 1
+  dontDisappear: 0
 --- !u!1 &1078526155177516725
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +253,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

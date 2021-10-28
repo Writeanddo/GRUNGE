@@ -47,6 +47,14 @@ AnimationClip:
     path: BossHead/BossSkull
     classID: 212
     script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: -4155383456858165698, guid: 658fc0a56afdb7d49bf98ed215e07f2b,
+        type: 3}
+    attribute: m_Sprite
+    path: BossHead
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -61,6 +69,13 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 1713718587
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: -2286751469124516363, guid: d402841187bc2714b9e598418079c97f, type: 3}
     - {fileID: 8474355211595762373, guid: d402841187bc2714b9e598418079c97f, type: 3}
@@ -70,6 +85,7 @@ AnimationClip:
     - {fileID: -6587456232822205091, guid: d402841187bc2714b9e598418079c97f, type: 3}
     - {fileID: 8474355211595762373, guid: d402841187bc2714b9e598418079c97f, type: 3}
     - {fileID: -2286751469124516363, guid: d402841187bc2714b9e598418079c97f, type: 3}
+    - {fileID: -4155383456858165698, guid: 658fc0a56afdb7d49bf98ed215e07f2b, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
