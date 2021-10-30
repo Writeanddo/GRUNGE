@@ -1,0 +1,58 @@
+CONTENT TO ADD:
+- Ending cabin cutscene
+//? Updated level selector
+//? Display medals after each level
+- Display any additional medals
+- Change medal unlock sound
+- Add seb slimed dialog + sprites
+//? Medal unlock popup
+//? REPLACE PLAYERPREFS WITH JSON FILE so it doesn't get wiped between builds
+- Add hi scores to results screen + level select screen
+- Accurate level preview videos
+- Add KG Stumps
+- Victory screen + "ENDLESS MODE UNLOCKED" text
+- Alt frames for greenhead
+- Full SFX pass
+
+
+BUGS:
+
+Game breaking:
+- Endless mode doesn't unlock after beating boss
+
+Jack:
+- Tutorial boom sfx doesn't play on level completion
+- Maybe add arrow indicator for powerups
+- 11:00 or so: Maybe add one fewer big guy
+- Stunned should only slow to 75%
+// 15:45, some guy didn't get thrown
+- Add sound for totem hover
+- Boss phase 2 needs animation
+- Spawn fewer big guys in phase 1, make phase 2 more difficult
+
+Kled:
+- Add beeping sound when selecting a stage since it's like a TV changing channels
+- Sebacian should make a remark about throwing the dummy in his direction instead of the wall , maybe recolor sprite to
+- Make short music loop for when slick + seb are in car after tutorial
+- If you select ENDLESS and select the boss stage, I think it should have, in VHS letters in the center "INSERT TAPE" as opposed to the rest of the levels which are showcased appropiately
+- something feels off about grabbing and throwing (Add slight delay before charge begins and decrease time it takes to reach full charge, also increase shake sound volume)
+- Cut off intro to Everglades music so it plays in time with the wall explosion
+- Enemies just spawning in front of the door took me a bit out of the experience, having them fade in might help
+- Make it so Chaste doesn't say his name, come off as more mysterious
+- Slick's response to Chaste about The way I see it we did a better job thing, I feel like he should sound more smug and cocky about this
+// Carrying a nose goblin to the top right cabin wall makes them clip out of bounds
+- Can also chuck nose goblins out of level if you stand in top right corner, might need to adjust hitbox
+
+Fruits:
+- New levels aren't selected by default in level selector when level is beat
+- Endless mode could allow for raised max enemy amount
+- Gun pickup needs much larger hitbox, very difficult to pick up the first time
+
+Jub:
+- Scythe throw could have more of an impact, maybe add particles when it hits (also change from ontriggerenter to circlecast with some delay between each cast)
+
+Dougle:
+- Make gap on right side of lawn fence larger
+
+Shrombus:
+- Edit basement to be an O shape and not a C shape

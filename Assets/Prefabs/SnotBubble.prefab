@@ -85,7 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   damage: 18
-  inaccuracyModifier: 5
+  inaccuracyModifier: 3
   overrideDirection: 0
   ply: {fileID: 0}
   rb: {fileID: 0}

@@ -14,6 +14,24 @@ TextureImporter:
   - first:
       213: 2372402171429346550
     second: LevelEndButtons_3
+  - first:
+      213: -3922769550578646093
+    second: LevelEndButtons_0
+  - first:
+      213: 8583748645323327418
+    second: LevelEndButtons_1
+  - first:
+      213: -554673409126453494
+    second: LevelEndButtons_2
+  - first:
+      213: 2691933132989239406
+    second: LevelEndButtons_3
+  - first:
+      213: -2411048657482610009
+    second: LevelEndButtons_4
+  - first:
+      213: 4048727716460076534
+    second: LevelEndButtons_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -128,8 +146,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 24
-        height: 24
+        width: 36
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,8 +155,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b87aeb23d6796910800000000000000
-      internalID: 1831125372849780921
+      spriteID: 3b38a02a0e58f89c0800000000000000
+      internalID: -3922769550578646093
       vertices: []
       indices: 
       edges: []
@@ -147,10 +165,10 @@ TextureImporter:
       name: LevelEndButtons_1
       rect:
         serializedVersion: 2
-        x: 24
+        x: 36
         y: 0
-        width: 24
-        height: 24
+        width: 36
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,8 +176,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 353e752a90b4bd240800000000000000
-      internalID: 4817526731153335123
+      spriteID: ab7ccbd0ae99f1770800000000000000
+      internalID: 8583748645323327418
       vertices: []
       indices: 
       edges: []
@@ -168,10 +186,10 @@ TextureImporter:
       name: LevelEndButtons_2
       rect:
         serializedVersion: 2
-        x: 48
+        x: 72
         y: 0
-        width: 24
-        height: 24
+        width: 36
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +197,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e68cebab7b500dbe0800000000000000
-      internalID: -1454656392970450834
+      spriteID: a0fa9a229776d48f0800000000000000
+      internalID: -554673409126453494
       vertices: []
       indices: 
       edges: []
@@ -189,10 +207,10 @@ TextureImporter:
       name: LevelEndButtons_3
       rect:
         serializedVersion: 2
-        x: 72
+        x: 108
         y: 0
-        width: 24
-        height: 24
+        width: 36
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,8 +218,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6fc596494377ce020800000000000000
-      internalID: 2372402171429346550
+      spriteID: e609de60ceaab5520800000000000000
+      internalID: 2691933132989239406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelEndButtons_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 36
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7aa0192350c3a8ed0800000000000000
+      internalID: -2411048657482610009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LevelEndButtons_5
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 36
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fd91e33868ff2830800000000000000
+      internalID: 4048727716460076534
       vertices: []
       indices: 
       edges: []

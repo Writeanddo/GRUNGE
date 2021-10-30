@@ -5,12 +5,12 @@ using UnityEngine;
 public class BoogernautEnemyScript : EnemyScript
 {
     Transform laserOrigin;
-    Transform laserImpact;
     Transform laserHolder;
     SpriteRenderer laser;
     AudioSource sfx;
     HandGrabManager hgm;
     Animator laserStart;
+    Animator laserImpact;
 
     public List<SpriteRenderer> armor;
     public List<GameObject> armorGrabbables;
@@ -31,7 +31,7 @@ public class BoogernautEnemyScript : EnemyScript
         laserHolder = laserOrigin.transform.GetChild(0);
         laserStart = laserHolder.transform.GetChild(0).GetComponent<Animator>();
         laser = laserStart.transform.GetChild(0).GetComponent<SpriteRenderer>();
-        laserImpact = laserOrigin.GetChild(1);
+        laserImpact = laserOrigin.GetChild(1).GetComponent<Animator>();
         sfx = GetComponentInChildren<AudioSource>();
         gibSpawnYOffset = -1.25f;
         GetReferences();
@@ -100,6 +100,8 @@ public class BoogernautEnemyScript : EnemyScript
         rotatingLaser = true;
         StartCoroutine(RotateLaser(rot_z-15));
 
+        laserImpact.Play("BoogernautLaserImpact", -1, 0);
+
         while (rotatingLaser)
         {
             RaycastHit2D hit = Physics2D.Raycast(laserOrigin.transform.position, laserOrigin.transform.right, 50, laserHitMask);
@@ -123,7 +125,7 @@ public class BoogernautEnemyScript : EnemyScript
                     if (ply.heldObject != null && ply.heldObject.tag == "Enemy")
                         ply.heldObject.GetComponent<EnemyScript>().ReceiveShieldDamage();
                     else
-                        ply.ReceiveDamage(23);
+                        ply.ReceiveDamage(15);
                     hitPlayer = true;
                 }
             }
@@ -131,6 +133,7 @@ public class BoogernautEnemyScript : EnemyScript
             yield return new WaitForFixedUpdate();
         }
 
+        laserImpact.Play("BoogernautLaserImpactIdle", -1, 0);
         laserStart.Play("LaserStemBlank", -1, 0);
         laser.size = new Vector2(0, laser.size.y);
 

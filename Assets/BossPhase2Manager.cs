@@ -17,6 +17,9 @@ public class BossPhase2Manager : MonoBehaviour
 
     public AudioClip newMusic;
     public Transform phase1Tiles;
+    public Animator carAnim;
+    public GameObject scythePrefab;
+    public Animator cabinAnimator;
 
     SpriteRenderer bg1;
     SpriteRenderer bg2;
@@ -89,6 +92,7 @@ public class BossPhase2Manager : MonoBehaviour
         bossHeart.color = Color.clear;
         ply.transform.position = new Vector2(12, 10);
         ply.canMove = true;
+        gm.SetCrosshairVisibility(true);
     }
 
     public void FadeInBackground()
@@ -106,8 +110,50 @@ public class BossPhase2Manager : MonoBehaviour
         }
     }
 
+    public IEnumerator ScytheSequenceCoroutine()
+    {
+        gm.canPause = false;
+        ewm.isSpawningEnemies = false;
+        gm.SetCrosshairVisibility(false);
+        ply.Freeze();
+
+        if (boss2 == null)
+            boss2 = FindObjectOfType<BossPhase2EnemyScript>().gameObject;
+        print(boss2 == null);
+
+        EnemyScript[] es = FindObjectsOfType<EnemyScript>();
+        EnemyProjectile[] ps = FindObjectsOfType<EnemyProjectile>();
+        SnotProjectile[] ss = FindObjectsOfType<SnotProjectile>();
+
+        for (int i = 0; i < es.Length; i++)
+        {
+            if (es[i].gameObject != boss2)
+                Destroy(es[i].gameObject);
+        }
+        for (int i = 0; i < ps.Length; i++)
+            Destroy(ps[i].gameObject);
+        for (int i = 0; i < ss.Length; i++)
+            Destroy(ss[i].gameObject);
+
+        cam.target = GameObject.Find("CameraFocusPointCar").transform;
+        carAnim.Play("BossCarApproach");
+        yield return new WaitForSeconds(1.5f);
+        yield return gm.WaitForTextCompletion("Scythe1");
+        gm.PlaySFX(gm.generalSfx[22]);
+        Instantiate(scythePrefab, cam.target.transform.position + Vector3.up * 3, Quaternion.identity);
+        yield return gm.WaitForTextCompletion("Scythe2");
+        carAnim.Play("BossCarLeave");
+        yield return new WaitForSeconds(1.5f);
+        cam.target = ply.transform;
+        ply.canMove = true;
+        gm.SetCrosshairVisibility(true);
+        boss2.SendMessage("Resume");
+        gm.canPause = true;
+    }
+
     public IEnumerator DeathSequenceCoroutine()
     {
+        gm.SetCrosshairVisibility(false);
         ewm.isSpawningEnemies = false;
         ply.Freeze();
 
@@ -172,6 +218,15 @@ public class BossPhase2Manager : MonoBehaviour
 
     IEnumerator EndDialog()
     {
+        yield return gm.WaitForTextCompletion("Chaste0");
+        yield return new WaitForSeconds(0.5f);
+        camPointAnim.Play("CamPointMoveUpThenDown");
+        yield return new WaitForSeconds(0.5f);
+        cabinAnimator.Play("CabinRoofExplode");
+        yield return new WaitForSeconds(2.5f);
+        yield return gm.WaitForTextCompletion("Chaste0.5");
+        yield return gm.WaitForTextCompletion("Slick0");
+
         yield return gm.WaitForTextCompletion("CutsceneBegin");
         yield return gm.WaitForTextCompletion("Chaste1");
         yield return gm.WaitForTextCompletion("Seb1");

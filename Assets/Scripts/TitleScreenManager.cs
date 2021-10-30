@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using System.IO;
 
 public class TitleScreenManager : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class TitleScreenManager : MonoBehaviour
     public Animator screenTransitionFX;
     public RectTransform levelSelectScreen;
     public RectTransform topScreen;
+    public GameManager.SaveDataVariables saveVars;
 
     AudioSource music;
     AudioSource sfx;
@@ -71,15 +73,36 @@ public class TitleScreenManager : MonoBehaviour
             levelSelectScreen.anchoredPosition = Vector2.zero;
         else
             topScreen.anchoredPosition = Vector2.zero;
-
-        //GameObject.Find("TitleExitButton").transform.position = new Vector2(0, 100);
-
+        
+        // Update volume slider levels
         sfxSlider.value = PlayerPrefs.GetInt("GRUNGE_SFX_VOLUME") / 4;
         musicSlider.value = PlayerPrefs.GetInt("GRUNGE_MUSIC_VOLUME") / 4;
         UpdateMusicVolume();
         UpdateSFXVolume();
 
         StartCoroutine(FadeInScreen());
+    }
+
+    private void Update()
+    {
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            if (Input.GetKeyDown(KeyCode.F10))
+                SetFullscreenMode(!Screen.fullScreen);
+        }
+    }
+
+    void SetFullscreenMode(bool isFullscreen)
+    {
+        int width = 1024;
+        int height = 720;
+        if (isFullscreen)
+        {
+            width = Screen.currentResolution.width;
+            height = Screen.currentResolution.height;
+        }
+
+        Screen.SetResolution(width, height, isFullscreen);
     }
 
     public void PlayMusic()
@@ -252,6 +275,24 @@ public class TitleScreenManager : MonoBehaviour
         }
         blackout.rectTransform.anchoredPosition = new Vector2(0, -3000);
 
+    }
+
+    public void LoadSaveData()
+    {
+        if (!File.Exists(Application.persistentDataPath + @"/grungedata.json"))
+        {
+            saveVars = new GameManager.SaveDataVariables();
+            return;
+        }
+        string json = File.ReadAllText(Application.persistentDataPath + @"/grungedata.json");
+        saveVars = JsonUtility.FromJson<GameManager.SaveDataVariables>(json);
+    }
+
+    public void WriteSaveData()
+    {
+        print(Application.persistentDataPath + @"/grungedata.json");
+        string json = JsonUtility.ToJson(saveVars);
+        File.WriteAllText(Application.persistentDataPath + @"/grungedata.json", json);
     }
 
     public void SavePlayerPrefs()

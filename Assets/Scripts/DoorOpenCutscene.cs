@@ -16,6 +16,7 @@ public class DoorOpenCutscene : MonoBehaviour
     GameManager gm;
 
     bool hasExploded;
+    bool playing;
 
     // Start is called before the first frame update
     void Start()
@@ -71,8 +72,11 @@ public class DoorOpenCutscene : MonoBehaviour
 
         wallToDisable.SetActive(false);
 
+        if (gm.playingEndlessMode)
+            gm.PlayMusic();
+
         ewm.StartWaves();
-        gm.PlayMusic();
+        GetComponent<AudioSource>().Stop();
 
         Destroy(this.gameObject);
     }
@@ -126,8 +130,11 @@ public class DoorOpenCutscene : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && !playing)
         {
+            playing = true;
+            if(!gm.playingEndlessMode)
+                gm.PlayMusic();
             GetComponent<Animator>().Play("DoorOpen");
         }
     }

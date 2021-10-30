@@ -5,9 +5,16 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using io.newgrounds;
+using System.IO;
 
 public class GameManager : MonoBehaviour
 {
+    // Variables that persist between sessions
+    public class SaveDataVariables
+    {
+        public int overallKills;
+        public int furthestUnlockedLevel;
+    }
     core ngCore;
 
     Transform cam;
@@ -26,9 +33,12 @@ public class GameManager : MonoBehaviour
     Text weaponTimerText;
     TextMeshProUGUI killsText;
     TextMeshProUGUI timerText;
-    RectTransform levelEndScreen;
-    RectTransform replayButton;
+    TextMeshProUGUI hiScoreText;
+    Image levelEndScreen;
+    Image levelEndHeaderText;
+    RectTransform resetButton;
     RectTransform quitButton;
+    RectTransform nextLevelButton;
 
     EnemyScript heldEnemy;
     AudioSource musicSource;
@@ -41,10 +51,18 @@ public class GameManager : MonoBehaviour
     AudioSource prioritySfxSource; // Will duck volume on normal sound effects
     Animator shieldAnim;
     TextMeshProUGUI pauseText;
+    TextMeshProUGUI medalNameText;
+    Image medalIcon;
+    RectTransform medalUnlockBox;
     Text gunNameText;
     EnemyWaveManager ewm;
     TextboxManager text;
     Animator screenTransition;
+
+    SpriteRenderer crosshair;
+    SpriteRenderer subCrosshair;
+
+    SaveDataVariables saveVars;
 
     public bool paused;
     public bool canPause = true;
@@ -57,6 +75,9 @@ public class GameManager : MonoBehaviour
     public AudioClip[] playerSfx;
     public AudioClip[] gooPickupSounds;
     public GameObject[] powerups;
+    public Sprite[] endScreenSprites;
+    public Sprite[] endScreenTextHeaders;
+    public Sprite[] medalIcons;
     public EnemyWaveManager.EnemyWave[] endlessModeWaves;
 
     //[HideInInspector]
@@ -76,6 +97,11 @@ public class GameManager : MonoBehaviour
 
     int kills = 0;
     float timer = 0;
+
+    bool displayingMedal;
+    bool unlockedKillMedal;
+    [HideInInspector]
+    public bool firedGun;
 
     // Start is called before the first frame update
     void Start()
@@ -105,12 +131,18 @@ public class GameManager : MonoBehaviour
         gooSliderText = GameObject.Find("GooSliderNumber").GetComponent<Text>();
         killsText = GameObject.Find("KillsNumberText").GetComponent<TextMeshProUGUI>();
         timerText = GameObject.Find("LevelTimeText").GetComponent<TextMeshProUGUI>();
-        replayButton = GameObject.Find("QuitYesButton").GetComponent<RectTransform>();
-        quitButton = GameObject.Find("QuitNoButton").GetComponent<RectTransform>();
+        hiScoreText = GameObject.Find("LevelTimeText").GetComponent<TextMeshProUGUI>();
+        resetButton = GameObject.Find("ResetButton").GetComponent<RectTransform>();
+        quitButton = GameObject.Find("QuitButton").GetComponent<RectTransform>();
+        nextLevelButton = GameObject.Find("NextLevelButton").GetComponent<RectTransform>();
+        levelEndHeaderText = GameObject.Find("HeaderTextImage").GetComponent<Image>();
+        medalUnlockBox = GameObject.Find("MedalUnlockBox").GetComponent<RectTransform>();
+        medalIcon = GameObject.Find("MedalIcon").GetComponent<Image>();
+        medalNameText = GameObject.Find("MedalNameText").GetComponent<TextMeshProUGUI>();
 
         screenBlackout = GameObject.Find("ScreenBlackout").GetComponent<Image>();
         quitBlackout = GameObject.Find("QuitPanel").GetComponent<Image>();
-        levelEndScreen = GameObject.Find("LevelStatsLayout").GetComponent<RectTransform>();
+        levelEndScreen = GameObject.Find("LevelStatsLayout").GetComponent<Image>();
         pauseText = GameObject.Find("PausedText").GetComponent<TextMeshProUGUI>();
         weaponTimerText = GameObject.Find("WeaponTimerText").GetComponent<Text>();
         gunNameText = GameObject.Find("WeaponNameText").GetComponent<Text>();
@@ -118,12 +150,16 @@ public class GameManager : MonoBehaviour
         weaponTimerText.text = "";
         shieldImage = GameObject.Find("ShieldImage").GetComponent<Image>();
         screenTransition = GameObject.Find("ScreenTransition").GetComponent<Animator>();
+        crosshair = GameObject.Find("Crosshair").GetComponent<SpriteRenderer>();
+        subCrosshair = GameObject.Find("SubCrosshair").GetComponent<SpriteRenderer>();
 
         ewm = FindObjectOfType<EnemyWaveManager>();
         text = FindObjectOfType<TextboxManager>();
 
         if (dialogSourceFile != null)
             cachedTextData = JsonHelper.FromJson<TextboxManager.TextData>(dialogSourceFile.text);
+
+        LoadSaveData();
 
         if (SceneManager.GetActiveScene().buildIndex >= 2)
         {
@@ -141,15 +177,32 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         UpdateUI();
+        CheckForMedalUnlocks();
         enemiesInLevel.RemoveAll(item => item == null);
 
         if (!gameOver && ewm.isSpawningEnemies && !paused)
             timer += Time.fixedDeltaTime;
     }
 
+    void CheckForMedalUnlocks()
+    {
+        // Survive for 10 minutes in endless mode
+        if (playingEndlessMode && Mathf.FloorToInt(timer / 60F) > 10)
+            UnlockMedal(47);
+
+        // Get 1000 total kills
+        if(saveVars.overallKills >= 1000 && !unlockedKillMedal)
+        {
+            unlockedKillMedal = true;
+            UnlockMedal(48);
+        }
+    }
+
+
     public void IncreaseKills()
     {
         kills++;
+        saveVars.overallKills++;
     }
 
     // Basement time: 10987
@@ -172,11 +225,94 @@ public class GameManager : MonoBehaviour
 
     public void PostScore(int id, int value)
     {
+        if (!IsLoggedIn())
+            return;
+
         io.newgrounds.components.ScoreBoard.postScore scoreToPost = new io.newgrounds.components.ScoreBoard.postScore();
         scoreToPost.id = id;
         scoreToPost.value = value;
         scoreToPost.callWith(ngCore);
         print("Posted score " + id);
+    }
+
+    public void UnlockMedal(int id)
+    {
+        print("Called UnlockMedal with ID " + id);
+        if (!IsLoggedIn())
+            return;
+
+        io.newgrounds.components.Medal.unlock medal_unlock = new io.newgrounds.components.Medal.unlock();
+
+        // Medal IDs start at 65969 for this project
+        // As long as old ones aren't deleted, indexing medals starting at 0 should work fine
+        medal_unlock.id = id + 65969;
+
+        medal_unlock.callWith(ngCore, MedalUnlockedCallback);
+    }
+
+    public bool IsLoggedIn()
+    {
+        bool state = false;
+        ngCore.checkLogin((bool logged_in) =>
+        {
+            state = logged_in;
+        });
+        return state;
+    }
+
+    void MedalUnlockedCallback(io.newgrounds.results.Medal.unlock result)
+    {
+        int iconIndex = result.medal.id - 65969;
+        string medalName = result.medal.name.ToUpper();
+
+        if (iconIndex >= medalIcons.Length || iconIndex < 0)
+        {
+            Debug.LogError("Icon for medal not found");
+            return;
+        }
+
+        // Don't display box if box is already out
+        if (displayingMedal)
+            return;
+
+        print(iconIndex);
+        medalIcon.sprite = medalIcons[iconIndex];
+        medalNameText.text = medalName;
+        StartCoroutine(DisplayMedalUnlock());
+    }
+
+    IEnumerator DisplayMedalUnlock()
+    {
+        displayingMedal = true;
+        medalUnlockBox.anchoredPosition = new Vector2(-176, 400);
+
+        PlaySFX(generalSfx[28]);
+        while ((medalUnlockBox.anchoredPosition.y - 256) > 0.1f)
+        {
+            medalUnlockBox.anchoredPosition = Vector2.Lerp(medalUnlockBox.anchoredPosition, new Vector2(-176, 256), 0.2f);
+            yield return new WaitForFixedUpdate();
+        }
+
+        yield return new WaitForSecondsRealtime(4);
+
+        while ((400 - medalUnlockBox.anchoredPosition.y) > 0.1f)
+        {
+            medalUnlockBox.anchoredPosition = Vector2.Lerp(medalUnlockBox.anchoredPosition, new Vector2(-176, 400), 0.2f);
+            yield return new WaitForFixedUpdate();
+        }
+        displayingMedal = false;
+    }
+
+    public void SetCrosshairVisibility(bool state)
+    {
+        Color c;
+        if (state)
+            c = Color.white;
+        else
+            c = Color.clear;
+
+        crosshair.color = c;
+        subCrosshair.color = c;
     }
 
     void UpdateUI()
@@ -233,32 +369,21 @@ public class GameManager : MonoBehaviour
             }
 
             // Weapon timer update
-            if (ply.stats.currentWeapon != 0 && ply.stats.currentWeapon != 10)
+            if (ply.stats.currentWeapon != 0 && !(ply.stats.currentWeapon == 10 && Application.loadedLevel == 6))
             {
                 gunTimer -= Time.fixedDeltaTime;
                 weaponTimerText.text = Mathf.RoundToInt(gunTimer).ToString();
 
                 if (gunTimer <= 0)
                 {
+                    if (ply.stats.currentWeapon == 10)
+                        ply.canLaunchHand = true;
                     ply.stats.currentWeapon = 0;
                     weaponTimerText.text = "";
                     gunNameText.text = "";
                 }
             }
 
-        }
-
-        // Pause game
-        if (paused && pauseText.text == "" && canPause)
-        {
-            Time.timeScale = 0;
-            pauseText.text = "PAUSED";
-            quitBlackout.color = new Color(0, 0, 0, 0.5f);
-        }
-        else if (!paused && pauseText.text != "")
-        {
-            pauseText.text = "";
-            quitBlackout.color = new Color(0, 0, 0, 0);
         }
     }
 
@@ -302,17 +427,26 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !gameOver && canPause)
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameOver && canPause && !text.isPrinting)
         {
             paused = !paused;
-            Cursor.visible = !paused;
+            Cursor.visible = paused;
             if (!paused)
             {
+                print("Unpaused");
                 Time.timeScale = 1;
                 Cursor.lockState = CursorLockMode.Confined;
+                quitBlackout.color = new Color(0, 0, 0, 0);
             }
             else
+            {
+                print("Paused");
+                Time.timeScale = 0;
                 Cursor.lockState = CursorLockMode.None;
+                quitBlackout.color = new Color(0, 0, 0, 0.5f);
+            }
+
+            ShowResultsScreen(false, true);
         }
 
         if (Application.platform == RuntimePlatform.WindowsPlayer)
@@ -431,6 +565,7 @@ public class GameManager : MonoBehaviour
             screenBlackout.color = new Color(0, 0, 0, screenBlackout.color.a - 0.075f);
             yield return new WaitForSeconds(0.05f);
         }
+        screenBlackout.rectTransform.anchoredPosition = new Vector2(0, 1000);
 
         string levelName = SceneManager.GetActiveScene().name;
 
@@ -451,13 +586,17 @@ public class GameManager : MonoBehaviour
         }
         else if (levelName == "3_basement")
         {
+            yield return WaitForTextCompletion("Level3Start");
             ply.canMove = true;
-            PlayMusic();
-            ewm.StartWaves();
+            //PlayMusic();
+            //ewm.StartWaves();
         }
         else if (levelName == "4_boss")
         {
             canPause = false;
+            SetCrosshairVisibility(false);
+            yield return new WaitForSeconds(0.5f);
+            yield return WaitForTextCompletion("LevelBegin");
             PlayMusic();
             yield return new WaitForSeconds(1f);
             camControl.overridePosition = true;
@@ -493,6 +632,7 @@ public class GameManager : MonoBehaviour
             ewm.StartWaves();
             canPause = true;
             ply.canMove = true;
+            SetCrosshairVisibility(true);
         }
         else
             ply.canMove = true;
@@ -506,8 +646,11 @@ public class GameManager : MonoBehaviour
     public IEnumerator BossPhase1DieCutscene()
     {
         canPause = false;
+        SetCrosshairVisibility(false);
         StopMusic();
         ewm.ForceStopSpawningEnemies();
+        if (ply.heldObject != null)
+            FindObjectOfType<HandGrabManager>().DropItem();
 
         // Destroy all other enemies and projectiles
         EnemyScript[] enemies = FindObjectsOfType<EnemyScript>();
@@ -564,17 +707,22 @@ public class GameManager : MonoBehaviour
         {
             case 10:
                 gunNameText.text = "THRESH";
-                gunTimer = 999;
+                if (playingEndlessMode)
+                    gunTimer = 15;
+                else
+                    gunTimer = 999;
                 ply.canLaunchHand = false;
                 break;
 
             case 1:
                 gunNameText.text = "SHOT\nGUN";
                 gunTimer = 15;
+                ply.canLaunchHand = true;
                 break;
             case 2:
                 gunNameText.text = "TOMMY\nGUN";
                 gunTimer = 15;
+                ply.canLaunchHand = true;
                 break;
             case 11:
                 gunNameText.text = "BRASS\nKNUCKLES";
@@ -593,7 +741,7 @@ public class GameManager : MonoBehaviour
             camControl.overridePosition = true;
             Transform t = GameObject.Find("CabinDoorHole").transform;
 
-            ply.canMove = false;
+            ply.Freeze();
             ply.GetComponentInChildren<Animator>().Play("Player_FaceS");
             ply.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             StartCoroutine(ReverseFadeMusic());
@@ -626,8 +774,7 @@ public class GameManager : MonoBehaviour
             Transform t = GameObject.Find("TrapdoorOpen").transform;
             t.GetComponent<Animator>().Play("TrapdoorOpen");
 
-            ply.canMove = false;
-            ply.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            ply.Freeze();
 
             float timer = 2.25f;
             while (timer > 0)
@@ -654,8 +801,7 @@ public class GameManager : MonoBehaviour
             Transform t = GameObject.Find("GoodoorOpen").transform;
             t.GetComponent<Animator>().Play("GoodoorOpen");
 
-            ply.canMove = false;
-            ply.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            ply.Freeze();
 
             float timer = 2.25f;
             while (timer > 0)
@@ -674,12 +820,13 @@ public class GameManager : MonoBehaviour
             camControl.overridePosition = false;
 
 
-            yield return WaitForTextCompletion("PlaytestOver");
+            //yield return WaitForTextCompletion("PlaytestOver");
             ply.canMove = true;
-            //UpdateUnlockedLevels(4);
+            UpdateUnlockedLevels(4);
         }
         else if (levelName == "4_boss")
         {
+            // Unused(?)
             StopMusic();
 
             ply.stats.health = 1000;
@@ -715,30 +862,64 @@ public class GameManager : MonoBehaviour
 
     void UpdateUnlockedLevels(int level)
     {
-        if (PlayerPrefs.GetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL") < level)
-            PlayerPrefs.SetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL", level);
-
+        if (saveVars.furthestUnlockedLevel < level)
+            saveVars.furthestUnlockedLevel = level;
     }
 
     public IEnumerator GameOverSequence()
     {
-        ShowResultsScreen(true);
+        ShowResultsScreen(true, false);
         yield return null;
     }
 
     public void LevelCompleteSequence()
     {
         StopMusic();
-        ShowResultsScreen(false);
+        ShowResultsScreen(false, false);
     }
 
-    void ShowResultsScreen(bool isGameOver)
+    void ShowResultsScreen(bool isGameOver, bool isPauseScreen)
     {
         // Submit to scoreboard if we're playing endless mode
-        if (playingEndlessMode && isGameOver)
+        if (playingEndlessMode)
         {
-            PostScore(GetIdFromLevelIndex(SceneManager.GetActiveScene().buildIndex, false), kills);
-            PostScore(GetIdFromLevelIndex(SceneManager.GetActiveScene().buildIndex, true), Mathf.RoundToInt(timer * 1000));
+            levelEndScreen.sprite = endScreenSprites[0];
+            if (isGameOver)
+            {
+                hiScoreText.text = "N/A";
+                PostScore(GetIdFromLevelIndex(SceneManager.GetActiveScene().buildIndex, false), kills);
+                PostScore(GetIdFromLevelIndex(SceneManager.GetActiveScene().buildIndex, true), Mathf.RoundToInt(timer * 1000));
+            }
+        }
+        // Hide high score text if we're not in endless mode
+        else
+        {
+            levelEndScreen.sprite = endScreenSprites[1];
+
+            int index = SceneManager.GetActiveScene().buildIndex;
+            if (!isGameOver && index >= 3)
+                UnlockMedal(index - 3);
+            if (!isGameOver && !firedGun)
+                UnlockMedal(46);
+        }
+
+        // Set header
+        if (isPauseScreen)
+            levelEndHeaderText.sprite = endScreenTextHeaders[2];
+        else if (!isGameOver)
+            levelEndHeaderText.sprite = endScreenTextHeaders[1];
+        else
+            levelEndHeaderText.sprite = endScreenTextHeaders[0];
+
+        if (!playingEndlessMode)
+        {
+            timerText.rectTransform.anchoredPosition = new Vector2(34, 10);
+            killsText.rectTransform.anchoredPosition = new Vector2(34, -40);
+        }
+        else
+        {
+            timerText.rectTransform.anchoredPosition = new Vector2(34, 38);
+            killsText.rectTransform.anchoredPosition = new Vector2(34, -12);
         }
 
         int minutes = Mathf.FloorToInt(timer / 60F);
@@ -749,36 +930,64 @@ public class GameManager : MonoBehaviour
 
         killsText.text = kills.ToString();
 
-        PlaySFX(generalSfx[19]);
-        screenBlackout.rectTransform.anchoredPosition = new Vector2(0, 2000);
-        quitBlackout.color = new Color(0, 0, 0, 0.5f);
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        StartCoroutine(LerpResultsScreen(isGameOver));
+        if (!isPauseScreen)
+        {
+            PlaySFX(generalSfx[19]);
+            screenBlackout.rectTransform.anchoredPosition = new Vector2(0, 2000);
+            quitBlackout.color = new Color(0, 0, 0, 0.5f);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            StartCoroutine(LerpResultsScreen(isGameOver));
+        }
+        else
+        {
+            if (paused)
+            {
+                levelEndScreen.rectTransform.anchoredPosition = Vector2.zero;
+                resetButton.anchoredPosition = new Vector2(-88, -240);
+                quitButton.anchoredPosition = new Vector2(84, -240);
+            }
+            else
+            {
+                levelEndScreen.rectTransform.anchoredPosition = new Vector2(0, 1200);
+                resetButton.anchoredPosition = new Vector2(-88, -1000);
+                quitButton.anchoredPosition = new Vector2(84, -1000);
+                nextLevelButton.anchoredPosition = new Vector2(84, -1000);
+            }
+        }
     }
 
     IEnumerator LerpResultsScreen(bool isGameOver)
     {
-        while (Vector2.Distance(levelEndScreen.anchoredPosition, Vector2.zero) > 1)
+        while (Vector2.Distance(levelEndScreen.rectTransform.anchoredPosition, Vector2.zero) > 1)
         {
-            levelEndScreen.anchoredPosition = Vector2.Lerp(levelEndScreen.anchoredPosition, Vector2.zero, 0.25f);
+            levelEndScreen.rectTransform.anchoredPosition = Vector2.Lerp(levelEndScreen.rectTransform.anchoredPosition, Vector2.zero, 0.25f);
             yield return new WaitForFixedUpdate();
         }
 
+        quitButton.anchoredPosition = new Vector2(84, -240);
         if (isGameOver)
+            resetButton.anchoredPosition = new Vector2(-88, -240);
+        else
         {
-            replayButton.anchoredPosition = new Vector2(-88, -240);
-            quitButton.anchoredPosition = new Vector2(84, -240);
+            nextLevelButton.anchoredPosition = new Vector2(-88, -240);
+            resetButton.anchoredPosition = new Vector2(-88, -1000);
         }
 
-        levelEndScreen.anchoredPosition = Vector2.zero;
+        levelEndScreen.rectTransform.anchoredPosition = Vector2.zero;
     }
 
     public void LoadLevel(int level)
     {
         PlayerPrefs.SetInt("GRUNGE_LOAD_TO_LEVEL_SELECT", 1);
+        PlayerPrefs.SetInt("GRUNGE_LAST_SELECTED_LEVEL", SceneManager.GetActiveScene().buildIndex - 2);
         PlayerPrefs.Save();
         StartCoroutine(LoadLevelCoroutine(level));
+    }
+
+    public void LoadNextLevel()
+    {
+        LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ReloadLevel()
@@ -792,9 +1001,11 @@ public class GameManager : MonoBehaviour
         screenBlackout.rectTransform.anchoredPosition = Vector2.zero;
         PlaySFX(generalSfx[3]);
         screenTransition.Play("ScreenTransition", -1, 0);
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSecondsRealtime(0.25f);
         screenBlackout.color = Color.black;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
+        Time.timeScale = 1;
+        WriteSaveData();
         SceneManager.LoadScene(level);
     }
 
@@ -866,5 +1077,23 @@ public class GameManager : MonoBehaviour
         {
             anim.Play(clipName);
         }
+    }
+
+    void LoadSaveData()
+    {
+        if (!File.Exists(Application.persistentDataPath + @"/grungedata.json"))
+        {
+            saveVars = new SaveDataVariables();
+            return;
+        }
+        string json = File.ReadAllText(Application.persistentDataPath + @"/grungedata.json");
+        saveVars = JsonUtility.FromJson<SaveDataVariables>(json);
+    }
+
+    void WriteSaveData()
+    {
+        print(Application.persistentDataPath + @"/grungedata.json");
+        string json = JsonUtility.ToJson(saveVars);
+        File.WriteAllText(Application.persistentDataPath + @"/grungedata.json", json);
     }
 }

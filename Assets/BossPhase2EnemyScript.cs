@@ -29,11 +29,14 @@ public class BossPhase2EnemyScript : EnemyScript
 
     bool knockingPlayerBack;
     bool isDying;
+    bool isFrozen;
+    bool hasFrozen;
 
     // Start is called before the first frame update
     void Start()
     {
         GetReferences();
+        stats.maxHealth = stats.health;
         spr = transform.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>();
         prb = ply.GetComponent<Rigidbody2D>();
         bpm = FindObjectOfType<BossPhase2Manager>();
@@ -45,9 +48,17 @@ public class BossPhase2EnemyScript : EnemyScript
         StartCoroutine(GooDropSpawnLoop());
     }
 
+    public void Resume()
+    {
+        isFrozen = false;
+        combatCoroutine = CombatLoop();
+        StartCoroutine(combatCoroutine);
+        StartCoroutine(GooDropSpawnLoop());
+    }
+
     void FixedUpdate()
     {
-        if (!isDying)
+        if (!isDying && !isFrozen)
             UpdateMovement();
         else
             rb.velocity = Vector2.zero;
@@ -88,6 +99,20 @@ public class BossPhase2EnemyScript : EnemyScript
             isDying = true;
             StartDeathSequence();
         }
+        else if(stats.health <= stats.maxHealth * 0.25 && !hasFrozen)
+        {
+            hasFrozen = true;
+            StartScytheSequence();
+        }
+    }
+
+    public void StartScytheSequence()
+    {
+        isFrozen = true;
+        StopAllCoroutines();
+        rb.velocity = Vector2.zero;
+        spr.color = Color.white;
+        bpm.StartCoroutine(bpm.ScytheSequenceCoroutine());
     }
 
     public void StartDeathSequence()
@@ -96,8 +121,6 @@ public class BossPhase2EnemyScript : EnemyScript
         rb.velocity = Vector2.zero;
         bpm.StartCoroutine(bpm.DeathSequenceCoroutine());
     }
-
-    
 
     IEnumerator GooDropSpawnLoop()
     {
@@ -170,7 +193,7 @@ public class BossPhase2EnemyScript : EnemyScript
 
             gm.PlaySFX(gm.generalSfx[Random.Range(23, 25)]);
             summonCircle.Play("CircleSpawn", -1, 0);
-            yield return new WaitForSeconds(3.5f / Mathf.Clamp(currentPathIndex, 1, 3));
+            yield return new WaitForSeconds(3.5f / Mathf.Clamp(currentPathIndex, 1, 2.5f));
         }
         yield return null;
     }
@@ -180,7 +203,7 @@ public class BossPhase2EnemyScript : EnemyScript
         for (int i = 0; i < 8*Mathf.Clamp(1 + currentPathIndex*0.25f, 1, 3); i++)
         {
             anim.Play("BossShoot_" + animationSuffix, -1, 0);
-            yield return new WaitForSeconds(0.5f / Mathf.Clamp(currentPathIndex, 1, 3));
+            yield return new WaitForSeconds(0.75f / Mathf.Clamp(currentPathIndex, 1, 2.5f));
         }
     }
 
@@ -253,7 +276,7 @@ public class BossPhase2EnemyScript : EnemyScript
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && !knockingPlayerBack)
+        if (collision.tag == "Player" && !knockingPlayerBack && ply.stats.health > 0)
         {
             knockingPlayerBack = true;
             StartCoroutine(PlayerKnockback());

@@ -362,8 +362,7 @@ SpriteRenderer:
   m_SortingLayerID: -501625675
   m_SortingLayer: 1
   m_SortingOrder: 101
-  m_Sprite: {fileID: -3005933665911421325, guid: ffe657240f387df4f999623e77308ea9,
-    type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -481,7 +480,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -496,7 +495,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.5
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -907,7 +906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 250
+    health: 300
     maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4
@@ -922,6 +921,7 @@ MonoBehaviour:
     animationWalkSpeedMultiplier: 0.5
     animationPrefix: Boogernaut
     useDirctionalAnimation: 1
+    alwaysThrowAtFullCharge: 0
   noticedPlayer: 0
   gooDrops:
   - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
@@ -946,6 +946,7 @@ MonoBehaviour:
   waves: {fileID: 0}
   gibSpawnYOffset: 0
   rechargingAttack: 0
+  currentNode: -1
   armor:
   - {fileID: 2628458822402434286}
   - {fileID: 1757657373919611542}
@@ -956,7 +957,7 @@ MonoBehaviour:
   - {fileID: 4581051222017843176, guid: 56fe0cf6ea5bb6b49b1b2e0fec88c81c, type: 3}
   laserHitMask:
     serializedVersion: 2
-    m_Bits: 8193
+    m_Bits: 40960
   damageHitMask:
     serializedVersion: 2
     m_Bits: 512

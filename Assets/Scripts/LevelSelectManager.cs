@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class LevelSelectManager : MonoBehaviour
 {
     public int furthestUnlockedLevel;
-    public int selectedLevelIndex;
+    public int selectedLevelIndex = 0;
     public string[] levelPreviewVideos;
     public Sprite[] unlockedIcons;
     public Sprite[] selectedIcons;
@@ -20,6 +20,7 @@ public class LevelSelectManager : MonoBehaviour
     Animator tvStaticAnimation;
     Animator vhsIconAnimation;
     VideoPlayer videoPlayer;
+    TitleScreenManager tsm;
 
     string storedVhsText = "";
     string[] levelNames = new string[6] { "TUTORIAL", "THE FRONT YARD", "THE HOUSE", "THE BASEMENT", "THE PIT", "ENDLESS" };
@@ -31,6 +32,8 @@ public class LevelSelectManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tsm = FindObjectOfType<TitleScreenManager>();
+        tsm.LoadSaveData();
         tvStaticAnimation = GameObject.Find("LevelPreviewStatic").GetComponent<Animator>();
         videoPlayer = GameObject.Find("LevelPreviewVideoPlayer").GetComponent<VideoPlayer>();
         vhsIconAnimation = videoPlayer.GetComponent<Animator>();
@@ -40,21 +43,16 @@ public class LevelSelectManager : MonoBehaviour
         for (int i = 1; i <= 6; i++)
             dotIcons[i - 1] = transform.GetChild(i).GetComponent<Image>();
 
-        if (!PlayerPrefs.HasKey("GRUNGE_FURTHEST_UNLOCKED_LEVEL"))
-            PlayerPrefs.SetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL", 0);
-
         if (PlayerPrefs.HasKey("GRUNGE_IS_ENDLESS") && PlayerPrefs.GetInt("GRUNGE_IS_ENDLESS") == 1)
             endlessModeActive = true;
 
+        UpdateUnlockedLevels(tsm.saveVars.furthestUnlockedLevel);
         StartCoroutine(VHSTextLoop());
-        UpdateUnlockedLevels(PlayerPrefs.GetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL"));
-
-        // TEMP TEMP TEMP TEMP TEMP
-        UpdateUnlockedLevels(5);
     }
 
     private void Update()
     {
+        // TEMP TEMP TEMP
         if (Application.platform == RuntimePlatform.WindowsEditor && Input.GetKeyDown(KeyCode.Alpha1))
         {
             UpdateUnlockedLevels(5);
@@ -64,6 +62,7 @@ public class LevelSelectManager : MonoBehaviour
     public void UpdateUnlockedLevels(int furthestUnlockedLevel)
     {
         this.furthestUnlockedLevel = furthestUnlockedLevel;
+        tsm.saveVars.furthestUnlockedLevel = furthestUnlockedLevel;
 
         for (int i = 0; i <= furthestUnlockedLevel; i++)
         {
@@ -73,7 +72,14 @@ public class LevelSelectManager : MonoBehaviour
                 dotIcons[i].sprite = unlockedIcons[i];
         }
 
-        SetSelectedLevel(Mathf.Min(furthestUnlockedLevel, 4));
+        // Change selected level to be the last level we were in
+        int index = selectedLevelIndex;
+        if (PlayerPrefs.HasKey("GRUNGE_LAST_SELECTED_LEVEL"))
+        {
+            index = PlayerPrefs.GetInt("GRUNGE_LAST_SELECTED_LEVEL");
+        }
+
+        SetSelectedLevel(index);
     }
 
     public void SetSelectedLevel(int index)
@@ -145,6 +151,7 @@ public class LevelSelectManager : MonoBehaviour
 
     IEnumerator WaitAndLoadLevel()
     {
+        PlayerPrefs.SetInt("GRUNGE_LAST_SELECTED_LEVEL", selectedLevelIndex);
         PlayerPrefs.SetInt("GRUNGE_LOAD_TO_LEVEL_SELECT", 1);
         if (endlessModeActive)
             PlayerPrefs.SetInt("GRUNGE_IS_ENDLESS", 1);
@@ -152,6 +159,7 @@ public class LevelSelectManager : MonoBehaviour
             PlayerPrefs.SetInt("GRUNGE_IS_ENDLESS", 0);
 
         PlayerPrefs.Save();
+        tsm.WriteSaveData();
         yield return new WaitForSeconds(0.75f);
         SceneManager.LoadScene(selectedLevelIndex + 2);
     }
@@ -165,11 +173,14 @@ public class LevelSelectManager : MonoBehaviour
 
     IEnumerator VHSTextLoop()
     {
-        vhsTextOffset = 0;
+        while (loadVideo == null)
+            yield return null;
 
+        vhsTextOffset = 0;
         while (true)
         {
             string s = "";
+
             s += storedVhsText.Substring(vhsTextOffset, storedVhsText.Length - vhsTextOffset);
             s += storedVhsText.Substring(0, vhsTextOffset);
             s = s.Substring(0, Mathf.Min(22, s.Length));

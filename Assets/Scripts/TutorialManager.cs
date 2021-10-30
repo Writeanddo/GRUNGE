@@ -149,7 +149,7 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(1.25f);
         ply.Freeze();
         if (ply.stats.goo < 50)
-            ply.stats.goo = 50;
+            ply.stats.goo = 65;
         yield return gm.WaitForTextCompletion("HealIntro");
         Instantiate(itemsToSpawn[4], ply.transform.position, Quaternion.identity);
         ply.stats.health = 100;
@@ -243,7 +243,7 @@ public class TutorialManager : MonoBehaviour
         yield return gm.WaitForTextCompletion("CarDialog");
         camAnimator.Play("CarCameraExit");
         yield return new WaitForSeconds(3f);
-        gm.LoadLevel(1);
+        gm.LevelCompleteSequence();
     }
 
     IEnumerator WaitForMovement()
@@ -256,6 +256,8 @@ public class TutorialManager : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            gm.canPause = false;
+            gm.SetCrosshairVisibility(false);
             PlayerPrefs.SetInt("GRUNGE_FURTHEST_UNLOCKED_LEVEL", 1);
             exitedDoor = true;
         }

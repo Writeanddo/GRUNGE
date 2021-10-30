@@ -8,6 +8,18 @@ TextureImporter:
   - first:
       213: -4226381446673414818
     second: Chaste_1
+  - first:
+      213: 8640433980066721755
+    second: Chaste_0
+  - first:
+      213: -2699327007051407938
+    second: Chaste_1
+  - first:
+      213: 1752047768165119253
+    second: Chaste_2
+  - first:
+      213: 1523804419320337910
+    second: Chaste_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -131,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e2aec276e5a2afa80800000000000000
-      internalID: -8432380767351543250
+      spriteID: bdf67170decf8e770800000000000000
+      internalID: 8640433980066721755
       vertices: []
       indices: 
       edges: []
@@ -152,8 +164,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e55cab17770e855c0800000000000000
-      internalID: -4226381446673414818
+      spriteID: ebd151483601a8ad0800000000000000
+      internalID: -2699327007051407938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaste_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5157ff29926805810800000000000000
+      internalID: 1752047768165119253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Chaste_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f552c0cb04a52510800000000000000
+      internalID: 1523804419320337910
       vertices: []
       indices: 
       edges: []

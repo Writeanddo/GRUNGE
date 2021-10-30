@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 120
+    health: 110
     maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4
@@ -333,6 +333,7 @@ MonoBehaviour:
     animationWalkSpeedMultiplier: 0.5
     animationPrefix: Goober
     useDirctionalAnimation: 1
+    alwaysThrowAtFullCharge: 0
   noticedPlayer: 0
   gooDrops:
   - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
@@ -356,6 +357,7 @@ MonoBehaviour:
   waves: {fileID: 0}
   gibSpawnYOffset: 0
   rechargingAttack: 0
+  currentNode: -1
   projectile: {fileID: 3902567511009530099, guid: 224341652a40168459131210db5ec1ee,
     type: 3}
   handPositions:

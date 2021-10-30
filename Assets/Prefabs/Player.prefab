@@ -542,6 +542,7 @@ MonoBehaviour:
   - {fileID: 7886304823834587587, guid: cc9b951a7a6ec304cb8f425c7f097f66, type: 3}
   - {fileID: 6910103055282366429, guid: 9a9ed90defa9cc34e8e28ea489e5e460, type: 3}
   - {fileID: 2212254252654720857, guid: c4653396b8d845f41adb84df2294e732, type: 3}
+  - {fileID: 2493950371142931660, guid: 938253fa467e5b94fb765a32045acd3e, type: 3}
   canMove: 0
   isDying: 0
   canShoot: 1
@@ -553,6 +554,7 @@ MonoBehaviour:
   additionalForce: {x: 0, y: 0}
   chargingAttack: 0
   chargeReady: 0
+  rightClickReleased: 0
 --- !u!50 &9121030493282817286
 Rigidbody2D:
   serializedVersion: 4

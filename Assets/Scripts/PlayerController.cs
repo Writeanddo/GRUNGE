@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     bool playedDieSequence;
     public bool chargingAttack;
     public bool chargeReady;
-    bool rightClickReleased;
+    public bool rightClickReleased;
     bool throwingScythe;
 
     Vector2 gizmoOffset;
@@ -185,6 +185,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            CheckAndPlayClip("Blank", gunTwoHandedAnim);
             CheckAndPlayClip(gunPrefix + "_" + dir, gunAnim);
 
             // Grapple hand animations
@@ -210,7 +211,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("Fire1"))
         {
             if (canShoot && !reloading && stats.goo >= stats.shotGooUsage)
+            {
+                gm.firedGun = true;
                 FireGun();
+            }
         }
 
         // Reload sound
@@ -242,25 +246,26 @@ public class PlayerController : MonoBehaviour
                         StartCoroutine(WaitForHandHit((Vector2)handTargetPos.position + dir * 15));
                     }
                 }
-                // If we're holding an object and its an enemy, charge it until we release rmb
-                else if (heldObject != null && rightClickReleased && canLaunchHand)
+            }
+        }
+
+        // Charge attack checks - needs to be here in case we rapid clicked right mouse when hand was out
+        if (Input.GetMouseButton(1))
+        {
+            // If we're holding an object and its an enemy, charge it until we release rmb
+            if (!chargingAttack && heldObject != null && rightClickReleased && canLaunchHand)
+            {
+                if (heldObject.tag == "Enemy")
                 {
-                    if (heldObject.tag == "Enemy")
-                    {
-                        StartCoroutine(ChargeHeldEnemy());
-                    }
+                    StartCoroutine(ChargeHeldEnemy());
                 }
             }
-
             // Scythe procedure
-            else if (!reloading)
+            if (stats.currentWeapon == 10 && !reloading && !chargingAttack)
             {
-                if (stats.currentWeapon == 10)
-                {
-                    // temp?
-                    //stats.maxSpeed = storedMaxSpeed * 0.75f;
-                    StartCoroutine(PrepareChargeAttack());
-                }
+                // temp?
+                //stats.maxSpeed = storedMaxSpeed * 0.75f;
+                StartCoroutine(PrepareChargeAttack());
             }
         }
 
@@ -273,10 +278,11 @@ public class PlayerController : MonoBehaviour
 
             else if (heldObject != null && rightClickReleased && canLaunchHand)
             {
+                gm.StopPrioritySFX();
+
                 // Throw held object
                 Vector2 dir = (crosshair.position - handTargetPos.position).normalized;
 
-                // throw held object
                 gm.PlaySFX(gm.playerSfx[2]);
                 hgm.ThrowItem(dir * 75);
                 handHolder.transform.position += (Vector3)dir;
@@ -346,8 +352,10 @@ public class PlayerController : MonoBehaviour
         EnemyScript e = heldObject.GetComponent<EnemyScript>();
         chargingAttack = true;
         float timer = 0;
-        yield return new WaitForSeconds(0.25f);
+        //yield return new WaitForSeconds(0.2f);
         //stats.maxSpeed = storedMaxSpeed * 0.5f;
+        while (handLaunched)
+            yield return null;
 
         while (e.stats.currentShieldValue > 1 && chargingAttack)
         {
@@ -362,14 +370,14 @@ public class PlayerController : MonoBehaviour
                 yield return new WaitForFixedUpdate();
             }
 
-            if (chargingAttack)
+            if (chargingAttack && e.stats.currentShieldValue > 1)
                 e.ReceiveShieldDamage();
         }
 
         handShaker.transform.localPosition = Vector2.zero;
         stats.maxSpeed = storedMaxSpeed;
-        if (e.stats.currentShieldValue > 1)
-            gm.StopPrioritySFX();
+        //if (e.stats.currentShieldValue > 1 && heldObject == e.gameObject)
+
     }
 
     IEnumerator GooRegen()
@@ -584,8 +592,9 @@ public class PlayerController : MonoBehaviour
             gunTwoHandedHolder.transform.localRotation = Quaternion.Euler(new Vector3(0, 0, gunTwoHandedHolder.transform.localRotation.z - 180));
             additionalForce = offset * 12;
 
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position + offset*3, 2.75f);
-            gizmoOffset = offset*3;
+            Instantiate(projectiles[4], transform.position + offset * 3, Quaternion.LookRotation(transform.forward, offset));
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position + offset * 3, 2.75f);
+            gizmoOffset = offset * 3;
 
             bool hitEnemy = false;
             for (int i = 0; i < hits.Length; i++)
@@ -595,7 +604,7 @@ public class PlayerController : MonoBehaviour
                     hits[i].GetComponent<EnemyScript>().ReceiveDamage(30);
                     hitEnemy = true;
                 }
-                if(hits[i].tag == "SnotBubble")
+                if (hits[i].tag == "SnotBubble")
                 {
                     hits[i].SendMessage("Pop", false);
                     hitEnemy = true;
@@ -612,7 +621,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if(gizmoOffset != Vector2.zero)
+        if (gizmoOffset != Vector2.zero)
             Gizmos.DrawWireSphere(transform.position + (Vector3)gizmoOffset, 2.75f);
     }
 

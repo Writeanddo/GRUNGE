@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 50
+    health: 40
     maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4
@@ -150,6 +150,7 @@ MonoBehaviour:
     animationWalkSpeedMultiplier: 0.5
     animationPrefix: 
     useDirctionalAnimation: 0
+    alwaysThrowAtFullCharge: 0
   noticedPlayer: 0
   gooDrops:
   - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
@@ -173,6 +174,7 @@ MonoBehaviour:
   waves: {fileID: 0}
   gibSpawnYOffset: 0
   rechargingAttack: 0
+  currentNode: -1
   projectile: {fileID: 3902567511009530099, guid: 8b00c43966796634ca7438961f36d977,
     type: 3}
 --- !u!1 &6568547448361383853
@@ -245,7 +247,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2093650171
   m_SortingLayer: -1
-  m_SortingOrder: 1
+  m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: 0cec9fdebd8864444b1576583f6b8be9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

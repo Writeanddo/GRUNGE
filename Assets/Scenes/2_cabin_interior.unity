@@ -1921,7 +1921,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120567722}
   m_LocalRotation: {x: -0, y: -0, z: -0.70710576, w: 0.70710784}
-  m_LocalPosition: {x: 35.24, y: -2.74, z: -31.457031}
+  m_LocalPosition: {x: 37.92, y: -2.74, z: -31.457031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3685,7 +3685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288752727}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.26, y: -13.74, z: -31.457031}
+  m_LocalPosition: {x: -8.26, y: -15.5, z: -31.457031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -41115,6 +41115,7 @@ GameObject:
   - component: {fileID: 697884456}
   - component: {fileID: 697884459}
   - component: {fileID: 697884460}
+  - component: {fileID: 697884461}
   m_Layer: 0
   m_Name: DoorOpenCutscene
   m_TagString: Wall
@@ -41332,6 +41333,103 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.65, y: 8.144527}
   m_EdgeRadius: 0
+--- !u!82 &697884461
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697884451}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 4646052889504987979, guid: 70760ee80613de74d9c588ba04e09015,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: c271c77bb45f91f4c9e8416045ce73fc, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &704927824
 GameObject:
   m_ObjectHideFlags: 0
@@ -42379,7 +42477,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738494104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.26, y: 23.07, z: -31.457031}
+  m_LocalPosition: {x: -8.26, y: 25.63, z: -31.457031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -42611,7 +42709,7 @@ MonoBehaviour:
   - {fileID: 317104751}
   - {fileID: 1241812666}
   - {fileID: 1834350162}
-  lockedSpawnPoints: 01000000
+  lockedSpawnPoints: 0100000000
   spawnPointsUseAnimation: 0101000101
   spawner: {fileID: 447210132431672466, guid: d7c18ef7817c46b47bd1aa5bda1fbb1c, type: 3}
   useLoopPath: 0
@@ -42619,6 +42717,7 @@ MonoBehaviour:
   spawnPowerups: 1
   spawnEndlessly: 0
   currentWave: 0
+  numWavesCleared: 0
   endlessSpawnTime: 2.5
   currentlySpawnedPowerup: {fileID: 0}
 --- !u!1 &785781077
@@ -67780,12 +67879,7 @@ PrefabInstance:
         type: 3}
       propertyPath: music
       value: 
-      objectReference: {fileID: 8300000, guid: a21ab3aa0f9628a42b0a014aab281afd, type: 3}
-    - target: {fileID: 8795129235089351262, guid: af3b070ce755e0340acbb957102e96c4,
-        type: 3}
-      propertyPath: playerSfx.Array.data[11]
-      value: 
-      objectReference: {fileID: 8300000, guid: 3fdc4ee6f9d7b2748a722df58c0e02fa, type: 3}
+      objectReference: {fileID: 8300000, guid: 843f02d1ee4baed489f892efb3af8a6c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af3b070ce755e0340acbb957102e96c4, type: 3}
 --- !u!1001 &9121030493771203767

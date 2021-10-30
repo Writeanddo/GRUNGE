@@ -70,7 +70,7 @@ public class EnemyWaveManager : MonoBehaviour
     IEnumerator EndlessDifficultyIncreaser()
     {
         yield return new WaitForSeconds(10);
-        endlessSpawnTime = Mathf.Clamp(endlessSpawnTime * 0.93f, 1.25f, 4);
+        endlessSpawnTime = Mathf.Clamp(endlessSpawnTime * 0.97f, 1.25f, 4);
         StartCoroutine(EndlessDifficultyIncreaser());
     }
 
@@ -184,7 +184,12 @@ public class EnemyWaveManager : MonoBehaviour
         EnemyInstantiator e = Instantiate(spawner, powerupSpawnPoints[randPosition].position, Quaternion.identity).GetComponent<EnemyInstantiator>();
 
         while (lastPowerupSpawned != null && gm.powerups[rand] != lastPowerupSpawned)
-            rand = Random.Range(0, gm.powerups.Length);
+        {
+            int len = gm.powerups.Length;
+            if (!gm.playingEndlessMode)
+                len = 3;
+            rand = Random.Range(0, len);
+        }
 
         e.enemyToSpawn = gm.powerups[rand];
     }

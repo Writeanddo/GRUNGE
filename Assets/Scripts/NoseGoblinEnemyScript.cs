@@ -28,6 +28,12 @@ public class NoseGoblinEnemyScript : EnemyScript
             StopMoving();
 
         CheckIfHeld();
+
+        if(g.isHeld)
+        {
+            rechargingAttack = false;
+            shooting = false;
+        }
     }
 
     public override void UpdateMovement()

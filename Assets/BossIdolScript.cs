@@ -29,6 +29,7 @@ public class BossIdolScript : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
 
+        yield return new WaitForSeconds(0.15f);
         anim.Play("BossTotemExplode");
 
     }

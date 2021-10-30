@@ -59,6 +59,21 @@ TextureImporter:
   - first:
       213: -6131039291873444812
     second: ScreenTransition_18
+  - first:
+      213: 592524757988785790
+    second: ScreenTransition_0
+  - first:
+      213: 6113780411768214352
+    second: ScreenTransition_1
+  - first:
+      213: -3799359071123449667
+    second: ScreenTransition_2
+  - first:
+      213: -2769012674088461544
+    second: ScreenTransition_3
+  - first:
+      213: -1763915834830367119
+    second: ScreenTransition_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -168,116 +183,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ScreenTransition_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 256
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1115bd5ad7bc28720800000000000000
-      internalID: 2847061654965539089
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ScreenTransition_1
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 256
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aacb6cbc46cb12c90800000000000000
-      internalID: -7196263588459791190
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ScreenTransition_2
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 256
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1cc4d842cbecdbe30800000000000000
-      internalID: 4520996908412259521
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ScreenTransition_3
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 0
-        width: 256
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8c35c8c3d1b9fb8d0800000000000000
-      internalID: -2828371491093195832
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ScreenTransition_4
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 0
-        width: 256
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96c42ae7e726eb0c0800000000000000
-      internalID: -4558097477422396311
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: ScreenTransition_5
       rect:
         serializedVersion: 2
-        x: 1280
-        y: 0
+        x: 0
+        y: 360
         width: 256
         height: 180
       alignment: 0
@@ -297,8 +207,8 @@ TextureImporter:
       name: ScreenTransition_6
       rect:
         serializedVersion: 2
-        x: 1536
-        y: 0
+        x: 256
+        y: 360
         width: 256
         height: 180
       alignment: 0
@@ -318,8 +228,8 @@ TextureImporter:
       name: ScreenTransition_7
       rect:
         serializedVersion: 2
-        x: 1792
-        y: 0
+        x: 512
+        y: 360
         width: 256
         height: 180
       alignment: 0
@@ -339,8 +249,8 @@ TextureImporter:
       name: ScreenTransition_8
       rect:
         serializedVersion: 2
-        x: 2048
-        y: 0
+        x: 768
+        y: 360
         width: 256
         height: 180
       alignment: 0
@@ -360,8 +270,8 @@ TextureImporter:
       name: ScreenTransition_9
       rect:
         serializedVersion: 2
-        x: 2304
-        y: 0
+        x: 1024
+        y: 360
         width: 256
         height: 180
       alignment: 0
@@ -381,8 +291,8 @@ TextureImporter:
       name: ScreenTransition_10
       rect:
         serializedVersion: 2
-        x: 2560
-        y: 0
+        x: 0
+        y: 180
         width: 256
         height: 180
       alignment: 0
@@ -402,8 +312,8 @@ TextureImporter:
       name: ScreenTransition_11
       rect:
         serializedVersion: 2
-        x: 2816
-        y: 0
+        x: 256
+        y: 180
         width: 256
         height: 180
       alignment: 0
@@ -423,8 +333,8 @@ TextureImporter:
       name: ScreenTransition_12
       rect:
         serializedVersion: 2
-        x: 3072
-        y: 0
+        x: 512
+        y: 180
         width: 256
         height: 180
       alignment: 0
@@ -444,8 +354,8 @@ TextureImporter:
       name: ScreenTransition_13
       rect:
         serializedVersion: 2
-        x: 3328
-        y: 0
+        x: 768
+        y: 180
         width: 256
         height: 180
       alignment: 0
@@ -465,8 +375,8 @@ TextureImporter:
       name: ScreenTransition_14
       rect:
         serializedVersion: 2
-        x: 3584
-        y: 0
+        x: 1024
+        y: 180
         width: 256
         height: 180
       alignment: 0
@@ -486,7 +396,7 @@ TextureImporter:
       name: ScreenTransition_15
       rect:
         serializedVersion: 2
-        x: 3840
+        x: 0
         y: 0
         width: 256
         height: 180
@@ -507,7 +417,7 @@ TextureImporter:
       name: ScreenTransition_16
       rect:
         serializedVersion: 2
-        x: 4096
+        x: 256
         y: 0
         width: 256
         height: 180
@@ -528,7 +438,7 @@ TextureImporter:
       name: ScreenTransition_17
       rect:
         serializedVersion: 2
-        x: 4352
+        x: 512
         y: 0
         width: 256
         height: 180
@@ -546,11 +456,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ScreenTransition_18
+      name: ScreenTransition_0
       rect:
         serializedVersion: 2
-        x: 4608
-        y: 0
+        x: 0
+        y: 540
         width: 256
         height: 180
       alignment: 0
@@ -560,8 +470,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43cbbe76f3c2aeaa0800000000000000
-      internalID: -6131039291873444812
+      spriteID: e7ebb88c022193800800000000000000
+      internalID: 592524757988785790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScreenTransition_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 540
+        width: 256
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0539f2e64e288d450800000000000000
+      internalID: 6113780411768214352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScreenTransition_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 540
+        width: 256
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db8578ffd07f54bc0800000000000000
+      internalID: -3799359071123449667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScreenTransition_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 540
+        width: 256
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81b176ec4ad7299d0800000000000000
+      internalID: -2769012674088461544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ScreenTransition_4
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 540
+        width: 256
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 176df33d4ef4587e0800000000000000
+      internalID: -1763915834830367119
       vertices: []
       indices: 
       edges: []

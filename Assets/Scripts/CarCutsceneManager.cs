@@ -24,6 +24,15 @@ public class CarCutsceneManager : MonoBehaviour
 
     IEnumerator CarCutscene()
     {
+        while (gm == null)
+        {
+            anim = GetComponent<Animator>();
+            ply = FindObjectOfType<PlayerController>();
+            gm = FindObjectOfType<GameManager>();
+            yield return new WaitForFixedUpdate();
+        }
+        yield return new WaitForSeconds(0.25f);
+        gm.SetCrosshairVisibility(false);
         yield return new WaitForSeconds(1.5f);
         anim.Play("CarApproach");
         yield return new WaitForSeconds(0.25f);
@@ -41,6 +50,7 @@ public class CarCutsceneManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         ply.canMove = true;
         gm.canPause = true;
+        gm.SetCrosshairVisibility(true);
     }
 
     IEnumerator StopPlayer()

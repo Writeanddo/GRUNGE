@@ -61,7 +61,7 @@ public class WeaponBox : MonoBehaviour
         {
             if (ply.heldObject == this.gameObject)
                 ply.heldObject = null;
-            else if (ply.heldObject != null)
+            else if (gunIndex >= 10 && ply.heldObject != null)
                 FindObjectOfType<HandGrabManager>().DropItem();
 
             gm.PickupGun(gunIndex);
