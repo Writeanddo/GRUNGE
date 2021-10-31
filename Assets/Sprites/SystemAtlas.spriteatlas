@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1a080bc78ace1134c8b400d50f1c9805, type: 3}
-    totalSpriteSurfaceArea: 3394898
+    totalSpriteSurfaceArea: 6293070
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -101,6 +101,8 @@ SpriteAtlas:
   - {fileID: -1067716698095308171, guid: 10c9f7d46355dd0448bd2272e4a9986f, type: 3}
   - {fileID: 8257269658975634965, guid: 10c9f7d46355dd0448bd2272e4a9986f, type: 3}
   - {fileID: 21300000, guid: e45227e4ff4bdcc4e8bbd68f1d21b3e1, type: 3}
+  - {fileID: -6177645934570458060, guid: 7531e6553c5cc684e8692ef39c302453, type: 3}
+  - {fileID: 8704660980478798486, guid: 7531e6553c5cc684e8692ef39c302453, type: 3}
   - {fileID: 21300000, guid: a058a865d8ddcf346bc0fd98ec9c17d6, type: 3}
   - {fileID: 21300000, guid: e77de58539eff33419485343ba142650, type: 3}
   - {fileID: 8232878538186372548, guid: 5e3ac3a57d369a8408d7973eb4993694, type: 3}
@@ -149,7 +151,9 @@ SpriteAtlas:
   - {fileID: 7121217578472138529, guid: 9db2372796c439f4b98d5ab6f2f93474, type: 3}
   - {fileID: 8291513228598893908, guid: 9db2372796c439f4b98d5ab6f2f93474, type: 3}
   - {fileID: 441081068177025613, guid: 9db2372796c439f4b98d5ab6f2f93474, type: 3}
+  - {fileID: 21300000, guid: d8af8067e833de9468cb53323fc18198, type: 3}
   - {fileID: 21300000, guid: c92735977462b974f919770e9f6ac2ec, type: 3}
+  - {fileID: 21300000, guid: 23128b68f095d014eb766e1137a8473e, type: 3}
   - {fileID: 21300000, guid: 6d289b78bdabd044e98b69a1ad2ca20e, type: 3}
   - {fileID: 21300000, guid: 07fbd998e4e16b04f91ac1a4f70e0a8c, type: 3}
   - {fileID: 5731498800224586094, guid: a01a47592e67fff4393d08509de5b123, type: 3}
@@ -157,6 +161,7 @@ SpriteAtlas:
   - {fileID: 2015491135693421246, guid: a01a47592e67fff4393d08509de5b123, type: 3}
   - {fileID: 21300000, guid: 2a10bab95d9b9fc48953253d30df9035, type: 3}
   - {fileID: 21300000, guid: 8253663ad5d3aef4e8f3d5d96f0ee43e, type: 3}
+  - {fileID: 21300000, guid: ef283d5a575334a4f83dd9ab4d43af01, type: 3}
   - {fileID: 21300000, guid: 52c7437aa346ead47b13b740a1ef0166, type: 3}
   - {fileID: 5412086268284726026, guid: 4ac2f14b347980e4989423f53845eba5, type: 3}
   - {fileID: 9169877530624898698, guid: 4ac2f14b347980e4989423f53845eba5, type: 3}
@@ -198,6 +203,15 @@ SpriteAtlas:
   - {fileID: -2953954974637200062, guid: 85e600ad6b44be94694b387f84269392, type: 3}
   - {fileID: 3020940962318176328, guid: 85e600ad6b44be94694b387f84269392, type: 3}
   - {fileID: 21300000, guid: 1a95e5adb089b654fbea39802295ccb2, type: 3}
+  - {fileID: 7959923385222641716, guid: 06d3c60e9214daa4dbbea2ac6c2ee638, type: 3}
+  - {fileID: 4868038090799236863, guid: 06d3c60e9214daa4dbbea2ac6c2ee638, type: 3}
+  - {fileID: 3808905788549997685, guid: 06d3c60e9214daa4dbbea2ac6c2ee638, type: 3}
+  - {fileID: 1880863111112735526, guid: 06d3c60e9214daa4dbbea2ac6c2ee638, type: 3}
+  - {fileID: -4747578964772254179, guid: 06d3c60e9214daa4dbbea2ac6c2ee638, type: 3}
+  - {fileID: 8423911612463916945, guid: 06d3c60e9214daa4dbbea2ac6c2ee638, type: 3}
+  - {fileID: -1090860232009823234, guid: 06d3c60e9214daa4dbbea2ac6c2ee638, type: 3}
+  - {fileID: 3487583379798089812, guid: 06d3c60e9214daa4dbbea2ac6c2ee638, type: 3}
+  - {fileID: 9182813762792497472, guid: 06d3c60e9214daa4dbbea2ac6c2ee638, type: 3}
   - {fileID: -2411048657482610009, guid: 85c5890e8b55b074c9523cf83a1239d6, type: 3}
   - {fileID: 4048727716460076534, guid: 85c5890e8b55b074c9523cf83a1239d6, type: 3}
   - {fileID: 1831125372849780921, guid: 85c5890e8b55b074c9523cf83a1239d6, type: 3}
@@ -276,6 +290,8 @@ SpriteAtlas:
   - ButtonsNew_3
   - ButtonsNew_2
   - LevelSelectorTopBar
+  - SlimePortrait_1
+  - SlimePortrait_0
   - GooMeter
   - TitleBIG
   - Portraits_4
@@ -324,7 +340,9 @@ SpriteAtlas:
   - LevelSelectButtons_1
   - LevelSelectButtons_0
   - LevelSelectButtons_3
+  - TitleScreenSweep
   - TitleScreenBG
+  - TitleScreenArt2
   - Thumbnail
   - TitleScreenArt
   - LevelEndHeaders_1
@@ -332,6 +350,7 @@ SpriteAtlas:
   - LevelEndHeaders_2
   - SebHit
   - NoFire
+  - ThumbnailNew
   - TubLogo
   - Slider_1
   - Slider_0
@@ -373,6 +392,15 @@ SpriteAtlas:
   - TVStatic_0
   - TVStatic_1
   - GameOver
+  - DevHeads1_7
+  - DevHeads1_6
+  - DevHeads1_5
+  - DevHeads1_4
+  - DevHeads1_3
+  - DevHeads1_2
+  - DevHeads1_1
+  - DevHeads1_0
+  - DevHeads1_8
   - LevelEndButtons_4
   - LevelEndButtons_5
   - LevelEndButtons_0

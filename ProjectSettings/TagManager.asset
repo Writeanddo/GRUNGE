@@ -13,6 +13,8 @@ TagManager:
   - Explosion
   - GibRemover
   - SnotBubble
+  - Seb
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX

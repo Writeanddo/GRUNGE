@@ -17,6 +17,15 @@ TextureImporter:
   - first:
       213: 2870854014123248286
     second: Car_4
+  - first:
+      213: -2567558696736436686
+    second: Car_3
+  - first:
+      213: 5232554181503794755
+    second: Car_4
+  - first:
+      213: -8679606670066433065
+    second: Car_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -130,9 +139,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 80
+        y: 0
         width: 112
-        height: 80
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,9 +160,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 112
-        y: 80
+        y: 0
         width: 112
-        height: 80
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,9 +181,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 224
-        y: 80
+        y: 0
         width: 112
-        height: 80
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +201,10 @@ TextureImporter:
       name: Car_3
       rect:
         serializedVersion: 2
-        x: 0
+        x: 336
         y: 0
         width: 112
-        height: 80
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,8 +212,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 255c95ceb895e8fd0800000000000000
-      internalID: -2337832699058076334
+      spriteID: 23e4f0508f23e5cd0800000000000000
+      internalID: -2567558696736436686
       vertices: []
       indices: 
       edges: []
@@ -213,10 +222,10 @@ TextureImporter:
       name: Car_4
       rect:
         serializedVersion: 2
-        x: 112
+        x: 448
         y: 0
         width: 112
-        height: 80
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,8 +233,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9a02d1f38257d720800000000000000
-      internalID: 2870854014123248286
+      spriteID: 34eb4880e44cd9840800000000000000
+      internalID: 5232554181503794755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_5
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 112
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d3449858b7db8780800000000000000
+      internalID: -8679606670066433065
       vertices: []
       indices: 
       edges: []

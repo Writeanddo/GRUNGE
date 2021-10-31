@@ -1,21 +1,4 @@
-Hey, finally got the playtest for Grunge ready - if you give me your Newgrounds username I can grant you access to it (or I can give you a .exe you can download if that works better): https://www.newgrounds.com/projects/games/1690329/preview/filetype/2
-
-As long as you can record your gameplay and write down anything that looks like a bug + provide a timestamp for them then I should have plenty of data to work with, I'll let you go in blind so I can find things that might be confusing but lmk if you have any questions - thanks for being willing to test it :thumbsup:
-
-
 GRUNGE BUGS + FIXES
-
-
-PLAYTESTER LIST:
-- thegamingroach
-- WhiteTurtlez
-- diency
-- Zizou
-- PCD
-- oleksii
-- Jub
-- Shrombus
-- Ahnock (maybe)
 
 - Should have sound play when hand shoots out
 - Objects (vase, saw, etc) should play sound when they hit a wall or shatter
@@ -23,6 +6,10 @@ Other sfx to add:
 - Enemy firing bullets
 - Enemy spawning(?)
 - Level transitions
+- Tutorial boom sfx doesn't play on level completion
+- Add sound for totem hover
+- Change powerup ping sound
+- Add beeping sound when selecting a stage since it's like a TV changing channels
 - play the game and find out
 
 // = problem solved
@@ -42,67 +29,75 @@ Other sfx to add:
 ~Hands look weird when flinging towards boxes and barrels on third floor
 
 10;08
-Charge spitter immediately after realizing that the charges were hitting me, throwing it caused it to propel really weirdly in a different direction entirely, before walking into a wall and exploding
+// Charge spitter immediately after realizing that the charges were hitting me, throwing it caused it to propel really weirdly in a different direction entirely, before walking into a wall and exploding
 17:08 
 //? Goofy ass motherfucker doesn't even care anymore (neither do I apparently as I continued to grab him and charge him without testing around with him at all)
 18:05
 //? I throw an object at the wall and it causes me to bounce off of it
 18:15
-Rocket sprite (as well as possibly other gun variants, not that I've seen any appear on this floor so far) projectile fires under the candle
+//? Rocket sprite (as well as possibly other gun variants, not that I've seen any appear on this floor so far) projectile fires under the candle
 
-//? Update most recently selected level when exiting level
-- Make sure pause is disabled by default at start of every level
-//? Try and reset preview video when "START" is pressed so static shows as soon as you see the level select screen
-- Make weapon crates grabbable (easy)
-- Add car door open sprites
-- Play splat sound when adjusting SFX for volume reference
-- Make boss intro cutscene skippable
-- FREAK OCCURANCE where enemy spawned all goo gibs in a massive diagonal line along a wall
-- Check if user is logged in and advise login at game start
-- Basement goo door still appears above scion slime shadows
-- Make it so slightly fewer scion slimes appear in endless
-- Nose Goblin managed to stay alive during phase 1 transition (need to make manager also destroy spawn animations)
-- Nose Goblins sometimes get stuck on boss platform when thrown
-- Add achievement popup
-- Make it so dialog only appears outside of endless mode
-- Can't quit or press menu buttons in tutorial, something's covering them
-- Scythe should appear semi-infrequently
+
+- Can't pause during most of tutorial
+
+
+
+//? Boss 2 car cutscene should move player and boss upwards so they aren't visible on the car, should also cancel any boss animations
+// Play splat sound when adjusting SFX for volume reference
 - Add more dialog to post-tutorial cutscene
-- Stop music or fade out music and return ambience once front lawn level is beaten
-- SCYTHE SPAWNS OUTSIDE OF ENDLESS MODE (and currently not at all)
-- Wood gibs on boogernaut wall explode need to be replaced with gibfragments
-- FREAK OCCURANCE maybe: Threw fully charged guy and he didn't explode when hitting a wall (maybe an auto self-destruct is in order)
-- Need to destroy powerups when boss phase 1 ends
-- Scythe should be able to destroy props and stop bullets
-- Hide crosshair during dialog
-- NEED to add some delay between getting hit by bullets or extend the existing i-frames time, can get bodied by scion slimes if you stand next to them
-- Camera lerp at end of level snaps to player right at very end, could stand to be smoother
-- Hide crosshair at end of basement
-- Add auto self destruct to scum skulls, they might not actually get killed by killtriggers
-- Make boss 2 patterns play in order so you can frequently get skulls
-- Remove any goo gibs when boss 2 dies so we don't hear player pick them up off screen
-- Make dumbass enemies lerp towards vector2.zero always
+~ Stop music or fade out music and return ambience once front lawn level is beaten
+//? Scythe should be able to destroy props and stop bullets
+// Add auto self destruct to scum skulls, they might not actually get killed by killtriggers
+// Make dumbass enemies lerp towards vector2.zero always
 
+//? Zooming in / out on webpage fucks with scaling
+//? Camera lerp at end of level snaps to player right at very end, could stand to be smoother
+//? Hide crosshair at end of basement
+//? Make it so dialog only appears outside of endless mode
+//? Need to destroy powerups when boss phase 1 ends
 //? Boss phase 2 can apply knockback when you're dead, cancelling your death animation
-//? If your shield goes down to 1 WHILE YOU'RE CHARGING it can explode in your hand
+//? Skulls on ground should have larger hitboxes for when you step on them, larger ones should explode when stepped on maybe
+//? Make weapon crates grabbable (easy) (ESPECIALLY SCYTHE PICKUP)
+//? Make sure pause is disabled by default at start of every level
+//? Try and reset preview video when "START" is pressed so static shows as soon as you see the level select screen
+//? Basement goo door still appears above scion slime shadows
 //? Weapon boxes need rigidbodies, grabbable depends on them
-//? Scythe projectile sorting layer may be incorrect
-//? Make music play after door explodes if in endless mode
-//? Crate the scythe leans on can be blown up (shouldn't do that)
-//? Grabbing a new powerup while holding the scythe makes scythe sprite persist
 //? Can advance text while paused
-//? Remove all sources of directional audio, WebGL build doesn't like it one bit
-//? TIMER PROBABLY CONTINUES IF PAUSED
 //? Hide and show crosshair during cutscenes
 //? Every once in a while the releasedRightMouse trigger doesn't go off (and sometimes you can't stop charging? weird shit)
-//? Bounceback on grabbles hitting objects can send player flying if they collide
-//? Can throw enemies through skinny walls
-//? Gatling Goobers sometimes refuse to notice player - Occured at top left of workbench, throwable props were involved
-//? Hide crosshair in post-tutorial cutscene
-//? Have tutorial continue to level 1 rather than boot you to title screen
-//? Door doesn't appear on cabin before enemies spawn
-//? Boogernaut laser impact spawns incorrectly sometimes
+//? Boogernaut drops should despawn after time, can get a lot of them in an area in endless mode
+//? Send overall kills to scoreboard
 
+// Add car door open sprites
+// White screen left side needs to be extended for final boss arena
+// Add explosion when slick busts out of cabin and when cabin explodes
+// Remove any goo gibs when boss 2 dies so we don't hear player pick them up off screen
+// Make boss 2 patterns play in order so you can frequently get skulls
+// Hide crosshair during dialog
+// Make it so slightly fewer scion slimes appear in endless
+// Nose Goblin managed to stay alive during phase 1 transition (need to make manager also destroy spawn animations)
+// Nose Goblins sometimes get stuck on boss platform when thrown
+// Update most recently selected level when exiting level
+// Make fully charged enemies spawn way more goo gibs (Currently 3x)
+// Wood gibs on boogernaut wall explode need to be replaced with gibfragments
+// Can't quit or press menu buttons in tutorial, something's covering them
+// Add achievement popup
+// If your shield goes down to 1 WHILE YOU'RE CHARGING it can explode in your hand
+// Scythe projectile sorting layer may be incorrect
+// Make music play after door explodes if in endless mode
+// Crate the scythe leans on can be blown up (shouldn't do that)
+// Grabbing a new powerup while holding the scythe makes scythe sprite persist
+// Remove all sources of directional audio, WebGL build doesn't like it one bit
+// TIMER PROBABLY CONTINUES IF PAUSED
+// Bounceback on grabbles hitting objects can send player flying if they collide
+// Can throw enemies through skinny walls
+// Gatling Goobers sometimes refuse to notice player - Occured at top left of workbench, throwable props were involved
+// Have tutorial continue to level 1 rather than boot you to title screen
+// Door doesn't appear on cabin before enemies spawn
+// Boogernaut laser impact spawns incorrectly sometimes
+// Scythe should appear semi-infrequently
+// SCYTHE SPAWNS OUTSIDE OF ENDLESS MODE (and currently not at all)
+// FREAK OCCURANCE maybe: Threw fully charged guy and he didn't explode when hitting a wall (maybe an auto self-destruct is in order)
 // Carrying a nose goblin to the top right cabin wall makes them clip out of bounds
 // Add ambience to beginning of cabin level
 // Maybe make basement level only begin once you step on the pentagram
@@ -134,6 +129,9 @@ Rocket sprite (as well as possibly other gun variants, not that I've seen any ap
 ~ Music doesn't loop seamlessly in webgl build
 ~ Crosshair is jittery when player / camera moves - Would need to make crosshair a UI element - bit of a pain in the ass, so do it later
 ~ Improve scion slime bullet patterns
+~ Make boss intro cutscene skippable
+~ FREAK OCCURANCE where enemy spawned all goo gibs in a massive diagonal line along a wall
+~ Check if user is logged in and advise login at game start
 
 IDEAS 
 
@@ -143,5 +141,7 @@ IDEAS
 
 FINAL CHECKS BEFORE PUBLISHING
 - Check boss health values
+- Check code for any TEMP bits
 - Make sure preview videos are up to date
 - Check anything with //?
+- UNMUTE ANY AUDIO MIXER CHANNELS

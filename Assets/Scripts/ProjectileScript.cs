@@ -51,7 +51,7 @@ public class ProjectileScript : MonoBehaviour
         if (!delayFinished)
             return;
 
-        if (collision.tag == "Enemy" || collision.tag == "Wall" || collision.tag == "Breakable")
+        if (collision.tag == "Enemy" || collision.tag == "Wall" || collision.tag == "Breakable" || collision.tag == "SnotBubble")
         {
             if (collision.gameObject.layer != 8)
             {

@@ -15,8 +15,8 @@ public class DumbassEnemyScript : EnemyScript
     {
         CheckIfHeld();
 
-        if (!g.isHeld && g.canBreak)
-            rb.velocity = Vector2.zero;
+        if (!g.isHeld && rb.velocity.magnitude < 10)
+            rb.velocity = Vector2.Lerp(rb.velocity, Vector2.zero, 0.2f);
     }
 
     public override void UpdateMovement()

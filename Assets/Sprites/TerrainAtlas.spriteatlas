@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1ae2bcd4a425c6042a99119bbc314f5f, type: 3}
-    totalSpriteSurfaceArea: 1561811
+    totalSpriteSurfaceArea: 1564771
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -700,6 +700,8 @@ SpriteAtlas:
   - {fileID: 7335426435333650268, guid: 1a8ff1b6c4378334aa1c88c662b03171, type: 3}
   - {fileID: 2410538826417369312, guid: 1a8ff1b6c4378334aa1c88c662b03171, type: 3}
   - {fileID: -4679951940425919880, guid: 1a8ff1b6c4378334aa1c88c662b03171, type: 3}
+  - {fileID: -2376627708221399303, guid: 9386e4c60bee97f4389e5d57c7a4e91a, type: 3}
+  - {fileID: -2445754036879894287, guid: 9386e4c60bee97f4389e5d57c7a4e91a, type: 3}
   - {fileID: 21300000, guid: 80ddfef637c3bc84297870cde0b4fe21, type: 3}
   - {fileID: -5146880458040057289, guid: a74f7617433e7ae4e964151604cbbe5f, type: 3}
   - {fileID: -428431067453858579, guid: a74f7617433e7ae4e964151604cbbe5f, type: 3}
@@ -2509,6 +2511,8 @@ SpriteAtlas:
   - KitchenTiles_20
   - KitchenTiles_23
   - KitchenTiles_22
+  - KGStumps_1
+  - KGStumps_2
   - CabinTrees
   - CabinStumps_2
   - CabinStumps_1

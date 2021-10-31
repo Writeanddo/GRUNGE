@@ -109,6 +109,11 @@ public class ScytheProjectile : MonoBehaviour
         {
             collision.transform.SendMessage("Pop", false);
         }
+
+        if (collision.tag == "Breakable" || collision.tag == "BreakableIgnoreProjectiles")
+        {
+            collision.GetComponent<Grabbable>().TakeDamage(this.gameObject, 30);
+        }
     }
 
     void EndSequence()

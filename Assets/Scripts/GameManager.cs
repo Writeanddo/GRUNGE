@@ -10,10 +10,19 @@ using System.IO;
 public class GameManager : MonoBehaviour
 {
     // Variables that persist between sessions
+    [System.Serializable]
     public class SaveDataVariables
     {
         public int overallKills;
         public int furthestUnlockedLevel;
+        public int[] hiScoreKills;
+        public float[] hiScoreTimes;
+
+        public SaveDataVariables()
+        {
+            hiScoreKills = new int[3];
+            hiScoreTimes = new float[3];
+        }
     }
     core ngCore;
 
@@ -62,7 +71,7 @@ public class GameManager : MonoBehaviour
     SpriteRenderer crosshair;
     SpriteRenderer subCrosshair;
 
-    SaveDataVariables saveVars;
+    public SaveDataVariables saveVars;
 
     public bool paused;
     public bool canPause = true;
@@ -97,7 +106,7 @@ public class GameManager : MonoBehaviour
 
     int kills = 0;
     float timer = 0;
-
+    float powerupRandNum = 1;
     bool displayingMedal;
     bool unlockedKillMedal;
     [HideInInspector]
@@ -131,7 +140,7 @@ public class GameManager : MonoBehaviour
         gooSliderText = GameObject.Find("GooSliderNumber").GetComponent<Text>();
         killsText = GameObject.Find("KillsNumberText").GetComponent<TextMeshProUGUI>();
         timerText = GameObject.Find("LevelTimeText").GetComponent<TextMeshProUGUI>();
-        hiScoreText = GameObject.Find("LevelTimeText").GetComponent<TextMeshProUGUI>();
+        hiScoreText = GameObject.Find("BestScoreText").GetComponent<TextMeshProUGUI>();
         resetButton = GameObject.Find("ResetButton").GetComponent<RectTransform>();
         quitButton = GameObject.Find("QuitButton").GetComponent<RectTransform>();
         nextLevelButton = GameObject.Find("NextLevelButton").GetComponent<RectTransform>();
@@ -161,6 +170,7 @@ public class GameManager : MonoBehaviour
 
         LoadSaveData();
 
+        // Check if in endless mode
         if (SceneManager.GetActiveScene().buildIndex >= 2)
         {
             int endless = PlayerPrefs.GetInt("GRUNGE_IS_ENDLESS");
@@ -168,6 +178,9 @@ public class GameManager : MonoBehaviour
                 playingEndlessMode = true;
             else
                 playingEndlessMode = false;
+
+            if (playingEndlessMode)
+                StartCoroutine(HiScoreTextCycle(SceneManager.GetActiveScene().buildIndex - 3));
         }
         enemiesInLevel = new List<EnemyScript>();
         StartCoroutine(LevelStartSequence());
@@ -187,11 +200,11 @@ public class GameManager : MonoBehaviour
     void CheckForMedalUnlocks()
     {
         // Survive for 10 minutes in endless mode
-        if (playingEndlessMode && Mathf.FloorToInt(timer / 60F) > 10)
+        if (playingEndlessMode && Mathf.FloorToInt(timer / 60F) >= 10)
             UnlockMedal(47);
 
         // Get 1000 total kills
-        if(saveVars.overallKills >= 1000 && !unlockedKillMedal)
+        if (saveVars.overallKills >= 1000 && !unlockedKillMedal)
         {
             unlockedKillMedal = true;
             UnlockMedal(48);
@@ -203,6 +216,7 @@ public class GameManager : MonoBehaviour
     {
         kills++;
         saveVars.overallKills++;
+        PostScore(10980, 1);
     }
 
     // Basement time: 10987
@@ -225,8 +239,9 @@ public class GameManager : MonoBehaviour
 
     public void PostScore(int id, int value)
     {
-        if (!IsLoggedIn())
-            return;
+        // TEMP?
+        //if (!IsLoggedIn())
+        // return;
 
         io.newgrounds.components.ScoreBoard.postScore scoreToPost = new io.newgrounds.components.ScoreBoard.postScore();
         scoreToPost.id = id;
@@ -237,9 +252,11 @@ public class GameManager : MonoBehaviour
 
     public void UnlockMedal(int id)
     {
-        print("Called UnlockMedal with ID " + id);
-        if (!IsLoggedIn())
-            return;
+        Debug.Log("Attempting to unlock medal " + id + "...");
+
+        // TEMP?
+        //if (!IsLoggedIn())
+        //return;
 
         io.newgrounds.components.Medal.unlock medal_unlock = new io.newgrounds.components.Medal.unlock();
 
@@ -264,6 +281,28 @@ public class GameManager : MonoBehaviour
     {
         int iconIndex = result.medal.id - 65969;
         string medalName = result.medal.name.ToUpper();
+
+        if(iconIndex >= 45)
+        {
+            int newIndex = 0;
+            switch(iconIndex)
+            {
+                case 45:
+                    newIndex = 4;
+                    break;
+                case 46:
+                    newIndex = 5;
+                    break;
+                case 47:
+                    newIndex = 6;
+                    break;
+                case 48:
+                    newIndex = 7;
+                    break;
+            }
+
+            iconIndex = newIndex;
+        }
 
         if (iconIndex >= medalIcons.Length || iconIndex < 0)
         {
@@ -313,6 +352,13 @@ public class GameManager : MonoBehaviour
 
         crosshair.color = c;
         subCrosshair.color = c;
+    }
+
+    public bool GetCrosshairVisibility()
+    {
+        if (crosshair.color == Color.white)
+            return true;
+        return false;
     }
 
     void UpdateUI()
@@ -391,8 +437,14 @@ public class GameManager : MonoBehaviour
     {
         while (text.isPrinting)
             yield return null;
+        bool canPauseCheck = canPause;
+        bool crosshairVisibleCheck = GetCrosshairVisibility();
+        canPause = false;
+        SetCrosshairVisibility(false);        
 
         yield return text.PrintSingleText(GetTextDataFromID(id));
+        canPause = canPauseCheck;
+        SetCrosshairVisibility(crosshairVisibleCheck);
     }
 
     TextboxManager.TextData GetTextDataFromID(string id)
@@ -469,6 +521,52 @@ public class GameManager : MonoBehaviour
         Screen.SetResolution(width, height, isFullscreen);
     }
 
+    public void SpawnPowerup(Vector2 position, float spawnChance)
+    {
+        if (ewm.currentlySpawnedPowerup != null || ply.stats.currentWeapon != 0)
+            return;
+
+        // If we don't hit our random spawn chance, make it
+        // slightly more likely that we do next time
+        if (spawnChance < powerupRandNum)
+        {
+            powerupRandNum -= 0.0085f;
+            return;
+        }
+
+        powerupRandNum = 1;
+        int len = powerups.Length;
+        if (!playingEndlessMode)
+            len = 3;
+        int rand = Random.Range(0, len);
+        
+        // Only 1/3 chance scythe will spawn if we hit it
+        if(rand == 3)
+        {
+            float scytheRand = Random.Range(0, 1f);
+            if (scytheRand < 0.333f)
+                rand = ewm.lastPowerupSpawned;
+        }
+
+        while (rand == ewm.lastPowerupSpawned)
+        {
+            len = powerups.Length;
+            if (!playingEndlessMode)
+                len = 3;
+            rand = Random.Range(0, len);
+
+            // Only 1/3 chance scythe will spawn if we hit it
+            if (rand == 3)
+            {
+                float scytheRand = Random.Range(0, 1f);
+                if (scytheRand < 0.333f)
+                    rand = ewm.lastPowerupSpawned;
+            }
+        }
+        print("Rand post-loop: " + rand);
+        ewm.lastPowerupSpawned = rand;
+        Instantiate(powerups[rand], position, Quaternion.identity);
+    }
 
     public void PlaySFX(AudioClip clip)
     {
@@ -541,7 +639,7 @@ public class GameManager : MonoBehaviour
         transform.position = Vector2.zero;
     }
 
-    IEnumerator ScreenShakeCoroutine(float intensity, float duration)
+    public IEnumerator ScreenShakeCoroutine(float intensity, float duration)
     {
         while (duration > 0)
         {
@@ -572,22 +670,26 @@ public class GameManager : MonoBehaviour
         if (levelName == "0_tutorial")
         {
             PlayMusic();
+            UpdateUnlockedLevels(1);
             StartCoroutine(FindObjectOfType<TutorialManager>().IntroDialog());
         }
         else if (levelName == "1_cabin_approach")
         {
-            canPause = false;
+            
         }
         else if (levelName == "2_cabin_interior")
         {
             ply.canMove = true;
+            canPause = true;
             //PlayMusic();
             //ewm.StartWaves();
         }
         else if (levelName == "3_basement")
         {
-            yield return WaitForTextCompletion("Level3Start");
+            if(!playingEndlessMode)
+                yield return WaitForTextCompletion("Level3Start");
             ply.canMove = true;
+            canPause = true;
             //PlayMusic();
             //ewm.StartWaves();
         }
@@ -655,10 +757,19 @@ public class GameManager : MonoBehaviour
         // Destroy all other enemies and projectiles
         EnemyScript[] enemies = FindObjectsOfType<EnemyScript>();
         EnemyProjectile[] projectiles = FindObjectsOfType<EnemyProjectile>();
+        WeaponBox[] powerups = FindObjectsOfType<WeaponBox>();
+        EnemyInstantiator[] es = FindObjectsOfType<EnemyInstantiator>();
+        PotionPickup p = FindObjectOfType<PotionPickup>();
         BossIdolScript idol = FindObjectOfType<BossIdolScript>();
 
+        if (p != null)
+            Destroy(p.gameObject);
         if (idol != null)
             Destroy(idol.gameObject);
+        foreach (WeaponBox w in powerups)
+            Destroy(w.gameObject);
+        foreach (EnemyInstantiator e in es)
+            Destroy(e.gameObject);
         for (int i = 0; i < enemies.Length; i++)
             if (enemies[i].name != "Boss")
                 Destroy(enemies[i].gameObject);
@@ -708,7 +819,7 @@ public class GameManager : MonoBehaviour
             case 10:
                 gunNameText.text = "THRESH";
                 if (playingEndlessMode)
-                    gunTimer = 15;
+                    gunTimer = 20;
                 else
                     gunTimer = 999;
                 ply.canLaunchHand = false;
@@ -716,17 +827,17 @@ public class GameManager : MonoBehaviour
 
             case 1:
                 gunNameText.text = "SHOT\nGUN";
-                gunTimer = 15;
+                gunTimer = 20;
                 ply.canLaunchHand = true;
                 break;
             case 2:
                 gunNameText.text = "TOMMY\nGUN";
-                gunTimer = 15;
+                gunTimer = 20;
                 ply.canLaunchHand = true;
                 break;
             case 11:
-                gunNameText.text = "BRASS\nKNUCKLES";
-                gunTimer = 15;
+                gunNameText.text = "BRASS\nKNUCKLES"; // scrapped
+                gunTimer = 20;
                 ply.canLaunchHand = false;
                 break;
         }
@@ -738,6 +849,7 @@ public class GameManager : MonoBehaviour
 
         if (levelName == "1_cabin_approach")
         {
+            SetCrosshairVisibility(false);
             camControl.overridePosition = true;
             Transform t = GameObject.Find("CabinDoorHole").transform;
 
@@ -755,7 +867,7 @@ public class GameManager : MonoBehaviour
                 yield return null;
             }
 
-            while (Vector3.Distance(camControl.transform.position, ply.transform.position) > 10.1f)
+            while (Vector3.Distance(camControl.transform.position, ply.transform.position) > 10.01f)
             {
                 camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(ply.transform.position.x, ply.transform.position.y, camControl.transform.position.z), 0.1f);
                 yield return null;
@@ -767,9 +879,11 @@ public class GameManager : MonoBehaviour
 
             camControl.overridePosition = false;
             ply.canMove = true;
+            SetCrosshairVisibility(true);
         }
         else if (levelName == "2_cabin_interior")
         {
+            SetCrosshairVisibility(false);
             camControl.overridePosition = true;
             Transform t = GameObject.Find("TrapdoorOpen").transform;
             t.GetComponent<Animator>().Play("TrapdoorOpen");
@@ -784,7 +898,7 @@ public class GameManager : MonoBehaviour
                 yield return null;
             }
 
-            while (Vector3.Distance(camControl.transform.position, ply.transform.position) > 10.1f)
+            while (Vector3.Distance(camControl.transform.position, ply.transform.position) > 10.01f)
             {
                 camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(ply.transform.position.x, ply.transform.position.y, camControl.transform.position.z), 0.1f);
                 yield return null;
@@ -792,11 +906,13 @@ public class GameManager : MonoBehaviour
 
             camControl.overridePosition = false;
             ply.canMove = true;
+            SetCrosshairVisibility(true);
 
             UpdateUnlockedLevels(3);
         }
         else if (levelName == "3_basement")
         {
+            SetCrosshairVisibility(false);
             camControl.overridePosition = true;
             Transform t = GameObject.Find("GoodoorOpen").transform;
             t.GetComponent<Animator>().Play("GoodoorOpen");
@@ -811,14 +927,14 @@ public class GameManager : MonoBehaviour
                 yield return null;
             }
 
-            while (Vector3.Distance(camControl.transform.position, ply.transform.position) > 10.1f)
+            while (Vector3.Distance(camControl.transform.position, ply.transform.position) > 10.01f)
             {
                 camControl.transform.position = Vector3.Lerp(camControl.transform.position, new Vector3(ply.transform.position.x, ply.transform.position.y, camControl.transform.position.z), 0.1f);
                 yield return null;
             }
 
             camControl.overridePosition = false;
-
+            SetCrosshairVisibility(true);
 
             //yield return WaitForTextCompletion("PlaytestOver");
             ply.canMove = true;
@@ -878,6 +994,30 @@ public class GameManager : MonoBehaviour
         ShowResultsScreen(false, false);
     }
 
+    IEnumerator HiScoreTextCycle(int index)
+    {
+        hiScoreText.text = "BEST TIME:";
+        yield return new WaitForSecondsRealtime(1.5f);
+        if (saveVars.hiScoreTimes[index] == 0)
+            hiScoreText.text = "N/A";
+        else
+        {
+            float bestTime = saveVars.hiScoreTimes[index];
+            int minutes = Mathf.FloorToInt(bestTime / 60F);
+            int seconds = Mathf.FloorToInt(bestTime - minutes * 60);
+            int milliseconds = Mathf.FloorToInt(((bestTime - (minutes * 60) - seconds)) * 100);
+            string niceTime = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
+            hiScoreText.text = niceTime;
+        }
+        yield return new WaitForSecondsRealtime(1.5f);
+
+        hiScoreText.text = "MOST KILLS:";
+        yield return new WaitForSecondsRealtime(1.5f);
+        hiScoreText.text = saveVars.hiScoreKills[index].ToString();
+        yield return new WaitForSecondsRealtime(1.5f);
+        StartCoroutine(HiScoreTextCycle(index));
+    }
+
     void ShowResultsScreen(bool isGameOver, bool isPauseScreen)
     {
         // Submit to scoreboard if we're playing endless mode
@@ -886,9 +1026,16 @@ public class GameManager : MonoBehaviour
             levelEndScreen.sprite = endScreenSprites[0];
             if (isGameOver)
             {
-                hiScoreText.text = "N/A";
-                PostScore(GetIdFromLevelIndex(SceneManager.GetActiveScene().buildIndex, false), kills);
-                PostScore(GetIdFromLevelIndex(SceneManager.GetActiveScene().buildIndex, true), Mathf.RoundToInt(timer * 1000));
+                // Write hi score to JSON and scoreboards
+                int buildIndex = SceneManager.GetActiveScene().buildIndex;
+
+                if (saveVars.hiScoreKills[buildIndex - 3] < kills)
+                    saveVars.hiScoreKills[buildIndex - 3] = kills;
+                if (saveVars.hiScoreTimes[buildIndex - 3] < timer)
+                    saveVars.hiScoreTimes[buildIndex - 3] = timer;
+
+                PostScore(GetIdFromLevelIndex(buildIndex, false), kills);
+                PostScore(GetIdFromLevelIndex(buildIndex, true), Mathf.RoundToInt(timer * 1000));
             }
         }
         // Hide high score text if we're not in endless mode
@@ -896,11 +1043,14 @@ public class GameManager : MonoBehaviour
         {
             levelEndScreen.sprite = endScreenSprites[1];
 
-            int index = SceneManager.GetActiveScene().buildIndex;
-            if (!isGameOver && index >= 3)
-                UnlockMedal(index - 3);
-            if (!isGameOver && !firedGun)
-                UnlockMedal(46);
+            if (!isPauseScreen)
+            {
+                int index = SceneManager.GetActiveScene().buildIndex;
+                if (!isGameOver && index >= 3)
+                    UnlockMedal(index - 3);
+                if (!isGameOver && !firedGun)
+                    UnlockMedal(46);
+            }
         }
 
         // Set header
@@ -970,8 +1120,18 @@ public class GameManager : MonoBehaviour
             resetButton.anchoredPosition = new Vector2(-88, -240);
         else
         {
-            nextLevelButton.anchoredPosition = new Vector2(-88, -240);
-            resetButton.anchoredPosition = new Vector2(-88, -1000);
+            // Only show next level button if we beat the boss level
+            if (SceneManager.GetActiveScene().buildIndex == 6)
+            {
+                nextLevelButton.anchoredPosition = new Vector2(0, -240);
+                quitButton.anchoredPosition = new Vector2(0, -1000);
+                resetButton.anchoredPosition = new Vector2(0, -1000);
+            }
+            else
+            {
+                nextLevelButton.anchoredPosition = new Vector2(-88, -240);
+                resetButton.anchoredPosition = new Vector2(-88, -1000);
+            }
         }
 
         levelEndScreen.rectTransform.anchoredPosition = Vector2.zero;
@@ -980,9 +1140,23 @@ public class GameManager : MonoBehaviour
     public void LoadLevel(int level)
     {
         PlayerPrefs.SetInt("GRUNGE_LOAD_TO_LEVEL_SELECT", 1);
-        PlayerPrefs.SetInt("GRUNGE_LAST_SELECTED_LEVEL", SceneManager.GetActiveScene().buildIndex - 2);
+
+        // Set selected level to be next level if we're in the tutorial
+        // Done so if you quit early it'll still have that level auto-selected
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+            PlayerPrefs.SetInt("GRUNGE_LAST_SELECTED_LEVEL", 1);
+        else
+            PlayerPrefs.SetInt("GRUNGE_LAST_SELECTED_LEVEL", SceneManager.GetActiveScene().buildIndex - 2);
+
         PlayerPrefs.Save();
         StartCoroutine(LoadLevelCoroutine(level));
+    }
+
+    public void LoadToCredits()
+    {
+        PlayerPrefs.SetInt("GRUNGE_LOAD_TO_LEVEL_SELECT", 2);
+        PlayerPrefs.Save();
+        StartCoroutine(LoadLevelCoroutine(1));
     }
 
     public void LoadNextLevel()
@@ -1079,21 +1253,33 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // POTENTIALLY JANKY WORKAROUND IN USE HERE https://itch.io/t/140214/persistent-data-in-updatable-webgl-games
     void LoadSaveData()
     {
-        if (!File.Exists(Application.persistentDataPath + @"/grungedata.json"))
+        string prefix = @"idbfs/GRUNGE";
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+            prefix = Application.persistentDataPath;
+
+        if (!File.Exists(prefix + @"/grungedata.json"))
         {
             saveVars = new SaveDataVariables();
             return;
         }
-        string json = File.ReadAllText(Application.persistentDataPath + @"/grungedata.json");
+        string json = File.ReadAllText(prefix + @"/grungedata.json");
         saveVars = JsonUtility.FromJson<SaveDataVariables>(json);
     }
 
     void WriteSaveData()
     {
-        print(Application.persistentDataPath + @"/grungedata.json");
+        string prefix = @"idbfs/GRUNGE";
+        //Debug.LogError(prefix + ", " + Application.persistentDataPath);
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+            prefix = Application.persistentDataPath;
+        else if (!Directory.Exists(prefix))
+            Directory.CreateDirectory(prefix);
+
+        print(prefix + @"/grungedata.json");
         string json = JsonUtility.ToJson(saveVars);
-        File.WriteAllText(Application.persistentDataPath + @"/grungedata.json", json);
+        File.WriteAllText(prefix + @"/grungedata.json", json);
     }
 }

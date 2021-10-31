@@ -127,6 +127,9 @@ public class PlayerController : MonoBehaviour
 
         float damping = 0.5f;
 
+        if (isDying || stats.health <= 0)
+            additionalForce = Vector2.zero;
+
         if (additionalForce == Vector2.zero && rb.velocity.magnitude > stats.maxSpeed)
         {
             rb.velocity -= rb.velocity * 0.1f;
@@ -250,7 +253,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Charge attack checks - needs to be here in case we rapid clicked right mouse when hand was out
-        if (Input.GetMouseButton(1))
+        if (Input.GetButton("Fire2"))
         {
             // If we're holding an object and its an enemy, charge it until we release rmb
             if (!chargingAttack && heldObject != null && rightClickReleased && canLaunchHand)
@@ -270,7 +273,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Throw held item / Release charge
-        if (Input.GetButtonUp("Fire2") && !reloading)
+        if (Input.GetButtonUp("Fire2"))
         {
             // Have to release RMB once before being able to charge again (to prevent immediate charge upon grab)
             if (!rightClickReleased && (handLaunched || heldObject != null))
@@ -294,7 +297,7 @@ public class PlayerController : MonoBehaviour
                 stats.maxSpeed = storedMaxSpeed;
 
             }
-            if (stats.currentWeapon == 10)
+            if (stats.currentWeapon == 10 && !reloading)
             {
                 if (chargingAttack && chargeReady)
                 {
@@ -313,7 +316,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Convert goo into health
-        if (Input.GetKeyDown(KeyCode.E) && stats.health < stats.maxHealth && stats.goo > stats.maxGoo * 0.5f && !siphoningHealth)
+        if (Input.GetKeyDown(KeyCode.E) && stats.health < stats.maxHealth && stats.goo >= stats.maxGoo * 0.5f && !siphoningHealth)
         {
             siphoningHealth = true;
             StartCoroutine(ConvertGooToHealth());
@@ -352,7 +355,7 @@ public class PlayerController : MonoBehaviour
         EnemyScript e = heldObject.GetComponent<EnemyScript>();
         chargingAttack = true;
         float timer = 0;
-        //yield return new WaitForSeconds(0.2f);
+        //yield return new WaitForSeconds(0.1f);
         //stats.maxSpeed = storedMaxSpeed * 0.5f;
         while (handLaunched)
             yield return null;
@@ -363,7 +366,7 @@ public class PlayerController : MonoBehaviour
             float multiplier = 3 - (e.stats.currentShieldValue * 0.5f);
 
             gm.PlaySFXStoppablePriority(gm.playerSfx[12], multiplier / 2f);
-            while (timer < 1f && chargingAttack)
+            while (timer < 0.8f && chargingAttack)
             {
                 timer += Time.fixedDeltaTime;
                 handShaker.transform.localPosition = new Vector2(0, 0.33f * multiplier * Mathf.Sin(timer * 8 * Mathf.PI * multiplier));
@@ -512,7 +515,7 @@ public class PlayerController : MonoBehaviour
     {
         canLaunchHand = false;
 
-        speedMultiplier = 0.5f;
+        speedMultiplier = 0.625f;
         StartCoroutine(WaitForStunCompletion());
     }
 
@@ -561,14 +564,14 @@ public class PlayerController : MonoBehaviour
             gm.ScreenShake(3f);
             Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;
             gun.transform.position -= offset;
-            Instantiate(projectiles[3], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 70));
+            Instantiate(projectiles[3], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 80));
             Instantiate(projectiles[3], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 90));
-            Instantiate(projectiles[3], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 110));
+            Instantiate(projectiles[3], gunTargetPos.position, Quaternion.Euler(0, 0, -AngleBetweenMouse(gun.transform) + 100));
             reloading = true;
 
             stats.goo -= stats.shotGooUsage;
 
-            StartCoroutine(WaitForGunReload(1.33f));
+            StartCoroutine(WaitForGunReload(1.25f));
         }
         else if (stats.currentWeapon == 2)
         {
@@ -608,6 +611,15 @@ public class PlayerController : MonoBehaviour
                 {
                     hits[i].SendMessage("Pop", false);
                     hitEnemy = true;
+                }
+                if(hits[i].tag == "EnemyProjectile")
+                {
+                    Destroy(hits[i].gameObject);
+                    hitEnemy = true;
+                }
+                if(hits[i].tag == "Breakable" || hits[i].tag == "BreakableIgnoreProjectiles")
+                {
+                    hits[i].GetComponent<Grabbable>().TakeDamage(this.gameObject, 30);
                 }
             }
             if (!hitEnemy)

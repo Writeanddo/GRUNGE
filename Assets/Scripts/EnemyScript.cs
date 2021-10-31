@@ -24,6 +24,7 @@ public abstract class EnemyScript : MonoBehaviour
         public string animationPrefix;
         public bool useDirctionalAnimation = true;
         public bool alwaysThrowAtFullCharge;
+        public bool dontSpawnPowerups = false;
     }
 
     public EnemyStats stats;
@@ -169,6 +170,10 @@ public abstract class EnemyScript : MonoBehaviour
 
     IEnumerator GetThrownCoroutine()
     {
+        print("Got thrown");
+        if (readyToExplode)
+            StartCoroutine(SelfDestructAfterThrown());
+
         while (rb.velocity.magnitude > 0.5f)
         {
             if (!readyToExplode && !stats.alwaysThrowAtFullCharge)
@@ -180,6 +185,12 @@ public abstract class EnemyScript : MonoBehaviour
 
         stats.currentShieldValue = 4;
         g.isBeingThrown = false;
+    }
+
+    IEnumerator SelfDestructAfterThrown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        ExplodeBig();
     }
 
     public IEnumerator FlashFromDamage()
@@ -438,7 +449,7 @@ public abstract class EnemyScript : MonoBehaviour
             Instantiate(gooDrops[Random.Range(0, gooDrops.Length)], gibSpawnPos, Quaternion.identity);
             Instantiate(splatterDrops[Random.Range(0, splatterDrops.Length)], gibSpawnPos, Quaternion.identity);
         }
-        for(int i = 0; i < nonRandomDrops.Length; i++)
+        for (int i = 0; i < nonRandomDrops.Length; i++)
             Instantiate(nonRandomDrops[i], gibSpawnPos, Quaternion.identity);
 
         Die();
@@ -449,7 +460,7 @@ public abstract class EnemyScript : MonoBehaviour
         print("Big explosion");
         gm.ScreenShake(10);
         Vector2 gibSpawnPos = new Vector2(transform.position.x, transform.position.y - 0.5f + gibSpawnYOffset);
-        for (int i = 0; i < stats.numGooDrops; i++)
+        for (int i = 0; i < stats.numGooDrops * 3; i++)
         {
             Instantiate(gooDrops[Random.Range(0, gooDrops.Length)], gibSpawnPos, Quaternion.identity);
             Instantiate(splatterDrops[Random.Range(0, splatterDrops.Length)], gibSpawnPos, Quaternion.identity);
@@ -463,6 +474,11 @@ public abstract class EnemyScript : MonoBehaviour
         if (!stats.overrideDeath)
         {
             gm.IncreaseKills();
+            if (!stats.dontSpawnPowerups && !readyToExplode)
+            {
+                float rand = Random.Range(0, 1f);
+                gm.SpawnPowerup(transform.position, rand);
+            }
             Destroy(this.gameObject);
         }
     }

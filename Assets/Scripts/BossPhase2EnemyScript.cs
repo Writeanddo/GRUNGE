@@ -139,8 +139,8 @@ public class BossPhase2EnemyScript : EnemyScript
         bpm.SetNodePath(index);
         currentNode = -1;
         currentPathIndex = index;
-        stats.pathSpeedMultiplier = 2 + index*0.75f;
-        anim.SetFloat("ShootSpeed", Mathf.Clamp((currentPathIndex * 0.15f) + 1, 1, 2));
+        stats.pathSpeedMultiplier = 2.25f + index*0.75f;
+        anim.SetFloat("ShootSpeed", Mathf.Clamp((currentPathIndex * 0.15f) + 1, 1, 2.5f));
     }
 
     IEnumerator CombatLoop()
@@ -152,24 +152,24 @@ public class BossPhase2EnemyScript : EnemyScript
 
         while (true)
         {
-            int lastAttack = currentAttack;
-            while (currentAttack == lastAttack)
-                currentAttack = Random.Range(0, 3);
-
-            switch (currentAttack)
+            for (int i = 0; i < 3; i++)
             {
-                case 0:
-                    yield return LaserAttack();
-                    break;
-                case 1:
-                    yield return GhostBulletsAttack();
-                    break;
-                case 2:
-                    yield return SnotBallAttack();
-                    break;
-            }
+                currentAttack = i;
+                switch (currentAttack)
+                {
+                    case 0:
+                        yield return LaserAttack();
+                        break;
+                    case 1:
+                        yield return GhostBulletsAttack();
+                        break;
+                    case 2:
+                        yield return SnotBallAttack();
+                        break;
+                }
 
-            yield return new WaitForSeconds(2f / Mathf.Clamp(currentPathIndex, 1, 3));
+                yield return new WaitForSeconds(2f / Mathf.Clamp(currentPathIndex, 1, 3));
+            }
         }
     }
 
@@ -276,7 +276,7 @@ public class BossPhase2EnemyScript : EnemyScript
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && !knockingPlayerBack && ply.stats.health > 0)
+        if (collision.tag == "Player" && !knockingPlayerBack && !ply.isDying)
         {
             knockingPlayerBack = true;
             StartCoroutine(PlayerKnockback());

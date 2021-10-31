@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/4_boss.unity
     guid: d5916985f7bf6ac428ce107005d31b81
   - enabled: 0
+    path: Assets/Scenes/5_victoryscreen.unity
+    guid: 6fa39bbac6111e1499ccaf464007e1ba
+  - enabled: 0
     path: Assets/Scenes/testing.unity
     guid: 3cce1fb1aef8ca14185256141e16dfbc
   m_configObjects: {}

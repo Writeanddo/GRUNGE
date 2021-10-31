@@ -4249,6 +4249,13 @@ MonoBehaviour:
   - {fileID: 984227985}
   stairsBlocker: {fileID: 1081257706}
   camAnimator: {fileID: 2019230805}
+  sebSprite: {fileID: 1490615334}
+  sebSlimedSprite: {fileID: 21300000, guid: 2d4cc2ba8e250204eb18e10d7e07200d, type: 3}
+  sebSlimedPortraits:
+  - {fileID: 8704660980478798486, guid: 7531e6553c5cc684e8692ef39c302453, type: 3}
+  - {fileID: -6177645934570458060, guid: 7531e6553c5cc684e8692ef39c302453, type: 3}
+  numTimesHit: 0
+  numTimesSlimed: 0
 --- !u!4 &304185230
 Transform:
   m_ObjectHideFlags: 0
@@ -32722,9 +32729,9 @@ GameObject:
   - component: {fileID: 1490615334}
   - component: {fileID: 1490615337}
   - component: {fileID: 1490615336}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Seb
-  m_TagString: Wall
+  m_TagString: Seb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32825,8 +32832,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.071238115, y: -0.95663846}
-  m_Size: {x: 1.63248, y: 0.33672526}
+  m_Offset: {x: -0.09648181, y: -0.95663846}
+  m_Size: {x: 1.2970445, y: 0.33672526}
   m_Direction: 1
 --- !u!1 &1523183935
 GameObject:
@@ -41973,17 +41980,17 @@ MonoBehaviour:
   waves: []
   enemyPath: []
   spawnPoints: []
-  powerupSpawnPoints: []
   lockedSpawnPoints: 
   spawnPointsUseAnimation: 
   spawner: {fileID: 0}
   useLoopPath: 0
   dontRandomizeDirection: 0
-  spawnPowerups: 1
   spawnEndlessly: 0
   currentWave: 0
   numWavesCleared: 0
+  accumulatedPower: 0
   endlessSpawnTime: 2.5
+  lastPowerupSpawned: -1
   currentlySpawnedPowerup: {fileID: 0}
 --- !u!4 &1988795803
 Transform:

@@ -37,7 +37,7 @@ public class ExplosionManager : MonoBehaviour
                 Vector2 dir = (h.transform.position - transform.position).normalized;
                 float distance = Vector2.Distance(h.transform.position, transform.position);
                 //print("Distance: " + distance + ", Damage: " + Mathf.Clamp(Mathf.RoundToInt(1 / distance * 25), 0, 32));
-                print(h.transform.name);
+                //print(h.transform.name);
                 EnemyScript e = h.GetComponent<EnemyScript>();
                 if (!e.stats.overrideDeath)
                     h.GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude(dir * 25 / distance * 3 * knockbackMultiplier, 25);
@@ -50,6 +50,11 @@ public class ExplosionManager : MonoBehaviour
             {
                 Grabbable g = h.GetComponent<Grabbable>();
                 g.TakeDamage(this.gameObject, damage);
+            }
+
+            if(h.tag == "SnotBubble")
+            {
+                h.SendMessage("Pop", true);
             }
         }
 

@@ -52,6 +52,8 @@ public class HandGrabManager : MonoBehaviour
 
     public void DropItem()
     {
+        if (player.heldObject == null)
+            return;
         player.heldObject.transform.parent = null;
         transform.localPosition = Vector2.zero;
 

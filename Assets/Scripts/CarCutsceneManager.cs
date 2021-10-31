@@ -38,13 +38,17 @@ public class CarCutsceneManager : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         gm.PlaySFX(sfx[0]);
         yield return new WaitForSeconds(1.75f);
+        anim.Play("CarDoorOpen");
         gm.PlaySFX(sfx[2]);
         ply.SetVisible();
         ply.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 15);
         StartCoroutine(StopPlayer());
         ply.transform.parent = null;
-        yield return new WaitForSeconds(1f);
-        yield return gm.WaitForTextCompletion("ExitCar");
+        if (!gm.playingEndlessMode)
+        {
+            yield return new WaitForSeconds(1f);
+            yield return gm.WaitForTextCompletion("ExitCar");
+        }
         gm.PlaySFX(sfx[1]);
         anim.Play("CarLeave");
         yield return new WaitForSeconds(1f);

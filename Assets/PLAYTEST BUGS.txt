@@ -1,58 +1,84 @@
 CONTENT TO ADD:
-- Ending cabin cutscene
-//? Updated level selector
-//? Display medals after each level
-- Display any additional medals
-- Change medal unlock sound
-- Add seb slimed dialog + sprites
-//? Medal unlock popup
-//? REPLACE PLAYERPREFS WITH JSON FILE so it doesn't get wiped between builds
-- Add hi scores to results screen + level select screen
+// Ending cabin cutscene
+// Updated level selector
+// Display medals after each level
+// Display any additional medals
+// Medal unlock popup
+// REPLACE PLAYERPREFS WITH JSON FILE so it doesn't get wiped between builds
+// Add hi scores to results screen + level select screen
+// Change medal unlock sound (maaaybe)
+// Add seb slimed dialog + sprites + medal
+// Victory screen + "ENDLESS MODE UNLOCKED" text
+// Add KG Stumps
 - Accurate level preview videos
-- Add KG Stumps
-- Victory screen + "ENDLESS MODE UNLOCKED" text
-- Alt frames for greenhead
 - Full SFX pass
+
 
 
 BUGS:
 
+For the future:
+~ Resume button might be worth adding, seen multiple people pause and press a button instead of pressing escape again
+~ If you select ENDLESS and select the boss stage, I think it should have, in VHS letters in the center "INSERT TAPE" as opposed to the rest of the levels which are showcased appropiately
+- Have health flash when meter is low, maybe
+- Add URLs to credits names in-game
+- Alt frames for greenhead
+~ Need to add some delay between getting hit by bullets or extend the existing i-frames time, can get bodied by scion slimes if you stand next to them
+
 Game breaking:
-- Endless mode doesn't unlock after beating boss
+// Endless mode doesn't unlock after beating boss
+
+Ahnock:
+// Title screen needs aspect ratio controller, going fullscreen fucks things up (hopefully also fixes web build page zooming)
+// If you have enough goo left over you might be able to blow up first charge guy in tutorial, check to make sure you can't shoot during that bit
+// Add glint effect to potion
+// Extend weapon timers to 20 seconds instead of 15
+//? Scum skulls can drop weapon powerups - not good because they can replace scythe
+//? Occasionally holding right mouse to charge enemy does nothing, and releasing just chucks it (TIED TO RELOAD TIME SOMEHOW)
+//? Bullets sometimes phase through boss 2 hitbox, might need to make it slightly smaller
+//? Dropped boogernaut armor should despawn after a while
+//? Boss phase 2 can send you FLYING if you die and then it bumps your corpse
+//? Thrown enemies that land on boss phase 1 can spawn powerups on it
 
 Jack:
-- Tutorial boom sfx doesn't play on level completion
-- Maybe add arrow indicator for powerups
-- 11:00 or so: Maybe add one fewer big guy
-- Stunned should only slow to 75%
+// 11:00 or so: Maybe add one fewer big guy
+//? Stunned should only slow to 75%
 // 15:45, some guy didn't get thrown
-- Add sound for totem hover
-- Boss phase 2 needs animation
-- Spawn fewer big guys in phase 1, make phase 2 more difficult
+- Boss phase 2 needs improved intro animation
+//? Spawn fewer big guys in phase 1, make phase 2 more difficult (WIP)
+
+Diency:
+//? Pressing X after beating tutorial or any time in tutorial doesn't unlock level 1
+// Charged and thrown enemies need to do circlecast before exploding, if you're already touching a wall they just ignore it (instead just added self destruct after 0.5 sec)
+//? Unlocked level 2 medal just by pausing (should be fixed)
+// Extend weapon box animations so the glint only shows once every few cycles
+// Powerups should be more noticable when they spawn, particle effects / fanfare would help
+// Powerups would make more sense to be dropped by enemies and not at the same 3 points
+// Reduce shotgun bullet spread
+MORE FEEDBACK ON VIDEO, CHECK LATER
 
 Kled:
-- Add beeping sound when selecting a stage since it's like a TV changing channels
-- Sebacian should make a remark about throwing the dummy in his direction instead of the wall , maybe recolor sprite to
-- Make short music loop for when slick + seb are in car after tutorial
-- If you select ENDLESS and select the boss stage, I think it should have, in VHS letters in the center "INSERT TAPE" as opposed to the rest of the levels which are showcased appropiately
-- something feels off about grabbing and throwing (Add slight delay before charge begins and decrease time it takes to reach full charge, also increase shake sound volume)
-- Cut off intro to Everglades music so it plays in time with the wall explosion
-- Enemies just spawning in front of the door took me a bit out of the experience, having them fade in might help
-- Make it so Chaste doesn't say his name, come off as more mysterious
-- Slick's response to Chaste about The way I see it we did a better job thing, I feel like he should sound more smug and cocky about this
+// Sebacian should make a remark about throwing the dummy in his direction instead of the wall , maybe recolor sprite to
+// Make short music loop for when slick + seb are in car after tutorial
+// something feels off about grabbing and throwing (Add slight delay before charge begins and decrease time it takes to reach full charge, also increase shake sound volume)
+// Cut off intro to Everglades music so it plays in time with the wall explosion
+// Enemies just spawning in front of the door took me a bit out of the experience, having them fade in might help
+// Make it so Chaste doesn't say his name, come off as more mysterious
+// Slick's response to Chaste about The way I see it we did a better job thing, I feel like he should sound more smug and cocky about this
 // Carrying a nose goblin to the top right cabin wall makes them clip out of bounds
-- Can also chuck nose goblins out of level if you stand in top right corner, might need to adjust hitbox
+~ Can also chuck nose goblins out of level if you stand in top right corner, might need to adjust hitbox
 
 Fruits:
-- New levels aren't selected by default in level selector when level is beat
-- Endless mode could allow for raised max enemy amount
-- Gun pickup needs much larger hitbox, very difficult to pick up the first time
+//? New levels aren't selected by default in level selector when level is beat
+// Endless mode could allow for raised max enemy amount
+//? Gun pickup needs much larger hitbox, very difficult to pick up the first time
 
 Jub:
-- Scythe throw could have more of an impact, maybe add particles when it hits (also change from ontriggerenter to circlecast with some delay between each cast)
+~ Scythe throw could have more of an impact, maybe add particles when it hits (also change from ontriggerenter to circlecast with some delay between each cast)
 
 Dougle:
-- Make gap on right side of lawn fence larger
+//? Make gap on right side of lawn fence larger
 
 Shrombus:
-- Edit basement to be an O shape and not a C shape
+// Edit basement to be an O shape and not a C shape
+- Make house approach door play animation just like one inside house

@@ -20,20 +20,18 @@ public class EnemyWaveManager : MonoBehaviour
     public EnemyWave[] waves;
     public Transform[] enemyPath;
     public Transform[] spawnPoints;
-    public Transform[] powerupSpawnPoints;
     public bool[] lockedSpawnPoints;
     public bool[] spawnPointsUseAnimation;
     public GameObject spawner;
     public bool useLoopPath;
     public bool dontRandomizeDirection;
-    public bool spawnPowerups = true;
     public bool spawnEndlessly;
     public int currentWave;
     public int numWavesCleared;
-
+    public float accumulatedPower = 0;
     public float endlessSpawnTime = 2.5f;
 
-    GameObject lastPowerupSpawned;
+    public int lastPowerupSpawned = -1;
     public GameObject currentlySpawnedPowerup;
     GameManager gm;
 
@@ -52,8 +50,6 @@ public class EnemyWaveManager : MonoBehaviour
         }
 
         StartCoroutine(ProcessWavesCoroutine());
-        if (spawnPowerups)
-            StartCoroutine(SpawnPowerupsLoop());
     }
 
     void FixedUpdate()
@@ -69,8 +65,10 @@ public class EnemyWaveManager : MonoBehaviour
 
     IEnumerator EndlessDifficultyIncreaser()
     {
-        yield return new WaitForSeconds(10);
-        endlessSpawnTime = Mathf.Clamp(endlessSpawnTime * 0.97f, 1.25f, 4);
+        yield return new WaitForSeconds(13);
+        endlessSpawnTime = Mathf.Clamp(endlessSpawnTime * 0.98f, 1f, 4);
+        if (endlessSpawnTime == 1)
+            Debug.LogError("MAX SPAWN RATE REACHED");
         StartCoroutine(EndlessDifficultyIncreaser());
     }
 
@@ -80,7 +78,7 @@ public class EnemyWaveManager : MonoBehaviour
             StartCoroutine(EndlessDifficultyIncreaser());
 
         isSpawningEnemies = true;
-        int accumulatedPower = 0;
+        accumulatedPower = 0;
         bool loopedOnce = false;
         while (spawnEndlessly || !loopedOnce)
         {
@@ -89,7 +87,8 @@ public class EnemyWaveManager : MonoBehaviour
                 // Randomly choose wave if in endless mode
                 if (gm.playingEndlessMode)
                 {
-                    accumulatedPower++;
+                    accumulatedPower += 1 * Mathf.Clamp(2.5f / (endlessSpawnTime*endlessSpawnTime), 1, 3);
+                    accumulatedPower = Mathf.Clamp(accumulatedPower, 0, 10);
                     int lastWave = currentWave;
                     while(currentWave == lastWave || waves[currentWave].wavePower > accumulatedPower)
                         currentWave = Random.Range(0, waves.Length);
@@ -115,7 +114,7 @@ public class EnemyWaveManager : MonoBehaviour
                     spawnPoint = spawnPoints[pointIndex];
                     if (spawnPointsUseAnimation[pointIndex])
                     {
-                        if (gm.enemiesInLevel.Count < 15)
+                        if (gm.enemiesInLevel.Count < 20)
                         {
                             EnemyInstantiator e = Instantiate(spawner, spawnPoint.position, Quaternion.identity).GetComponent<EnemyInstantiator>();
                             e.enemyToSpawn = g;
@@ -154,43 +153,5 @@ public class EnemyWaveManager : MonoBehaviour
         isSpawningEnemies = false;
         yield return new WaitForSeconds(2);
         gm.LevelOverSequenece();
-    }
-
-    IEnumerator SpawnPowerupsLoop()
-    {
-        yield return new WaitForSeconds(7);
-        while (isSpawningEnemies)
-        {
-            float rand = Random.Range(0, 1f);
-            print("Powerup chance was " + rand);
-            if (rand > 0.75f && currentlySpawnedPowerup == null)
-            {
-                SpawnPowerup();
-                yield return new WaitForSeconds(9);
-            }
-
-            yield return new WaitForSeconds(9);
-        }
-    }
-
-    void SpawnPowerup()
-    {
-        if (powerupSpawnPoints.Length == 0)
-            return;
-
-        gm.PlaySFX(gm.generalSfx[14]);
-        int rand = Random.Range(0, gm.powerups.Length);
-        int randPosition = Random.Range(0, powerupSpawnPoints.Length);
-        EnemyInstantiator e = Instantiate(spawner, powerupSpawnPoints[randPosition].position, Quaternion.identity).GetComponent<EnemyInstantiator>();
-
-        while (lastPowerupSpawned != null && gm.powerups[rand] != lastPowerupSpawned)
-        {
-            int len = gm.powerups.Length;
-            if (!gm.playingEndlessMode)
-                len = 3;
-            rand = Random.Range(0, len);
-        }
-
-        e.enemyToSpawn = gm.powerups[rand];
     }
 }

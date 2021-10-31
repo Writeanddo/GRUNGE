@@ -128,15 +128,28 @@ public class Grabbable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        CheckCollision(collision);
+    }
+
+    /*public void ForceCircleCastCheck()
+    {
+        print("Circlecasting");
+        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, 1f);
+        foreach (Collider2D c in cols)
+            CheckCollision(c);
+    }*/
+
+    void CheckCollision(Collider2D collision)
+    {
         // Deal damage if we hit an enemy at a fast enough speed, break apart if we get hit too much
         if (isBeingThrown && rb.velocity.magnitude > 3)
         {
             // Change damage based on how many hits we've taken
             float damageMultiplier = 1;
-            if (!isProp && (collision.tag == "Enemy" || collision.tag == "Wall" || collision.tag == "Breakable"))
+            if (!isProp && (collision.tag == "Enemy" || collision.tag == "Wall" || collision.tag == "Breakable" || collision.tag == "Seb"))
             {
                 // Always throw at full charge for some cases
-                if(thisEnemy.stats.alwaysThrowAtFullCharge)
+                if (thisEnemy.stats.alwaysThrowAtFullCharge)
                 {
                     hasExploded = true;
                     thisEnemy.ExplodeBig();
@@ -155,14 +168,18 @@ public class Grabbable : MonoBehaviour
                         if (!hasExploded)
                         {
                             hasExploded = true;
+                            if (collision.tag == "Seb")
+                                FindObjectOfType<TutorialManager>().SlimeSeb();
                             thisEnemy.ExplodeBig();
                         }
                         break;
                 }
             }
 
-            if ((collision.tag == "Enemy" || collision.tag == "Wall" || collision.tag == "Breakable") && !hitEnemies.Contains(collision.transform))
+            if ((collision.tag == "Enemy" || collision.tag == "Wall" || collision.tag == "Breakable" || collision.tag == "Seb") && !hitEnemies.Contains(collision.transform))
             {
+                if (collision.tag == "Seb")
+                    FindObjectOfType<TutorialManager>().HitSeb();
                 if (canBreak)
                 {
                     TakeDamage(collision.gameObject, 1);
@@ -177,13 +194,13 @@ public class Grabbable : MonoBehaviour
                     e.ReceiveDamage(damage);
                 }
 
-                if(collision.tag == "Breakable")
+                if (collision.tag == "Breakable")
                 {
                     Grabbable g = collision.GetComponent<Grabbable>();
                     if (g.breakFromPropContact)
                         g.TakeDamage(gameObject, 10);
                 }
-                    
+
             }
 
             // Damage self if we get slammed into a concrete wall at mach eleven
@@ -194,7 +211,7 @@ public class Grabbable : MonoBehaviour
 
                 // Slow velocity to prevent clipping through it
                 if (collision.tag == "Wall")
-                    rb.velocity = -rb.velocity*0.1f;
+                    rb.velocity = -rb.velocity * 0.1f;
             }
         }
 

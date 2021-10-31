@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 617464210433818942}
   m_Layer: 0
   m_Name: BossBullet
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd65bb2eecc9c948901336df94ba7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 7.5
   damage: 15
   inaccuracyModifier: 0
   overrideDirection: 1

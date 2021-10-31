@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2365832917940531930}
   - component: {fileID: 2365832917940531933}
   - component: {fileID: 2365832917940531932}
+  - component: {fileID: 557590029815817418}
   m_Layer: 17
   m_Name: BoogernautArmor3
   m_TagString: Grabbable
@@ -137,11 +138,11 @@ MonoBehaviour:
   canBeGrabbed: 1
   isProp: 1
   canBreak: 1
-  breakFromPropContact: 0
+  breakFromPropContact: 1
   breakFromCharacterContact: 0
   rotatePropFragments: 0
   hitsBeforeBreak: 6
-  baseDamageUponHitting: 30
+  baseDamageUponHitting: 35
   objectOffsetWhenHeld: {x: 0, y: 0}
   handOffsetWhenHeld: {x: 0, y: 0}
   isHeld: 0
@@ -195,3 +196,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.62
+--- !u!114 &557590029815817418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365832917940531935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb69f840e1cf0f4e9978eb8ec481a1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

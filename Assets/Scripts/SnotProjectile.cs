@@ -39,6 +39,13 @@ public class SnotProjectile : MonoBehaviour
         rb.velocity = vel;
     }
 
+    private void FixedUpdate()
+    {
+        float distance = Vector2.Distance(transform.position, ply.transform.position);
+        rb.velocity += (Vector2)(ply.transform.position - transform.position).normalized * Mathf.Clamp(1 / (distance), 0, speed / 5)*0.65f; // the fuck
+        rb.velocity = Vector2.ClampMagnitude(rb.velocity, speed);
+    }
+
     public IEnumerator InitialWallDelay()
     {
         yield return new WaitForSeconds(0.25f);

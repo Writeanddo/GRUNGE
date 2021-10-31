@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: 0
   minLayer: -1000
@@ -140,7 +141,7 @@ MonoBehaviour:
   breakFromCharacterContact: 0
   rotatePropFragments: 0
   hitsBeforeBreak: 4
-  baseDamageUponHitting: 15
+  baseDamageUponHitting: 18
   objectOffsetWhenHeld: {x: 0, y: -0.5}
   handOffsetWhenHeld: {x: 0, y: 0.5}
   isHeld: 0

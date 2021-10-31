@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 200
+    health: 2500
     maxHealth: 0
     overrideDeath: 1
     currentShieldValue: 4
@@ -232,6 +232,7 @@ MonoBehaviour:
     animationPrefix: 
     useDirctionalAnimation: 1
     alwaysThrowAtFullCharge: 0
+    dontSpawnPowerups: 0
   noticedPlayer: 0
   gooDrops:
   - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
@@ -350,7 +351,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.43}
   serializedVersion: 2
-  m_Radius: 3.38
+  m_Radius: 2.15
 --- !u!1 &5637243934504357725
 GameObject:
   m_ObjectHideFlags: 0

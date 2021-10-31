@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 667456930577637511}
   m_Layer: 17
   m_Name: ScytheBoxEndless
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,7 +253,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.39532423}
-  m_Size: {x: 1.54, y: 2.51933}
+  m_Size: {x: 2.08, y: 2.51933}
   m_Direction: 0
 --- !u!50 &-1687268932433259918
 Rigidbody2D:

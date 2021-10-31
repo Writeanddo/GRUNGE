@@ -230,7 +230,7 @@ MonoBehaviour:
   breakFromCharacterContact: 0
   rotatePropFragments: 0
   hitsBeforeBreak: 0
-  baseDamageUponHitting: 15
+  baseDamageUponHitting: 17
   objectOffsetWhenHeld: {x: 0, y: 0}
   handOffsetWhenHeld: {x: 0, y: 0}
   isHeld: 0
@@ -271,6 +271,7 @@ MonoBehaviour:
     animationWalkSpeedMultiplier: 0.5
     animationPrefix: Greenhead
     useDirctionalAnimation: 1
+    alwaysThrowAtFullCharge: 0
   noticedPlayer: 0
   gooDrops:
   - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
@@ -295,3 +296,4 @@ MonoBehaviour:
   waves: {fileID: 0}
   gibSpawnYOffset: 0
   rechargingAttack: 0
+  currentNode: -1

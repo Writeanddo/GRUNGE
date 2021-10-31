@@ -9,15 +9,21 @@ public class TutorialManager : MonoBehaviour
     public Transform[] spawnPoints;
     public GameObject stairsBlocker;
     public Animator camAnimator;
-
+    public SpriteRenderer sebSprite;
+    public Sprite sebSlimedSprite;
+    public Sprite[] sebSlimedPortraits;
+    Sprite[] regularPortraits = new Sprite[2];
     GameManager gm;
     PlayerController ply;
-
+    TextboxManager text;
     bool exitedDoor;
+    public int numTimesHit;
+    public int numTimesSlimed;
 
     // Start is called before the first frame update
     void Start()
     {
+        text = FindObjectOfType<TextboxManager>();
         ply = FindObjectOfType<PlayerController>();
         gm = FindObjectOfType<GameManager>();
     }
@@ -34,10 +40,46 @@ public class TutorialManager : MonoBehaviour
         e.enemyToSpawn = g;
     }
 
+    public void HitSeb()
+    {
+        numTimesHit++;
+        if(numTimesHit < 4 && numTimesSlimed == 0)
+            StartCoroutine(HitSebCoroutine());
+    }
+
+    IEnumerator HitSebCoroutine()
+    {
+        yield return gm.WaitForTextCompletion("Hit" + numTimesHit);
+    }
+
+    public void SlimeSeb()
+    {
+        sebSprite.sprite = sebSlimedSprite;
+        if (numTimesSlimed == 0)
+        {
+            regularPortraits[0] = text.portraitFrames[2];
+            regularPortraits[1] = text.portraitFrames[3];
+            text.portraitFrames[2] = sebSlimedPortraits[0];
+            text.portraitFrames[3] = sebSlimedPortraits[1];
+        }
+        numTimesSlimed = Mathf.Clamp(numTimesSlimed + 1, 1, 2);
+
+        if (numTimesSlimed == 1)
+            gm.UnlockMedal(45);
+        StartCoroutine(SlimedSebCoroutine());
+    }
+
+    IEnumerator SlimedSebCoroutine()
+    {
+        yield return gm.WaitForTextCompletion("Slimed" + numTimesSlimed);
+    }
+
+
     public IEnumerator IntroDialog()
     {
         yield return gm.WaitForTextCompletion("TutorialIntro");
         ply.canMove = true;
+        gm.canPause = true;
 
         yield return WaitForMovement();
         yield return new WaitForSeconds(2.5f);
@@ -226,6 +268,12 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         ply.Freeze();
         yield return gm.WaitForTextCompletion("TutorialEnd");
+        if (numTimesSlimed > 0)
+        {
+            yield return gm.WaitForTextCompletion("TutorialEndSlime");
+            text.portraitFrames[2] = regularPortraits[0];
+            text.portraitFrames[3] = regularPortraits[1];
+        }
         Destroy(stairsBlocker.gameObject);
         ply.canMove = true;
 
@@ -240,7 +288,10 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         camAnimator.Play("CarCameraPan");
         yield return new WaitForSeconds(7f);
-        yield return gm.WaitForTextCompletion("CarDialog");
+        if (numTimesSlimed > 0)
+            yield return gm.WaitForTextCompletion("CarDialogSlimed");
+        else
+            yield return gm.WaitForTextCompletion("CarDialog");
         camAnimator.Play("CarCameraExit");
         yield return new WaitForSeconds(3f);
         gm.LevelCompleteSequence();

@@ -906,7 +906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-    health: 300
+    health: 325
     maxHealth: 0
     overrideDeath: 0
     currentShieldValue: 4

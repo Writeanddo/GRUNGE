@@ -246,11 +246,12 @@ MonoBehaviour:
     inaccuracyMultiplier: 1
     noticePlayerDistance: 15
     noticedSpeedMultiplier: 2
-    numGooDrops: 15
+    numGooDrops: 6
     movementAccuracy: 0.1
     animationWalkSpeedMultiplier: 0.5
     animationPrefix: 
     useDirctionalAnimation: 0
+    alwaysThrowAtFullCharge: 0
   noticedPlayer: 0
   gooDrops:
   - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
@@ -275,3 +276,4 @@ MonoBehaviour:
   waves: {fileID: 0}
   gibSpawnYOffset: 0
   rechargingAttack: 0
+  currentNode: -1

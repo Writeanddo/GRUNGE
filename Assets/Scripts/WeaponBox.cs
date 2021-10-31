@@ -12,10 +12,12 @@ public class WeaponBox : MonoBehaviour
     Animator anim;
     AudioSource audio;
     PlayerController ply;
+    Grabbable g;
 
     // Start is called before the first frame update
     void Start()
     {
+        g = GetComponent<Grabbable>();
         ply = FindObjectOfType<PlayerController>();
         spr = GetComponent<SpriteRenderer>();
         gm = FindObjectOfType<GameManager>();
@@ -55,22 +57,37 @@ public class WeaponBox : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    private void FixedUpdate()
+    {
+        if (g.isHeld && Vector3.Distance(transform.position, ply.transform.position) < 1.5f)
+        {
+            EquipGun();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player")
         {
-            if (ply.heldObject == this.gameObject)
-                ply.heldObject = null;
-            else if (gunIndex >= 10 && ply.heldObject != null)
-                FindObjectOfType<HandGrabManager>().DropItem();
-
-            gm.PickupGun(gunIndex);
-            Destroy(this.gameObject);
+            EquipGun();
         }
     }
 
     public void PlayWeaponBoxSound()
     {
         audio.PlayOneShot(gm.generalSfx[11]);
+    }
+
+    void EquipGun()
+    {
+        if (ply.heldObject == this.gameObject)
+            ply.heldObject = null;
+        else if (gunIndex >= 10 && ply.heldObject != null)
+            FindObjectOfType<HandGrabManager>().DropItem();
+
+        gm.PickupGun(gunIndex);
+        if (ply.heldObject == this.gameObject)
+            ply.heldObject = null;
+        Destroy(this.gameObject);
     }
 }

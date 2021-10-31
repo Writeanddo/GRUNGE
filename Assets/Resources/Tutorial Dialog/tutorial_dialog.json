@@ -213,6 +213,13 @@
             "portraitIndex": 2
         },
         {
+            "id": "TutorialEndSlime",
+            "dialog": [
+                "I'LL BE OUT AS SOON AS\\I CHANGE MY CLOTHES."
+            ],
+            "portraitIndex": 2
+        },
+        {
             "id": "TutorialLeaveEarly",
             "dialog": [
                 "WHAT? YOU'RE LEAVING?",
@@ -229,10 +236,46 @@
             "portraitIndex": 2
         },
         {
-            "id": "PlaytestOver",
+            "id": "CarDialogSlimed",
             "dialog": [
-                "THAT'S THE LAST LEVEL\\FOR NOW.",
-                "WE'LL HAVE THE FINAL BOSS\\READY BEFORE HALLOWEEN."
+                "YOU'RE A REAL PAIN IN\\MY ASS,YOU KNOW THAT?"
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "Hit1",
+            "dialog": [
+                "I'M GONNA LET THAT SLIDE.\\COULD'VE BEEN AN\\ACCIDENT."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "Hit2",
+            "dialog": [
+                "OKAY, THAT ONE HAD TO\\HAVE BEEN INTENTIONAL."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "Hit3",
+            "dialog": [
+                "KNOCK IT OFF, PUNK. I'M\\IGNORING YOU STARTING NOW."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "Slimed1",
+            "dialog": [
+                "FOR THE LOVE OF... ARE\\YOU KIDDING ME, BOY?",
+                "WHY'D YOU HAVE TO GET\\SOME IN MY MOUTH? DO\\YOU EVEN KNOW HOW BAD\\THESE THINGS TASTE?",
+                "YOU'RE LUCKY I SEE\\SOMETHING IN YOU. WHAT IT\\IS, I'M NOT QUITE SURE."
+            ],
+            "portraitIndex": 2
+        },
+        {
+            "id": "Slimed2",
+            "dialog": [
+                "YOU KNOW, IF YOU GET\\YOURSELF KILLED OUT\\THERE, I WON'T SHED A\\SINGLE TEAR."
             ],
             "portraitIndex": 2
         }

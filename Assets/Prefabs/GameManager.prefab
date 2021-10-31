@@ -4684,7 +4684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
-  canPause: 1
+  canPause: 0
   gameOver: 0
   playingEndlessMode: 0
   music: {fileID: 8300000, guid: 0992e8af23deebc4db3018ceacc93808, type: 3}
@@ -4719,6 +4719,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ee0b258f0c1af9f409cf94821a6b2eec, type: 3}
   - {fileID: 8300000, guid: 7ecea051be96d6541adb2a1198488e84, type: 3}
   - {fileID: 8300000, guid: a350ab85d7cfddc45b79e27f114dc2d5, type: 3}
+  - {fileID: 8300000, guid: b49e1b46f702e0a4eb9bf6bb1d06e615, type: 3}
   playerSfx:
   - {fileID: 8300000, guid: 490fbd67b2e5a4b4d94fedc170680407, type: 3}
   - {fileID: 8300000, guid: d71a84ee7cd51e942ad5ae0a4b6f8eed, type: 3}
@@ -4743,6 +4744,7 @@ MonoBehaviour:
   - {fileID: 155923096958015756, guid: 99f1dbb006be999478978015d41e205a, type: 3}
   - {fileID: 155923096958015756, guid: 8c952fa0f9a84d445bbe3aac5f1da67a, type: 3}
   - {fileID: 2315255062283567803, guid: 3d6e68447100a1d4bb58de018b2b1ad0, type: 3}
+  - {fileID: 5337499440800748105, guid: 3a45b7aa367b3314aa57b166f6243904, type: 3}
   endScreenSprites:
   - {fileID: -1424360128061321199, guid: ce9130912e387c046b2cf3188c27a63a, type: 3}
   - {fileID: -5426900277824504199, guid: ce9130912e387c046b2cf3188c27a63a, type: 3}
@@ -4755,6 +4757,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ce5b399e7c342b1429e80f14e7645af7, type: 3}
   - {fileID: 21300000, guid: a92b08e3e0921c749a31214244c49f3e, type: 3}
   - {fileID: 21300000, guid: 36817c02755471747b85289879a4c0d3, type: 3}
+  - {fileID: 21300000, guid: 2a10bab95d9b9fc48953253d30df9035, type: 3}
+  - {fileID: 21300000, guid: 8253663ad5d3aef4e8f3d5d96f0ee43e, type: 3}
+  - {fileID: 21300000, guid: bc1777c644f47224b9e2e65b13f5d081, type: 3}
+  - {fileID: 21300000, guid: 5d44e5211e354f04fb9337171c5a2823, type: 3}
   endlessModeWaves:
   - enemiesToSpawn:
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
@@ -4823,18 +4829,18 @@ MonoBehaviour:
     useRandomPoint: 1
     timeAfterWave: 0
   - enemiesToSpawn:
-    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
-    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 5948206160728454842, guid: bcea7985f80783e45be8e61ad44ea633, type: 3}
     - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
-    wavePower: 2
+    wavePower: 3
     delayBetweenSpawning: 0
     pointToSpawnAt: 0
     useRandomPoint: 1
     timeAfterWave: 0
   - enemiesToSpawn:
-    - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
+    - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 4748280607957365520, guid: 057e1457968444544bb3b3265d9f8455, type: 3}
     - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
@@ -4866,8 +4872,31 @@ MonoBehaviour:
     pointToSpawnAt: 0
     useRandomPoint: 1
     timeAfterWave: 0
+  - enemiesToSpawn:
+    - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
+    wavePower: 5
+    delayBetweenSpawning: 0
+    pointToSpawnAt: 0
+    useRandomPoint: 1
+    timeAfterWave: 0
+  - enemiesToSpawn:
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    - {fileID: 5948206160728454842, guid: bcea7985f80783e45be8e61ad44ea633, type: 3}
+    - {fileID: 6568547447933223875, guid: e691f09ef0b322145a5cb36a1ef7e9a5, type: 3}
+    - {fileID: 7477351445364521393, guid: 524f9aaaf57e5bf4a93f6a6d702de97f, type: 3}
+    - {fileID: 7203540109162291167, guid: 76fca0ea2bb93354c866641019b43477, type: 3}
+    wavePower: 5
+    delayBetweenSpawning: 0
+    pointToSpawnAt: 0
+    useRandomPoint: 1
+    timeAfterWave: 0
   enemiesInLevel: []
   dialogSourceFile: {fileID: 0}
+  firedGun: 0
 --- !u!114 &8911635763527194494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4910,7 +4939,6 @@ GameObject:
   - component: {fileID: 8795129235442573354}
   - component: {fileID: 8795129235442573349}
   - component: {fileID: 8795129235442573355}
-  - component: {fileID: 8795129235442573350}
   m_Layer: 0
   m_Name: GameCamera
   m_TagString: Untagged
@@ -5003,20 +5031,6 @@ MonoBehaviour:
   m_CropFrameX: 1
   m_CropFrameY: 1
   m_StretchFill: 0
---- !u!114 &8795129235442573350
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8795129235442573353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11b92d4af892c4c4eb7eb503bb61b183, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  windowedX: 1024
-  windowedY: 720
 --- !u!1 &8933009576215653338
 GameObject:
   m_ObjectHideFlags: 0

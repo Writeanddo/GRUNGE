@@ -71,9 +71,7 @@ public class DoorOpenCutscene : MonoBehaviour
         Instantiate(initialEnemies[3], new Vector2(-16, 9), Quaternion.identity);
 
         wallToDisable.SetActive(false);
-
-        if (gm.playingEndlessMode)
-            gm.PlayMusic();
+        gm.PlayMusic();
 
         ewm.StartWaves();
         GetComponent<AudioSource>().Stop();
@@ -133,8 +131,6 @@ public class DoorOpenCutscene : MonoBehaviour
         if (collision.tag == "Player" && !playing)
         {
             playing = true;
-            if(!gm.playingEndlessMode)
-                gm.PlayMusic();
             GetComponent<Animator>().Play("DoorOpen");
         }
     }

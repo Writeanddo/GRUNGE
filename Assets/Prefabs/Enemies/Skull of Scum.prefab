@@ -240,6 +240,7 @@ MonoBehaviour:
     animationPrefix: Skull
     useDirctionalAnimation: 0
     alwaysThrowAtFullCharge: 1
+    dontSpawnPowerups: 1
   noticedPlayer: 0
   gooDrops:
   - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}

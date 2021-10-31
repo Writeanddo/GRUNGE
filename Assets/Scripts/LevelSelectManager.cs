@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
+using io.newgrounds;
 
 public class LevelSelectManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class LevelSelectManager : MonoBehaviour
     public string[] levelPreviewVideos;
     public Sprite[] unlockedIcons;
     public Sprite[] selectedIcons;
+
+    core ngCore;
 
     Image[] dotIcons = new Image[6];
     Text vhsText;
@@ -24,6 +27,8 @@ public class LevelSelectManager : MonoBehaviour
 
     string storedVhsText = "";
     string[] levelNames = new string[6] { "TUTORIAL", "THE FRONT YARD", "THE HOUSE", "THE BASEMENT", "THE PIT", "ENDLESS" };
+    public string[] levelTimeRecords = new string[3];
+    public string[] levelKillRecords = new string[3];
     int vhsTextOffset;
     bool endlessModeActive;
 
@@ -32,6 +37,7 @@ public class LevelSelectManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ngCore = GetComponent<core>();
         tsm = FindObjectOfType<TitleScreenManager>();
         tsm.LoadSaveData();
         tvStaticAnimation = GameObject.Find("LevelPreviewStatic").GetComponent<Animator>();
@@ -43,6 +49,30 @@ public class LevelSelectManager : MonoBehaviour
         for (int i = 1; i <= 6; i++)
             dotIcons[i - 1] = transform.GetChild(i).GetComponent<Image>();
 
+        // Get high score data if it exists
+        for(int i = 0; i < 3; i++)
+        {
+            // Get time
+            string timeText;
+            if (tsm.saveVars.hiScoreTimes[i] == 0)
+                timeText = "N/A";
+            else
+            {
+                float bestTime = tsm.saveVars.hiScoreTimes[i];
+                int minutes = Mathf.FloorToInt(bestTime / 60F);
+                int seconds = Mathf.FloorToInt(bestTime - minutes * 60);
+                int milliseconds = Mathf.FloorToInt(((bestTime - (minutes * 60) - seconds)) * 100);
+                string niceTime = string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, milliseconds);
+                timeText = niceTime;
+            }
+
+            levelTimeRecords[i] = timeText;
+
+            // Get kills
+            levelKillRecords[i] = tsm.saveVars.hiScoreKills[i].ToString();
+        }
+
+
         if (PlayerPrefs.HasKey("GRUNGE_IS_ENDLESS") && PlayerPrefs.GetInt("GRUNGE_IS_ENDLESS") == 1)
             endlessModeActive = true;
 
@@ -50,9 +80,49 @@ public class LevelSelectManager : MonoBehaviour
         StartCoroutine(VHSTextLoop());
     }
 
+    
+    
+    void GetScoreboardValues()
+    {
+
+
+
+        // Currently unused - hi score is currently stored in JSON file but will fix this properly when I have time
+        /*
+        for (int i = 0; i < 3; i++)
+        {
+            io.newgrounds.components.ScoreBoard.getScores killsScore = new io.newgrounds.components.ScoreBoard.getScores();
+            io.newgrounds.components.ScoreBoard.getScores timeScore = new io.newgrounds.components.ScoreBoard.getScores();
+            switch (i)
+            {
+                // Front lawn
+                case (0):
+                    killsScore.id = 10983;
+                    timeScore.id = 10982;
+                    break;
+                case (1):
+                    killsScore.id = 10984;
+                    timeScore.id = 10985;
+                    break;
+                case (2):
+                    killsScore.id = 10986;
+                    timeScore.id = 10987;
+                    break;
+            }
+
+            //killsScore.callWith(ngCore, AssignScoreboardValues);
+            //timeScore.callWith(ngCore, AssignScoreboardValues);
+            
+        }*/
+    }
+
+    void AssignScoreboardValues(io.newgrounds.components.ScoreBoard.getScores result)
+    {
+        
+    }
+
     private void Update()
     {
-        // TEMP TEMP TEMP
         if (Application.platform == RuntimePlatform.WindowsEditor && Input.GetKeyDown(KeyCode.Alpha1))
         {
             UpdateUnlockedLevels(5);
@@ -107,7 +177,15 @@ public class LevelSelectManager : MonoBehaviour
 
         if (endlessModeActive)
         {
-            storedVhsText = "     " + levelNames[selectedLevelIndex] + "     TIME: N/A     KILLS: N/A";
+            string timeText = "N/A";
+            string killsText = "N/A";
+            if(selectedLevelIndex > 0 && selectedLevelIndex < 4)
+            {
+                timeText = levelTimeRecords[selectedLevelIndex - 1];
+                killsText = levelKillRecords[selectedLevelIndex - 1];
+            }
+
+            storedVhsText = "     " + levelNames[selectedLevelIndex] + "     TIME: "+timeText+"     KILLS: "+killsText;
             levelPreviewVideos[0] = "EndlessNA";
             levelPreviewVideos[4] = "EndlessNA";
         }

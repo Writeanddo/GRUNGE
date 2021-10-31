@@ -8,17 +8,19 @@ using System.IO;
 
 public class TitleScreenManager : MonoBehaviour
 {
-    public RectTransform kgScreen;
+    public GameManager.SaveDataVariables saveVars;
     public RectTransform quitButton;
-    int activeMenuScreen = 0;
     public AudioClip titleIntro;
     public AudioMixer mixer;
     public AudioClip[] uiSfx;
     public Animator screenTransitionFX;
     public RectTransform levelSelectScreen;
     public RectTransform topScreen;
-    public GameManager.SaveDataVariables saveVars;
+    public RectTransform thumbnailScreen;
+    public RectTransform creditsScreen;
+    public RectTransform optionsScreen;
 
+    Animator thumbnailAnimator;
     AudioSource music;
     AudioSource sfx;
     Image blackout;
@@ -56,31 +58,57 @@ public class TitleScreenManager : MonoBehaviour
         blackout = GameObject.Find("ScreenBlackout").GetComponent<Image>();
         musicSlider = GameObject.Find("MusicSlider").GetComponent<Slider>();
         sfxSlider = GameObject.Find("SFXSlider").GetComponent<Slider>();
-
+        thumbnailAnimator = thumbnailScreen.GetComponent<Animator>();
         activeButtonCoroutines = new List<IEnumerator>();
 
         // First time setup
         if (!PlayerPrefs.HasKey("GRUNGE_SFX_VOLUME"))
         {
-            PlayerPrefs.SetInt("GRUNGE_SFX_VOLUME", -4);
-            PlayerPrefs.SetInt("GRUNGE_MUSIC_VOLUME", -8);
+            PlayerPrefs.SetInt("GRUNGE_SFX_VOLUME", -8);
+            PlayerPrefs.SetInt("GRUNGE_MUSIC_VOLUME", -12);
         }
 
         // Check if loading from title screen or if loading from level
         int loadPosition = PlayerPrefs.GetInt("GRUNGE_LOAD_TO_LEVEL_SELECT");
 
-        if (loadPosition == 1)
-            levelSelectScreen.anchoredPosition = Vector2.zero;
+        if (loadPosition == 0)
+            StartCoroutine(ThumbnailAnimationCoroutine());
         else
-            topScreen.anchoredPosition = Vector2.zero;
-        
+        {
+            if (loadPosition == 1)
+                levelSelectScreen.anchoredPosition = Vector2.zero;
+            else if (loadPosition == 2)
+                creditsScreen.anchoredPosition = Vector2.zero;
+            music.Play();
+            StartCoroutine(FadeInScreen());
+        }
+
         // Update volume slider levels
         sfxSlider.value = PlayerPrefs.GetInt("GRUNGE_SFX_VOLUME") / 4;
         musicSlider.value = PlayerPrefs.GetInt("GRUNGE_MUSIC_VOLUME") / 4;
         UpdateMusicVolume();
         UpdateSFXVolume();
 
-        StartCoroutine(FadeInScreen());
+
+    }
+
+    public void PlaySfxTestSound()
+    {
+        if (optionsScreen.anchoredPosition == Vector2.zero)
+        {
+            sfx.Stop();
+            sfx.PlayOneShot(uiSfx[5]);
+        }
+    }
+
+    IEnumerator ThumbnailAnimationCoroutine()
+    {
+        sfx.PlayOneShot(uiSfx[4]);
+        thumbnailScreen.anchoredPosition = Vector2.zero;
+        yield return FadeInScreen();
+        thumbnailAnimator.Play("ThumbnailScreenSweep", -1, 0);
+        yield return new WaitForSeconds(4);
+        StartCoroutine(MoveToScreen(thumbnailScreen.GetComponent<MenuScreen>(), topScreen.GetComponent<MenuScreen>()));
     }
 
     private void Update()
@@ -139,7 +167,7 @@ public class TitleScreenManager : MonoBehaviour
     }
 
 
-    
+
 
     /*public IEnumerator MenuScreenButtonTransition(int nextScreen, int buttonToRemainOnNewScreen, MenuScreen from, MenuScreen to)
     {
@@ -277,22 +305,34 @@ public class TitleScreenManager : MonoBehaviour
 
     }
 
+    // POTENTIALLY JANKY WORKAROUND IN USE HERE https://itch.io/t/140214/persistent-data-in-updatable-webgl-games
     public void LoadSaveData()
     {
-        if (!File.Exists(Application.persistentDataPath + @"/grungedata.json"))
+        string prefix = @"idbfs/GRUNGE";
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+            prefix = Application.persistentDataPath;
+
+        if (!File.Exists(prefix + @"/grungedata.json"))
         {
             saveVars = new GameManager.SaveDataVariables();
             return;
         }
-        string json = File.ReadAllText(Application.persistentDataPath + @"/grungedata.json");
+        string json = File.ReadAllText(prefix + @"/grungedata.json");
         saveVars = JsonUtility.FromJson<GameManager.SaveDataVariables>(json);
     }
 
     public void WriteSaveData()
     {
-        print(Application.persistentDataPath + @"/grungedata.json");
+        string prefix = @"idbfs/GRUNGE";
+        //Debug.LogError(prefix + ", " + Application.persistentDataPath);
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+            prefix = Application.persistentDataPath;
+        else if (!Directory.Exists(prefix))
+            Directory.CreateDirectory(prefix);
+        
+        print(prefix + @"/grungedata.json");
         string json = JsonUtility.ToJson(saveVars);
-        File.WriteAllText(Application.persistentDataPath + @"/grungedata.json", json);
+        File.WriteAllText(prefix + @"/grungedata.json", json);
     }
 
     public void SavePlayerPrefs()

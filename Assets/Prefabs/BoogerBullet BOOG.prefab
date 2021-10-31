@@ -117,8 +117,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   overrideSort: 0
   useParentPosition: 0
+  positionReference: {fileID: 0}
   sortMultiplier: 1
   yOffset: 0
+  minLayer: -1000
+  maxLayer: 1000
 --- !u!1 &3902567511009530099
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +136,7 @@ GameObject:
   - component: {fileID: -4185049148292390764}
   m_Layer: 0
   m_Name: BoogerBullet BOOG
-  m_TagString: Untagged
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -169,6 +172,9 @@ MonoBehaviour:
   damage: 8
   inaccuracyModifier: 1
   overrideDirection: 0
+  ply: {fileID: 0}
+  rb: {fileID: 0}
+  delayFinished: 0
 --- !u!58 &3902567511009530094
 CircleCollider2D:
   m_ObjectHideFlags: 0
