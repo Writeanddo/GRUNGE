@@ -226,6 +226,7 @@ MonoBehaviour:
   - {fileID: 883186134595231194, guid: 70fb8f9134ed7794981ceacaa679f18f, type: 3}
   - {fileID: 625016910067428102, guid: 70fb8f9134ed7794981ceacaa679f18f, type: 3}
   gibBase: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
+  hover: {fileID: 8300000, guid: bab39739f94a97f4283a5070541b2c12, type: 3}
 --- !u!95 &4438951770520843908
 Animator:
   serializedVersion: 3

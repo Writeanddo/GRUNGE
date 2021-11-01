@@ -155,7 +155,7 @@ MonoBehaviour:
   - {fileID: -5491502498122323758, guid: 645c846a414297f4c9377d93471090b3, type: 3}
   - {fileID: 8932844682583627553, guid: 645c846a414297f4c9377d93471090b3, type: 3}
   propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
-  breakSound: {fileID: 0}
+  breakSound: {fileID: 8300000, guid: fd9be8f7d9da96444a3df7a912dc3e30, type: 3}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!50 &6301502031466349425

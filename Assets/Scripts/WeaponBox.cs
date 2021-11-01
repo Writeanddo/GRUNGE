@@ -75,7 +75,7 @@ public class WeaponBox : MonoBehaviour
 
     public void PlayWeaponBoxSound()
     {
-        audio.PlayOneShot(gm.generalSfx[11]);
+        //audio.PlayOneShot(gm.generalSfx[30]);
     }
 
     void EquipGun()

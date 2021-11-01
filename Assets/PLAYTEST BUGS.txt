@@ -10,9 +10,10 @@ CONTENT TO ADD:
 // Add seb slimed dialog + sprites + medal
 // Victory screen + "ENDLESS MODE UNLOCKED" text
 // Add KG Stumps
-- Accurate level preview videos
-- Full SFX pass
+// Accurate level preview videos
+//? Full SFX pass
 
+// Add break sound to candles and skulls
 
 
 BUGS:

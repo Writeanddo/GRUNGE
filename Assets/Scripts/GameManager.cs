@@ -425,6 +425,7 @@ public class GameManager : MonoBehaviour
                     if (ply.stats.currentWeapon == 10)
                         ply.canLaunchHand = true;
                     ply.stats.currentWeapon = 0;
+                    PlaySFX(generalSfx[31]);
                     weaponTimerText.text = "";
                     gunNameText.text = "";
                 }
@@ -670,6 +671,7 @@ public class GameManager : MonoBehaviour
         if (levelName == "0_tutorial")
         {
             PlayMusic();
+            firedGun = true;
             UpdateUnlockedLevels(1);
             StartCoroutine(FindObjectOfType<TutorialManager>().IntroDialog());
         }
@@ -1082,6 +1084,7 @@ public class GameManager : MonoBehaviour
 
         if (!isPauseScreen)
         {
+            sfxSource.volume = 1;
             PlaySFX(generalSfx[19]);
             screenBlackout.rectTransform.anchoredPosition = new Vector2(0, 2000);
             quitBlackout.color = new Color(0, 0, 0, 0.5f);

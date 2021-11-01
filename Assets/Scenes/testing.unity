@@ -18688,12 +18688,16 @@ MonoBehaviour:
   phase2Collision: {fileID: 0}
   explosion: {fileID: 5168354353443126882, guid: f2d86a564da961b42b017ff65fb99d4b,
     type: 3}
+  regularExplosion: {fileID: 0}
+  dipshitEnemy: {fileID: 0}
   newMusic: {fileID: 8300000, guid: 1265ec4e1a4ec724a95f76bc14644462, type: 3}
   carApproach: {fileID: 0}
+  carLeave: {fileID: 0}
   phase1Tiles: {fileID: 0}
   carAnim: {fileID: 0}
   scythePrefab: {fileID: 0}
   cabinAnimator: {fileID: 0}
+  endlessModePopupAnimator: {fileID: 0}
   ambienceAudio: {fileID: 0}
   endMusicAudio: {fileID: 0}
 --- !u!95 &125185739
@@ -108284,6 +108288,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5948206159873016207, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948206159873016207, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948206159873016207, guid: bcea7985f80783e45be8e61ad44ea633,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5948206160728454842, guid: bcea7985f80783e45be8e61ad44ea633,
         type: 3}
       propertyPath: m_Name

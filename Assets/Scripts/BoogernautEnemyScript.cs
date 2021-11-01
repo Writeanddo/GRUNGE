@@ -95,7 +95,18 @@ public class BoogernautEnemyScript : EnemyScript
         float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         //rot_z += Random.Range(-15, 15);
         gm.PlaySFX(gm.generalSfx[18]);
-        yield return new WaitForSeconds(0.75f);
+        for (int i = 0; i < 7; i++)
+        {
+            spr.color = Color.red;
+            float timer = 0.15f;
+            while (timer > 0)
+            {
+                spr.color = Color.Lerp(spr.color, Color.white, 0.25f);
+                timer -= Time.fixedDeltaTime;
+                yield return new WaitForFixedUpdate();
+            }
+            spr.color = Color.white;
+        }
         laserStart.Play("LaserStemStart", -1, 0);
         rotatingLaser = true;
         StartCoroutine(RotateLaser(rot_z-15));

@@ -13660,7 +13660,7 @@ MonoBehaviour:
   - {fileID: -5345484565676967338, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   - {fileID: -3708452202051900426, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
-  breakSound: {fileID: 0}
+  breakSound: {fileID: 8300000, guid: 971f6dfd90b492a4bba06be7cf9c5ee4, type: 3}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!70 &437776739
@@ -14016,6 +14016,8 @@ GameObject:
   - component: {fileID: 496984224}
   - component: {fileID: 496984223}
   - component: {fileID: 496984220}
+  - component: {fileID: 496984222}
+  - component: {fileID: 496984221}
   m_Layer: 0
   m_Name: CarCutscene
   m_TagString: Untagged
@@ -14042,6 +14044,45 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!61 &496984221
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496984219}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.96, y: 0.2993064}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7, y: 4.9375}
+    newSize: {x: 7, y: 4.9375}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4334974, y: 3.0048418}
+  m_EdgeRadius: 0
+--- !u!114 &496984222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496984219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4950f85eac9efc4a8eea1eb311f969f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 0
 --- !u!212 &496984223
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14384,7 +14425,7 @@ MonoBehaviour:
   - {fileID: -5345484565676967338, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   - {fileID: -3708452202051900426, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
-  breakSound: {fileID: 0}
+  breakSound: {fileID: 8300000, guid: 971f6dfd90b492a4bba06be7cf9c5ee4, type: 3}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!70 &546368515
@@ -37916,7 +37957,7 @@ MonoBehaviour:
   - {fileID: -5345484565676967338, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   - {fileID: -3708452202051900426, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
-  breakSound: {fileID: 0}
+  breakSound: {fileID: 8300000, guid: 971f6dfd90b492a4bba06be7cf9c5ee4, type: 3}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!70 &952813925
@@ -63267,7 +63308,7 @@ MonoBehaviour:
   - {fileID: -5345484565676967338, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   - {fileID: -3708452202051900426, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
-  breakSound: {fileID: 0}
+  breakSound: {fileID: 8300000, guid: 971f6dfd90b492a4bba06be7cf9c5ee4, type: 3}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!70 &1254306832
@@ -64397,6 +64438,8 @@ MonoBehaviour:
   explosion: {fileID: 5168354353443126882, guid: f2d86a564da961b42b017ff65fb99d4b,
     type: 3}
   regularExplosion: {fileID: 5168354353443126882, guid: c41dec152b318634c9f49aca174eee87,
+    type: 3}
+  dipshitEnemy: {fileID: 3796603764674773064, guid: c30a8e2d715c50344aaafd6d5351cfa4,
     type: 3}
   newMusic: {fileID: 8300000, guid: 1265ec4e1a4ec724a95f76bc14644462, type: 3}
   carApproach: {fileID: 8300000, guid: d80b986a46cf95f459f42d413fe754cd, type: 3}
@@ -76341,7 +76384,7 @@ MonoBehaviour:
   - {fileID: -5345484565676967338, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   - {fileID: -3708452202051900426, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
-  breakSound: {fileID: 0}
+  breakSound: {fileID: 8300000, guid: 971f6dfd90b492a4bba06be7cf9c5ee4, type: 3}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!70 &1715545171
@@ -77142,7 +77185,7 @@ MonoBehaviour:
   - {fileID: -5345484565676967338, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   - {fileID: -3708452202051900426, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
-  breakSound: {fileID: 0}
+  breakSound: {fileID: 8300000, guid: 971f6dfd90b492a4bba06be7cf9c5ee4, type: 3}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!70 &1883203017
@@ -77942,7 +77985,7 @@ MonoBehaviour:
   - {fileID: -5345484565676967338, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   - {fileID: -3708452202051900426, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
-  breakSound: {fileID: 0}
+  breakSound: {fileID: 8300000, guid: 971f6dfd90b492a4bba06be7cf9c5ee4, type: 3}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!70 &2025843694
@@ -79977,7 +80020,7 @@ MonoBehaviour:
   - {fileID: -5345484565676967338, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   - {fileID: -3708452202051900426, guid: 9bb678c94a60c3942b98382be71a21e3, type: 3}
   propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
-  breakSound: {fileID: 0}
+  breakSound: {fileID: 8300000, guid: 971f6dfd90b492a4bba06be7cf9c5ee4, type: 3}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!70 &2117177667

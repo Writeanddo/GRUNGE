@@ -4683,6 +4683,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb5d8919ac12e442a115938d4c43823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveVars:
+    overallKills: 0
+    furthestUnlockedLevel: 0
+    hiScoreKills: 000000000000000000000000
+    hiScoreTimes:
+    - 0
+    - 0
+    - 0
   paused: 0
   canPause: 0
   gameOver: 0
@@ -4720,6 +4728,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7ecea051be96d6541adb2a1198488e84, type: 3}
   - {fileID: 8300000, guid: a350ab85d7cfddc45b79e27f114dc2d5, type: 3}
   - {fileID: 8300000, guid: b49e1b46f702e0a4eb9bf6bb1d06e615, type: 3}
+  - {fileID: 8300000, guid: 93a1f56a79153ea4fbb68366cd33cbbf, type: 3}
+  - {fileID: 8300000, guid: f6f5988a99591fe4798797f774951bd3, type: 3}
   playerSfx:
   - {fileID: 8300000, guid: 490fbd67b2e5a4b4d94fedc170680407, type: 3}
   - {fileID: 8300000, guid: d71a84ee7cd51e942ad5ae0a4b6f8eed, type: 3}

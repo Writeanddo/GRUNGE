@@ -15,6 +15,7 @@ public class BossPhase2Manager : MonoBehaviour
     public GameObject phase2Collision;
     public GameObject explosion;
     public GameObject regularExplosion;
+    public GameObject dipshitEnemy;
 
     public AudioClip newMusic;
     public AudioClip carApproach;
@@ -151,6 +152,7 @@ public class BossPhase2Manager : MonoBehaviour
         ply.transform.position = new Vector2(0, 22);
         boss2.transform.position = new Vector2(22, 22);
 
+        Instantiate(dipshitEnemy, new Vector2(4, 2), Quaternion.identity);
 
         cam.target = GameObject.Find("CameraFocusPointCar").transform;
         gm.PlaySFX(carApproach);
@@ -163,7 +165,7 @@ public class BossPhase2Manager : MonoBehaviour
         yield return gm.WaitForTextCompletion("Scythe2");
         gm.PlaySFX(carLeave);
         carAnim.Play("BossCarLeave");
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         cam.target = ply.transform;
         ply.canMove = true;
         gm.SetCrosshairVisibility(true);

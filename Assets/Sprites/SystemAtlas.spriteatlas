@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 1a080bc78ace1134c8b400d50f1c9805, type: 3}
-    totalSpriteSurfaceArea: 6293070
+    totalSpriteSurfaceArea: 6321230
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -80,6 +80,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 36817c02755471747b85289879a4c0d3, type: 3}
   - {fileID: 21300000, guid: 40eb527222e922243b6edbdc4685ccf8, type: 3}
   - {fileID: 21300000, guid: 64cf10a29b1cb924b87fdfc859f3eabe, type: 3}
+  - {fileID: 21300000, guid: 61a8c3c2ca9b8ac408d4cd29f8593121, type: 3}
   - {fileID: 21300000, guid: 1d709c236c40f524689b35115366418f, type: 3}
   - {fileID: 21300000, guid: 7c21c0e3d5fc363499d56744f2ba2cef, type: 3}
   - {fileID: 21300000, guid: a92b08e3e0921c749a31214244c49f3e, type: 3}
@@ -269,6 +270,7 @@ SpriteAtlas:
   - Level4Beat
   - EButton
   - HandCrosshair
+  - CreditsDivider
   - MedalUnlockBackground
   - Comparison
   - Level3Beat

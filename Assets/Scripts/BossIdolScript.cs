@@ -6,14 +6,15 @@ public class BossIdolScript : MonoBehaviour
 {
     public Sprite[] gibSprites;
     public GameObject gibBase;
-
+    public AudioClip hover;
     Animator anim;
     PlayerController ply;
-
+    GameManager gm;
 
     // Start is called before the first frame update
     void Start()
     {
+        gm = FindObjectOfType<GameManager>();
         ply = FindObjectOfType<PlayerController>();
         anim = GetComponent<Animator>();
         StartCoroutine(MovementCycle());
@@ -21,6 +22,7 @@ public class BossIdolScript : MonoBehaviour
 
     IEnumerator MovementCycle()
     {
+        gm.PlaySFX(hover);
         float timer = 0;
         while(timer < 4)
         {

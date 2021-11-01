@@ -29,6 +29,33 @@ TextureImporter:
   - first:
       213: 9182813762792497472
     second: DevHeads1_8
+  - first:
+      213: -4810754373741224859
+    second: DevHeads1_0
+  - first:
+      213: -2470451611959579136
+    second: DevHeads1_1
+  - first:
+      213: -1768006085250951823
+    second: DevHeads1_2
+  - first:
+      213: -8754850542100082598
+    second: DevHeads1_3
+  - first:
+      213: -1595658144459555362
+    second: DevHeads1_4
+  - first:
+      213: 2060935859633617013
+    second: DevHeads1_5
+  - first:
+      213: 2532653374459728645
+    second: DevHeads1_6
+  - first:
+      213: -1255825890477618160
+    second: DevHeads1_7
+  - first:
+      213: -4706523219389726675
+    second: DevHeads1_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -141,10 +168,10 @@ TextureImporter:
       name: DevHeads1_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 3
-        width: 21
-        height: 20
+        x: 7
+        y: 2
+        width: 24
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 450eb6d1b92666030800000000000000
-      internalID: 3487583379798089812
+      spriteID: 56c5f73b264cc3db0800000000000000
+      internalID: -4810754373741224859
       vertices: []
       indices: 
       edges: []
@@ -162,10 +189,10 @@ TextureImporter:
       name: DevHeads1_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 4
-        width: 24
-        height: 18
+        x: 35
+        y: 3
+        width: 26
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: efb447b066c7cd0f0800000000000000
-      internalID: -1090860232009823234
+      spriteID: 00eab52195137bdd0800000000000000
+      internalID: -2470451611959579136
       vertices: []
       indices: 
       edges: []
@@ -183,93 +210,9 @@ TextureImporter:
       name: DevHeads1_2
       rect:
         serializedVersion: 2
-        x: 68
+        x: 67
         y: 0
-        width: 30
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1972330dafeb7e470800000000000000
-      internalID: 8423911612463916945
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DevHeads1_4
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 0
-        width: 25
-        height: 23
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 62bb209c80b2a1a10800000000000000
-      internalID: 1880863111112735526
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DevHeads1_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 20
-        height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 574a37d52a3fbd430800000000000000
-      internalID: 3808905788549997685
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DevHeads1_6
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 0
-        width: 21
-        height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff6c8230adebe8340800000000000000
-      internalID: 4868038090799236863
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: DevHeads1_3
-      rect:
-        serializedVersion: 2
-        x: 185
-        y: 0
-        width: 35
+        width: 32
         height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -278,19 +221,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1e02a5d5163d1eb0800000000000000
-      internalID: -4747578964772254179
+      spriteID: 17553ef25d7c677e0800000000000000
+      internalID: -1768006085250951823
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DevHeads1_7
+      name: DevHeads1_3
       rect:
         serializedVersion: 2
-        x: 224
-        y: 1
-        width: 32
+        x: 101
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a501d7031d5808680800000000000000
+      internalID: -8754850542100082598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DevHeads1_4
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 0
+        width: 28
         height: 26
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -299,8 +263,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43835873524577e60800000000000000
-      internalID: 7959923385222641716
+      spriteID: edd778c2f551bd9e0800000000000000
+      internalID: -1595658144459555362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DevHeads1_5
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 0
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578735abe3ae99c10800000000000000
+      internalID: 2060935859633617013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DevHeads1_6
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 1
+        width: 34
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503ddd353dac52320800000000000000
+      internalID: 2532653374459728645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DevHeads1_7
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 3
+        width: 34
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01cc75a9109629ee0800000000000000
+      internalID: -1255825890477618160
       vertices: []
       indices: 
       edges: []
@@ -309,19 +336,19 @@ TextureImporter:
       name: DevHeads1_8
       rect:
         serializedVersion: 2
-        x: 261
-        y: 3
+        x: 262
+        y: 2
         width: 26
-        height: 26
+        height: 28
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 041a0d1f678ef6f70800000000000000
-      internalID: 9182813762792497472
+      spriteID: d20c52571121faeb0800000000000000
+      internalID: -4706523219389726675
       vertices: []
       indices: 
       edges: []

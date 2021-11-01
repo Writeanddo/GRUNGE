@@ -5,21 +5,16 @@ GRUNGE BUGS + FIXES
 Other sfx to add:
 - Enemy firing bullets
 - Enemy spawning(?)
-- Level transitions
+// Level transitions
 - Tutorial boom sfx doesn't play on level completion
 - Add sound for totem hover
-- Change powerup ping sound
-- Add beeping sound when selecting a stage since it's like a TV changing channels
+// Change powerup ping sound (Removed)
+// Add beeping sound when selecting a stage since it's like a TV changing channels
 - play the game and find out
 
 // = problem solved
 //? = problem solved in theory, untested
 ~ = problem abandoned / not worth solving
-
-
-//? If projectiles overlap with an enemy the frame they spawn, they don't explode (frustrating)
-  // This also applies to hand grabbing
-  - Also applies to walls (what?)
 
 - Maybe make final enemy explode after a while if its held, sometimes I forget I'm holding it
 
@@ -38,7 +33,7 @@ Other sfx to add:
 //? Rocket sprite (as well as possibly other gun variants, not that I've seen any appear on this floor so far) projectile fires under the candle
 
 
-- Can't pause during most of tutorial
+//? Can't pause during most of tutorial
 
 
 
@@ -67,6 +62,7 @@ Other sfx to add:
 //? Every once in a while the releasedRightMouse trigger doesn't go off (and sometimes you can't stop charging? weird shit)
 //? Boogernaut drops should despawn after time, can get a lot of them in an area in endless mode
 //? Send overall kills to scoreboard
+//? If projectiles overlap with an enemy the frame they spawn, they don't explode (frustrating)
 
 // Add car door open sprites
 // White screen left side needs to be extended for final boss arena
@@ -123,6 +119,18 @@ Other sfx to add:
 // Stump appears over and under enemies
 // Make enemies see thru porch
 // Make goo regen over time (slowly)
+// Ending cabin cutscene
+// Updated level selector
+// Display medals after each level
+// Display any additional medals
+// Medal unlock popup
+// REPLACE PLAYERPREFS WITH JSON FILE so it doesn't get wiped between builds
+// Add hi scores to results screen + level select screen
+// Change medal unlock sound (maaaybe)
+// Add seb slimed dialog + sprites + medal
+// Victory screen + "ENDLESS MODE UNLOCKED" text
+// Add KG Stumps
+// Accurate level preview videos
 
 
 ~ Make text pixel-perfect

@@ -140,7 +140,7 @@ MonoBehaviour:
   - {fileID: 8639462658589716614, guid: f906cb04a16beb24fad75ebabe8427ba, type: 3}
   - {fileID: -8798127587135520173, guid: f906cb04a16beb24fad75ebabe8427ba, type: 3}
   propGib: {fileID: 5454117972133757466, guid: 8b6b4eb5639548d45b67e4cdf74be6dd, type: 3}
-  breakSound: {fileID: 0}
+  breakSound: {fileID: 8300000, guid: fd9be8f7d9da96444a3df7a912dc3e30, type: 3}
   rb: {fileID: 0}
   hitsTaken: 0
 --- !u!50 &3010539387319959276

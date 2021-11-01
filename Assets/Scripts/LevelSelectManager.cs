@@ -16,6 +16,9 @@ public class LevelSelectManager : MonoBehaviour
 
     core ngCore;
 
+    public AudioClip levelSelectSound;
+    public AudioSource tvStatic;
+    public AudioSource sfx;
     Image[] dotIcons = new Image[6];
     Text vhsText;
     Text endlessModeText;
@@ -204,6 +207,11 @@ public class LevelSelectManager : MonoBehaviour
 
     IEnumerator WaitForVideoClipLoad(int index)
     {
+        if (tsm.levelSelectScreen.anchoredPosition == Vector2.zero)
+        {
+            sfx.PlayOneShot(levelSelectSound);
+            tvStatic.Play();
+        }
         tvStaticAnimation.Play("LevelSelectStatic", -1, 0);
         videoPlayer.Stop();
         videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, levelPreviewVideos[index] + ".mp4");
@@ -212,9 +220,11 @@ public class LevelSelectManager : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         while (!videoPlayer.isPrepared)
             yield return null;
+
         RestartPreview();
         yield return new WaitForSeconds(0.05f);
         tvStaticAnimation.Play("LevelSelectStaticBlank", -1, 0);
+        tvStatic.Stop();
     }
 
     public void LoadSelectedLevel()
