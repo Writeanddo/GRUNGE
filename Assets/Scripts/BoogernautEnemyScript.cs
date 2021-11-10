@@ -115,7 +115,7 @@ public class BoogernautEnemyScript : EnemyScript
 
         while (rotatingLaser)
         {
-            RaycastHit2D hit = Physics2D.Raycast(laserOrigin.transform.position, laserOrigin.transform.right, 50, laserHitMask);
+            RaycastHit2D hit = Physics2D.Raycast(laserOrigin.transform.position + laserOrigin.transform.right * 4, laserOrigin.transform.right, 50, laserHitMask);
             print("Scanning");
             Debug.DrawLine(laserOrigin.transform.position, hit.point, Color.blue);
 

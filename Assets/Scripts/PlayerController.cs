@@ -316,7 +316,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // Convert goo into health
-        if (Input.GetKeyDown(KeyCode.E) && stats.health < stats.maxHealth && stats.goo >= stats.maxGoo * 0.5f && !siphoningHealth)
+        if ((Input.GetKeyDown(KeyCode.E)|| Input.GetKeyDown(KeyCode.RightControl)) && stats.health < stats.maxHealth && stats.goo >= stats.maxGoo * 0.5f && !siphoningHealth)
         {
             siphoningHealth = true;
             StartCoroutine(ConvertGooToHealth());
@@ -545,7 +545,7 @@ public class PlayerController : MonoBehaviour
     {
         if (stats.currentWeapon == 0)
         {
-            stats.shotGooUsage = 30;
+            stats.shotGooUsage = 22;
             gm.PlaySFX(gm.playerSfx[5]);
             gm.ScreenShake(3f);
             Vector3 offset = (crosshair.transform.position - gunTargetPos.position).normalized;

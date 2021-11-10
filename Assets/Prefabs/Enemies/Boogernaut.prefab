@@ -922,6 +922,7 @@ MonoBehaviour:
     animationPrefix: Boogernaut
     useDirctionalAnimation: 1
     alwaysThrowAtFullCharge: 0
+    dontSpawnPowerups: 0
   noticedPlayer: 0
   gooDrops:
   - {fileID: 3820132657610715517, guid: 9ecf39de64dbf8447ac107abcf9439aa, type: 3}
@@ -957,7 +958,7 @@ MonoBehaviour:
   - {fileID: 4581051222017843176, guid: 56fe0cf6ea5bb6b49b1b2e0fec88c81c, type: 3}
   laserHitMask:
     serializedVersion: 2
-    m_Bits: 40960
+    m_Bits: 32768
   damageHitMask:
     serializedVersion: 2
     m_Bits: 512

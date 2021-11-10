@@ -65,7 +65,7 @@ public class EnemyWaveManager : MonoBehaviour
 
     IEnumerator EndlessDifficultyIncreaser()
     {
-        yield return new WaitForSeconds(13);
+        yield return new WaitForSeconds(15);
         endlessSpawnTime = Mathf.Clamp(endlessSpawnTime * 0.98f, 1f, 4);
         if (endlessSpawnTime == 1)
             Debug.LogError("MAX SPAWN RATE REACHED");

@@ -43,6 +43,11 @@ public class EnemyProjectile : MonoBehaviour
         ProjectileHit(collision);
     }
 
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        ProjectileHit(collision);
+    }
+
     public void ProjectileHit(Collider2D collision)
     {
         if (collision.tag == "Player")

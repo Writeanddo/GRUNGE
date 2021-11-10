@@ -204,7 +204,7 @@ public class GameManager : MonoBehaviour
             UnlockMedal(47);
 
         // Get 1000 total kills
-        if (saveVars.overallKills >= 1000 && !unlockedKillMedal)
+        if (saveVars.overallKills >= 1000 && saveVars.overallKills <= 1005 && !unlockedKillMedal)
         {
             unlockedKillMedal = true;
             UnlockMedal(48);
@@ -279,6 +279,9 @@ public class GameManager : MonoBehaviour
 
     void MedalUnlockedCallback(io.newgrounds.results.Medal.unlock result)
     {
+        if (!result.success)
+            return;
+
         int iconIndex = result.medal.id - 65969;
         string medalName = result.medal.name.ToUpper();
 

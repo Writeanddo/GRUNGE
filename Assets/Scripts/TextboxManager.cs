@@ -114,7 +114,7 @@ public class TextboxManager : MonoBehaviour
 
     IEnumerator WaitForKeyPress()
     {
-        while (!Input.GetKeyDown(KeyCode.E))
+        while (!(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.RightControl)))
             yield return null;
     }
 

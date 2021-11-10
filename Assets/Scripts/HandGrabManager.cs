@@ -93,11 +93,11 @@ public class HandGrabManager : MonoBehaviour
                 break;
             }
             // Stop extending hand if we hit a wall
-            else if (c.tag == "Wall")
+            /*else if (c.tag == "Wall")
             {
                 player.handLaunched = false;
                 break;
-            }
+            }*/
         }
     }
 

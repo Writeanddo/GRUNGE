@@ -53,7 +53,7 @@ public class LevelSelectManager : MonoBehaviour
             dotIcons[i - 1] = transform.GetChild(i).GetComponent<Image>();
 
         // Get high score data if it exists
-        for(int i = 0; i < 3; i++)
+        for (int i = 0; i < 3; i++)
         {
             // Get time
             string timeText;
@@ -83,8 +83,8 @@ public class LevelSelectManager : MonoBehaviour
         StartCoroutine(VHSTextLoop());
     }
 
-    
-    
+
+
     void GetScoreboardValues()
     {
 
@@ -121,7 +121,7 @@ public class LevelSelectManager : MonoBehaviour
 
     void AssignScoreboardValues(io.newgrounds.components.ScoreBoard.getScores result)
     {
-        
+
     }
 
     private void Update()
@@ -151,6 +151,12 @@ public class LevelSelectManager : MonoBehaviour
         {
             index = PlayerPrefs.GetInt("GRUNGE_LAST_SELECTED_LEVEL");
         }
+        else
+        {
+            PlayerPrefs.SetInt("GRUNGE_LAST_SELECTED_LEVEL", 0);
+            index = 0;
+        }
+
 
         SetSelectedLevel(index);
     }
@@ -182,13 +188,13 @@ public class LevelSelectManager : MonoBehaviour
         {
             string timeText = "N/A";
             string killsText = "N/A";
-            if(selectedLevelIndex > 0 && selectedLevelIndex < 4)
+            if (selectedLevelIndex > 0 && selectedLevelIndex < 4)
             {
                 timeText = levelTimeRecords[selectedLevelIndex - 1];
                 killsText = levelKillRecords[selectedLevelIndex - 1];
             }
 
-            storedVhsText = "     " + levelNames[selectedLevelIndex] + "     TIME: "+timeText+"     KILLS: "+killsText;
+            storedVhsText = "     " + levelNames[selectedLevelIndex] + "     TIME: " + timeText + "     KILLS: " + killsText;
             levelPreviewVideos[0] = "EndlessNA";
             levelPreviewVideos[4] = "EndlessNA";
         }
@@ -257,6 +263,11 @@ public class LevelSelectManager : MonoBehaviour
         videoPlayer.Stop();
         videoPlayer.Play();
         vhsIconAnimation.Play("LevelPreviewAnimation", -1, 0);
+    }
+
+    public void ResetSelectedLevel()
+    {
+        SetSelectedLevel(selectedLevelIndex);
     }
 
     IEnumerator VHSTextLoop()

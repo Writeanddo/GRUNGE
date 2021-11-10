@@ -4059,7 +4059,7 @@ MonoBehaviour:
   overrideSort: 0
   useParentPosition: 0
   positionReference: {fileID: 0}
-  sortMultiplier: 1
+  sortMultiplier: 3
   yOffset: -6
   minLayer: -1000
   maxLayer: 1000
@@ -19882,7 +19882,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7, y: 5}
+    oldSize: {x: 7, y: 4.9375}
     newSize: {x: 7, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

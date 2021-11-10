@@ -20,7 +20,7 @@ public class LoadMainLevel : MonoBehaviour
     }
     IEnumerator WaitAndLoad()
     {
-        if (Application.platform != RuntimePlatform.Android)
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
             while (!Input.GetMouseButtonDown(0))
             {

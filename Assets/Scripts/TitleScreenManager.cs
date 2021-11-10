@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using System.IO;
+using TMPro;
 
 public class TitleScreenManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class TitleScreenManager : MonoBehaviour
     public RectTransform thumbnailScreen;
     public RectTransform creditsScreen;
     public RectTransform optionsScreen;
+    public TextMeshProUGUI versionText;
+    public TextMeshProUGUI fullscreenToggleText;
 
     Animator thumbnailAnimator;
     AudioSource music;
@@ -89,7 +92,13 @@ public class TitleScreenManager : MonoBehaviour
         UpdateMusicVolume();
         UpdateSFXVolume();
 
+        versionText.text = "Version " + Application.version;
 
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            Destroy(quitButton.gameObject);
+            Destroy(fullscreenToggleText.gameObject);
+        }
     }
 
     public void PlaySfxTestSound()
@@ -281,6 +290,12 @@ public class TitleScreenManager : MonoBehaviour
         music.Stop();
     }
 
+    public void OpenArtistURL(string url)
+    {
+        //Application.OpenURL(url);
+        //Application.ExternalEval("window.open("+url+");");
+    }
+
     public IEnumerator MoveToScreen(MenuScreen from, MenuScreen to)
     {
         sfx.PlayOneShot(uiSfx[3]);
@@ -329,7 +344,7 @@ public class TitleScreenManager : MonoBehaviour
             prefix = Application.persistentDataPath;
         else if (!Directory.Exists(prefix))
             Directory.CreateDirectory(prefix);
-        
+
         print(prefix + @"/grungedata.json");
         string json = JsonUtility.ToJson(saveVars);
         File.WriteAllText(prefix + @"/grungedata.json", json);
