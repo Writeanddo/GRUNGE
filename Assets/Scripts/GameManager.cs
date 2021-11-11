@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
     TextMeshProUGUI killsText;
     TextMeshProUGUI timerText;
     TextMeshProUGUI hiScoreText;
+    Text endlessTimerText;
     Image levelEndScreen;
     Image levelEndHeaderText;
     RectTransform resetButton;
@@ -148,7 +149,7 @@ public class GameManager : MonoBehaviour
         medalUnlockBox = GameObject.Find("MedalUnlockBox").GetComponent<RectTransform>();
         medalIcon = GameObject.Find("MedalIcon").GetComponent<Image>();
         medalNameText = GameObject.Find("MedalNameText").GetComponent<TextMeshProUGUI>();
-
+        endlessTimerText = GameObject.Find("EndlessTimerText").GetComponent<Text>();
         screenBlackout = GameObject.Find("ScreenBlackout").GetComponent<Image>();
         quitBlackout = GameObject.Find("QuitPanel").GetComponent<Image>();
         levelEndScreen = GameObject.Find("LevelStatsLayout").GetComponent<Image>();
@@ -366,6 +367,16 @@ public class GameManager : MonoBehaviour
 
     void UpdateUI()
     {
+        // Endless timer update
+        if(playingEndlessMode && !paused && ewm.isSpawningEnemies)
+        {
+            int minutes = Mathf.FloorToInt(timer / 60F);
+            int seconds = Mathf.FloorToInt(timer - minutes * 60);
+            string niceTime = string.Format("{0:00}:{1:00}", minutes, seconds);
+            endlessTimerText.text = niceTime;
+        }
+
+        
         // Health update
         healthSlider.value = Mathf.Lerp(healthSlider.value, (float)ply.stats.health / ply.stats.maxHealth, 0.1f);
         healthFill.color = Color.Lerp(healthFill.color, healthColor, 0.1f);
@@ -411,9 +422,11 @@ public class GameManager : MonoBehaviour
                 Vector2 offset = ply.transform.position - cam.transform.position;
                 shieldTransform.anchoredPosition = new Vector2(offset.x * 32, 64 + offset.y * 32);
             }
-            else if (heldEnemy != null && !shieldExploding)
+            else if (!shieldExploding)
             {
                 heldEnemy = null;
+                //print("SHIELD SET TO EMPTY");
+                //shieldAnim.Play("Shield_Empty", 0, 0);
                 CheckAndPlayClip("Shield_Empty", shieldAnim);
             }
 
@@ -434,6 +447,11 @@ public class GameManager : MonoBehaviour
                 }
             }
 
+        }
+        else
+        {
+            heldEnemy = null;
+            CheckAndPlayClip("Shield_Empty", shieldAnim);
         }
     }
 

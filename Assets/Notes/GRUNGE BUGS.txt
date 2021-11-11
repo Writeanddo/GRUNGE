@@ -150,6 +150,8 @@ IDEAS
 FINAL CHECKS BEFORE PUBLISHING
 - Check boss health values
 - Check code for any TEMP bits
+- Check each level for any temp props that might've been added
 - Make sure preview videos are up to date
 - Check anything with //?
 - UNMUTE ANY AUDIO MIXER CHANNELS
+- MAKE SURE GAME VERSION HAS BEEN UPDATED

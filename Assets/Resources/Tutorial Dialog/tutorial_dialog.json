@@ -5,7 +5,7 @@
             "dialog": [
                 "GLAD YOU COULD MAKE\\IT, SON.",
                 "I KNOW YOU'RE A SMART\\KID, SO I'LL KEEP\\THIS SHORT.",
-                "FIRST OFF, GIVE THOSE\\NEW DUDS A TEST DRIVE.\\\\(WASD)"
+                "FIRST OFF, GIVE THOSE\\NEW DUDS A TEST DRIVE.\\\\(WASD or ARROW KEYS)"
             ],
             "portraitIndex": 2
         },
@@ -137,7 +137,7 @@
             "dialog": [
                 "COOL YOUR JETS, BOY...",
                 "IF YOUR GOO METER'S AT\\LEAST HALF FULL, YOU CAN\\CONVERT IT INTO HEALTH.",
-                "TRY IT NOW.\\\\(PRESS E)"
+                "TRY IT NOW.\\\\(PRESS E or RIGHT CTRL)"
             ],
             "portraitIndex": 2
         },

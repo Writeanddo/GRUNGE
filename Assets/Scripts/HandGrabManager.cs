@@ -65,6 +65,7 @@ public class HandGrabManager : MonoBehaviour
             player.heldObject.SendMessage("GetThrown");
 
         player.heldObject = null;
+        print("DROPPED ITEM");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

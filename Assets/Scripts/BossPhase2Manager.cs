@@ -127,8 +127,9 @@ public class BossPhase2Manager : MonoBehaviour
         gm.canPause = false;
         ewm.isSpawningEnemies = false;
         gm.SetCrosshairVisibility(false);
-        ply.Freeze();
         FindObjectOfType<HandGrabManager>().DropItem();
+        ply.Freeze();
+        
 
         if (boss2 == null)
             boss2 = FindObjectOfType<BossPhase2EnemyScript>().gameObject;
@@ -176,9 +177,11 @@ public class BossPhase2Manager : MonoBehaviour
     public IEnumerator DeathSequenceCoroutine()
     {
         gm.canPause = false;
+        FindObjectOfType<HandGrabManager>().DropItem();
         gm.SetCrosshairVisibility(false);
         ewm.isSpawningEnemies = false;
         ply.Freeze();
+        
 
         if (boss2 == null)
             boss2 = FindObjectOfType<BossPhase2EnemyScript>().gameObject;

@@ -13,6 +13,8 @@ public class ProjectileScript : MonoBehaviour
     bool hasMadeExplosion;
     bool delayFinished;
 
+    int numWallHits = 0;
+
     private void Start()
     {
         c = GetComponent<CircleCollider2D>();
@@ -42,10 +44,37 @@ public class ProjectileScript : MonoBehaviour
         }
 
         yield return new WaitForFixedUpdate();
-        yield return new WaitForFixedUpdate();
-        yield return new WaitForFixedUpdate();
         delayFinished = true;
     }
+
+    private void FixedUpdate()
+    {
+        if (!delayFinished)
+            return;
+
+        // Perform VERY SMALL overlapcircles to make sure we aren't moving thru a wall
+        Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, 0.05f);
+        for (int i = 0; i < cols.Length; i++)
+        {
+            if (cols[i].tag == "Wall")
+            {
+                if (cols[i].gameObject.layer != 8)
+                {
+                    numWallHits++;
+                    if (numWallHits > 2)
+                    {
+                        if (!hasMadeExplosion)
+                        {
+                            hasMadeExplosion = true;
+                            Instantiate(explosion, transform.position, Quaternion.identity);
+                        }
+                        Destroy(this.gameObject);
+                    }
+                }
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!delayFinished)
