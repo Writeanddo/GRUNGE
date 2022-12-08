@@ -3,4 +3,3 @@ Our team's submission to the GMTK 2021 game jam. A couple of months later, we re
 
 You can play the game here:
 https://the-mountain.itch.io/grunge
-https://www.newgrounds.com/portal/view/820660
