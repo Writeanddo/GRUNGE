@@ -1,6 +1,8 @@
 # GRUNGE
 Our team's submission to the GMTK 2021 game jam. A couple of months later, we released an updated version with more levels and improved features.
 
+The game went on to win 1st place in [Newgrounds' 2021 Halloween contest!](https://www.newgrounds.com/bbs/topic/1487819)
+
 You can play the game here:
 https://the-mountain.itch.io/grunge
 
